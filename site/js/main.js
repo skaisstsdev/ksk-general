@@ -145,6 +145,37 @@ const I18N = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── COOKIE BANNER ──────────────────────────────────────────────
+  if (!localStorage.getItem('ksk-cookies')) {
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+      <div class="cookie-content">
+        <h3 data-i18n="cookie.title">Wir verwenden Cookies</h3>
+        <p><span data-i18n="cookie.desc">Wir nutzen Cookies, um unsere Dienste bereitzustellen und Ihre Erfahrungen zu verbessern. Mit Klick auf "Alle akzeptieren" stimmen Sie der Nutzung zu. Weitere Informationen finden Sie in unserer </span><a href="datenschutz.html" data-i18n="footer.datenschutz">Datenschutzerklärung</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn-outline" id="cookieReject" data-i18n="cookie.reject">Nur Notwendige</button>
+        <button class="btn btn-primary" id="cookieAccept" data-i18n="cookie.accept">Alle akzeptieren</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+    
+    // Translate if needed right away
+    if (I18N.current !== 'de') {
+      I18N.load(I18N.current).then(data => I18N.apply(data));
+    }
+
+    const closeBanner = (val) => {
+      localStorage.setItem('ksk-cookies', val);
+      banner.classList.add('hidden');
+      setTimeout(() => banner.remove(), 400);
+    };
+
+    document.getElementById('cookieAccept').addEventListener('click', () => closeBanner('all'));
+    document.getElementById('cookieReject').addEventListener('click', () => closeBanner('essential'));
+  }
+
   // ── 1. Header scroll behavior ──────────────────────────
   const header = document.getElementById('header');
   const handleScroll = () => {

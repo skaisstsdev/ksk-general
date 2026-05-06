@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3.1">
   <link rel="icon" href="img/logo-icon.png">
 </head>
 <body>
@@ -51,22 +51,19 @@
 <main>
 
 <!-- 01 HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
+<section class="hero-cutout">
+  <div class="hero-photo-abs hero-photo-1">
+    <img src="img/hero1.png" alt="KSK Farmos Intensivpflege" loading="eager">
+  </div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
-        <h1 class="hero-title"><span data-i18n="idx.h1">Professionelle Pflege,</span> <em data-i18n="idx.h1em">die ankommt.</em></h1>
+        <h1 class="hero-title"><span data-i18n="idx.h1">Professionelle Pflege,</span> <br><em data-i18n="idx.h1em">die ankommt.</em></h1>
         <p class="hero-subtitle" data-i18n="idx.lead">Ambulante Intensivpflege bei Ihnen zu Hause oder in unserer Einrichtung in Kassel — 24 Stunden am Tag, 7 Tage die Woche.</p>
         <div class="hero-actions">
           <a href="beratung.html" class="btn btn-primary btn-lg" data-i18n="idx.cta1">Kostenlose Beratung</a>
           <a href="karriere.html" class="btn btn-outline btn-lg" data-i18n="idx.cta2">Für Pflegekräfte</a>
         </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-photo">
-          <div class="photo-placeholder ph-4-5">Pflegekraft mit Patient — freundlich, professionell</div>
-      </div>
       </div>
     </div>
   </div>
@@ -90,21 +87,21 @@
     </div>
     <div class="grid-3">
       <a href="leistungen.html#haeuslich" class="card card-img reveal reveal-d1">
-        <div class="card-photo"><div class="photo-placeholder ph-4-3">Pflege zu Hause — Pflegekraft am Bett</div></div>
+        <div class="card-photo"><img src="img/photo-car1.jpg" alt="Pflege zu Hause" loading="lazy"></div>
         <div class="card-body">
           <h3 data-i18n="idx.srv1.h3">Häusliche Intensivpflege</h3>
           <p data-i18n="idx.srv1.p">Professionelle Versorgung in Ihren eigenen vier Wänden — rund um die Uhr.</p>
         </div>
       </a>
       <a href="leistungen.html#aufenthalt" class="card card-img reveal reveal-d2">
-        <div class="card-photo"><div class="photo-placeholder ph-4-3">Aufenthaltskonzept — helles Zimmer in Kassel</div></div>
+        <div class="card-photo"><img src="img/photo-office.jpg" alt="Aufenthaltskonzept" loading="lazy"></div>
         <div class="card-body">
           <h3 data-i18n="idx.srv2.h3">Aufenthaltskonzept Kassel</h3>
           <p data-i18n="idx.srv2.p">Eigenes Zimmer, Garten, Bibliothek und 24h-Betreuung an der Sommerbergstraße 14.</p>
         </div>
       </a>
       <a href="leistungen.html#fortbildung" class="card card-img reveal reveal-d3">
-        <div class="card-photo"><div class="photo-placeholder ph-4-3">Fortbildung — Schulung im Seminarraum</div></div>
+        <div class="card-photo"><img src="img/photo-nurse-device.jpg" alt="Fortbildung" loading="lazy"></div>
         <div class="card-body">
           <h3 data-i18n="idx.srv3.h3">Fort- und Weiterbildungen</h3>
           <p data-i18n="idx.srv3.p">Regelmäßige Schulungen durch Fachärzte in 8 medizinischen Fachbereichen.</p>
@@ -134,7 +131,9 @@
         </div>
       </div>
       <div class="reveal-right">
-        <div class="photo-placeholder ph-4-5">Einfühlsame Pflege — Pflegekraft hält Hand des Patienten</div>
+        <div class="image-box">
+          <img src="img/photo-beratung1.jpg" alt="Einfühlsame Pflege" loading="lazy">
+        </div>
       </div>
     </div>
   </div>
@@ -172,7 +171,9 @@
   <div class="container">
     <div class="grid-2">
       <div class="reveal-left">
-        <div class="photo-placeholder ph-4-5">Team KSK Farmos — Gruppenfoto Pflegekräfte</div>
+        <div class="image-box">
+          <img src="img/photo-team.jpg" alt="Team KSK Farmos" loading="lazy">
+        </div>
       </div>
       <div class="reveal-right">
         <span class="section-tag" data-i18n="idx.about.tag">Über uns</span>
