@@ -458,6 +458,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .wizard-panel{display:none}
 .wizard-panel.active{display:block;animation:fadeSlideUp var(--t-base) var(--ease-out)}
 
+
 /* ── FOOTER ──────────────────────────────────────────────────── */
 .footer{background:var(--gray-900);color:rgba(255,255,255,0.7);padding:var(--sp-12) 0 var(--sp-4)}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1.2fr 1fr;gap:clamp(32px,5vw,56px);margin-bottom:var(--sp-10)}
@@ -465,7 +466,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .footer-brand .logo-text{color:white}
 .footer-brand .logo-text span{color:white}
 .footer-brand p{color:rgba(255,255,255,0.50);font-size:0.88rem;line-height:1.75;margin-top:var(--sp-2);max-width:270px}
-.footer-brand .logo img{filter:brightness(0) invert(1)}
+.footer-brand .logo img{filter:invert(1) grayscale(1) brightness(10);mix-blend-mode:screen}
 .footer-links{display:flex;flex-direction:column;gap:10px}
 .footer-links a,.footer-contact a,.footer-contact p{color:rgba(255,255,255,0.50);font-size:0.86rem;line-height:1.6;transition:color var(--t-fast);margin:0}
 .footer-links a:hover,.footer-contact a:hover{color:white}
@@ -476,11 +477,6 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .footer-lang a{font-size:0.76rem;color:rgba(255,255,255,0.40);padding:4px 9px;border-radius:var(--r-sm);transition:all var(--t-fast)}
 .footer-lang a:hover,.footer-lang a.active{color:white;background:rgba(255,255,255,0.08)}
 
-/* ── BACK TO TOP ─────────────────────────────────────────────── */
-.back-to-top{position:fixed;bottom:104px;right:32px;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.88);backdrop-filter:blur(16px) saturate(180%);-webkit-backdrop-filter:blur(16px) saturate(180%);border:1px solid rgba(0,0,0,0.06);cursor:pointer;z-index:50;display:flex;align-items:center;justify-content:center;color:var(--text-primary);box-shadow:var(--shadow-md);opacity:0;visibility:hidden;transform:translateY(14px);transition:all var(--t-base) var(--ease-out)}
-.back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
-.back-to-top:hover{background:var(--white);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.back-to-top svg{width:18px;height:18px;stroke-width:2}
 
 /* ── SCROLL REVEAL ANIMATIONS ────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity 680ms var(--ease-out),transform 680ms var(--ease-out)}
@@ -659,7 +655,6 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .gallery-scroll::-webkit-scrollbar{display:none}
   .faq-top-cards{grid-template-columns:1fr}
   .lang-float{bottom:16px;left:16px}
-  .back-to-top{bottom:80px;right:20px}
   .stats-row{grid-template-columns:1fr}
   .stat-item{border-right:none;border-bottom:1px solid var(--gray-100);padding:var(--sp-3) 0}
   .stat-item:last-child{border-bottom:none}
@@ -684,7 +679,6 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 html[dir="rtl"] .check-icon{margin-right:0;margin-left:14px}
 html[dir="rtl"] .quote-block{border-left:none;border-right:3px solid var(--violet);border-radius:var(--r-md) 0 0 var(--r-md)}
 html[dir="rtl"] .btn:hover svg{transform:translateX(-3px)}
-html[dir="rtl"] .back-to-top{right:auto;left:32px}
 html[dir="rtl"] .lang-float{left:auto;right:24px}
 
 /* ── COOKIE BANNER ───────────────────────────────────────────── */
@@ -702,7 +696,7 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
 }
 
 /* ── AI ASSISTANT ────────────────────────────────────────────── */
-.ai-assistant{position:fixed;bottom:32px;right:32px;z-index:100}
+.ai-assistant{position:fixed;bottom:24px;right:24px;z-index:100}
 .ai-btn{width:56px;height:56px;border-radius:50%;background:var(--violet);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(107,63,160,0.4);transition:all var(--t-base) var(--ease-spring)}
 .ai-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(107,63,160,0.5)}
 .ai-btn svg{width:24px;height:24px}
@@ -728,5 +722,7 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
 
 @media (max-width: 480px) {
   .ai-window{width:calc(100vw - 32px);right:-8px;bottom:80px}
-  .back-to-top{right:92px}
+  .ai-assistant{bottom:16px;right:16px}
 }
+
+

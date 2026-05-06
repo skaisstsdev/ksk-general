@@ -50,26 +50,31 @@ const I18N = {
           foundText = true;
         }
       });
-      // Replace text content
-      el.textContent = data[key];
-      // Restore preserved elements in correct positions
-      if (preserved.length > 0) {
-        const beforeEls = [];
-        const afterEls = [];
-        preserved.forEach((child, i) => {
-          if (positions[i] === 'before') beforeEls.push(child);
-          else afterEls.push(child);
-        });
-        // Prepend 'before' elements (e.g., checkbox, icon before text)
-        for (let i = beforeEls.length - 1; i >= 0; i--) {
-          el.prepend(' ');
-          el.prepend(beforeEls[i]);
+      // Replace content
+      const hasTags = data[key].includes('<') && data[key].includes('>');
+      if (hasTags) {
+        el.innerHTML = data[key];
+      } else {
+        el.textContent = data[key];
+        // Restore preserved elements in correct positions
+        if (preserved.length > 0) {
+          const beforeEls = [];
+          const afterEls = [];
+          preserved.forEach((child, i) => {
+            if (positions[i] === 'before') beforeEls.push(child);
+            else afterEls.push(child);
+          });
+          // Prepend 'before' elements (e.g., checkbox, icon before text)
+          for (let i = beforeEls.length - 1; i >= 0; i--) {
+            el.prepend(' ');
+            el.prepend(beforeEls[i]);
+          }
+          // Append 'after' elements (e.g., arrow-right icon after text)
+          afterEls.forEach(child => {
+            el.append(' ');
+            el.appendChild(child);
+          });
         }
-        // Append 'after' elements (e.g., arrow-right icon after text)
-        afterEls.forEach(child => {
-          el.append(' ');
-          el.appendChild(child);
-        });
       }
     });
     document.querySelectorAll('[data-i18n-ph]').forEach(el => {
