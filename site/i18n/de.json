@@ -281,8 +281,8 @@
   "mehr.erfahren": "Mehr erfahren",
   "erstgespraech": "Erstgespräch anfragen",
   "ub.tag": "Über uns",
-  "ub.h1": "Wer",
-  "ub.h1em": "wir sind",
+  "ub.h1": "Erfahrung und Fürsorge",
+  "ub.h1em": "seit 2013",
   "ub.lead": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen — professionell, menschlich und zuverlässig.",
   "ub.hist.tag": "Unsere Geschichte",
   "ub.hist.h2": "Gegründet aus Überzeugung",
@@ -359,5 +359,7 @@
   "lei.diag2.desc": "Ganzheitliche Langzeitversorgung für Patienten mit schweren Bewusstseinsstörungen. Unser Fokus liegt auf basaler Stimulation und der Erhaltung von Körperfunktionen.",
   "lei.diag3.desc": "Individuelle Begleitung bei fortschreitenden neurologischen Veränderungen — empathisch, fachlich fundiert und auf die Erhaltung der Lebensqualität ausgerichtet.",
   "lei.diag4.desc": "Professionelle Unterstützung и Pflege für Menschen mit Rückenmarksverletzungen. Wir fördern die Selbstständigkeit и beugen gezielt Komplikationen vor.",
-  "lei.diag5.desc": "Langfristige Versorgung nach schweren Hirnverletzungen. Zielgerichtet auf die Stabilisierung des Zustands и Unterstützung im Alltag."
+  "lei.diag5.desc": "Langfristige Versorgung nach schweren Hirnverletzungen. Zielgerichtet auf die Stabilisierung des Zustands и Unterstützung im Alltag.",
+  "srv.h1": "Unsere medizinischen",
+  "srv.h1em": "Leistungen"
 }

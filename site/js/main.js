@@ -240,6 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       mobileToggle.classList.toggle('open', isOpen);
+      if (header) header.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
@@ -249,6 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
         if (mobileToggle) mobileToggle.classList.remove('open');
+        if (header) header.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });
@@ -464,4 +466,77 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
+});
+
+/* ── AI ASSISTANT LOGIC ──────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  const aiBtn = document.getElementById('aiBtn');
+  const aiWindow = document.getElementById('aiWindow');
+  const aiContent = document.getElementById('aiContent');
+  const aiOptions = document.querySelectorAll('.ai-option-btn');
+
+  if (aiBtn && aiWindow) {
+    aiBtn.addEventListener('click', () => {
+      aiWindow.classList.toggle('open');
+      const icon = aiBtn.querySelector('i');
+      if (aiWindow.classList.contains('open')) {
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        icon.setAttribute('data-lucide', 'message-square');
+      }
+      lucide.createIcons();
+    });
+
+    const aiClose = document.getElementById('aiClose');
+    if (aiClose) {
+      aiClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        aiWindow.classList.remove('open');
+        const icon = aiBtn.querySelector('i');
+        icon.setAttribute('data-lucide', 'message-square');
+        lucide.createIcons();
+      });
+    }
+
+    const responses = {
+      leistungen: "Wir bieten häusliche Intensivpflege, ein spezielles Aufenthaltskonzept in Kassel sowie Fortbildungen an. Schauen Sie gerne auf unserer Leistungsseite vorbei!",
+      kosten: "Die Kosten werden in der Regel vollständig von der Krankenkasse und Pflegekasse übernommen. Wir beraten Sie dazu gerne kostenlos!",
+      kontakt: "Sie erreichen uns telefonisch unter 05693 / 9189907 oder per E-Mail an pflege@ksk-farmos.de.",
+      karriere: "Ja, wir suchen immer examinierte Pflegefachkräfte! Schauen Sie auf unserer Karriere-Seite vorbei."
+    };
+
+    aiOptions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const qKey = btn.getAttribute('data-q');
+        const questionText = btn.innerText;
+        const answerText = responses[qKey];
+
+        // Add user message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'ai-message user';
+        userMsg.innerText = questionText;
+        aiContent.appendChild(userMsg);
+
+        // Hide options temporarily
+        document.getElementById('aiOptions').style.display = 'none';
+
+        // Add bot typing (simple delay)
+        setTimeout(() => {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'ai-message bot';
+          botMsg.innerText = answerText;
+          aiContent.appendChild(botMsg);
+          
+          aiContent.scrollTop = aiContent.scrollHeight;
+
+          // Show options again after a delay
+          setTimeout(() => {
+            document.getElementById('aiOptions').style.display = 'flex';
+          }, 1000);
+        }, 600);
+
+        aiContent.scrollTop = aiContent.scrollHeight;
+      });
+    });
+  }
 });

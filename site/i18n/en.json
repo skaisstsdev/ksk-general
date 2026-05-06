@@ -273,8 +273,8 @@
   "mehr.erfahren": "Learn More",
   "erstgespraech": "Schedule a Consultation",
   "ub.tag": "About Us",
-  "ub.h1": "Who",
-  "ub.h1em": "we are",
+  "ub.h1": "Experience and care",
+  "ub.h1em": "since 2013",
   "ub.lead": "Since 2013, we've been caring for people with serious illnesses — with professionalism, compassion, and reliability.",
   "ub.hist.tag": "Our Story",
   "ub.hist.h2": "Founded from Conviction",
@@ -389,5 +389,7 @@
   "sb.c3": "Paid continuing education",
   "sb.c4": "30 days of vacation",
   "sb.c5": "Supportive team and appreciation",
-  "sb.quote": "No cover letter. No resume. Just fill it out — we'll get in touch."
+  "sb.quote": "No cover letter. No resume. Just fill it out — we'll get in touch.",
+  "srv.h1": "Our medical",
+  "srv.h1em": "services"
 }

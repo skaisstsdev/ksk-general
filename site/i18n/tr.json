@@ -273,8 +273,8 @@
   "mehr.erfahren": "Daha Fazla Bilgi",
   "erstgespraech": "İlk Görüşmeyi Talep Et",
   "ub.tag": "Hakkımızda",
-  "ub.h1": "Biz",
-  "ub.h1em": "Kimiz",
+  "ub.h1": "Deneyim ve bakım",
+  "ub.h1em": "2013'ten beri",
   "ub.lead": "2013 yılından bu yana ağır hastalığı olan bireylere profesyonel, insani ve güvenilir bir şekilde bakım sağlıyoruz.",
   "ub.hist.tag": "Hikayemiz",
   "ub.hist.h2": "Güçlü Bir İnançla Kurulduk",
@@ -389,5 +389,7 @@
   "sb.c4": "30 gün izin",
   "sb.c5": "Ekip ruhu ve değer görme",
   "sb.quote": "Ön yazı yok. Özgeçmiş yok. Sadece doldurun — biz sizinle iletişime geçeriz.",
-  "lei.k.lead": "KSK Farmos'un deneyimli personeli, vekaletname aldıktan sonra 24 saatlik yoğun bakımın finansmanı konusunda maliyet üstlenen kurumlarla görüşmeleri devralır. Bunlar genellikle şunlardır:"
+  "lei.k.lead": "KSK Farmos'un deneyimli personeli, vekaletname aldıktan sonra 24 saatlik yoğun bakımın finansmanı konusunda maliyet üstlenen kurumlarla görüşmeleri devralır. Bunlar genellikle şunlardır:",
+  "srv.h1": "Tıbbi",
+  "srv.h1em": "hizmetlerimiz"
 }
