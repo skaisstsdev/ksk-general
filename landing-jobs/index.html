@@ -13,6 +13,7 @@
   
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="img/logo-icon.png">
+  <link rel="preload" as="image" href="img/hero4.webp" fetchpriority="high">
   
   <style>
     /* ═══ ANIMATIONS ═══ */
@@ -21,7 +22,7 @@
 
     /* ═══ SCROLL REVEAL ENHANCEMENTS ═══ */
     .reveal,.reveal-left,.reveal-right,.reveal-scale {
-      opacity:0; transition:all .8s cubic-bezier(.16,1,.3,1);
+      opacity:0; transition:all .8s cubic-bezier(.16,1,.3,1); will-change:transform,opacity;
     }
     .reveal { transform:translateY(40px); }
     .reveal-left { transform:translateX(-40px); }
@@ -169,7 +170,7 @@
   </div>
   <!-- Image moved OUTSIDE container to guarantee it touches screen edges, placed after container for mobile stacking -->
   <div class="hero-photo-absolute">
-    <img src="img/hero4.png" alt="KSK Farmos Pflegefachkraft" loading="eager">
+    <img src="img/hero4.webp" alt="KSK Farmos Pflegefachkraft" loading="eager" fetchpriority="high" decoding="sync">
   </div>
 </section>
 
