@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════
-// KSK Farmos — main.js v3.0
+// KSK Farmos GmbH & Co. KG — main.js v3.0
 // Fully calibrated: lang, FAQ, i18n icons
 // ═══════════════════════════════════════
 

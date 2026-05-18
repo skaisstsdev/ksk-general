@@ -1,11 +1,11 @@
-# KSK Farmos — Полный текст сайта (Deutsch / Оригинал)
+# KSK Farmos GmbH & Co. KG — Полный текст сайта (Deutsch / Оригинал)
 
 ---
 
 ## ОБЩИЕ ЭЛЕМЕНТЫ (Header / Footer / Lang / CTA)
 
 ### Header
-- KSK Farmos
+- KSK Farmos GmbH & Co. KG
 - Intensivpflegedienst
 - Startseite
 - Leistungen
@@ -92,7 +92,7 @@
 ### Über uns Preview
 - Über uns
 - Wer wir sind
-- Der ambulante Intensivpflegedienst KSK Farmos wurde 2013 von Viktor Beresnev in Volkmarsen gegründet. Seitdem versorgen wir Patienten hessenweit — mit Herz, Fachwissen und modernster Ausstattung.
+- Der ambulante Intensivpflegedienst KSK Farmos GmbH & Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet. Seitdem versorgen wir Patienten hessenweit — mit Herz, Fachwissen und modernster Ausstattung.
 - 5,5 Mitarbeiter pro Patient — weit über dem Branchendurchschnitt.
 - Mehr über uns
 
@@ -210,7 +210,7 @@
 ### Geschichte
 - Unsere Geschichte
 - Gegründet aus Überzeugung
-- Der ambulante Intensivpflegedienst KSK Farmos wurde 2013 von Viktor Beresnev in Volkmarsen gegründet — mit einem klaren Ziel: Menschen mit schweren Erkrankungen ein würdevolles, selbstbestimmtes Leben zu ermöglichen.
+- Der ambulante Intensivpflegedienst KSK Farmos GmbH & Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet — mit einem klaren Ziel: Menschen mit schweren Erkrankungen ein würdevolles, selbstbestimmtes Leben zu ermöglichen.
 - Seitdem versorgen wir Patienten hessenweit — in ihrem eigenen Zuhause oder in unserer Einrichtung in Kassel.
 
 ### Leitbild
@@ -229,7 +229,7 @@
 
 ### Team
 - Unser Team
-- Die Menschen hinter KSK Farmos
+- Die Menschen hinter KSK Farmos GmbH & Co. KG
 - Olga Korp
 - Pflegedienstleitung (PDL)
 - Lidia Zimmermann
@@ -269,7 +269,7 @@
 - Offene Stellen
 
 ### Vorteile
-- Warum KSK Farmos?
+- Warum KSK Farmos GmbH & Co. KG?
 - Was wir Ihnen bieten
 - Übertarifliche Bezahlung
 - Wir zahlen deutlich über Tarif — weil uns Ihre Arbeit viel wert ist.
