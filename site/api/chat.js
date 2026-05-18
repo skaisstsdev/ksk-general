@@ -9,8 +9,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid request' })
   }
 
-  // Используем ключ OpenAI (поддерживаем оба имени переменных для удобства)
-  const apiKey = process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY
+  // Получаем ключ и очищаем его от случайных переносов строк и пробелов (.trim())
+  const rawApiKey = process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY
+  const apiKey = rawApiKey ? rawApiKey.trim() : ''
 
   if (!apiKey) {
     return res.status(500).json({ error: 'API key not configured' })
