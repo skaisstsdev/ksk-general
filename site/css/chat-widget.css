@@ -130,3 +130,31 @@
   .ksk-chat-window { width: calc(100vw - 32px); right: -8px; height: 70vh; }
   #ksk-chat { bottom: 16px; right: 16px; }
 }
+
+/* Красивая кнопка-ссылка в сообщениях бота */
+.ksk-chat-link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 4px 6px 0;
+  padding: 8px 14px;
+  border-radius: var(--r-md);
+  background: var(--violet);
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: all var(--t-fast);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--violet);
+  cursor: pointer;
+  vertical-align: middle;
+}
+.ksk-chat-link-btn:hover {
+  background: var(--violet-mid);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.ksk-chat-link-btn:active {
+  transform: translateY(0);
+}

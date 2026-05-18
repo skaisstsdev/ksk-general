@@ -106,7 +106,19 @@
     const messagesEl = document.getElementById('kskMessages')
     const div = document.createElement('div')
     div.className = `ksk-msg ${isBot ? 'ksk-msg-bot' : 'ksk-msg-user'}`
-    div.innerHTML = `<div class="ksk-msg-bubble">${text.replace(/\n/g, '<br>')}</div>`
+    
+    let formattedText = text.replace(/\n/g, '<br>')
+    if (isBot) {
+      // Регулярное выражение для поиска markdown-ссылок [Text](URL)
+      const markdownLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+      formattedText = formattedText.replace(markdownLinkRegex, (match, linkText, url) => {
+        const isExternal = url.startsWith('http') || url.startsWith('tel:') || url.startsWith('mailto:')
+        const target = isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''
+        return `<a href="${url}" class="ksk-chat-link-btn" ${target}>${linkText}</a>`
+      })
+    }
+
+    div.innerHTML = `<div class="ksk-msg-bubble">${formattedText}</div>`
     messagesEl.appendChild(div)
     messagesEl.scrollTop = messagesEl.scrollHeight
   }
