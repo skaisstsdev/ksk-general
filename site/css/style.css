@@ -571,11 +571,12 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 /* ── CONTACT CARDS (under form) ─────────────────────────────── */
 .contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
-.contact-card{padding:var(--sp-4);background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);text-align:center;transition:all var(--t-base) var(--ease-out)}
+.contact-card{position:relative;padding:var(--sp-4);background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);text-align:center;transition:all var(--t-base) var(--ease-out);cursor:pointer}
 .contact-card:hover{border-color:transparent;box-shadow:var(--shadow-md);transform:translateY(-3px)}
 .contact-card .card-icon{margin:0 auto var(--sp-2)}
 .contact-card h4{font-size:0.85rem;margin-bottom:8px}
 .contact-card p,.contact-card a{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
+.contact-card a::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;z-index:1}
 .contact-card a:hover{color:var(--violet)}
 
 /* ── REVIEW SECTION ─────────────────────────────────────────── */
