@@ -109,9 +109,33 @@
 .spin{display:inline-block;width:14px;height:14px;border:2px solid #cbd5e1;border-top-color:var(--violet);border-radius:50%;animation:sp .6s linear infinite;margin-left:8px;vertical-align:middle}
 @keyframes sp{to{transform:rotate(360deg)}}
 /* ═══ LANG TOGGLE ═══ */
+/* ═══ LANG TOGGLE ═══ */
 .lang-btn{padding:4px 12px;border-radius:20px;border:1px solid #cbd5e1!important;background:#ffffff!important;color:#64748b!important;font-size:.78rem;cursor:pointer;transition:all .2s;font-weight:500}
 .lang-btn:hover{color:#0f172a!important;border-color:#94a3b8!important;background:#f8fafc!important}
 .lang-btn.active{background:var(--violet)!important;color:white!important;border-color:var(--violet)!important}
+.lang-switcher-float{position:fixed;bottom:24px;left:24px;display:flex;gap:6px;z-index:150;background:#ffffff;padding:6px;border-radius:30px;box-shadow:0 4px 12px rgba(0,0,0,0.08);border:1px solid #e2e8f0;display:none}
+
 /* ═══ RESPONSIVE ═══ */
-@media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr)}.a-card{grid-template-columns:1fr;gap:12px}.dash-tabs{display:none}}
-@media(max-width:600px){.stats-grid{grid-template-columns:1fr 1fr;gap:8px;padding:16px}.filters{padding:0 16px 12px}.list{padding:0 16px 16px}.dash-header{padding:0 16px}.m-card{margin:16px;padding:var(--sp-4)}.d-grid{grid-template-columns:1fr}}
+@media(max-width:900px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .a-card{grid-template-columns:1fr;gap:12px}
+  .dash-tabs{display:none}
+  .lang-switcher-float{display:flex}
+}
+@media(max-width:600px){
+  body, html {overflow-x:hidden}
+  .dash-brand .sep, .dash-brand .sub {display:none}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:8px;padding:16px}
+  .filters{padding:0 16px 12px;flex-direction:column;align-items:stretch}
+  .f-input, .f-select{width:100%;min-width:100%}
+  .list{padding:0 16px 16px}
+  .dash-header{padding:0 16px}
+  .m-overlay{align-items:flex-start;padding:16px;overflow-y:auto}
+  .m-card{margin:0;width:100%;max-width:100%;max-height:none;padding:20px}
+  .d-grid{grid-template-columns:1fr}
+  .a-card{padding:16px}
+  .c-center{flex-direction:column;align-items:flex-start;gap:8px}
+  .c-right{justify-content:space-between;margin-top:8px}
+  .m-acts{flex-direction:column}
+  .toast{left:16px;right:16px;bottom:80px;max-width:none}
+}
