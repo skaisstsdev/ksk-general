@@ -63,8 +63,7 @@ function ini(v,n){return((v||'X')[0]+(n||'X')[0]).toUpperCase()}
 function switchLang(l){
   lang=l;localStorage.setItem('ksk-admin-lang',l);
   applyLang();renderAll();
-  // Update lang toggle
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  document.querySelectorAll('.lang-select').forEach(s=>s.value=l);
 }
 
 function applyLang(){
@@ -181,12 +180,11 @@ function demo(){const n=Date.now();return[
 
 document.addEventListener('DOMContentLoaded',()=>{
   applyLang();
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  document.querySelectorAll('.lang-select').forEach(s=>s.value=lang);
   checkAuth();
   document.getElementById('lBtn').addEventListener('click',tryLogin);
   document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
   document.getElementById('mo').addEventListener('click',e=>{if(e.target===e.currentTarget)closeM()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
   document.querySelectorAll('.dash-tab').forEach(t=>t.addEventListener('click',()=>setTab(t.dataset.tab)));
-  document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>switchLang(b.dataset.lang)));
 });
