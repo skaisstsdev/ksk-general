@@ -9,21 +9,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid request' })
   }
 
-  // Максимум 10 сообщений в истории чтобы не тратить токены
+  // Используем ключ OpenAI (поддерживаем оба имени переменных для удобства)
+  const apiKey = process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY
+
+  if (!apiKey) {
+    return res.status(500).json({ error: 'API key not configured' })
+  }
+
+  // Максимум 10 сообщений в истории
   const trimmedMessages = messages.slice(-10)
 
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY || '',
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-3-haiku-20240307',
-        max_tokens: 1024,
-        system: `Du bist ein freundlicher und professioneller Assistent von KSK Farmos — einem spezialisierten ambulanten Intensivpflegedienst in Nordhessen, Deutschland. Du hilfst Patienten, Angehörigen und Pflegekräften mit präzisen und einfühlsamen Informationen, die auf den Inhalten unserer Website basieren.
+  const systemPrompt = `Du bist ein freundlicher und professioneller Assistent von KSK Farmos — einem spezialisierten ambulanten Intensivpflegedienst in Nordhessen, Deutschland. Du hilfst Patienten, Angehörigen und Pflegekräften mit präzisen und einfühlsamen Informationen, die auf den Inhalten unserer Website basieren.
 
 ÜBER KSK FARMOS:
 - Gegründet: 2013 von Viktor Beresnev in Volkmarsen.
@@ -38,7 +34,7 @@ export default async function handler(req, res) {
 UNSERE LEISTUNGEN & EXPERTISE:
 - Häusliche Intensivpflege: 24/7 Betreuung zu Hause (Grund- und Behandlungspflege, Medikamentenmanagement, Vitalzeichenüberwachung/Monitoring).
 - Spezielle Therapien: Beatmungspflege (invasive und nicht-invasive Beatmung ist unsere Kernkompetenz), Trachealkanülenmanagement, Wundversorgung, Ernährungstherapie.
-- Überleitungsmanagement: Reibungsverlauf Wechsel aus dem Krankenhaus nach Hause. Wir koordinieren alles mit dem Klinikpersonal und organisieren notwendige medizinische Geräte (Beatmungsgeräte, Monitore etc.) über Medizintechnik-Partner.
+- Überleitungsmanagement: Reibungsloser Wechsel aus dem Krankenhaus nach Hause. Wir koordinieren alles mit dem Klinikpersonal und organisieren notwendige medizinische Geräte (Beatmungsgeräte, Monitore etc.) über Medizintechnik-Partner.
 - Diagnosen, die wir versorgen: Beatmungspatienten, Wachkoma (Apallisches Syndrom, Fokus auf basaler Stimulation), ALS & fortschreitende neurologische Erkrankungen, Querschnittslähmung, Schädel-Hirn-Trauma.
 
 WOHNKONZEPT (AUFENTHALTSKONZEPT KASSEL):
@@ -74,19 +70,33 @@ DEINE AUFGABE ALS KI-ASSISTENT:
 - Gib NIEMALS medizinische Diagnosen oder konkrete Behandlungsempfehlungen.
 - Wenn eine Frage nicht beantwortet werden kann, verweise freundlich auf unsere Telefonnummern oder E-Mail.
 
-WICHTIG: Du bist kein Ersatz für das persönliche Gespräch. Bei dringendem Bedarf immer auf die Telefonnummer hinweisen.`,
-        messages: trimmedMessages
+WICHTIG: Du bist kein Ersatz für das persönliche Gespräch. Bei dringendem Bedarf immer auf die Telefonnummer hinweisen.`
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        max_tokens: 1024,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          ...trimmedMessages
+        ]
       })
     })
 
     const data = await response.json()
 
     if (!response.ok) {
-      console.error('Claude API error:', data)
+      console.error('OpenAI API error:', data)
       return res.status(500).json({ error: 'API error', details: data })
     }
 
-    const text = data.content[0]?.text || ''
+    const text = data.choices?.[0]?.message?.content || ''
     return res.status(200).json({ message: text })
 
   } catch (error) {
