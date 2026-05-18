@@ -49,11 +49,60 @@
       .hero-cutout .hero-title { max-width:500px; }
       .hero-cutout .hero-subtitle { max-width:450px; }
     }
-    @media(max-width:600px) {
-      .hero-cutout .hero-inner { padding-bottom:52vh !important; }
+    @media(max-width:768px) {
       .hero-cutout { background:linear-gradient(180deg,var(--off-white) 40%,var(--violet-pale) 100%) !important; }
-      .hero-photo-1 { width:100% !important; max-width:110vw !important; right:-5% !important; bottom:0 !important; }
-      .hero-cutout .hero-title { font-size:clamp(2.8rem,11vw,3.8rem) !important; }
+      .hero-cutout .hero-inner { padding-bottom:24px !important; text-align:center !important; align-items:center !important; }
+      .hero-cutout .hero-title { 
+        font-size:clamp(3.8rem,15vw,6.8rem) !important; 
+        line-height:1.02 !important; 
+        letter-spacing:-0.03em !important; 
+        text-align:center !important; 
+        margin-left:auto !important; 
+        margin-right:auto !important; 
+        max-width:100% !important; 
+      }
+      .hero-cutout .hero-subtitle { 
+        text-align:center !important; 
+        margin-left:auto !important; 
+        margin-right:auto !important; 
+        max-width:100% !important; 
+        font-size:0.95rem !important; 
+        line-height:1.6 !important; 
+      }
+      .hero-actions { 
+        display:flex !important; 
+        flex-direction:column !important; 
+        align-items:center !important; 
+        width:85% !important; 
+        max-width:320px !important; 
+        margin:0 auto !important; 
+        gap:12px !important; 
+      }
+      .hero-actions .btn { 
+        border-radius:50px !important; 
+        width:100% !important; 
+        justify-content:center !important; 
+        padding:17px 32px !important; 
+        font-size:1.05rem !important; 
+      }
+      .hero-actions .btn-primary { 
+        box-shadow:0 8px 24px rgba(107,63,160,0.18) !important; 
+      }
+      .hero-actions .btn-outline { 
+        background:var(--white) !important; 
+        border-color:var(--gray-200) !important; 
+        color:var(--text-primary) !important; 
+      }
+      .hero-photo-1 { 
+        position:relative !important; 
+        bottom:auto !important; 
+        right:auto !important; 
+        left:auto !important; 
+        width:100% !important; 
+        max-width:500px !important; 
+        margin:24px auto 0 auto !important; 
+        display:block !important; 
+      }
     }
 
     /* ═══ HEADER ═══ */
@@ -137,9 +186,6 @@
 
 <!-- 2. HERO -->
 <section class="hero-cutout">
-  <div class="hero-photo-abs hero-photo-1">
-    <img src="img/hero-new-bg-removed.png" alt="KSK Farmos Intensivpflege" loading="eager">
-  </div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content reveal-left">
@@ -151,6 +197,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <!-- Absolutely positioned on desktop, stacked organically on mobile after the text and buttons -->
+  <div class="hero-photo-abs hero-photo-1">
+    <img src="img/hero-new-bg-removed.png" alt="KSK Farmos Intensivpflege" loading="eager">
   </div>
 </section>
 
