@@ -77,10 +77,10 @@ function applyLang(){
 }
 
 // ═══ Auth ═══
-function checkAuth(){if(sessionStorage.getItem('ksk-admin')==='1')showDash()}
-function tryLogin(){const i=document.getElementById('pw'),e=document.getElementById('err');if(i.value===PASSWORD){sessionStorage.setItem('ksk-admin','1');showDash()}else{e.textContent=t('login_err');i.value='';i.focus()}}
-function logout(){sessionStorage.removeItem('ksk-admin');document.getElementById('login').style.display='flex';document.getElementById('dash').classList.remove('active')}
-function showDash(){document.getElementById('login').style.display='none';document.getElementById('dash').classList.add('active');initDB()}
+function checkAuth(){showDash()}
+function tryLogin(){}
+function logout(){location.reload()}
+function showDash(){const l=document.getElementById('login');if(l)l.style.display='none';document.getElementById('dash').classList.add('active');initDB()}
 
 async function initDB(){
   if(SUPABASE_URL==='YOUR_SUPABASE_URL'){bewerbungen=demo();renderAll();return}
@@ -195,8 +195,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 
   checkAuth();
-  document.getElementById('lBtn').addEventListener('click',tryLogin);
-  document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
+  const lBtn=document.getElementById('lBtn'),pw=document.getElementById('pw');
+  if(lBtn)lBtn.addEventListener('click',tryLogin);
+  if(pw)pw.addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
   document.getElementById('mo').addEventListener('click',e=>{if(e.target===e.currentTarget)closeM()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
   document.querySelectorAll('.dash-tab').forEach(t=>t.addEventListener('click',()=>setTab(t.dataset.tab)));
