@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bewerbungsportal — KSK Farmos</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" type="image/png" href="img/logo-icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body style="background:#f8fafc;color:#0f172a;min-height:100vh;font-family:var(--sans,Inter,sans-serif)">
+
+<!-- ═══ LOGIN ═══ -->
+<div class="login-screen" id="login">
+  <div class="login-card">
+    <img src="img/logo-icon.png" alt="KSK" class="logo-icon" onerror="this.style.display='none'">
+    <div class="brand">KSK Farmos</div>
+    <span class="login-tag">Bewerbungsportal</span>
+    <h2 data-t="login_title">Anmelden</h2>
+    <input type="password" class="login-input" id="pw" data-t="login_ph" placeholder="Passwort eingeben" autofocus>
+    <div class="login-error" id="err"></div>
+    <button class="btn btn-primary" id="lBtn" style="width:100%" data-t="login_btn">Anmelden</button>
+    <div style="margin-top:16px;display:flex;justify-content:center;gap:6px">
+      <button class="lang-btn active" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DASHBOARD ═══ -->
+<div class="dashboard" id="dash">
+
+  <header class="dash-header">
+    <div class="dash-brand">
+      KSK Farmos <span class="sep">·</span> <span class="sub">Bewerbungsportal</span>
+    </div>
+    <div class="dash-tabs">
+      <button class="dash-tab active" data-tab="alle"><span data-t="tab_alle">Alle</span> <span class="cnt" id="cAll">0</span></button>
+      <button class="dash-tab" data-tab="neu"><span data-t="tab_neu">Neu</span> <span class="cnt" id="cNeu">0</span></button>
+      <button class="dash-tab" data-tab="archiv"><span data-t="tab_archiv">Archiv</span> <span class="cnt" id="cArch">0</span></button>
+    </div>
+    <div class="dash-right">
+      <div style="display:flex;gap:4px;margin-right:8px">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <span class="badge-new" id="bdg"></span>
+      <button class="btn-out" onclick="logout()" data-t="logout">Abmelden</button>
+    </div>
+  </header>
+
+  <div class="dash-content">
+    <!-- STATS -->
+    <div class="stats-grid">
+      <div class="s-card">
+        <div class="s-icon" style="background:#f1f5f9"><i data-lucide="users" style="width:18px;height:18px;color:#475569"></i></div>
+        <div class="s-val" id="sT">0</div>
+        <div class="s-lbl" data-t="stat_total">Gesamt</div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon" style="background:var(--violet-pale)"><i data-lucide="star" style="width:18px;height:18px;color:var(--violet)"></i></div>
+        <div class="s-val" style="color:var(--violet)" id="sN">0</div>
+        <div class="s-lbl" data-t="stat_neu">Neu</div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon" style="background:rgba(245,158,11,.15)"><i data-lucide="clock" style="width:18px;height:18px;color:#f59e0b"></i></div>
+        <div class="s-val" style="color:#f59e0b" id="sB">0</div>
+        <div class="s-lbl" data-t="stat_bearb">In Bearbeitung</div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon" style="background:#f1f5f9"><i data-lucide="archive" style="width:18px;height:18px;color:#64748b"></i></div>
+        <div class="s-val" style="color:#64748b" id="sA">0</div>
+        <div class="s-lbl" data-t="stat_arch">Archiviert</div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+      <input type="text" class="f-input" id="si" data-t="search_ph" placeholder="Suchen nach Name, Telefon, E-Mail..." oninput="onSI(this.value)">
+      <select class="f-select" id="qf" onchange="onQF(this.value)">
+        <option value="" data-t="all_qual">Alle Qualifikationen</option>
+        <option value="fachkraft" data-t="q_fach">Exam. Pflegefachkraft</option>
+        <option value="altenpfleger" data-t="q_alten">Altenpfleger/in</option>
+        <option value="pflegehelfer" data-t="q_helfer">Pflegehelfer/in</option>
+        <option value="student" data-t="q_student">Medizinstudent/in</option>
+        <option value="sonstiges" data-t="q_sonst">Sonstiges</option>
+      </select>
+      <button class="btn btn-outline btn-sm" onclick="resetF()" style="border-color:#cbd5e1;color:#64748b;background:#ffffff" data-t="reset">Zurücksetzen</button>
+    </div>
+
+    <!-- LIST -->
+    <div class="list" id="la">
+      <div class="skel"></div>
+      <div class="skel"></div>
+      <div class="skel"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL ═══ -->
+<div class="m-overlay" id="mo">
+  <div class="m-card" id="mc"></div>
+</div>
+
+<script src="admin.js"></script>
+<script>if(typeof lucide!=='undefined')lucide.createIcons();</script>
+</body>
+</html>
