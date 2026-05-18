@@ -111,9 +111,17 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; max-width: 
 .spin{display:inline-block;width:14px;height:14px;border:2px solid #cbd5e1;border-top-color:var(--violet);border-radius:50%;animation:sp .6s linear infinite;margin-left:8px;vertical-align:middle}
 @keyframes sp{to{transform:rotate(360deg)}}
 /* ═══ LANG TOGGLE ═══ */
-/* ═══ LANG TOGGLE ═══ */
-.lang-select{appearance:none;background:#0f172a url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;background-size:14px;color:#ffffff;border:2px solid #0f172a;padding:8px 36px 8px 16px;border-radius:30px;font-size:.85rem;font-weight:600;cursor:pointer;box-shadow:0 4px 12px rgba(15,23,42,.2);transition:all .2s}
-.lang-select:focus{outline:none;border-color:var(--violet);box-shadow:0 0 0 3px var(--violet-pale)}
+/* ═══ CUSTOM LANG DROPDOWN ═══ */
+.lang-picker { position: relative; display: inline-block; user-select: none; }
+.lp-sel { background: #0f172a; color: white; padding: 8px 16px; border-radius: 30px; font-size: .85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(15,23,42,.2); transition: all .2s; border: 2px solid #0f172a; }
+.lp-sel:hover { border-color: var(--violet); }
+.lang-picker.open .lp-sel { border-color: var(--violet); box-shadow: 0 0 0 3px var(--violet-pale); }
+.lp-menu { position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%) translateY(10px); opacity: 0; visibility: hidden; background: white; border-radius: var(--r-md); box-shadow: 0 10px 25px rgba(0,0,0,.1); border: 1px solid #e2e8f0; padding: 4px; transition: all .2s; min-width: 70px; z-index: 200; }
+.lang-picker.open .lp-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.lp-opt { padding: 8px 0; border-radius: var(--r-sm); font-size: .85rem; font-weight: 600; color: #0f172a; cursor: pointer; text-align: center; transition: background .2s; }
+.lp-opt:hover { background: #f1f5f9; color: var(--violet); }
+.login-screen .lp-menu { bottom: auto; top: calc(100% + 8px); transform: translateX(-50%) translateY(-10px); }
+.login-screen .lang-picker.open .lp-menu { transform: translateX(-50%) translateY(0); }
 .lang-switcher-float{position:fixed;bottom:24px;left:24px;z-index:150;display:none}
 
 /* ═══ RESPONSIVE ═══ */

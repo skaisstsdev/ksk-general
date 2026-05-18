@@ -63,7 +63,7 @@ function ini(v,n){return((v||'X')[0]+(n||'X')[0]).toUpperCase()}
 function switchLang(l){
   lang=l;localStorage.setItem('ksk-admin-lang',l);
   applyLang();renderAll();
-  document.querySelectorAll('.lang-select').forEach(s=>s.value=l);
+  document.querySelectorAll('.lp-txt').forEach(s => s.textContent = l.toUpperCase());
 }
 
 function applyLang(){
@@ -180,7 +180,20 @@ function demo(){const n=Date.now();return[
 
 document.addEventListener('DOMContentLoaded',()=>{
   applyLang();
-  document.querySelectorAll('.lang-select').forEach(s=>s.value=lang);
+  document.querySelectorAll('.lp-txt').forEach(s => s.textContent = lang.toUpperCase());
+  document.querySelectorAll('.lp-opt').forEach(opt => {
+    opt.addEventListener('click', (e) => {
+      e.stopPropagation();
+      switchLang(opt.dataset.l);
+      document.querySelectorAll('.lang-picker').forEach(p => p.classList.remove('open'));
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if(!e.target.closest('.lang-picker')){
+      document.querySelectorAll('.lang-picker').forEach(p => p.classList.remove('open'));
+    }
+  });
+
   checkAuth();
   document.getElementById('lBtn').addEventListener('click',tryLogin);
   document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryLogin()});
