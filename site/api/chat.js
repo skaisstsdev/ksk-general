@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'x-api-key': process.env.ANTHROPIC_API_KEY || '',
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 UNSERE LEISTUNGEN & EXPERTISE:
 - Häusliche Intensivpflege: 24/7 Betreuung zu Hause (Grund- und Behandlungspflege, Medikamentenmanagement, Vitalzeichenüberwachung/Monitoring).
 - Spezielle Therapien: Beatmungspflege (invasive und nicht-invasive Beatmung ist unsere Kernkompetenz), Trachealkanülenmanagement, Wundversorgung, Ernährungstherapie.
-- Überleitungsmanagement: Reibungsloser Wechsel aus dem Krankenhaus nach Hause. Wir koordinieren alles mit dem Klinikpersonal und organisieren notwendige medizinische Geräte (Beatmungsgeräte, Monitore etc.) über Medizintechnik-Partner.
+- Überleitungsmanagement: Reibungsverlauf Wechsel aus dem Krankenhaus nach Hause. Wir koordinieren alles mit dem Klinikpersonal und organisieren notwendige medizinische Geräte (Beatmungsgeräte, Monitore etc.) über Medizintechnik-Partner.
 - Diagnosen, die wir versorgen: Beatmungspatienten, Wachkoma (Apallisches Syndrom, Fokus auf basaler Stimulation), ALS & fortschreitende neurologische Erkrankungen, Querschnittslähmung, Schädel-Hirn-Trauma.
 
 WOHNKONZEPT (AUFENTHALTSKONZEPT KASSEL):
@@ -83,7 +83,7 @@ WICHTIG: Du bist kein Ersatz für das persönliche Gespräch. Bei dringendem Bed
 
     if (!response.ok) {
       console.error('Claude API error:', data)
-      return res.status(500).json({ error: 'API error' })
+      return res.status(500).json({ error: 'API error', details: data })
     }
 
     const text = data.content[0]?.text || ''
@@ -91,6 +91,6 @@ WICHTIG: Du bist kein Ersatz für das persönliche Gespräch. Bei dringendem Bed
 
   } catch (error) {
     console.error('Server error:', error)
-    return res.status(500).json({ error: 'Server error' })
+    return res.status(500).json({ error: 'Server error', details: error.message })
   }
 }
