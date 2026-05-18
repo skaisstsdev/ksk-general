@@ -285,7 +285,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 @media (max-width: 600px) {
   .hero-cutout .hero-inner{padding-bottom:52vh}
   .hero-cutout .hero-content{padding-bottom:var(--sp-5)}
-  .hero-cutout .hero-title{font-size:clamp(4.8rem, 22vw, 8.5rem);line-height:0.95;letter-spacing:-0.04em}
+  .hero-cutout .hero-title{font-size:clamp(3.5rem, 14vw, 5.5rem);line-height:1.05;letter-spacing:-0.03em}
   .hero-cutout .hero-subtitle{font-size:0.92rem;line-height:1.6}
   
   .hero-photo-1{right:0;width:100%;max-width:100vw}
@@ -665,7 +665,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media(max-width:480px){
   :root{--section-gap:52px}
-  h1{font-size:3rem}
+  h1{font-size:clamp(3rem, 12vw, 4.5rem);line-height:1.05;letter-spacing:-0.02em}
   h2{font-size:1.85rem}
   .hero{padding-top:var(--header-h)}
   .form-card{padding:var(--sp-3) var(--sp-2)}
