@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="icon" type="image/png" href="img/logo-icon.png">
   <link rel="preload" as="image" href="img/hero4.webp" fetchpriority="high">
   
@@ -159,11 +160,11 @@
   <div class="container">
     <div class="hero-grid">
       <div class="reveal-left">
-        <h1 class="hero-title" data-i18n="lp2.hero.title">Arbeiten, wo es<br><em>wirklich zählt.</em></h1>
+        <h1 class="hero-title" data-i18n="lp2.hero.title">Arbeiten,<br>wo es <em>wirklich zählt.</em></h1>
         <p class="hero-subtitle" data-i18n="lp2.hero.sub">Übertarifliche Bezahlung, Firmenwagen und ein Team auf das Sie sich verlassen können.<br>Bewerbung in 2 Minuten — kein Anschreiben, kein Lebenslauf.</p>
-        <div class="hero-actions" style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#bewerbung" class="btn btn-primary btn-lg" data-i18n="lp2.hero.btn1">Jetzt bewerben</a>
-          <a href="#stellen" class="btn btn-outline btn-lg" data-i18n="lp2.hero.btn2">Offene Stellen ansehen</a>
+        <div class="hero-actions" style="display:flex;flex-direction:column;gap:16px;width:100%;max-width:380px;">
+          <a href="#bewerbung" class="btn btn-primary btn-lg" data-i18n="lp2.hero.btn1" style="border-radius:50px;width:100%;justify-content:center;padding:18px 32px;font-size:1.1rem;box-shadow:0 8px 24px rgba(107,63,160,.15);">Jetzt bewerben</a>
+          <a href="#stellen" class="btn btn-outline btn-lg" data-i18n="lp2.hero.btn2" style="border-radius:50px;width:100%;justify-content:center;padding:18px 32px;font-size:1.1rem;background:var(--white);">Offene Stellen ansehen</a>
         </div>
       </div>
     </div>
@@ -501,6 +502,50 @@
       });
     });
   });
+</script>
+<script>
+const _sb = window.supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_KEY')
+
+document.querySelector('[data-form="schnellbewerbung"]').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const form = e.target
+  const data = {
+    vorname: form.querySelector('[name="vorname"]').value.trim(),
+    nachname: form.querySelector('[name="nachname"]').value.trim(),
+    email: form.querySelector('[name="email"]').value.trim(),
+    telefon: form.querySelector('[name="telefon"]').value.trim(),
+    qualifikation: form.querySelector('[name="qualifikation"]').value,
+    erfahrung: form.querySelector('[name="erfahrung"]').value,
+    fuehrerschein: form.querySelector('[name="fuehrerschein"]').value,
+    arbeitszeit: form.querySelector('[name="arbeitszeit"]').value,
+    nachricht: form.querySelector('[name="nachricht"]').value.trim(),
+    status: 'neu',
+    source: 'landing-jobs'
+  }
+  const btn = form.querySelector('[type="submit"]')
+  const orig = btn.innerHTML
+  btn.disabled = true
+  btn.innerHTML = 'Wird gesendet...'
+  const { error } = await _sb.from('bewerbungen').insert([data])
+  if (error) {
+    btn.disabled = false
+    btn.innerHTML = orig
+    lucide.createIcons()
+  } else {
+    form.closest('.form-card').innerHTML = `
+      <div style="text-align:center;padding:var(--sp-8) var(--sp-4)">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4)">
+          <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
+        </div>
+        <h3 style="font-family:var(--serif);margin-bottom:var(--sp-2)">Bewerbung eingegangen!</h3>
+        <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
+          Vielen Dank, <strong>${data.vorname}</strong>!<br>
+          Wir melden uns innerhalb von 24 Stunden unter <strong>${data.telefon}</strong>.
+        </p>
+      </div>`
+    lucide.createIcons()
+  }
+})
 </script>
 </body>
 </html>
