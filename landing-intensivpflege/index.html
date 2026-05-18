@@ -51,7 +51,7 @@
     }
     @media(max-width:768px) {
       .hero-cutout { background:linear-gradient(180deg,var(--off-white) 40%,var(--violet-pale) 100%) !important; }
-      .hero-cutout .hero-inner { padding-bottom:24px !important; text-align:center !important; align-items:center !important; }
+      .hero-cutout .hero-inner { padding-bottom:36vh !important; text-align:center !important; align-items:center !important; }
       .hero-cutout .hero-title { 
         font-size:clamp(3.8rem,15vw,6.8rem) !important; 
         line-height:1.02 !important; 
@@ -82,8 +82,8 @@
         border-radius:50px !important; 
         width:100% !important; 
         justify-content:center !important; 
-        padding:17px 32px !important; 
-        font-size:1.05rem !important; 
+        padding:16px 28px !important; 
+        font-size:0.92rem !important; 
       }
       .hero-actions .btn-primary { 
         box-shadow:0 8px 24px rgba(107,63,160,0.18) !important; 
@@ -94,13 +94,12 @@
         color:var(--text-primary) !important; 
       }
       .hero-photo-1 { 
-        position:relative !important; 
-        bottom:auto !important; 
-        right:auto !important; 
+        position:absolute !important; 
+        bottom:0 !important; 
+        right:-5% !important; 
         left:auto !important; 
         width:100% !important; 
-        max-width:500px !important; 
-        margin:24px auto 0 auto !important; 
+        max-width:110vw !important; 
         display:block !important; 
       }
     }
@@ -186,6 +185,9 @@
 
 <!-- 2. HERO -->
 <section class="hero-cutout">
+  <div class="hero-photo-abs hero-photo-1">
+    <img src="img/hero-new-bg-removed.png" alt="KSK Farmos Intensivpflege" loading="eager">
+  </div>
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content reveal-left">
@@ -197,10 +199,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- Absolutely positioned on desktop, stacked organically on mobile after the text and buttons -->
-  <div class="hero-photo-abs hero-photo-1">
-    <img src="img/hero-new-bg-removed.png" alt="KSK Farmos Intensivpflege" loading="eager">
   </div>
 </section>
 
