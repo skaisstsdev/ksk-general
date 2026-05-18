@@ -27,13 +27,10 @@
     <div class="login-error" id="err"></div>
     <button class="btn btn-primary" id="lBtn" style="width:100%" data-t="login_btn">Anmelden</button>
     <div style="margin-top:16px;display:flex;justify-content:center;">
-      <div class="lang-drop down">
-        <button class="lang-drop-btn" onclick="this.parentElement.classList.toggle('open');event.stopPropagation()"><span class="lang-val">DE</span> <i data-lucide="chevron-down" style="width:14px;height:14px"></i></button>
-        <div class="lang-drop-menu">
-          <div onclick="switchLang('de')">DE</div>
-          <div onclick="switchLang('ru')">RU</div>
-        </div>
-      </div>
+      <select class="lang-select" onchange="switchLang(this.value)">
+        <option value="de">Deutsch (DE)</option>
+        <option value="ru">Русский (RU)</option>
+      </select>
     </div>
   </div>
 </div>
@@ -105,13 +102,10 @@
 
   <!-- FLOATING LANG SWITCHER -->
   <div class="lang-switcher-float">
-    <div class="lang-drop">
-      <button class="lang-drop-btn" onclick="this.parentElement.classList.toggle('open');event.stopPropagation()"><span class="lang-val">DE</span> <i data-lucide="chevron-up" style="width:14px;height:14px"></i></button>
-      <div class="lang-drop-menu">
-        <div onclick="switchLang('de')">DE</div>
-        <div onclick="switchLang('ru')">RU</div>
-      </div>
-    </div>
+    <select class="lang-select" onchange="switchLang(this.value)">
+      <option value="de">Deutsch (DE)</option>
+      <option value="ru">Русский (RU)</option>
+    </select>
   </div>
 </div>
 
