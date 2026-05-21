@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=14">
   <link rel="icon" href="img/logo-icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
 </head>
 <body>
 
@@ -66,24 +68,21 @@
       </div>
       <div class="reveal-right">
         <div class="form-card">
-          <form action="https://formspree.io/f/mjgzyvyg" method="POST" id="beratungForm">
-            <input type="hidden" name="_subject" value="Neue Beratungsanfrage — KSK Farmos">
-            <input type="hidden" name="_language" value="de">
-            <input type="text" name="_gotcha" style="display:none">
+          <form data-form="beratung" id="beratungForm">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" data-i18n="form.vorname">Vorname</label>
-                <input type="text" name="vorname" required data-i18n-ph="form.vorname">
+                <input type="text" required name="vorname" data-i18n-ph="form.vorname">
               </div>
               <div class="form-group">
                 <label class="form-label" data-i18n="form.nachname">Nachname</label>
-                <input type="text" name="nachname" required data-i18n-ph="form.nachname">
+                <input type="text" required name="nachname" data-i18n-ph="form.nachname">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" data-i18n="form.email">E-Mail</label>
-                <input type="email" name="email" required data-i18n-ph="form.email">
+                <input type="email" required name="email" data-i18n-ph="form.email">
               </div>
               <div class="form-group">
                 <label class="form-label" data-i18n="form.telefon">Telefon</label>
@@ -92,10 +91,10 @@
             </div>
             <div class="form-group">
               <label class="form-label" data-i18n="form.nachricht">Ihre Nachricht (optional)</label>
-              <textarea name="nachricht" rows="5" data-i18n-ph="ber.ph"></textarea>
+              <textarea rows="5" name="nachricht" data-i18n-ph="ber.ph"></textarea>
             </div>
             <div class="form-group">
-              <label><input type="checkbox" name="datenschutz" value="ja" required> <span data-i18n="form.datenschutz">Ich habe die Datenschutzerklärung gelesen und stimme ihr zu.</span></label>
+              <label><input type="checkbox" required> <span data-i18n="form.datenschutz">Ich habe die Datenschutzerklärung gelesen und stimme ihr zu.</span></label>
             </div>
             <button type="submit" class="btn btn-primary btn-lg" data-i18n="ber.btn">Beratung anfordern <i data-lucide="arrow-right"></i></button>
           </form>
@@ -136,37 +135,32 @@ document.getElementById('beratungForm').addEventListener('submit', async functio
   const btn = this.querySelector('[type="submit"]')
   const originalHTML = btn.innerHTML
   btn.disabled = true
-  btn.innerHTML = 'Wird gesendet... <i data-lucide="loader"></i>'
-  if(typeof lucide !== 'undefined') lucide.createIcons()
+  btn.innerHTML = 'Wird gesendet...'
+
+  const templateParams = {
+    vorname: this.querySelector('[name="vorname"]').value,
+    nachname: this.querySelector('[name="nachname"]').value,
+    email: this.querySelector('[name="email"]').value,
+    telefon: this.querySelector('[name="telefon"]').value,
+    nachricht: this.querySelector('[name="nachricht"]').value || '—'
+  }
 
   try {
-    const response = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    })
-
-    if (response.ok) {
-      const card = this.closest('.form-card')
-      card.innerHTML = `
-        <div style="text-align:center;padding:48px 24px">
-          <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
-            <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
-          </div>
-          <h3 style="font-family:var(--serif);margin-bottom:12px">Vielen Dank!</h3>
-          <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
-            Ihre Anfrage wurde erfolgreich gesendet.<br>
-            Wir melden uns innerhalb von 24 Stunden.
-          </p>
+    await emailjs.send('service_ioziuvf', 'template_85bxfic', templateParams)
+    const card = this.closest('.form-card')
+    card.innerHTML = `
+      <div style="text-align:center;padding:48px 24px">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
+          <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
         </div>
-      `
-      if(typeof lucide !== 'undefined') lucide.createIcons()
-    } else {
-      btn.disabled = false
-      btn.innerHTML = originalHTML
-      if(typeof lucide !== 'undefined') lucide.createIcons()
-      alert('Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907')
-    }
+        <h3 style="font-family:var(--serif);margin-bottom:12px">Vielen Dank!</h3>
+        <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
+          Ihre Anfrage wurde erfolgreich gesendet.<br>
+          Wir melden uns innerhalb von 24 Stunden.
+        </p>
+      </div>
+    `
+    if(typeof lucide !== 'undefined') lucide.createIcons()
   } catch(err) {
     btn.disabled = false
     btn.innerHTML = originalHTML

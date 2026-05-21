@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=14">
   <link rel="icon" href="img/logo-icon.png">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
 </head>
 <body>
 
@@ -68,31 +70,28 @@
             <div class="wizard-dot pending" data-step="3">3</div>
           </div>
 
-          <form action="https://formspree.io/f/mzdwebej" method="POST" id="bewerbungForm">
-            <input type="hidden" name="_subject" value="Neue Bewerbung — KSK Farmos">
-            <input type="hidden" name="_language" value="de">
-            <input type="text" name="_gotcha" style="display:none">
+          <form data-form="schnellbewerbung" id="bewerbungForm">
             <!-- Panel 1: Persönliche Daten -->
             <div class="wizard-panel active" data-panel="1">
               <h3 data-i18n="wiz.step1">Persönliche Daten</h3>
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" data-i18n="form.vorname">Vorname</label>
-                  <input type="text" name="vorname" required data-i18n-ph="form.vorname">
+                  <input type="text" required name="vorname" data-i18n-ph="form.vorname">
                 </div>
                 <div class="form-group">
                   <label class="form-label" data-i18n="form.nachname">Nachname</label>
-                  <input type="text" name="nachname" required data-i18n-ph="form.nachname">
+                  <input type="text" required name="nachname" data-i18n-ph="form.nachname">
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group">
                   <label class="form-label" data-i18n="form.email">E-Mail</label>
-                  <input type="email" name="email" required data-i18n-ph="form.email">
+                  <input type="email" required name="email" data-i18n-ph="form.email">
                 </div>
                 <div class="form-group">
                   <label class="form-label" data-i18n="form.telefon">Telefon</label>
-                  <input type="tel" name="telefon" required data-i18n-ph="form.telefon">
+                  <input type="tel" required name="telefon" data-i18n-ph="form.telefon">
                 </div>
               </div>
               <button type="button" class="btn btn-primary btn-lg" onclick="wizardNext(2)" data-i18n="wiz.weiter">Weiter <i data-lucide="arrow-right"></i></button>
@@ -140,14 +139,14 @@
               <h3 data-i18n="wiz.step3">Nachricht</h3>
               <div class="form-group">
                 <label class="form-label" data-i18n="wiz.msg">Möchten Sie uns etwas mitteilen? (optional)</label>
-                <textarea name="nachricht" rows="5" data-i18n-ph="wiz.msg.ph"></textarea>
+                <textarea rows="5" name="nachricht" data-i18n-ph="wiz.msg.ph"></textarea>
               </div>
               <div class="form-group">
                 <label class="form-label" data-i18n="wiz.cv">Lebenslauf anhängen (optional)</label>
-                <input type="file" name="lebenslauf" accept=".pdf,.doc,.docx" style="padding: 10px;">
+                <input type="file" accept=".pdf,.doc,.docx" style="padding: 10px;">
               </div>
               <div class="form-group">
-                <label class="form-check"><input type="checkbox" name="datenschutz" value="ja" required> <span data-i18n="form.datenschutz">Ich habe die Datenschutzerklärung gelesen und stimme ihr zu.</span></label>
+                <label class="form-check"><input type="checkbox" required> <span data-i18n="form.datenschutz">Ich habe die Datenschutzerklärung gelesen und stimme ihr zu.</span></label>
               </div>
               <div class="hero-actions">
                 <button type="button" class="btn btn-outline" onclick="wizardNext(2)" data-i18n="wiz.zurueck">Zurück</button>
@@ -192,37 +191,37 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
   const btn = this.querySelector('[type="submit"]')
   const originalHTML = btn.innerHTML
   btn.disabled = true
-  btn.innerHTML = 'Wird gesendet... <i data-lucide="loader"></i>'
-  if(typeof lucide !== 'undefined') lucide.createIcons()
+  btn.innerHTML = 'Wird gesendet...'
+
+  const templateParams = {
+    vorname: this.querySelector('[name="vorname"]').value,
+    nachname: this.querySelector('[name="nachname"]').value,
+    email: this.querySelector('[name="email"]').value,
+    telefon: this.querySelector('[name="telefon"]').value,
+    qualifikation: this.querySelector('[name="qualifikation"]')?.value || '—',
+    erfahrung: this.querySelector('[name="erfahrung"]')?.value || '—',
+    fuehrerschein: this.querySelector('[name="fuehrerschein"]')?.value || '—',
+    arbeitszeit: this.querySelector('[name="arbeitszeit"]')?.value || '—',
+    nachricht: this.querySelector('[name="nachricht"]')?.value || '—'
+  }
 
   try {
-    const response = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    })
-
-    if (response.ok) {
-      const card = this.closest('.form-card')
-      card.innerHTML = `
-        <div style="text-align:center;padding:48px 24px">
-          <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
-            <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
-          </div>
-          <h3 style="font-family:var(--serif);margin-bottom:12px">Bewerbung eingegangen!</h3>
-          <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
-            Vielen Dank für Ihre Bewerbung!<br>
-            Wir melden uns innerhalb von 24 Stunden.
-          </p>
+    await emailjs.send('service_ioziuvf', 'template_hmexk4f', templateParams)
+    const card = this.closest('.form-card')
+    card.innerHTML = `
+      <div style="text-align:center;padding:48px 24px">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
+          <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
         </div>
-      `
-      if(typeof lucide !== 'undefined') lucide.createIcons()
-    } else {
-      btn.disabled = false
-      btn.innerHTML = originalHTML
-      if(typeof lucide !== 'undefined') lucide.createIcons()
-      alert('Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907')
-    }
+        <h3 style="font-family:var(--serif);margin-bottom:12px">Bewerbung eingegangen!</h3>
+        <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
+          Vielen Dank, <strong>${templateParams.vorname}</strong>!<br>
+          Wir melden uns innerhalb von 24 Stunden unter<br>
+          <strong>${templateParams.telefon}</strong>.
+        </p>
+      </div>
+    `
+    if(typeof lucide !== 'undefined') lucide.createIcons()
   } catch(err) {
     btn.disabled = false
     btn.innerHTML = originalHTML
