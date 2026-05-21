@@ -7,7 +7,7 @@
 Не трогай дизайн, стили, структуру страниц. Только формы.
 
 ## ДАННЫЕ EMAILJS
-- Service ID: service_ioziuvf
+- Service ID: service_h12u11k
 - Template пациенты: template_85bxfic
 - Template медработники: template_hmexk4f
 - Public Key: FvtHmqXFbDTGygZuv
@@ -62,7 +62,7 @@ document.getElementById('beratungForm').addEventListener('submit', async functio
   }
 
   try {
-    await emailjs.send('service_ioziuvf', 'template_85bxfic', templateParams)
+    await emailjs.send('service_h12u11k', 'template_85bxfic', templateParams)
     const card = this.closest('.form-card')
     card.innerHTML = `
       <div style="text-align:center;padding:48px 24px">
@@ -126,7 +126,7 @@ document.getElementById('kontaktForm').addEventListener('submit', async function
   }
 
   try {
-    await emailjs.send('service_ioziuvf', 'template_85bxfic', templateParams)
+    await emailjs.send('service_h12u11k', 'template_85bxfic', templateParams)
     const card = this.closest('.form-card')
     card.innerHTML = `
       <div style="text-align:center;padding:48px 24px">
@@ -191,7 +191,7 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
   }
 
   try {
-    await emailjs.send('service_ioziuvf', 'template_hmexk4f', templateParams)
+    await emailjs.send('service_h12u11k', 'template_hmexk4f', templateParams)
     const card = this.closest('.form-card')
     card.innerHTML = `
       <div style="text-align:center;padding:48px 24px">
