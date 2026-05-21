@@ -165,7 +165,9 @@ document.getElementById('beratungForm').addEventListener('submit', async functio
     btn.disabled = false
     btn.innerHTML = originalHTML
     if(typeof lucide !== 'undefined') lucide.createIcons()
-    alert('Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907')
+    console.error('EmailJS Error:', err)
+    const errMsg = err && err.text ? ` (${err.text})` : ''
+    alert('Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907' + errMsg)
   }
 })
 </script>
