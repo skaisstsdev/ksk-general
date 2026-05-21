@@ -298,7 +298,8 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .hero-photo{position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--gray-100)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s var(--ease-out)}
 .hero-photo:hover img{transform:scale(1.05)}
-.page-hero{background:var(--off-white);padding:calc(var(--header-h) + 72px) 0 72px;border-bottom:1px solid var(--gray-100)}
+.page-hero{position:relative;overflow:hidden;background:var(--off-white);padding:calc(var(--header-h) + 72px) 0 72px;border-bottom:1px solid var(--gray-100)}
+.page-hero .container{position:relative;z-index:1}
 .page-hero h1{margin-bottom:var(--sp-2);max-width:700px}
 .page-hero .lead{max-width:580px;margin-top:var(--sp-2)}
 
@@ -720,6 +721,83 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   .cookie-actions{flex-direction:column}
   .cookie-actions .btn{width:100%}
 }
+
+/* ── AURORA BACKGROUND ANIMATION ────────────────────────────── */
+.aurora-container {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.aurora-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0; /* Keep it behind text/elements */
+}
+
+.aurora-bg-element {
+  --white-gradient: repeating-linear-gradient(100deg, #ffffff 0%, #ffffff 7%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 12%, #ffffff 16%);
+  --dark-gradient: repeating-linear-gradient(100deg, #0d0d18 0%, #0d0d18 7%, rgba(13, 13, 24, 0) 10%, rgba(13, 13, 24, 0) 12%, #0d0d18 16%);
+  --aurora: repeating-linear-gradient(100deg, #3b82f6 10%, #a5b4fc 15%, #93c5fd 20%, #ddd6fe 25%, #60a5fa 30%);
+
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  opacity: 0.5;
+  will-change: transform;
+  pointer-events: none;
+  
+  background-image: var(--white-gradient), var(--aurora);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
+  filter: blur(10px) invert(1);
+  
+  -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, rgba(0,0,0,0) 70%);
+  mask-image: radial-gradient(ellipse at 100% 0%, black 10%, rgba(0,0,0,0) 70%);
+}
+
+.aurora-bg-element::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--white-gradient), var(--aurora);
+  background-size: 200%, 100%;
+  background-attachment: fixed;
+  mix-blend-mode: difference;
+  animation: css-aurora 60s linear infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .aurora-bg-element {
+    background-image: var(--dark-gradient), var(--aurora);
+    filter: blur(10px) invert(0);
+  }
+  .aurora-bg-element::after {
+    background-image: var(--dark-gradient), var(--aurora);
+  }
+}
+
+.section-dark .aurora-bg-element {
+  background-image: var(--dark-gradient), var(--aurora);
+  filter: blur(10px) invert(0);
+}
+.section-dark .aurora-bg-element::after {
+  background-image: var(--dark-gradient), var(--aurora);
+}
+
+@keyframes css-aurora {
+  from {
+    background-position: 50% 50%, 50% 50%;
+  }
+  to {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
 
 
 
