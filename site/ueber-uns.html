@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=15">
+  <link rel="stylesheet" href="css/style.css?v=67">
   <link rel="icon" href="img/logo-icon.png">
 </head>
 <body>
@@ -33,38 +33,21 @@
 <main>
 
 <!-- SUB-HERO -->
-<section class="sub-hero">
-  <div class="hero-bg"></div>
+<section class="hero-cutout">
+  <div class="hero-home-photo-frame ueber-uns-hero-frame">
+    <div class="hero-home-photo-inner">
+      <img src="img/hero3.JPG" alt="Über uns" class="hero-home-photo" loading="eager">
+    </div>
+    <div class="hero-home-overlay"></div>
+  </div>
   <div class="container">
-    <div class="hero-inner">
+    <div class="hero-inner centered">
       <div class="hero-content">
         <h1 class="hero-title"><span data-i18n="ub.h1">Erfahrung und Fürsorge</span> <br><em data-i18n="ub.h1em">seit 2013</em></h1>
         <p class="hero-subtitle" data-i18n="ub.lead">Seit 2013 versorgen wir Menschen mit schweren Erkrankungen — professionell, menschlich und verlässlich.</p>
         <div class="hero-actions">
           <a href="beratung.html" class="btn btn-primary btn-lg" data-i18n="cta.beratung">Kostenlose Beratung</a>
           <a href="kontakt.html" class="btn btn-outline btn-lg" data-i18n="cta.kontakt">Kontakt aufnehmen</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-photo">
-          <img src="img/about-hero.png" alt="Team KSK Farmos GmbH &amp; Co. KG" loading="eager">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- GESCHICHTE -->
-<section class="section">
-  <div class="container">
-    <div class="grid-2 media-left sticky-media">
-      <div class="reveal-left" style="align-self: center;">
-        <span class="section-tag" data-i18n="ub.hist.tag">Unsere Geschichte</span>
-        <h2 data-i18n="ub.hist.h2">Aus Überzeugung gegründet</h2>
-        <p data-i18n="ub.hist.p1">Der ambulante Intensivpflegedienst KSK Farmos GmbH &amp; Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet — mit einem klaren Ziel: Menschen mit schweren Erkrankungen ein würdiges und selbstbestimmtes Leben zu ermöglichen.</p>
-      </div>
-      <div class="reveal-right">
-        <div class="image-box">
-          <img src="img/about-history-office.jpg" alt="Büro KSK Farmos GmbH &amp; Co. KG" loading="lazy">
         </div>
       </div>
     </div>
@@ -103,8 +86,28 @@
   </div>
 </section>
 
+<!-- GESCHICHTE -->
+<section class="section-edge-photo img-left">
+  <div class="edge-photo-frame">
+    <div class="edge-photo-inner">
+      <img src="img/about-history-office.jpg" alt="Büro KSK Farmos GmbH &amp; Co. KG" loading="lazy">
+    </div>
+    <div class="edge-photo-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="grid-2">
+      <div class="empty-column"></div>
+      <div class="reveal-right" style="align-self: center;">
+        <span class="section-tag" data-i18n="ub.hist.tag">Unsere Geschichte</span>
+        <h2 data-i18n="ub.hist.h2">Aus Überzeugung gegründet</h2>
+        <p data-i18n="ub.hist.p1">Der ambulante Intensivpflegedienst KSK Farmos GmbH &amp; Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet — mit einem klaren Ziel: Menschen mit schweren Erkrankungen ein würdiges und selbstbestimmtes Leben zu ermöglichen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TEAM -->
-<section class="section">
+<section class="section section-gray">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-tag" data-i18n="ub.team.tag">Unser Team</span>
@@ -140,7 +143,13 @@
 </section>
 
 <!-- KOOPERATIONEN -->
-<section class="section section-gray">
+<section class="section-edge-photo img-right">
+  <div class="edge-photo-frame">
+    <div class="edge-photo-inner">
+      <img src="img/about-cooperation.jpg?v=2" alt="Kooperation" loading="lazy">
+    </div>
+    <div class="edge-photo-overlay"></div>
+  </div>
   <div class="container">
     <div class="grid-2">
       <div class="reveal-left">
@@ -156,11 +165,7 @@
           <li><span class="check-icon"><i data-lucide="check"></i></span><div><span data-i18n="ub.koop.7">Sanitätshäuser</span></div></li>
         </ul>
       </div>
-      <div class="reveal-right">
-        <div class="image-box">
-          <img src="img/about-cooperation.jpg" alt="Kooperation" loading="lazy">
-        </div>
-      </div>
+      <div class="empty-column"></div>
     </div>
   </div>
 </section>
@@ -168,7 +173,7 @@
 
 
 <!-- CTA -->
-<section class="section">
+<section class="section section-gray">
   <div class="container">
     <div class="cta-card-violet -scale">
       <h2 data-i18n="cta.beratung">Kostenlose Beratung</h2>

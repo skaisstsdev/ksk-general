@@ -25,9 +25,9 @@
   "idx.tag": "Intensive Care in Northern Hesse",
   "idx.h1": "Professional care",
   "idx.h1em": "that truly matters.",
-  "idx.lead": "Home-based intensive care at your place or in cooperating residential projects in the Kassel and Waldeck-Frankenberg area — 24 hours a day, 7 days a week.",
+  "idx.lead": "Outpatient intensive care at your home or in our facility in Kassel — 24 hours a day, 7 days a week.",
   "idx.cta1": "Free Consultation",
-  "idx.cta2": "Join the team",
+  "idx.cta2": "For Caregivers",
   "idx.badge": "Since 2013",
   "idx.badge.sub": "Specialized in Northern Hesse",
   "idx.accent": "Since 2013, we have been caring for people with serious medical conditions. With a team of registered specialists, we guarantee 24/7 care at the highest level — in the patient's own home or in cooperating residential projects in the Kassel and Waldeck-Frankenberg area.",
@@ -401,5 +401,8 @@
   "kar.tag.vz": "Full-time",
   "idx.diag6": "Dementia/Alzheimer's",
   "idx.diag6.d": "Patience and appreciative communication",
-  "cta.leistungen": "All Services"
+  "cta.leistungen": "All Services",
+  "idx.feat1": "With heart and experience",
+  "idx.feat2": "Reliable & round the clock",
+  "idx.feat3": "Best cared for at home"
 }

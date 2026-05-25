@@ -25,9 +25,9 @@
   "idx.tag": "Terapie Intensivă în Nordul Hessei",
   "idx.h1": "Îngrijire profesională,",
   "idx.h1em": "care contează.",
-  "idx.lead": "Îngrijire medicală intensivă la domiciliul dumneavoastră sau în proiecte rezidențiale partenere din regiunea Kassel și Waldeck-Frankenberg — 24 de ore pe zi, 7 zile pe săptămână.",
+  "idx.lead": "Îngrijire intensivă ambulatorie la domiciliu sau în unitatea noastră din Kassel — 24 de ore pe zi, 7 zile pe săptămână.",
   "idx.cta1": "Consultație Gratuită",
-  "idx.cta2": "Fii parte din echipă",
+  "idx.cta2": "Pentru asistenți medicali",
   "idx.badge": "Din 2013",
   "idx.badge.sub": "Specialiști în Nordul Hessei",
   "idx.accent": "Din 2013, oferim îngrijire persoanelor cu afecțiuni grave. Cu o echipă de specialiști calificați, garantăm asistență medicală 24/7 la cel mai înalt nivel — la domiciliu sau în proiecte rezidențiale partenere din regiunea Kassel și Waldeck-Frankenberg.",
@@ -401,5 +401,8 @@
   "kar.tag.vz": "Normă întreagă",
   "idx.diag6": "Demență / Alzheimer",
   "idx.diag6.d": "Răbdare și comunicare apreciativă",
-  "cta.leistungen": "Toate serviciile"
+  "cta.leistungen": "Toate serviciile",
+  "idx.feat1": "Cu suflet și experiență",
+  "idx.feat2": "De încredere și non-stop",
+  "idx.feat3": "Cea mai bună îngrijire acasă"
 }

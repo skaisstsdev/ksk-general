@@ -25,9 +25,9 @@
   "idx.tag": "Intensivpflege in Nordhessen",
   "idx.h1": "Professionelle Pflege,",
   "idx.h1em": "die ankommt.",
-  "idx.lead": "Ambulante Intensivpflege bei Ihnen zu Hause oder in kooperierenden Wohnprojekten im Raum Kassel und Waldeck-Frankenberg — 24 Stunden am Tag, 7 Tage die Woche.",
+  "idx.lead": "Ambulante Intensivpflege bei Ihnen zu Hause oder in unserer Einrichtung in Kassel — 24 Stunden am Tag, 7 Tage die Woche.",
   "idx.cta1": "Kostenlose Beratung",
-  "idx.cta2": "Teil des Teams werden",
+  "idx.cta2": "Für Pflegekräfte",
   "idx.badge": "Seit 2013",
   "idx.badge.sub": "Spezialisiert in Nordhessen",
   "idx.accent": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen. Mit einem Team aus examinierten Fachkräften garantieren wir eine 24/7-Versorgung auf höchstem Niveau — im eigenen Zuhause oder in kooperierenden Wohnprojekten im Raum Kassel und Waldeck-Frankenberg.",
@@ -286,7 +286,7 @@
   "mehr.erfahren": "Mehr erfahren",
   "erstgespraech": "Erstgespräch anfragen",
   "ub.tag": "Über uns",
-  "ub.h1": "Erfahrung und Fürsorge",
+  "ub.h1": "Erfahrung <br>und Fürsorge",
   "ub.h1em": "seit 2013",
   "ub.lead": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen — professionell, menschlich und zuverlässig.",
   "ub.hist.tag": "Unsere Geschichte",
@@ -400,5 +400,8 @@
   "wiz.step2": "Qualifikation",
   "wiz.step3": "Nachricht",
   "wiz.weiter": "Weiter",
-  "wiz.zurueck": "Zurück"
+  "wiz.zurueck": "Zurück",
+  "idx.feat1": "Mit Herz und Erfahrung",
+  "idx.feat2": "Verlässlich & rund um die Uhr",
+  "idx.feat3": "Zuhause bestens versorgt"
 }

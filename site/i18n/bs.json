@@ -25,9 +25,9 @@
   "idx.tag": "Intenzivna njega u Sjevernom Hessenu",
   "idx.h1": "Profesionalna njega",
   "idx.h1em": "koja čini razliku.",
-  "idx.lead": "Ambulantna intenzivna njega u vašem domu ili u partnerskim stambenim projektima na području Kassela i Waldeck-Frankenberga — 24 sata dnevno, 7 dana u sedmici.",
+  "idx.lead": "Ambulantna intenzivna njega u vašem domu ili u našoj ustanovi u Kasselu — 24 sata dnevno, 7 dana u sedmici.",
   "idx.cta1": "Besplatne konsultacije",
-  "idx.cta2": "Postanite dio tima",
+  "idx.cta2": "Za njegovatelje",
   "idx.badge": "Od 2013. godine",
   "idx.badge.sub": "Specijalisti u Sjevernom Hessenu",
   "idx.accent": "Od 2013. godine brinemo o osobama sa teškim bolestima. Sa timom kvalifikovanih stručnjaka garantujemo 24/7 njegu na najvišem nivou — u sopstvenom domu ili u partnerskim stambenim projektima na području Kassela i Waldeck-Frankenberga.",
@@ -401,5 +401,8 @@
   "kar.tag.vz": "Puno radno vrijeme",
   "idx.diag6": "Demencija / Alzheimer",
   "idx.diag6.d": "Strpljenje i komunikacija s poštovanjem",
-  "cta.leistungen": "Sve usluge"
+  "cta.leistungen": "Sve usluge",
+  "idx.feat1": "Sa srcem i iskustvom",
+  "idx.feat2": "Pouzdano i 24 sata dnevno",
+  "idx.feat3": "Najbolja njega kod kuće"
 }

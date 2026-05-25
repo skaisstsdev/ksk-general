@@ -25,9 +25,9 @@
   "idx.tag": "Intensywna Opieka w Północnej Hesji",
   "idx.h1": "Profesjonalna opieka,",
   "idx.h1em": "która ma znaczenie.",
-  "idx.lead": "Ambulatoryjna opieka intensywna w Twoim domu lub w partnerskich projektach mieszkaniowych w regionie Kassel i Waldeck-Frankenberg — 24 godziny na dobę, 7 dni w tygodniu.",
+  "idx.lead": "Ambulatoryjna opieka intensywna w Twoim domu lub w naszej placówce w Kassel — 24 godziny na dobę, 7 dni w tygodniu.",
   "idx.cta1": "Bezpłatna Konsultacja",
-  "idx.cta2": "Dołącz do zespołu",
+  "idx.cta2": "Dla opiekunów",
   "idx.badge": "Od 2013 roku",
   "idx.badge.sub": "Specjaliści w Północnej Hesji",
   "idx.accent": "Od 2013 roku opiekujemy się osobami z ciężkimi schorzeniami. Z zespołem wykwalifikowanych specjalistów gwarantujemy całodobową opiekę 24/7 na najwyższym poziomie — w ich własnych domach lub w partnerskich projektach mieszkaniowych w regionie Kassel i Waldeck-Frankenberg.",
@@ -401,5 +401,8 @@
   "kar.tag.vz": "Pełny etat",
   "idx.diag6": "Demencja / Alzheimer",
   "idx.diag6.d": "Cierpliwość i komunikacja pełna szacunku",
-  "cta.leistungen": "Wszystkie usługi"
+  "cta.leistungen": "Wszystkie usługi",
+  "idx.feat1": "Z sercem i doświadczeniem",
+  "idx.feat2": "Niezawodnie i przez całą dobę",
+  "idx.feat3": "Najlepsza opieka w domu"
 }

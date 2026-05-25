@@ -25,9 +25,9 @@
   "idx.tag": "Kuzey Hessen'de Yoğun Bakım",
   "idx.h1": "Gerçekten fark yaratan",
   "idx.h1em": "profesyonel bakım.",
-  "idx.lead": "Kendi evinizde veya Kassel ile Waldeck-Frankenberg bölgesindeki anlaşmalı konut projelerinde ayakta yoğun bakım hizmeti — haftanın 7 günü 24 saat kesintisiz.",
+  "idx.lead": "Kendi evinizde veya Kassel'deki merkezimizde ayakta yoğun bakım hizmeti — haftanın 7 günü 24 saat kesintisiz.",
   "idx.cta1": "Ücretsiz Danışmanlık",
-  "idx.cta2": "Ekibe katıl",
+  "idx.cta2": "Bakıcılar için",
   "idx.badge": "2013'ten Beri",
   "idx.badge.sub": "Kuzey Hessen'de Uzman",
   "idx.accent": "2013 yılından bu yana ağır hastalığı olan bireylere bakım sunuyoruz. Uzman ve diplomalı kadromuzla, ev ortamında veya Kassel ile Waldeck-Frankenberg bölgesindeki anlaşmalı konut projelerinde en yüksek seviyede 7/24 bakım garantisi veriyoruz.",
@@ -401,5 +401,8 @@
   "kar.tag.vz": "Tam Zamanlı",
   "idx.diag6": "Demans / Alzheimer",
   "idx.diag6.d": "Sabır ve saygılı iletişim",
-  "cta.leistungen": "Tüm Hizmetler"
+  "cta.leistungen": "Tüm Hizmetler",
+  "idx.feat1": "Sevgi и tecrübeyle",
+  "idx.feat2": "Güvenilir ve günün her saati",
+  "idx.feat3": "Evde en iyi bakım"
 }
