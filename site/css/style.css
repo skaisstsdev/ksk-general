@@ -83,6 +83,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--pad-x)}
 .section{padding:var(--section-gap) 0}
 .section-gray{background:var(--gray-50)}
+.section-white{background:#ffffff}
 .section-dark{background:var(--gray-900);color:white}
 .section-dark h2,.section-dark h3,.section-dark h4{color:white}
 .section-dark p{color:rgba(255,255,255,0.65)}
