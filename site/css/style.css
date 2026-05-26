@@ -1062,3 +1062,50 @@ html[dir="rtl"] .hero-home-photo {
   margin: 0.5rem 0 1rem 0;
   gap: 0.8rem;
 }
+
+/* ── WIDE-SCREEN PROPORTIONAL SCALING ─────────────────────────
+   Фото: снимаем max-width, растёт с 66vw на любом экране.
+   Текст: transform: scale() — визуально увеличивает всё,
+   НЕ меняя позицию и не сдвигая блоки.
+   Ниже 1440px — ничего не меняется.
+   ──────────────────────────────────────────────────────────── */
+@media (min-width: 993px) {
+  .hero-home-photo-frame {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    max-width: none;
+  }
+  .ueber-uns-hero-frame {
+    aspect-ratio: auto;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1441px) {
+  .hero-cutout .hero-content {
+    transform-origin: left center;
+  }
+  html[dir="rtl"] .hero-cutout .hero-content {
+    transform-origin: right center;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-cutout .hero-content {
+    transform: scale(1.1);
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-cutout .hero-content {
+    transform: scale(1.3);
+  }
+}
+
+@media (min-width: 2560px) {
+  .hero-cutout .hero-content {
+    transform: scale(1.5);
+  }
+}
