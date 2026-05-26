@@ -597,25 +597,37 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .reveal-d4 { transition-delay: 0.26s; }
 .reveal-d5 { transition-delay: 0.33s; }
 
-/* Заголовки — только fade + tiny translateY, без scale */
+/* Заголовки — только fade + translateY, без scale */
 h1.reveal.visible,
 h2.reveal.visible,
-.hero-title.visible,
-.section-header.visible h2 {
+h3.reveal.visible,
+.section-header.reveal.visible h2 {
   opacity: 1;
   transform: translateY(0);
 }
 
 h1.reveal,
 h2.reveal,
-.hero-title,
-.section-header h2 {
-  opacity: 0;
+h3.reveal,
+.section-header.reveal h2 {
   transform: translateY(20px);
   transition:
     opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero элементы — CSS-управляемая анимация при загрузке */
+.hero-enter {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+}
+.hero-enter.hero-entered {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Отключить анимации для пользователей с reduced motion */
@@ -631,11 +643,11 @@ h2.reveal,
   .reveal-d5,
   h1.reveal,
   h2.reveal,
-  .hero-title,
-  .section-header h2 {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  h3.reveal,
+  .hero-enter {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

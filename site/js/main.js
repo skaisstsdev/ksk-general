@@ -593,25 +593,96 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── UNIFIED SCROLL ANIMATIONS ──────────────────────────────────
+
+/**
+ * Автоматически находит ВСЕ анимируемые элементы на странице
+ * и добавляет им нужные классы + наблюдает через IntersectionObserver.
+ *
+ * Принципы:
+ *  — Заголовки (h1, h2) → .reveal (fade-in снизу, без scale)
+ *  — Секции, карточки, блоки → .reveal (translateY + scale)
+ *  — Дети гридов → .reveal-d1 … d5 (stagger)
+ *  — Никакого translateX
+ *  — GPU-only: opacity + transform
+ *  — Один раз появился — больше не анимируется
+ */
 function initRevealAnimations() {
-  const elements = document.querySelectorAll(
-    '.reveal, .reveal-left, .reveal-right, .reveal-scale, ' +
-    '.reveal-d1, .reveal-d2, .reveal-d3, .reveal-d4, .reveal-d5, ' +
-    'h1, h2, .hero-title, .section-header'
+
+  // ── 1. Автоматически добавляем .reveal ко всем блокам ──────
+  const autoRevealSelectors = [
+    '.section-header',
+    '.editorial-accent',
+    '.card',
+    '.card-img',
+    '.process-steps',
+    '.process-step',
+    '.form-card',
+    '.dual-cta',
+    '.cta-card-violet',
+    '.faq-cats',
+    '.faq-list',
+    '.vacancy-list',
+    '.review-cards',
+    '.kosten-list',
+    '.leitbild-row',
+    '.benefit-grid',
+    '.check-list',
+    '.quote-block',
+    '.stats-row',
+    '.contact-cards',
+    '.gallery-scroll',
+    '.diagnosen-row',
+    '.anchor-nav',
+    '.image-box',
+    '.grid-2 > div:not(.edge-photo-frame)',
+    '.section > .container > p',
+    '.section > .container > .lead',
+  ];
+
+  document.querySelectorAll(autoRevealSelectors.join(', ')).forEach(el => {
+    // Не трогать элементы внутри hero
+    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero')) return;
+    // Не трогать если уже есть reveal-класс
+    if (el.classList.contains('reveal') ||
+        el.classList.contains('reveal-scale') ||
+        /reveal-d\d/.test(el.className)) return;
+    el.classList.add('reveal');
+  });
+
+  // ── 2. Заголовки — fade снизу (без scale, CSS обеспечит) ───
+  document.querySelectorAll('h1, h2, h3').forEach(el => {
+    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero, .card, .process-step, .faq-question, .kosten-item, .leitbild-item, .benefit-item, .footer, .mega-panel, .cookie-banner')) return;
+    if (el.classList.contains('reveal') || /reveal-d\d/.test(el.className)) return;
+    el.classList.add('reveal');
+  });
+
+  // ── 3. Stagger: дети гридов получают задержки ──────────────
+  const staggerContainers = document.querySelectorAll(
+    '.grid-3, .grid-4, .flex-grid-3, .process-steps, .leitbild-row, .benefit-grid, .kosten-list, .review-cards, .contact-cards, .stats-row, .faq-top-cards'
   );
 
-  // Добавь класс reveal к заголовкам которые его не имеют
-  document.querySelectorAll('h1, h2').forEach(el => {
-    if (!el.closest('.hero-title') && !el.classList.contains('reveal')) {
-      el.classList.add('reveal');
-    }
+  staggerContainers.forEach(container => {
+    if (container.closest('.hero, .hero-cutout, .sub-hero, .page-hero')) return;
+    const children = Array.from(container.children);
+    children.forEach((child, i) => {
+      // Убираем старый reveal если есть, добавляем delay-класс
+      const delayClass = `reveal-d${Math.min(i + 1, 5)}`;
+      if (!child.classList.contains(delayClass) && !/reveal-d\d/.test(child.className)) {
+        child.classList.add(delayClass);
+      }
+    });
   });
+
+  // ── 4. Единый IntersectionObserver ─────────────────────────
+  const allRevealEls = document.querySelectorAll(
+    '.reveal, .reveal-scale, ' +
+    '.reveal-d1, .reveal-d2, .reveal-d3, .reveal-d4, .reveal-d5'
+  );
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Отписываемся после первого появления — анимация только один раз
         observer.unobserve(entry.target);
       }
     });
@@ -620,38 +691,40 @@ function initRevealAnimations() {
     rootMargin: '0px 0px -40px 0px'
   });
 
-  elements.forEach(el => {
-    observer.observe(el);
-  });
+  allRevealEls.forEach(el => observer.observe(el));
 }
 
-// Hero элементы показываем сразу при загрузке без скролла
+// ── HERO ANIMATION (CSS transition-delay, без setTimeout) ──────
 function initHeroAnimation() {
-  const heroElements = document.querySelectorAll(
-    '.hero-content > *, .hero-title, .hero-subtitle, .hero-overline, .hero-actions, .hero-badge'
+  const heroContent = document.querySelector('.hero-content, .hero-cutout .hero-content');
+  if (!heroContent) return;
+
+  const heroElements = heroContent.querySelectorAll(
+    '.hero-overline, .hero-title, .hero-subtitle, .hero-actions, .hero-badge'
   );
 
+  // Добавляем класс hero-reveal для CSS-управляемой анимации
   heroElements.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s`;
+    el.classList.add('hero-enter');
+    el.style.transitionDelay = `${i * 0.12}s`;
+  });
 
+  // Через один кадр запускаем анимацию добавлением класса
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
+      heroElements.forEach(el => {
+        el.classList.add('hero-entered');
       });
     });
   });
 }
 
-// Плавный скролл
+// ── SMOOTH SCROLL ──────────────────────────────────────────────
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
       if (href === '#') return;
-      // Skip language switcher links
       if (this.closest('.lang-float')) return;
       const target = document.querySelector(href);
       if (target) {
@@ -662,11 +735,9 @@ function initSmoothScroll() {
   });
 }
 
-// Запуск после загрузки DOM
+// ── ЗАПУСК ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initHeroAnimation();
   initRevealAnimations();
   initSmoothScroll();
 });
-
-
