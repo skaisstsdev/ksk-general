@@ -599,7 +599,11 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .kosten-item .kosten-icon svg{width:26px;height:26px;stroke-width:1.5}
 .kosten-item h3{font-family:var(--sans);font-size:1.1rem;font-weight:600;margin-bottom:10px}
 .kosten-item p{font-size:0.95rem;color:var(--text-secondary);line-height:1.75}
-@media (max-width:768px){.kosten-item{flex-direction:column;gap:var(--sp-3)}}
+@media (max-width:768px){
+  .kosten-item{flex-direction:column;gap:var(--sp-3)}
+  .kosten-item .kosten-icon{align-self:center}
+  .kosten-item h3{text-align:center}
+}
 .fort-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .fort-grid.center{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 .fort-grid.center .fort-item{flex:0 1 calc(25% - 11px);min-width:250px}
