@@ -1116,3 +1116,44 @@ html[dir="rtl"] .hero-home-photo {
     transform: scale(1.5);
   }
 }
+
+/* ── SLIDER NAVIGATION ───────────────────────────────────────── */
+.slider-container {
+  position: relative;
+  width: 100%;
+}
+.slider-nav {
+  display: none;
+}
+@media (max-width: 992px) {
+  .slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .slider-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    color: var(--violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--t-fast) var(--ease-out);
+    padding: 0;
+  }
+  .slider-arrow:active {
+    transform: scale(0.92);
+    background: var(--gray-50);
+  }
+  .slider-arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2;
+  }
+}

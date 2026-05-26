@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=76">
+  <link rel="stylesheet" href="css/style.css?v=77">
   <link rel="icon" href="img/logo-icon.png">
 </head>
 <body>
@@ -113,30 +113,36 @@
       <span class="section-tag" data-i18n="ub.team.tag">Unser Team</span>
       <h2 data-i18n="ub.team.h2">Die Menschen hinter KSK Farmos GmbH &amp; Co. KG</h2>
     </div>
-    <div class="grid-4 snap">
-      <div class="card">
-        <div class="card-icon"><i data-lucide="briefcase"></i></div>
-        <h3>Viktor Beresnev</h3>
-        <p data-i18n="ub.team0.role">Geschäftsführer</p>
-        <div data-i18n="ub.team0.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Leitung und Organisation des Unternehmens<br>Finanz- und Liquiditätsplanung</div>
+    <div class="slider-container">
+      <div class="grid-4 snap" id="teamGrid">
+        <div class="card">
+          <div class="card-icon"><i data-lucide="briefcase"></i></div>
+          <h3>Viktor Beresnev</h3>
+          <p data-i18n="ub.team0.role">Geschäftsführer</p>
+          <div data-i18n="ub.team0.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Leitung und Organisation des Unternehmens<br>Finanz- und Liquiditätsplanung</div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i data-lucide="shield-check"></i></div>
+          <h3>Olga Korp</h3>
+          <p data-i18n="ub.team1.role">Pflegedienstleitung (PDL)</p>
+          <div data-i18n="ub.team1.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Pflegeexperte für außerklinische Beatmung<br>direkte Ansprechpartnerin für Angehörige<br>Verantwortlich für die fachliche Leitung und Qualitätssicherung aller Pflegemaßnahmen.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i data-lucide="heart-handshake"></i></div>
+          <h3>Lidia Zimmermann</h3>
+          <p data-i18n="ub.team2.role">Stellvertretende PDL</p>
+          <div data-i18n="ub.team2.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Pflegeexperte für außerklinische Beatmung<br>Hygienebeauftragte<br>Koordination der Pflegeteams.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i data-lucide="users"></i></div>
+          <h3 data-i18n="ub.team3.name">Unser Pflegeteam</h3>
+          <p data-i18n="ub.team3.p">Pflegefachkräfte für außerklinische Beatmung</p>
+          <div data-i18n="ub.team3.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Rund 30 Mitarbeiter — qualifiziert, empathisch und zuverlässig im Einsatz.</div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon"><i data-lucide="shield-check"></i></div>
-        <h3>Olga Korp</h3>
-        <p data-i18n="ub.team1.role">Pflegedienstleitung (PDL)</p>
-        <div data-i18n="ub.team1.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Pflegeexperte für außerklinische Beatmung<br>direkte Ansprechpartnerin für Angehörige<br>Verantwortlich für die fachliche Leitung und Qualitätssicherung aller Pflegemaßnahmen.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i data-lucide="heart-handshake"></i></div>
-        <h3>Lidia Zimmermann</h3>
-        <p data-i18n="ub.team2.role">Stellvertretende PDL</p>
-        <div data-i18n="ub.team2.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Pflegeexperte für außerklinische Beatmung<br>Hygienebeauftragte<br>Koordination der Pflegeteams.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon"><i data-lucide="users"></i></div>
-        <h3 data-i18n="ub.team3.name">Unser Pflegeteam</h3>
-        <p data-i18n="ub.team3.p">Pflegefachkräfte für außerklinische Beatmung</p>
-        <div data-i18n="ub.team3.desc" style="margin-top:8px;font-size:0.88rem;line-height:1.5;">Rund 30 Mitarbeiter — qualifiziert, empathisch und zuverlässig im Einsatz.</div>
+      <div class="slider-nav">
+        <button class="slider-arrow prev" onclick="document.getElementById('teamGrid').scrollBy({left: -280, behavior: 'smooth'})" aria-label="Vorheriges"><i data-lucide="chevron-left"></i></button>
+        <button class="slider-arrow next" onclick="document.getElementById('teamGrid').scrollBy({left: 280, behavior: 'smooth'})" aria-label="Nächstes"><i data-lucide="chevron-right"></i></button>
       </div>
     </div>
   </div>
