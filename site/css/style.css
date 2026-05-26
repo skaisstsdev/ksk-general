@@ -1203,3 +1203,52 @@ html[dir="rtl"] .hero-home-photo {
   }
 }
 
+/* ── PREVENT MOBILE ZOOM ON INPUT FOCUS ───────────────────────── */
+@media (max-width: 992px) {
+  .form-group input:not([type="checkbox"]):not([type="radio"]),
+  .form-group select,
+  .form-group textarea,
+  .faq-search {
+    font-size: 16px !important;
+  }
+}
+
+/* ── FORM VALIDATION & ALERTS ────────────────────────────────── */
+.form-alert {
+  padding: 14px 18px;
+  border-radius: var(--r-md);
+  margin-bottom: var(--sp-4);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: formAlertSlideIn var(--t-base) var(--ease-out);
+}
+@keyframes formAlertSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.form-alert-error {
+  background: #fdf2f2;
+  color: #9b1c1c;
+  border: 1px solid #fbd5d5;
+}
+.form-alert-warning {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+.form-alert-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.form-group input.is-invalid,
+.form-group select.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #ef4444 !important;
+  background: #fdf2f2 !important;
+}
+
+

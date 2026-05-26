@@ -386,8 +386,82 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // ── 12. Wizard form (karriere.html) ───────────────────
+  function validatePanel(panelNum) {
+    const panel = document.querySelector(`[data-panel="${panelNum}"]`);
+    if (!panel) return true;
+    
+    const inputs = panel.querySelectorAll('input[required], select[required], textarea[required], select');
+    let isValid = true;
+    let firstInvalid = null;
+    
+    // Remove any existing alerts
+    const existingAlert = panel.querySelector('.form-alert');
+    if (existingAlert) existingAlert.remove();
+    
+    inputs.forEach(input => {
+      input.classList.remove('is-invalid');
+      
+      let isFieldValid = true;
+      if (input.tagName === 'SELECT' && input.name !== 'fuehrerschein' && input.value === '') {
+        isFieldValid = false;
+      } else if (!input.checkValidity()) {
+        isFieldValid = false;
+      }
+      
+      if (!isFieldValid) {
+        isValid = false;
+        input.classList.add('is-invalid');
+        if (!firstInvalid) firstInvalid = input;
+      }
+    });
+    
+    if (!isValid) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'form-alert form-alert-warning';
+      
+      const lang = document.documentElement.lang || 'de';
+      let msg = 'Bitte füllen Sie alle erforderlichen Felder aus.';
+      if (lang === 'ru') msg = 'Пожалуйста, заполните все обязательные поля.';
+      if (lang === 'en') msg = 'Please fill in all required fields.';
+      
+      alertDiv.innerHTML = `
+        <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>${msg}</div>
+      `;
+      
+      const title = panel.querySelector('h3');
+      if (title) {
+        title.parentNode.insertBefore(alertDiv, title.nextSibling);
+      } else {
+        panel.insertBefore(alertDiv, panel.firstChild);
+      }
+      
+      if (firstInvalid) firstInvalid.focus();
+    }
+    
+    return isValid;
+  }
+
+  // ── 12. Wizard form (karriere.html / schnellbewerbung.html) ───────────────────
   window.wizardNext = function(step) {
+    const currentPanel = document.querySelector('.wizard-panel.active');
+    const currentStep = currentPanel ? parseInt(currentPanel.dataset.panel) : 1;
+    
+    if (step > currentStep) {
+      if (!validatePanel(currentStep)) {
+        return;
+      }
+    }
+    
+    // Clear alerts on next panel
+    const targetPanel = document.querySelector(`[data-panel="${step}"]`);
+    if (targetPanel) {
+      const existingAlert = targetPanel.querySelector('.form-alert');
+      if (existingAlert) existingAlert.remove();
+    }
+
     document.querySelectorAll('.wizard-panel').forEach(p => {
       p.classList.remove('active');
     });
@@ -407,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (typeof lucide !== 'undefined') lucide.createIcons();
   };
+
 
   // ── 13. FAQ Search ────────────────────────────────────
   const faqSearch = document.getElementById('faqSearch');

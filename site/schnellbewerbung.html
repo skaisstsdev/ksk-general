@@ -181,13 +181,43 @@
 
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="js/main.js?v=3.5"></script>
+<script src="js/main.js?v=3.6"></script>
   <!-- KSK Chat Widget -->
-  <link rel="stylesheet" href="css/chat-widget.css?v=3">
+  <link rel="stylesheet" href="css/chat-widget.css?v=4">
   <script src="js/chat-widget.js?v=2"></script>
 <script>
 document.getElementById('bewerbungForm').addEventListener('submit', async function(e) {
   e.preventDefault()
+
+  const panel = this.querySelector('[data-panel="3"]');
+  const existingAlert = panel.querySelector('.form-alert');
+  if (existingAlert) existingAlert.remove();
+
+  if (!this.checkValidity()) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'form-alert form-alert-warning';
+    
+    const lang = document.documentElement.lang || 'de';
+    let msg = 'Bitte akzeptieren Sie die Datenschutzerklärung.';
+    if (lang === 'ru') msg = 'Пожалуйста, примите политику конфиденциальности.';
+    if (lang === 'en') msg = 'Please accept the privacy policy.';
+    
+    alertDiv.innerHTML = `
+      <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>${msg}</div>
+    `;
+    
+    const title = panel.querySelector('h3');
+    if (title) {
+      title.parentNode.insertBefore(alertDiv, title.nextSibling);
+    } else {
+      panel.insertBefore(alertDiv, panel.firstChild);
+    }
+    return;
+  }
+
   const btn = this.querySelector('[type="submit"]')
   const originalHTML = btn.innerHTML
   btn.disabled = true
@@ -227,8 +257,28 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
     btn.innerHTML = originalHTML
     if(typeof lucide !== 'undefined') lucide.createIcons()
     console.error('EmailJS Error:', err)
-    const errMsg = err && err.text ? ` (${err.text})` : ''
-    alert('Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907' + errMsg)
+    
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'form-alert form-alert-error';
+    
+    const lang = document.documentElement.lang || 'de';
+    let msg = 'Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907';
+    if (lang === 'ru') msg = 'Ошибка отправки. Пожалуйста, позвоните нам: 05693 / 9189907';
+    if (lang === 'en') msg = 'Error sending message. Please call us: 05693 / 9189907';
+    
+    alertDiv.innerHTML = `
+      <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <octagon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>${msg}</div>
+    `;
+    
+    const title = panel.querySelector('h3');
+    if (title) {
+      title.parentNode.insertBefore(alertDiv, title.nextSibling);
+    } else {
+      panel.insertBefore(alertDiv, panel.firstChild);
+    }
   }
 })
 </script>
