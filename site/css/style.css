@@ -667,6 +667,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .footer-grid{grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,48px)}
   .process-steps{grid-template-columns:1fr}.process-steps::before{display:none}
   .dual-cta{grid-template-columns:1fr}
+  .dual-cta-left .btn, .dual-cta-right .btn{align-self:center}
   .benefit-grid{grid-template-columns:repeat(2,1fr)}
   .leitbild-row{grid-template-columns:repeat(3,1fr)}
   .fort-grid{grid-template-columns:repeat(2,1fr)}
@@ -854,7 +855,7 @@ html[dir="rtl"] .hero-home-photo {
     border-radius: 0;
   }
   .hero-home-photo {
-    object-position: 63% center;
+    object-position: 68% center;
   }
   .hero-home-overlay {
     background: linear-gradient(
