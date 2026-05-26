@@ -1157,3 +1157,17 @@ html[dir="rtl"] .hero-home-photo {
     stroke-width: 2.2;
   }
 }
+
+/* ── KOOPERATIONEN MOBILE PHOTO FIX ─────────────────────────── */
+@media (max-width: 992px) {
+  .koop-edge-photo {
+    padding-bottom: calc(clamp(320px, 55svh, 480px) + 40px) !important;
+  }
+  .koop-edge-photo .edge-photo-frame {
+    height: clamp(320px, 55svh, 480px) !important;
+  }
+  .koop-edge-photo .edge-photo-inner img {
+    object-position: center 8% !important;
+  }
+}
+
