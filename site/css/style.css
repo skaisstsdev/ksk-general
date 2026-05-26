@@ -600,9 +600,8 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .kosten-item h3{font-family:var(--sans);font-size:1.1rem;font-weight:600;margin-bottom:10px}
 .kosten-item p{font-size:0.95rem;color:var(--text-secondary);line-height:1.75}
 @media (max-width:768px){
-  .kosten-item{flex-direction:column;gap:var(--sp-3)}
-  .kosten-item .kosten-icon{align-self:center}
-  .kosten-item h3{text-align:center}
+  .kosten-item{flex-direction:column;gap:var(--sp-3);align-items:center;text-align:center}
+  .kosten-item ul{list-style-position:inside;margin-left:0 !important;padding-left:0}
 }
 .fort-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .fort-grid.center{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
