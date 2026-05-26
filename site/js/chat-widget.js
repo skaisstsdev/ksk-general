@@ -192,7 +192,6 @@
       document.querySelector('.ksk-icon-chat').style.display = 'none'
       document.querySelector('.ksk-icon-close').style.display = 'block'
       document.getElementById('kskUnread').style.display = 'none'
-      document.getElementById('kskInput').focus()
     },
     close() {
       isOpen = false
