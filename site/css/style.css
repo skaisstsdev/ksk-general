@@ -933,7 +933,15 @@ html[dir="rtl"] .hero-home-photo {
   .kontakt-hero-frame {
     transform: translateX(-50%);
   }
+  .kontakt-hero-section .hero-inner {
+    min-height: auto !important;
+    padding-bottom: 80vw !important;
+  }
+  .kontakt-hero-section .hero-home-photo {
+    object-position: center center !important;
+  }
 }
+
 
 
 /* ── SECTION EDGE PHOTO ───────────────────────────────────────── */
