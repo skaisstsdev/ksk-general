@@ -614,24 +614,13 @@ function initRevealAnimations() {
     '.editorial-accent',
     '.card',
     '.card-img',
-    '.process-steps',
     '.process-step',
     '.form-card',
     '.dual-cta',
     '.cta-card-violet',
     '.faq-cats',
-    '.faq-list',
-    '.vacancy-list',
-    '.review-cards',
-    '.kosten-list',
-    '.leitbild-row',
-    '.benefit-grid',
     '.check-list',
     '.quote-block',
-    '.stats-row',
-    '.contact-cards',
-    '.gallery-scroll',
-    '.diagnosen-row',
     '.anchor-nav',
     '.image-box',
     '.grid-2 > div:not(.edge-photo-frame)',
@@ -640,8 +629,8 @@ function initRevealAnimations() {
   ];
 
   document.querySelectorAll(autoRevealSelectors.join(', ')).forEach(el => {
-    // Не трогать элементы внутри hero
-    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero')) return;
+    // Не трогать элементы внутри hero, hidden panels, и т.д.
+    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero, .faq-answer, .wizard-panel, .mobile-menu, .mega-panel, .cookie-banner')) return;
     // Не трогать если уже есть reveal-класс
     if (el.classList.contains('reveal') ||
         el.classList.contains('reveal-scale') ||
@@ -651,7 +640,7 @@ function initRevealAnimations() {
 
   // ── 2. Заголовки — fade снизу (без scale, CSS обеспечит) ───
   document.querySelectorAll('h1, h2, h3').forEach(el => {
-    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero, .card, .process-step, .faq-question, .kosten-item, .leitbild-item, .benefit-item, .footer, .mega-panel, .cookie-banner')) return;
+    if (el.closest('.hero, .hero-cutout, .sub-hero, .page-hero, .card, .process-step, .faq-question, .kosten-item, .leitbild-item, .benefit-item, .footer, .mega-panel, .cookie-banner, .section-header, .faq-answer, .wizard-panel, .mobile-menu')) return;
     if (el.classList.contains('reveal') || /reveal-d\d/.test(el.className)) return;
     el.classList.add('reveal');
   });
@@ -662,7 +651,7 @@ function initRevealAnimations() {
   );
 
   staggerContainers.forEach(container => {
-    if (container.closest('.hero, .hero-cutout, .sub-hero, .page-hero')) return;
+    if (container.closest('.hero, .hero-cutout, .sub-hero, .page-hero, .faq-answer, .wizard-panel, .mobile-menu, .cookie-banner')) return;
     const children = Array.from(container.children);
     children.forEach((child, i) => {
       // Убираем старый reveal если есть, добавляем delay-класс
@@ -703,13 +692,12 @@ function initHeroAnimation() {
     '.hero-overline, .hero-title, .hero-subtitle, .hero-actions, .hero-badge'
   );
 
-  // Добавляем класс hero-reveal для CSS-управляемой анимации
+  // Добавляем transition delay для последовательной анимации
   heroElements.forEach((el, i) => {
-    el.classList.add('hero-enter');
     el.style.transitionDelay = `${i * 0.12}s`;
   });
 
-  // Через один кадр запускаем анимацию добавлением класса
+  // Через два кадра запускаем анимацию добавлением класса
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       heroElements.forEach(el => {

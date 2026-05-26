@@ -610,14 +610,20 @@ h1.reveal,
 h2.reveal,
 h3.reveal,
 .section-header.reveal h2 {
+  opacity: 0;
   transform: translateY(20px);
   transition:
     opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-/* Hero элементы — CSS-управляемая анимация при загрузке */
-.hero-enter {
+/* Hero элементы — начальное состояние по умолчанию (предотвращает мигание при загрузке) */
+.hero-content .hero-overline,
+.hero-content .hero-title,
+.hero-content .hero-subtitle,
+.hero-content .hero-actions,
+.hero-content .hero-badge {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -625,7 +631,12 @@ h3.reveal,
     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-.hero-enter.hero-entered {
+
+.hero-content .hero-overline.hero-entered,
+.hero-content .hero-title.hero-entered,
+.hero-content .hero-subtitle.hero-entered,
+.hero-content .hero-actions.hero-entered,
+.hero-content .hero-badge.hero-entered {
   opacity: 1;
   transform: translateY(0);
 }
@@ -644,7 +655,11 @@ h3.reveal,
   h1.reveal,
   h2.reveal,
   h3.reveal,
-  .hero-enter {
+  .hero-content .hero-overline,
+  .hero-content .hero-title,
+  .hero-content .hero-subtitle,
+  .hero-content .hero-actions,
+  .hero-content .hero-badge {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
