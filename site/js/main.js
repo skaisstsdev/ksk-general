@@ -493,6 +493,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // ── 16.5. Team Slider Observer ───────────────────────
+  const teamGrid = document.getElementById('teamGrid');
+  const prevBtn = document.querySelector('.slider-arrow.prev');
+  const nextBtn = document.querySelector('.slider-arrow.next');
+
+  if (teamGrid && prevBtn && nextBtn) {
+    const updateArrows = () => {
+      const scrollLeft = teamGrid.scrollLeft;
+      const maxScroll = teamGrid.scrollWidth - teamGrid.clientWidth;
+      
+      if (scrollLeft <= 5) {
+        prevBtn.disabled = true;
+        prevBtn.style.opacity = '0.35';
+        prevBtn.style.pointerEvents = 'none';
+      } else {
+        prevBtn.disabled = false;
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+      }
+
+      if (scrollLeft >= maxScroll - 5) {
+        nextBtn.disabled = true;
+        nextBtn.style.opacity = '0.35';
+        nextBtn.style.pointerEvents = 'none';
+      } else {
+        nextBtn.disabled = false;
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+      }
+    };
+
+    teamGrid.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows, { passive: true });
+    
+    // Initial check
+    setTimeout(updateArrows, 100);
+  }
+
   // ── 17. i18n Init ─────────────────────────────────────
   I18N.init();
 
