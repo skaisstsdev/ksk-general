@@ -718,6 +718,8 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .footer-bottom{flex-direction:column;align-items:flex-start}
   /* Other */
   .dual-cta-left,.dual-cta-right{padding:var(--sp-5) var(--sp-4)}
+  .cta-card-violet{padding:var(--sp-5) var(--sp-4)}
+  .cta-card-violet .btn{padding:12px 24px;font-size:0.88rem}
   .vacancy-item{flex-direction:column;align-items:flex-start;gap:12px}
   .gallery-scroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:12px;padding-bottom:8px;scrollbar-width:none}
   .gallery-scroll::-webkit-scrollbar{display:none}
