@@ -1360,10 +1360,26 @@ html[dir="rtl"] .hero-home-photo {
 /* Секции с перекрытием — следующая наезжает на предыдущую */
 .section-overlap {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   margin-top: -48px;
   padding-top: calc(var(--section-gap) + 48px);
-  background: inherit;
+  background: var(--white);
+}
+
+.section-overlap.section-gray {
+  background: var(--gray-50);
+}
+
+.section-overlap.section-white {
+  background: #ffffff;
+}
+
+.section-overlap.section-dark {
+  background: var(--gray-900);
+}
+
+.section-overlap.section-violet {
+  background: var(--violet);
 }
 
 @media (max-width: 768px) {
