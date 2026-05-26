@@ -556,115 +556,20 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .footer-lang a:hover,.footer-lang a.active{color:white;background:rgba(255,255,255,0.08)}
 
 
-/* ── UNIFIED ANIMATION SYSTEM ──────────────────────────────── */
-
-/* Базовое состояние — все анимируемые элементы скрыты */
-.reveal,
-.reveal-left,
-.reveal-right,
-.reveal-scale,
-.reveal-d1,
-.reveal-d2,
-.reveal-d3,
-.reveal-d4,
-.reveal-d5 {
-  opacity: 0;
-  transform: translateY(28px) scale(0.98);
-  transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+/* ── SCROLL REVEAL ANIMATIONS ────────────────────────────────── */
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  will-change: translate, scale, opacity;
 }
-
-/* Активное состояние — когда элемент виден */
-.reveal.visible,
-.reveal-left.visible,
-.reveal-right.visible,
-.reveal-scale.visible,
-.reveal-d1.visible,
-.reveal-d2.visible,
-.reveal-d3.visible,
-.reveal-d4.visible,
-.reveal-d5.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Задержки для последовательного появления */
-.reveal-d1 { transition-delay: 0.05s; }
-.reveal-d2 { transition-delay: 0.12s; }
-.reveal-d3 { transition-delay: 0.19s; }
-.reveal-d4 { transition-delay: 0.26s; }
-.reveal-d5 { transition-delay: 0.33s; }
-
-/* Заголовки — только fade + translateY, без scale */
-h1.reveal.visible,
-h2.reveal.visible,
-h3.reveal.visible,
-.section-header.reveal.visible h2 {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h1.reveal,
-h2.reveal,
-h3.reveal,
-.section-header.reveal h2 {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-/* Hero элементы — начальное состояние по умолчанию (предотвращает мигание при загрузке) */
-.hero-content .hero-overline,
-.hero-content .hero-title,
-.hero-content .hero-subtitle,
-.hero-content .hero-actions,
-.hero-content .hero-badge {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.hero-content .hero-overline.hero-entered,
-.hero-content .hero-title.hero-entered,
-.hero-content .hero-subtitle.hero-entered,
-.hero-content .hero-actions.hero-entered,
-.hero-content .hero-badge.hero-entered {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Отключить анимации для пользователей с reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-left,
-  .reveal-right,
-  .reveal-scale,
-  .reveal-d1,
-  .reveal-d2,
-  .reveal-d3,
-  .reveal-d4,
-  .reveal-d5,
-  h1.reveal,
-  h2.reveal,
-  h3.reveal,
-  .hero-content .hero-overline,
-  .hero-content .hero-title,
-  .hero-content .hero-subtitle,
-  .hero-content .hero-actions,
-  .hero-content .hero-badge {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
+.reveal{opacity:0;translate:0 32px;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
+.reveal.visible{opacity:1;translate:0 0}
+.reveal-left{opacity:0;translate:-36px 0;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
+.reveal-left.visible{opacity:1;translate:0 0}
+.reveal-right{opacity:0;translate:36px 0;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
+.reveal-right.visible{opacity:1;translate:0 0}
+.reveal-scale{opacity:0;scale:0.94;transition:opacity 680ms var(--ease-out),scale 680ms var(--ease-spring)}
+.reveal-scale.visible{opacity:1;scale:1}
+.reveal-d1{transition-delay:90ms}.reveal-d2{transition-delay:180ms}.reveal-d3{transition-delay:270ms}.reveal-d4{transition-delay:360ms}.reveal-d5{transition-delay:450ms}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── UTILITIES ───────────────────────────────────────────────── */
 .divider{width:56px;height:2px;background:var(--violet);margin:var(--sp-3) 0}
@@ -1344,53 +1249,6 @@ html[dir="rtl"] .hero-home-photo {
 .form-group textarea.is-invalid {
   border-color: #ef4444 !important;
   background: #fdf2f2 !important;
-}
-
-/* Sticky scroll sections */
-.sticky-media {
-  position: relative;
-}
-
-.sticky-media .image-box {
-  position: sticky;
-  top: calc(var(--header-h) + 24px);
-  align-self: flex-start;
-}
-
-/* Секции с перекрытием — следующая наезжает на предыдущую */
-.section-overlap {
-  position: relative;
-  z-index: 2;
-  margin-top: -48px;
-  padding-top: calc(var(--section-gap) + 48px);
-  background: var(--white);
-}
-
-.section-overlap.section-gray {
-  background: var(--gray-50);
-}
-
-.section-overlap.section-white {
-  background: #ffffff;
-}
-
-.section-overlap.section-dark {
-  background: var(--gray-900);
-}
-
-.section-overlap.section-violet {
-  background: var(--violet);
-}
-
-@media (max-width: 768px) {
-  .sticky-media .image-box {
-    position: relative;
-    top: auto;
-  }
-  .section-overlap {
-    margin-top: -24px;
-    padding-top: calc(var(--section-gap) + 24px);
-  }
 }
 
 
