@@ -910,6 +910,29 @@ html[dir="rtl"] .hero-home-photo {
   }
 }
 
+/* ── STICKY HERO OVERLAP EFFECT ───────────────────────────── */
+.hero-cutout, .hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+main > *:not(.hero-cutout):not(.hero):not(.page-hero) {
+  position: relative;
+  z-index: 10;
+  background: var(--white);
+}
+
+main > .section-gray {
+  background: var(--gray-50) !important;
+}
+
+.footer {
+  position: relative;
+  z-index: 10;
+  background: var(--dark-bg);
+}
+
 .leistungen-hero-frame {
   transform: translateX(5vw);
 }
