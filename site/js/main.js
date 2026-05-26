@@ -193,18 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
   handleScroll();
   window.addEventListener('scroll', handleScroll, { passive: true });
 
-  // ── 2. Scroll reveal (IntersectionObserver) ───────────
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  // ── 2. Scroll reveal (IntersectionObserver) — replaced by unified system below ───────────
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
-    .forEach(el => revealObserver.observe(el));
 
   // ── 3. Counter animation ───────────────────────────────
   const animateCounter = (el) => {
@@ -313,22 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 9. Smooth scroll для якорей ────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href === '#') return;
-      // Skip language switcher links
-      if (link.closest('.lang-float')) return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        const offset = 100;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
+  // ── 9. Smooth scroll для якорей — replaced by unified system below ────────────────────────
+
 
   // ── 10. Form handling ──────────────────────────────────
   document.querySelectorAll('form[data-form]').forEach(form => {
@@ -615,4 +591,82 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+// ── UNIFIED SCROLL ANIMATIONS ──────────────────────────────────
+function initRevealAnimations() {
+  const elements = document.querySelectorAll(
+    '.reveal, .reveal-left, .reveal-right, .reveal-scale, ' +
+    '.reveal-d1, .reveal-d2, .reveal-d3, .reveal-d4, .reveal-d5, ' +
+    'h1, h2, .hero-title, .section-header'
+  );
+
+  // Добавь класс reveal к заголовкам которые его не имеют
+  document.querySelectorAll('h1, h2').forEach(el => {
+    if (!el.closest('.hero-title') && !el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Отписываемся после первого появления — анимация только один раз
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  elements.forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// Hero элементы показываем сразу при загрузке без скролла
+function initHeroAnimation() {
+  const heroElements = document.querySelectorAll(
+    '.hero-content > *, .hero-title, .hero-subtitle, .hero-overline, .hero-actions, .hero-badge'
+  );
+
+  heroElements.forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s, transform 0.8s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s`;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    });
+  });
+}
+
+// Плавный скролл
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      // Skip language switcher links
+      if (this.closest('.lang-float')) return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+}
+
+// Запуск после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+  initHeroAnimation();
+  initRevealAnimations();
+  initSmoothScroll();
+});
+
 
