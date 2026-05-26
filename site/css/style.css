@@ -224,11 +224,35 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .mobile-menu{position:fixed;inset:0;background:rgba(13,13,24,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);z-index:99;padding:calc(var(--header-h) + 60px) var(--pad-x) 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity var(--t-base),visibility var(--t-base)}
 .mobile-menu.open{opacity:1;visibility:visible}
 .mobile-menu .nav-link{font-size:1.8rem;padding:14px 20px;font-family:var(--serif);font-weight:500;color:rgba(255,255,255,0.9);transition:color var(--t-fast)}
-.mobile-menu .nav-link:hover{color:var(--violet-light);background:transparent}
+.mobile-menu .nav-link:hover,
+.mobile-menu .nav-link.active{color:var(--violet-light);background:transparent}
 .mobile-menu .btn{margin-top:20px;align-self:center}
 .mobile-lang{margin-top:auto;padding-top:28px;border-top:1px solid var(--gray-100);display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .mobile-lang a{text-align:center;padding:9px;font-size:0.78rem;border-radius:var(--r-sm);background:var(--gray-50);color:var(--text-secondary);transition:all var(--t-fast)}
 .mobile-lang a:hover{background:var(--violet-pale);color:var(--violet)}
+
+/* ── HEADER OPEN MOBILE STYLES ───────────────────────────────── */
+.header.menu-open {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.header.menu-open .logo-text {
+  color: white !important;
+}
+.header.menu-open .logo-text span {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+.header.menu-open .logo img {
+  filter: invert(1) grayscale(1) brightness(10) !important;
+  mix-blend-mode: screen !important;
+}
+.header.menu-open .mobile-toggle span {
+  background: white !important;
+}
+
 
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:var(--header-h);background:var(--white);overflow:hidden}
