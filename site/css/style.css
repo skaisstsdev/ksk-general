@@ -601,7 +601,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .kosten-item p{font-size:0.95rem;color:var(--text-secondary);line-height:1.75}
 @media (max-width:768px){
   .kosten-item{flex-direction:column;gap:var(--sp-3);align-items:center;text-align:center}
-  .kosten-item ul{text-align:left;list-style-position:outside;margin-left:20px !important;padding-left:0}
+  .kosten-item ul{display:inline-block;text-align:left;list-style-position:outside;margin:8px 0 0 0 !important;padding-left:1.2rem}
 }
 .fort-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .fort-grid.center{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
