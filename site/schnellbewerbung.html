@@ -252,6 +252,7 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
       </div>
     `
     if(typeof lucide !== 'undefined') lucide.createIcons()
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' })
   } catch(err) {
     btn.disabled = false
     btn.innerHTML = originalHTML

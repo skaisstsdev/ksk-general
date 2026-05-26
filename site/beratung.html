@@ -193,6 +193,7 @@ document.getElementById('beratungForm').addEventListener('submit', async functio
       </div>
     `
     if(typeof lucide !== 'undefined') lucide.createIcons()
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' })
   } catch(err) {
     btn.disabled = false
     btn.innerHTML = originalHTML

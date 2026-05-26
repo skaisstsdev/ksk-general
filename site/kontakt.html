@@ -254,6 +254,7 @@ document.getElementById('kontaktForm').addEventListener('submit', async function
       </div>
     `
     if(typeof lucide !== 'undefined') lucide.createIcons()
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' })
   } catch(err) {
     btn.disabled = false
     btn.innerHTML = originalHTML
