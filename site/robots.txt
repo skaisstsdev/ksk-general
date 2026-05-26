@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /schnellbewerbung.html
-Disallow: /datenschutz.html
-Disallow: /impressum.html
-
-Sitemap: https://ksk-farmos.de/sitemap.xml

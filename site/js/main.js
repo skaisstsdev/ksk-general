@@ -194,68 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll, { passive: true });
 
   // ── 2. Scroll reveal (IntersectionObserver) ───────────
-  const prepareReveals = () => {
-    const containers = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
-    containers.forEach(container => {
-      const staggerSelectors = [
-        '.check-list > li',
-        '.benefit-grid > .card',
-        '.flex-grid-3 > .card',
-        '.kosten-list > .kosten-item',
-        '.process-steps > .process-step',
-        '.faq-list > .faq-item',
-        '.vacancy-list > .vacancy-item',
-        '.fort-grid > .fort-item',
-        '.contact-cards > .contact-card'
-      ];
-      
-      let items = [];
-      for (const selector of staggerSelectors) {
-        const found = container.querySelectorAll(selector);
-        if (found.length > 0) {
-          items = Array.from(found);
-          break;
-        }
-      }
-      
-      if (items.length === 0) {
-        const children = Array.from(container.children).filter(child => {
-          const tag = child.tagName.toLowerCase();
-          return ['h2', 'h3', 'h4', 'p', 'ul', 'ol', 'div', 'form', 'a', 'section'].includes(tag) && 
-                 !child.classList.contains('form-alert') &&
-                 !child.classList.contains('mb-lg') &&
-                 !child.classList.contains('divider');
-        });
-        
-        children.forEach(child => {
-          if (child.classList.contains('grid-2') || 
-              child.classList.contains('flex-grid-3') || 
-              child.classList.contains('check-list') || 
-              child.classList.contains('kosten-list') || 
-              child.classList.contains('process-steps') || 
-              child.classList.contains('vacancy-list') || 
-              child.classList.contains('fort-grid')) {
-            items.push(...Array.from(child.children));
-          } else {
-            items.push(child);
-          }
-        });
-      }
-      
-      if (items.length > 0) {
-        container.classList.add('reveal-group');
-        items.forEach((item, index) => {
-          item.classList.add('reveal-item');
-          item.style.transitionDelay = `${index * 80}ms`;
-        });
-      } else {
-        container.classList.add('reveal-item');
-      }
-    });
-  };
-
-  prepareReveals();
-
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -265,9 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-group')
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
     .forEach(el => revealObserver.observe(el));
-
 
   // ── 3. Counter animation ───────────────────────────────
   const animateCounter = (el) => {
