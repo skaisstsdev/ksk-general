@@ -558,18 +558,71 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 /* ── SCROLL REVEAL ANIMATIONS ────────────────────────────────── */
 .reveal, .reveal-left, .reveal-right, .reveal-scale {
-  will-change: translate, scale, opacity;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-.reveal{opacity:0;translate:0 32px;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
-.reveal.visible{opacity:1;translate:0 0}
-.reveal-left{opacity:0;translate:-36px 0;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
-.reveal-left.visible{opacity:1;translate:0 0}
-.reveal-right{opacity:0;translate:36px 0;transition:opacity 680ms var(--ease-out),translate 680ms var(--ease-out)}
-.reveal-right.visible{opacity:1;translate:0 0}
-.reveal-scale{opacity:0;scale:0.94;transition:opacity 680ms var(--ease-out),scale 680ms var(--ease-spring)}
-.reveal-scale.visible{opacity:1;scale:1}
+.reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .reveal-d1{transition-delay:90ms}.reveal-d2{transition-delay:180ms}.reveal-d3{transition-delay:270ms}.reveal-d4{transition-delay:360ms}.reveal-d5{transition-delay:450ms}
 @keyframes fadeSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── HERO PAGE-LOAD ANIMATIONS ─────────────────────────────── */
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heroPhotoScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-content > *,
+.page-hero .container > *,
+.sub-hero .hero-content > *,
+.hero-cutout .hero-content > * {
+  animation: heroFadeInUp 800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-content h1,
+.hero-content .hero-title,
+.page-hero h1,
+.sub-hero h1 {
+  animation-delay: 100ms;
+}
+.hero-content p,
+.hero-content .hero-subtitle,
+.page-hero .lead,
+.sub-hero .hero-subtitle {
+  animation-delay: 220ms;
+}
+.hero-content .hero-actions,
+.page-hero .hero-actions,
+.sub-hero .hero-actions {
+  animation-delay: 340ms;
+}
+.hero-home-photo-frame,
+.hero-visual,
+.hero-photo,
+.hero-cutout .hero-photo-abs,
+.kontakt-hero-frame {
+  animation: heroPhotoScaleIn 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 150ms;
+}
+
 
 /* ── UTILITIES ───────────────────────────────────────────────── */
 .divider{width:56px;height:2px;background:var(--violet);margin:var(--sp-3) 0}
