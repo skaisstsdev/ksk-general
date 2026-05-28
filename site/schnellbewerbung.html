@@ -223,6 +223,52 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
   btn.disabled = true
   btn.innerHTML = 'Wird gesendet...'
 
+  // Read attached file and convert to base64
+  const fileInput = this.querySelector('input[type="file"]');
+  const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+  let base64File = '';
+
+  if (file) {
+    if (file.size > 10 * 1024 * 1024) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'form-alert form-alert-warning';
+      
+      const lang = document.documentElement.lang || 'de';
+      let msg = 'Die Datei ist zu groß (maximal 10MB).';
+      if (lang === 'ru') msg = 'Файл слишком большой (максимум 10МБ).';
+      if (lang === 'en') msg = 'File is too large (maximum 10MB).';
+      
+      alertDiv.innerHTML = `
+        <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>${msg}</div>
+      `;
+      
+      const title = panel.querySelector('h3');
+      if (title) {
+        title.parentNode.insertBefore(alertDiv, title.nextSibling);
+      } else {
+        panel.insertBefore(alertDiv, panel.firstChild);
+      }
+      
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+      return;
+    }
+
+    try {
+      base64File = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+    } catch (fileErr) {
+      console.error('File reading error:', fileErr);
+    }
+  }
+
   const templateParams = {
     vorname: this.querySelector('[name="vorname"]').value,
     nachname: this.querySelector('[name="nachname"]').value,
@@ -232,7 +278,8 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
     erfahrung: this.querySelector('[name="erfahrung"]')?.value || '—',
     fuehrerschein: this.querySelector('[name="fuehrerschein"]')?.value || '—',
     arbeitszeit: this.querySelector('[name="arbeitszeit"]')?.value || '—',
-    nachricht: this.querySelector('[name="nachricht"]')?.value || '—'
+    nachricht: this.querySelector('[name="nachricht"]')?.value || '—',
+    cv: base64File
   }
 
   try {
