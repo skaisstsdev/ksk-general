@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
     .forEach(el => revealObserver.observe(el));
@@ -323,6 +323,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
     window.lenis = lenis;
+
+    // Cinematic Parallax (Max Performance & Zero Stutter)
+    function initParallax() {
+      const heroPhotos = document.querySelectorAll('.hero-home-photo');
+      if (heroPhotos.length === 0) return;
+
+      let lastScroll = -9999;
+
+      function render() {
+        const currentScroll = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
+
+        // Prevent redundant styles
+        if (Math.abs(currentScroll - lastScroll) < 0.1) return;
+        lastScroll = currentScroll;
+
+        const isDesktop = window.innerWidth > 992;
+
+        // Render Hero Parallax
+        heroPhotos.forEach(img => {
+          const frame = img.closest('.hero-home-photo-frame');
+          if (isDesktop) {
+            const y = currentScroll * 0.40;
+            const scale = 1.05 + currentScroll * 0.0005;
+            img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})`;
+            if (frame) frame.style.transform = '';
+          } else {
+            img.style.transform = '';
+            if (frame) frame.style.transform = '';
+          }
+        });
+      }
+
+      lenis.on('scroll', render);
+      render();
+    }
+    
+    // Initialize immediately to prevent layout pop/jumps
+    initParallax();
   }
 
   if (backToTop) {
