@@ -330,56 +330,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 10. Form handling ──────────────────────────────────
-  document.querySelectorAll('form[data-form]').forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      if (!btn) return;
-      
-      const lang = document.documentElement.lang || 'de';
-      const sendingTexts = {
-        de: 'Wird gesendet...',
-        en: 'Sending...',
-        ru: 'Отправка...',
-        tr: 'Gönderiliyor...',
-        pl: 'Wysyłanie...',
-        ro: 'Se trimite...',
-        bg: 'Изпращане...',
-        ua: 'Надсилання...',
-        ar: 'جاري الإرسال...',
-        bs: 'Šalje se...'
-      };
-      const sentTexts = {
-        de: '✓ Gesendet',
-        en: '✓ Sent',
-        ru: '✓ Отправлено',
-        tr: '✓ Gönderildi',
-        pl: '✓ Wysłano',
-        ro: '✓ Trimis',
-        bg: '✓ Изпратено',
-        ua: '✓ Надіслано',
-        ar: '✓ تم الإرسال',
-        bs: '✓ Poslano'
-      };
+  // ── 10. Form handling (handled individually in pages) ──
 
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = sendingTexts[lang] || sendingTexts.de;
-      
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      
-      btn.textContent = sentTexts[lang] || sentTexts.de;
-      btn.style.background = '#22c55e';
-      
-      setTimeout(() => {
-        btn.disabled = false;
-        btn.textContent = originalText;
-        btn.style.background = '';
-        form.reset();
-      }, 2500);
-    });
-  });
 
   // ── 11. Initialize Lucide icons ────────────────────────
   if (typeof lucide !== 'undefined') {
