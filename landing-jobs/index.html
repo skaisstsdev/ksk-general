@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <link rel="icon" type="image/png" href="img/logo-icon.png">
   <link rel="preload" as="image" href="img/photo-nurse-device.jpg" fetchpriority="high">
@@ -863,6 +864,31 @@ document.querySelector('[data-form="schnellbewerbung"]').addEventListener('submi
     nachricht: form.querySelector('[name="nachricht"]')?.value.trim() || '—',
     cv: base64File
   };
+
+  // ── Supabase Integration ──
+  const SUPABASE_URL = 'https://uggrdnbnxnmczkybqmoh.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVnZ3JkbmJueG5tY3preWJxbW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5NDIzOTQsImV4cCI6MjA5NDUxODM5NH0.KmfXFQ_bNuePMuxUFxARVsRyorqbKKrUEnb-wZEjTss';
+
+  if (typeof supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+    try {
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      await supabaseClient.from('bewerbungen').insert([{
+        vorname: templateParams.vorname,
+        nachname: templateParams.nachname,
+        email: templateParams.email,
+        telefon: templateParams.telefon,
+        qualifikation: templateParams.qualifikation,
+        erfahrung: templateParams.erfahrung,
+        fuehrerschein: templateParams.fuehrerschein,
+        arbeitszeit: templateParams.arbeitszeit,
+        nachricht: templateParams.nachricht,
+        cv: templateParams.cv,
+        source: 'Landing Jobs'
+      }]);
+    } catch (supaErr) {
+      console.error('Supabase Error:', supaErr);
+    }
+  }
 
   try {
     await emailjs.send('service_h12u11k', 'template_hmexk4f', templateParams);
