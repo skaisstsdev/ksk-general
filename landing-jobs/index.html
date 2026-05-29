@@ -12,9 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <link rel="icon" type="image/png" href="img/logo-icon.png">
-  <link rel="preload" as="image" href="img/hero4.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="img/photo-nurse-device.jpg" fetchpriority="high">
   
   <style>
     /* ═══ ANIMATIONS ═══ */
@@ -38,42 +40,265 @@
     .violet-glow-hover { transition:box-shadow .4s ease, transform .4s ease; }
     .violet-glow-hover:hover { box-shadow:0 12px 48px rgba(107,63,160,.18); transform:translateY(-4px); }
 
-    /* ═══ HERO ═══ */
-    .hero-jobs { position:relative; background:linear-gradient(180deg,var(--off-white) 60%,var(--violet-pale) 100%); padding-top:clamp(100px,12vw,140px); /* Bottom padding removed, overflow removed to prevent cropping */ }
-    .hero-jobs .container { position:relative; z-index:2; }
-    .hero-jobs .hero-grid { display:flex; align-items:center; min-height:460px; }
+    /* ═══ HERO OVERRIDES (align with patients/main) ═══ */
+    .hero-actions {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+    .hero-actions::before, .hero-actions::after {
+      display: none !important;
+    }
     
-    .hero-jobs .reveal-left { width:55%; padding-bottom:clamp(48px,8vw,100px); padding-right:40px; }
+    /* ═══ HERO PHOTO ═══ */
+    .hero-home-photo-frame {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      top: auto;
+      transform: none;
+      width: 66vw;
+      max-width: 1000px;
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
     
-    .hero-jobs .hero-title { font-family:var(--serif); font-size:clamp(4rem,6vw,6.5rem) !important; font-weight:700; line-height:1.05; margin-bottom:20px; color:var(--text-primary); letter-spacing:-0.02em; }
-    .hero-jobs .hero-title em { color:var(--violet); font-style:italic; }
-    .hero-jobs .hero-subtitle { font-size:clamp(1rem,1.4vw,1.15rem); max-width:520px; color:var(--text-secondary); line-height:1.6; margin-bottom:28px; }
-    .hero-actions { background:transparent !important; box-shadow:none !important; border:none !important; }
-    .hero-actions::before, .hero-actions::after { display:none !important; }
-    .hero-actions .btn-outline { transition:all .3s ease !important; }
-    .hero-actions .btn-outline:hover { border-color:var(--violet) !important; color:var(--violet) !important; transform:translateY(-2px); }
+    .hero-home-photo-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
     
-    /* Absolute Image pinned exactly to the edges */
-    .hero-photo-absolute { position:absolute; bottom:0; right:0; width:45vw; max-width:900px; display:flex; justify-content:flex-end; align-items:flex-end; z-index:1; pointer-events:none; }
-    .hero-photo-absolute img { width:100%; height:auto; display:block; object-fit:contain; object-position:bottom right; }
+    .hero-home-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 45% center;
+      display: block;
+      will-change: transform;
+      transform-origin: center;
+      transition: none !important;
+    }
     
-    @media(min-width:993px) {
-      .hero-jobs .hero-title { white-space:nowrap; }
+    .hero-home-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: 
+        /* fade from left */
+        linear-gradient(to right, var(--off-white) 0%, var(--off-white) 8%, rgba(253, 250, 247, 0.8) 18%, rgba(253, 250, 247, 0) 35%),
+        /* fade from top */
+        linear-gradient(to bottom, var(--off-white) 0%, var(--off-white) 4%, rgba(253, 250, 247, 0.8) 12%, rgba(253, 250, 247, 0) 25%);
+      pointer-events: none;
+    }
+    html[dir="rtl"] .hero-home-overlay {
+      background: 
+        /* fade from right */
+        linear-gradient(to left, var(--off-white) 0%, var(--off-white) 8%, rgba(253, 250, 247, 0.8) 18%, rgba(253, 250, 247, 0) 35%),
+        /* fade from top */
+        linear-gradient(to bottom, var(--off-white) 0%, var(--off-white) 4%, rgba(253, 250, 247, 0.8) 12%, rgba(253, 250, 247, 0) 25%) !important;
+    }
+
+    .karriere-hero-frame {
+      transform: translateX(5vw);
+    }
+    @media (max-width: 992px) {
+      .karriere-hero-frame {
+        transform: translateX(-50%) !important;
+      }
+    }
+
+    /* ── WIDE-SCREEN PROPORTIONAL SCALING (from patients) ── */
+    @media (min-width: 993px) {
+      .hero-home-photo-frame {
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        aspect-ratio: auto;
+        max-width: none;
+      }
+      .hero-home-photo {
+        transform: scale(1.05);
+      }
+      .hero-cutout .hero-inner.centered {
+        align-items: flex-start !important;
+        text-align: left !important;
+      }
+      .hero-cutout .hero-content {
+        max-width: 650px !important;
+        position: relative;
+        z-index: 3;
+        margin-left: -120px !important;
+        text-align: left !important;
+      }
+      .hero-cutout .hero-inner.centered .hero-subtitle {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+      }
+      .hero-actions {
+        justify-content: flex-start !important;
+      }
+      
+      /* RTL overrides for desktop */
+      html[dir="rtl"] .hero-home-photo-frame {
+        right: auto !important;
+        left: 0 !important;
+      }
+      html[dir="rtl"] .hero-home-photo {
+        object-position: 55% center !important;
+      }
+      html[dir="rtl"] .hero-cutout .hero-inner.centered {
+        align-items: flex-end !important;
+        text-align: right !important;
+      }
+      html[dir="rtl"] .hero-cutout .hero-content {
+        margin-left: 0 !important;
+        margin-right: -120px !important;
+        text-align: right !important;
+      }
+      html[dir="rtl"] .hero-cutout .hero-inner.centered .hero-subtitle {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: right !important;
+      }
+      html[dir="rtl"] .hero-actions {
+        justify-content: flex-end !important;
+      }
+    }
+    @media (min-width: 1441px) {
+      .hero-cutout .hero-content {
+        transform-origin: left center;
+      }
+      html[dir="rtl"] .hero-cutout .hero-content {
+        transform-origin: right center !important;
+      }
+    }
+    @media (min-width: 1600px) {
+      .hero-cutout .hero-content {
+        transform: scale(1.1);
+      }
+    }
+    @media (min-width: 1920px) {
+      .hero-cutout .hero-content {
+        transform: scale(1.3);
+      }
+    }
+    @media (min-width: 2560px) {
+      .hero-cutout .hero-content {
+        transform: scale(1.5);
+      }
     }
     
     @media(max-width:992px) {
-      .hero-jobs .reveal-left { width:60%; }
-      .hero-photo-absolute { width:50vw; }
+      .hero-cutout {
+        min-height: auto;
+        overflow: visible;
+        padding-bottom: 0;
+      }
+      .hero-cutout .hero-inner.centered {
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        padding-top: clamp(24px, 4vh, 48px);
+        padding-bottom: 86vw !important;
+      }
+      .hero-cutout .hero-inner.centered .hero-content {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cutout .hero-inner.centered .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cutout .hero-inner.centered .hero-actions {
+        justify-content: center;
+      }
+      .hero-home-photo-frame {
+        position: absolute !important;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        width: 100vw;
+        height: auto;
+        aspect-ratio: 6 / 5;
+        right: auto;
+        top: auto;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        transition: none !important;
+      }
+      .hero-home-photo-inner {
+        border-radius: 0;
+      }
+      .hero-home-photo {
+        object-position: 68% center;
+        object-fit: cover !important;
+      }
+      .hero-home-overlay {
+        background: linear-gradient(
+          to bottom,
+          var(--off-white) 0%,
+          var(--off-white) 5%,
+          rgba(253, 250, 247, 0.8) 15%,
+          rgba(253, 250, 247, 0) 30%
+        ) !important;
+      }
     }
     @media(max-width:768px) {
-      .hero-jobs .hero-grid { flex-direction:column; text-align:center; min-height:auto; display:block; }
-      .hero-jobs .reveal-left { width:100%; padding-right:0; padding-bottom:40px; }
-      .hero-jobs .hero-title { font-size:clamp(4.8rem, 18vw, 8.5rem) !important; line-height:1.0; }
-      .hero-jobs .hero-subtitle { margin-left:auto; margin-right:auto; }
-      .hero-jobs .hero-actions { flex-direction:column; align-items:center; width:85%; max-width:320px; margin:0 auto; }
-      
-      /* Reset absolute positioning on mobile to sit normally at the bottom */
-      .hero-photo-absolute { position:relative; bottom:auto; right:auto; width:100%; max-width:550px; margin:0 auto; }
+      .hero-cutout { background: var(--off-white) !important; }
+      .hero-cutout .hero-title { 
+        font-size: clamp(3.2rem, 13vw, 5.2rem) !important; 
+        line-height: 1.05 !important; 
+        letter-spacing: -0.03em !important; 
+        text-align: center !important; 
+        margin-left: auto !important; 
+        margin-right: auto !important; 
+        max-width: 100% !important; 
+      }
+      .hero-cutout .hero-subtitle { 
+        text-align: center !important; 
+        margin-left: auto !important; 
+        margin-right: auto !important; 
+        max-width: 100% !important; 
+        font-size: 0.95rem !important; 
+        line-height: 1.6 !important; 
+      }
+      .hero-actions { 
+        display: flex !important; 
+        flex-direction: column !important; 
+        align-items: center !important; 
+        width: 85% !important; 
+        max-width: 320px !important; 
+        margin: 0 auto !important; 
+        gap: 12px !important; 
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .hero-actions::before, .hero-actions::after {
+        display: none !important;
+      }
+      .hero-actions .btn { 
+        border-radius: 50px !important; 
+        width: 100% !important; 
+        justify-content: center !important; 
+        padding: 16px 28px !important; 
+        font-size: 0.92rem !important; 
+      }
+      .hero-actions .btn-primary { 
+        box-shadow: 0 8px 24px rgba(107,63,160,0.18) !important; 
+      }
+      .hero-actions .btn-outline { 
+        background: var(--white) !important; 
+        border-color: var(--gray-200) !important; 
+        color: var(--text-primary) !important; 
+      }
     }
 
     /* ═══ HEADER ═══ */
@@ -136,6 +361,50 @@
     .more-info-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(107,63,160,.18); }
     .more-info-card h2 { font-size:clamp(1.6rem,3vw,2rem); margin-bottom:12px; }
     .more-info-card p { color:var(--text-secondary); margin-bottom:24px; line-height:1.6; }
+
+    /* ── FORM VALIDATION & ALERTS ────────────────────────────────── */
+    .form-alert {
+      padding: 14px 18px;
+      border-radius: var(--r-md);
+      margin-bottom: var(--sp-4);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: formAlertSlideIn 0.3s cubic-bezier(.16,1,.3,1);
+    }
+    @keyframes formAlertSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-alert-error {
+      background: #fdf2f2;
+      color: #9b1c1c;
+      border: 1px solid #fbd5d5;
+    }
+    .form-alert-warning {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+    .form-alert-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+    }
+    .form-group input.is-invalid,
+    .form-group select.is-invalid,
+    .form-group textarea.is-invalid {
+      border-color: #ef4444 !important;
+      background: #fdf2f2 !important;
+    }
+
+    /* ── LENIS SMOOTH SCROLL SUPPORT ─────────────────────────────── */
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
   </style>
 </head>
 <body>
@@ -145,7 +414,7 @@
   <div class="header-inner">
     <a href="#" class="logo" style="pointer-events: none;">
       <img src="img/logo-icon.png" alt="KSK Farmos">
-      <div class="logo-text">KSK Farmos<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
+      <div class="logo-text">KSK Farmos GmbH &amp; Co. KG<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
     </a>
     <div class="header-right">
       <a href="#bewerbung" class="btn btn-primary btn-sm" data-i18n="lp2.header.btn">Jetzt bewerben</a>
@@ -156,22 +425,25 @@
 <main>
 
 <!-- 2. HERO -->
-<section class="hero-jobs">
+<section class="hero-cutout">
+  <!-- Image moved OUTSIDE container to guarantee it touches screen edges, placed after container for mobile stacking -->
+  <div class="hero-photo-absolute hero-home-photo-frame karriere-hero-frame">
+    <div class="hero-home-photo-inner">
+      <img src="img/photo-nurse-device.jpg" alt="KSK Farmos Pflegefachkraft" class="hero-home-photo" loading="eager" fetchpriority="high" decoding="sync">
+    </div>
+    <div class="hero-home-overlay"></div>
+  </div>
   <div class="container">
-    <div class="hero-grid">
-      <div class="reveal-left">
-        <h1 class="hero-title" data-i18n="lp2.hero.title">Arbeiten,<br>wo es <em>wirklich zählt.</em></h1>
-        <p class="hero-subtitle" data-i18n="lp2.hero.sub">Übertarifliche Bezahlung, Firmenwagen und ein Team auf das Sie sich verlassen können.<br>Bewerbung in 2 Minuten — kein Anschreiben, kein Lebenslauf.</p>
-        <div class="hero-actions" style="display:flex;flex-direction:column;gap:16px;width:100%;max-width:380px;">
-          <a href="#bewerbung" class="btn btn-primary btn-lg" data-i18n="lp2.hero.btn1" style="border-radius:50px;width:100%;justify-content:center;padding:18px 32px;font-size:1.1rem;box-shadow:0 8px 24px rgba(107,63,160,.15);">Jetzt bewerben</a>
-          <a href="#stellen" class="btn btn-outline btn-lg" data-i18n="lp2.hero.btn2" style="border-radius:50px;width:100%;justify-content:center;padding:18px 32px;font-size:1.1rem;background:var(--white);">Offene Stellen ansehen</a>
+    <div class="hero-inner centered">
+      <div class="hero-content reveal-left">
+        <h1 class="hero-title reveal" data-i18n="lp2.hero.title">Arbeiten, wo es<br><em>wirklich zählt.</em></h1>
+        <p class="hero-subtitle reveal stagger-1" data-i18n="lp2.hero.sub">Übertarifliche Bezahlung, kontinuierliche Weiterbildung und ein Team, auf das man sich verlassen kann.</p>
+        <div class="hero-actions reveal stagger-2">
+          <a href="#bewerbung" class="btn btn-primary btn-lg" data-i18n="lp2.hero.btn1">Jetzt bewerben</a>
+          <a href="#stellen" class="btn btn-outline btn-lg" data-i18n="lp2.hero.btn2">Offene Stellen</a>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Image moved OUTSIDE container to guarantee it touches screen edges, placed after container for mobile stacking -->
-  <div class="hero-photo-absolute">
-    <img src="img/hero4.webp" alt="KSK Farmos Pflegefachkraft" loading="eager" fetchpriority="high" decoding="sync">
   </div>
 </section>
 
@@ -214,10 +486,10 @@
 <!-- 5. SPLIT: ПРЕИМУЩЕСТВА + WIZARD ФОРМА -->
 <section class="section" id="bewerbung">
   <div class="container">
-    <div class="grid-2">
+    <span class="section-tag" data-i18n="lp2.split.tag" style="display: block; margin-bottom: var(--sp-3);">Warum KSK Farmos?</span>
+    <div class="grid-2" style="align-items: start;">
       <div class="reveal-left">
-        <span class="section-tag" data-i18n="lp2.split.tag">Warum KSK Farmos?</span>
-        <h2 data-i18n="lp2.split.title">Was wir Ihnen bieten</h2>
+        <h2 data-i18n="lp2.split.title" style="margin-top: 0;">Was wir Ihnen bieten</h2>
         <ul class="check-list" style="margin-bottom: var(--sp-4);">
           <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp2.split.li1">Übertarifliche Vergütung — sofort ab Vertragsbeginn</div></li>
           <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp2.split.li2">Firmenwagen — auch zur privaten Nutzung ab dem ersten Tag</div></li>
@@ -226,23 +498,6 @@
           <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp2.split.li5">30 Tage Urlaub</div></li>
           <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp2.split.li6">Kollegiales Team — über 30 Mitarbeiter, kein Einzelkämpfer</div></li>
         </ul>
-        <div style="background:var(--white); padding:var(--sp-4); border-radius:var(--r-xl); border:1px solid var(--gray-100); box-shadow:0 4px 24px rgba(107,63,160,.06); margin-bottom:var(--sp-4); text-align:center;">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
-            <i data-lucide="quote" style="width:18px;height:18px;color:var(--violet);"></i>
-          </div>
-          <p data-i18n="lp2.split.quote" style="font-family:var(--serif);font-size:1.15rem;font-style:italic;color:var(--text-primary);line-height:1.6;margin-bottom:8px;">"Egal woher Sie kommen — wir freuen uns auf Sie."</p>
-          <div data-i18n="lp2.split.quote.author" style="font-size:0.85rem;color:var(--text-secondary);">— Unser Versprechen</div>
-        </div>
-        <div style="background:var(--white); padding:var(--sp-4); border-radius:var(--r-xl); border:1px solid var(--gray-100); box-shadow:0 4px 24px rgba(107,63,160,.06); text-align:center;">
-          <div style="width:40px;height:40px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
-            <i data-lucide="phone" style="width:18px;height:18px;color:var(--violet);"></i>
-          </div>
-          <h4 data-i18n="lp2.split.call" style="margin-top:0;margin-bottom:16px;font-size:1.1rem;">Lieber direkt anrufen?</h4>
-          <div style="display:flex;flex-direction:column;gap:10px;max-width:280px;margin:0 auto;">
-            <a href="tel:056939189907" class="btn btn-outline" style="justify-content:center;width:100%;">05693 / 9189907</a>
-            <a href="tel:01707652593" class="btn btn-outline" style="justify-content:center;width:100%;font-size:0.9rem;">0170 / 7652593 (Mobil)</a>
-          </div>
-        </div>
       </div>
       <div class="reveal-right">
         <div class="form-card" style="box-shadow: var(--shadow-xl); border: 1px solid var(--gray-100); background: var(--white);">
@@ -300,6 +555,20 @@
             </div>
           </form>
           <p data-i18n="lp2.form.spam" style="font-size:0.75rem;color:var(--text-secondary);text-align:center;margin-top:16px;margin-bottom:0;">Ihre Daten sind sicher. Keine Weitergabe an Dritte.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Phone Call CTA Centered Below -->
+    <div class="reveal" style="margin-top: var(--sp-6); display: flex; justify-content: center;">
+      <div style="background:var(--white); padding:var(--sp-4); border-radius:var(--r-xl); border:1px solid var(--gray-100); box-shadow:0 4px 24px rgba(107,63,160,.06); text-align:center; max-width:560px; width:100%;">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+          <i data-lucide="phone" style="width:18px;height:18px;color:var(--violet);"></i>
+        </div>
+        <h4 data-i18n="lp2.split.call" style="margin-top:0;margin-bottom:16px;font-size:1.1rem;">Lieber direkt anrufen?</h4>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+          <a href="tel:056939189907" class="btn btn-outline" style="justify-content:center;min-width:200px;">05693 / 9189907</a>
+          <a href="tel:01707652593" class="btn btn-outline" style="justify-content:center;min-width:200px;font-size:0.9rem;">0170 / 7652593 (Mobil)</a>
         </div>
       </div>
     </div>
@@ -426,7 +695,7 @@
       <div class="footer-brand" style="margin-bottom: 0;">
         <a href="#" class="logo" style="pointer-events: none;">
           <img src="img/logo-icon.png" alt="KSK Farmos">
-          <div class="logo-text">KSK Farmos<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
+          <div class="logo-text">KSK Farmos GmbH &amp; Co. KG<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
         </a>
         <p data-i18n="lp2.footer.desc" style="margin-top: 16px; max-width: 300px; font-size: 0.9rem; color: rgba(255,255,255,0.7);">Wir wachsen — kommen Sie mit.</p>
       </div>
@@ -504,48 +773,139 @@
   });
 </script>
 <script>
-const _sb = window.supabase.createClient('YOUR_SUPABASE_URL', 'YOUR_SUPABASE_KEY')
+document.querySelector('[data-form="schnellbewerbung"]').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  
+  const panel = form.querySelector('[data-panel="3"]');
+  const existingAlert = panel.querySelector('.form-alert');
+  if (existingAlert) existingAlert.remove();
 
-document.querySelector('[data-form="schnellbewerbung"]').addEventListener('submit', async (e) => {
-  e.preventDefault()
-  const form = e.target
-  const data = {
+  if (!form.checkValidity()) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'form-alert form-alert-warning';
+    
+    const lang = document.documentElement.lang || 'de';
+    let msg = 'Bitte akzeptieren Sie die Datenschutzerklärung.';
+    if (lang === 'ru') msg = 'Пожалуйста, примите политику конфиденциальности.';
+    if (lang === 'en') msg = 'Please accept the privacy policy.';
+    
+    alertDiv.innerHTML = `
+      <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>${msg}</div>
+    `;
+    
+    const txt = panel.querySelector('textarea');
+    if (txt) {
+      txt.parentNode.parentNode.insertBefore(alertDiv, txt.parentNode);
+    } else {
+      panel.insertBefore(alertDiv, panel.firstChild);
+    }
+    return;
+  }
+
+  const btn = form.querySelector('[type="submit"]');
+  const originalHTML = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = 'Wird gesendet...';
+
+  // Read attached file and convert to base64
+  const fileInput = form.querySelector('input[type="file"]');
+  const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+  let base64File = '';
+
+  if (file) {
+    if (file.size > 10 * 1024 * 1024) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'form-alert form-alert-warning';
+      
+      const lang = document.documentElement.lang || 'de';
+      let msg = 'Die Datei ist zu groß (maximal 10MB).';
+      if (lang === 'ru') msg = 'Файл слишком большой (максимум 10МБ).';
+      if (lang === 'en') msg = 'File is too large (maximum 10MB).';
+      
+      alertDiv.innerHTML = `
+        <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>${msg}</div>
+      `;
+      
+      panel.insertBefore(alertDiv, panel.firstChild);
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+      return;
+    }
+
+    try {
+      base64File = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+    } catch (fileErr) {
+      console.error('File reading error:', fileErr);
+    }
+  }
+
+  const templateParams = {
     vorname: form.querySelector('[name="vorname"]').value.trim(),
     nachname: form.querySelector('[name="nachname"]').value.trim(),
     email: form.querySelector('[name="email"]').value.trim(),
     telefon: form.querySelector('[name="telefon"]').value.trim(),
-    qualifikation: form.querySelector('[name="qualifikation"]').value,
-    erfahrung: form.querySelector('[name="erfahrung"]').value,
-    fuehrerschein: form.querySelector('[name="fuehrerschein"]').value,
-    arbeitszeit: form.querySelector('[name="arbeitszeit"]').value,
-    nachricht: form.querySelector('[name="nachricht"]').value.trim(),
-    status: 'neu',
-    source: 'landing-jobs'
-  }
-  const btn = form.querySelector('[type="submit"]')
-  const orig = btn.innerHTML
-  btn.disabled = true
-  btn.innerHTML = 'Wird gesendet...'
-  const { error } = await _sb.from('bewerbungen').insert([data])
-  if (error) {
-    btn.disabled = false
-    btn.innerHTML = orig
-    lucide.createIcons()
-  } else {
-    form.closest('.form-card').innerHTML = `
-      <div style="text-align:center;padding:var(--sp-8) var(--sp-4)">
-        <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-4)">
+    qualifikation: form.querySelector('[name="qualifikation"]')?.value || '—',
+    erfahrung: form.querySelector('[name="erfahrung"]')?.value || '—',
+    fuehrerschein: form.querySelector('[name="fuehrerschein"]')?.value || '—',
+    arbeitszeit: form.querySelector('[name="arbeitszeit"]')?.value || '—',
+    nachricht: form.querySelector('[name="nachricht"]')?.value.trim() || '—',
+    cv: base64File
+  };
+
+  try {
+    await emailjs.send('service_h12u11k', 'template_hmexk4f', templateParams);
+    const card = form.closest('.form-card');
+    card.innerHTML = `
+      <div style="text-align:center;padding:48px 24px">
+        <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
           <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
         </div>
-        <h3 style="font-family:var(--serif);margin-bottom:var(--sp-2)">Bewerbung eingegangen!</h3>
+        <h3 style="font-family:var(--serif);margin-bottom:12px">Bewerbung eingegangen!</h3>
         <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
-          Vielen Dank, <strong>${data.vorname}</strong>!<br>
-          Wir melden uns innerhalb von 24 Stunden unter <strong>${data.telefon}</strong>.
+          Vielen Dank, <strong>${templateParams.vorname}</strong>!<br>
+          Wir melden uns innerhalb von 24 Stunden unter<br>
+          <strong>${templateParams.telefon}</strong>.
         </p>
-      </div>`
-    lucide.createIcons()
+      </div>
+    `;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = originalHTML;
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+    console.error('EmailJS Error:', err);
+    
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'form-alert form-alert-error';
+    
+    const lang = document.documentElement.lang || 'de';
+    let msg = 'Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907';
+    if (lang === 'ru') msg = 'Ошибка отправки. Пожалуйста, позвоните нам: 05693 / 9189907';
+    if (lang === 'en') msg = 'Error sending message. Please call us: 05693 / 9189907';
+    
+    alertDiv.innerHTML = `
+      <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <octagon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>${msg}</div>
+    `;
+    
+    panel.insertBefore(alertDiv, panel.firstChild);
   }
-})
+});
 </script>
 </body>
 </html>

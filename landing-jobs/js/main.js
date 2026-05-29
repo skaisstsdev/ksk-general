@@ -331,34 +331,96 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 8. Back to top button ──────────────────────────────
+  // ── 8. Back to top button & Lenis Smooth Scroll ─────────
   const backToTop = document.getElementById('backToTop');
   const toggleBackToTop = () => {
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 600);
   };
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  
+  // Initialize Lenis Smooth Scroll
+  let lenis;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 2
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    window.lenis = lenis;
+  }
+
   if (backToTop) {
     backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (lenis) {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   }
 
-  // ── 9. Smooth scroll для якорей ────────────────────────
+  // ── 9. Smooth scroll для якорей (Lenis) ─────────────────
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href === '#') return;
-      // Skip language switcher links
       if (link.closest('.lang-float')) return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const offset = 100;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -100 });
+        } else {
+          const offset = 100;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       }
     });
   });
+
+  // ── Cinematic Parallax (Max Performance & Zero Stutter) ──
+  function initParallax() {
+    if (!lenis) return;
+    const heroPhotos = document.querySelectorAll('.hero-home-photo');
+    if (heroPhotos.length === 0) return;
+
+    let lastScroll = -9999;
+
+    function render() {
+      const currentScroll = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
+
+      // Prevent redundant styles
+      if (Math.abs(currentScroll - lastScroll) < 0.1) return;
+      lastScroll = currentScroll;
+
+      const isDesktop = window.innerWidth > 992;
+
+      // Render Hero Parallax
+      heroPhotos.forEach(img => {
+        const frame = img.closest('.hero-home-photo-frame');
+        if (isDesktop) {
+          const y = currentScroll * 0.40;
+          const scale = 1.05 + currentScroll * 0.0005;
+          img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})`;
+          if (frame) frame.style.transform = '';
+        } else {
+          img.style.transform = '';
+          if (frame) frame.style.transform = '';
+        }
+      });
+    }
+
+    lenis.on('scroll', render);
+    render();
+  }
+  initParallax();
 
   // ── 10. Form handling ──────────────────────────────────
   document.querySelectorAll('form[data-form]').forEach(form => {
