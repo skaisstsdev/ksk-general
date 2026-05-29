@@ -890,8 +890,16 @@ document.querySelector('[data-form="schnellbewerbung"]').addEventListener('submi
     }
   }
 
+  const emailParams = { ...templateParams };
+  delete emailParams.cv;
+  if (templateParams.cv) {
+    emailParams.nachricht = (emailParams.nachricht && emailParams.nachricht !== '—') 
+      ? emailParams.nachricht + '\n\n[Lebenslauf im Dashboard angehängt]' 
+      : '[Lebenslauf im Dashboard angehängt]';
+  }
+
   try {
-    await emailjs.send('service_h12u11k', 'template_hmexk4f', templateParams);
+    await emailjs.send('service_h12u11k', 'template_hmexk4f', emailParams);
     const card = form.closest('.form-card');
     card.innerHTML = `
       <div style="text-align:center;padding:48px 24px">
