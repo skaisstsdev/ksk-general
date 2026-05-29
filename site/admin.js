@@ -1,4 +1,4 @@
-const SUPABASE_URL='YOUR_SUPABASE_URL',SUPABASE_KEY='YOUR_SUPABASE_ANON_KEY',PASSWORD='kskfarmos2025';
+const SUPABASE_URL='https://uggrdnbnxnmczkybqmoh.supabase.co',SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVnZ3JkbmJueG5tY3preWJxbW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5NDIzOTQsImV4cCI6MjA5NDUxODM5NH0.KmfXFQ_bNuePMuxUFxARVsRyorqbKKrUEnb-wZEjTss',PASSWORD='kskfarmos2025';
 let db=null,bewerbungen=[],activeTab='alle',searchQuery='',filterQual='',curModal=null;
 let lang=localStorage.getItem('ksk-admin-lang')||'de';
 
