@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════
-// KSK Farmos — main.js v3.0
+// KSK Farmos GmbH & Co. KG — main.js v3.0
 // Fully calibrated: lang, FAQ, i18n icons
 // ═══════════════════════════════════════
 
@@ -331,53 +331,189 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── 8. Back to top button ──────────────────────────────
+  // ── 8. Back to top button & Lenis Smooth Scroll ─────────
   const backToTop = document.getElementById('backToTop');
   const toggleBackToTop = () => {
     if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 600);
   };
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  
+  // Initialize Lenis Smooth Scroll
+  let lenis;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      touchMultiplier: 2
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+    window.lenis = lenis;
+  }
+
   if (backToTop) {
     backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (lenis) {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     });
   }
 
-  // ── 9. Smooth scroll для якорей ────────────────────────
+  // ── 9. Smooth scroll для якорей (Lenis) ─────────────────
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
       if (href === '#') return;
-      // Skip language switcher links
       if (link.closest('.lang-float')) return;
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const offset = 100;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -100 });
+        } else {
+          const offset = 100;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
       }
     });
   });
 
-  // ── 10. Form handling ──────────────────────────────────
-  document.querySelectorAll('form[data-form]').forEach(form => {
+  // ── Cinematic Parallax (Max Performance & Zero Stutter) ──
+  function initParallax() {
+    if (!lenis) return;
+    const heroPhotos = document.querySelectorAll('.hero-home-photo');
+    if (heroPhotos.length === 0) return;
+
+    let lastScroll = -9999;
+
+    function render() {
+      const currentScroll = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
+
+      // Prevent redundant styles
+      if (Math.abs(currentScroll - lastScroll) < 0.1) return;
+      lastScroll = currentScroll;
+
+      const isDesktop = window.innerWidth > 992;
+
+      // Render Hero Parallax
+      heroPhotos.forEach(img => {
+        const frame = img.closest('.hero-home-photo-frame');
+        if (isDesktop) {
+          const y = currentScroll * 0.40;
+          const scale = 1.05 + currentScroll * 0.0005;
+          img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})`;
+          if (frame) frame.style.transform = '';
+        } else {
+          img.style.transform = '';
+          if (frame) frame.style.transform = '';
+        }
+      });
+    }
+
+    lenis.on('scroll', render);
+    render();
+  }
+  initParallax();
+
+  // ── 10. Form handling (EmailJS Integration) ─────────────
+  document.querySelectorAll('form[data-form="beratung"]').forEach(form => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
+      const existingAlert = form.querySelector('.form-alert');
+      if (existingAlert) existingAlert.remove();
+
+      if (!form.checkValidity()) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'form-alert form-alert-warning';
+        
+        const lang = document.documentElement.lang || 'de';
+        let msg = 'Bitte füllen Sie alle erforderlichen Felder aus.';
+        if (lang === 'ru') msg = 'Пожалуйста, заполните все обязательные поля.';
+        if (lang === 'en') msg = 'Please fill in all required fields.';
+        
+        alertDiv.innerHTML = `
+          <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div>${msg}</div>
+        `;
+        
+        form.insertBefore(alertDiv, form.firstChild);
+        
+        form.querySelectorAll('input[required]').forEach(input => {
+          if (!input.checkValidity()) {
+            input.classList.add('is-invalid');
+          } else {
+            input.classList.remove('is-invalid');
+          }
+        });
+        return;
+      }
+
       const btn = form.querySelector('button[type="submit"]');
       if (!btn) return;
-      const originalText = btn.textContent;
+      const originalHTML = btn.innerHTML;
       btn.disabled = true;
-      btn.textContent = 'Wird gesendet...';
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      btn.textContent = '✓ Gesendet';
-      btn.style.background = '#22c55e';
-      setTimeout(() => {
+      btn.innerHTML = 'Wird gesendet...';
+
+      const templateParams = {
+        vorname: form.querySelector('[name="vorname"]').value,
+        nachname: form.querySelector('[name="nachname"]').value,
+        email: form.querySelector('[name="email"]').value || '—',
+        telefon: form.querySelector('[name="telefon"]').value,
+        nachricht: form.querySelector('[name="nachricht"]').value || '—'
+      };
+
+      try {
+        await emailjs.send('service_h12u11k', 'template_85bxfic', templateParams);
+        const card = form.closest('.form-card');
+        if (card) {
+          card.innerHTML = `
+            <div style="text-align:center;padding:48px 24px">
+              <div style="width:72px;height:72px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 24px">
+                <i data-lucide="check" style="color:var(--violet);width:32px;height:32px"></i>
+              </div>
+              <h3 style="font-family:var(--serif);margin-bottom:12px">Vielen Dank!</h3>
+              <p style="color:var(--text-muted);line-height:1.7;max-width:300px;margin:0 auto">
+                Ihre Anfrage wurde erfolgreich gesendet.<br>
+                Wir melden uns innerhalb von 24 Stunden.
+              </p>
+            </div>
+          `;
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } catch (err) {
         btn.disabled = false;
-        btn.textContent = originalText;
-        btn.style.background = '';
-        form.reset();
-      }, 2500);
+        btn.innerHTML = originalHTML;
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+        console.error('EmailJS Error:', err);
+        
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'form-alert form-alert-error';
+        
+        const lang = document.documentElement.lang || 'de';
+        let msg = 'Fehler beim Senden. Bitte rufen Sie uns an: 05693 / 9189907';
+        if (lang === 'ru') msg = 'Ошибка отправки. Пожалуйста, позвоните нам: 05693 / 9189907';
+        if (lang === 'en') msg = 'Error sending message. Please call us: 05693 / 9189907';
+        
+        alertDiv.innerHTML = `
+          <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <octagon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div>${msg}</div>
+        `;
+        
+        form.insertBefore(alertDiv, form.firstChild);
+      }
     });
   });
 

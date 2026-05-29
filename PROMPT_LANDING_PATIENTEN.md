@@ -1,6 +1,6 @@
 # ЗАДАЧА: Создать продающий лендинг intensivpflege.html
 
-Ты получил папку с готовым сайтом KSK Farmos.
+Ты получил папку с готовым сайтом KSK Farmos GmbH & Co. KG.
 Изучи css/style.css, index.html, beratung.html — это твои референсы по дизайну.
 Все фото уже лежат в img/.
 
@@ -197,7 +197,7 @@ p: "Wir sind für Sie da — persönlich, schnell und ohne Verpflichtung."
 
 ## МЕТА-ТЕГИ
 
-title: Häusliche Intensivpflege Nordhessen — KSK Farmos
+title: Häusliche Intensivpflege Nordhessen — KSK Farmos GmbH & Co. KG
 description: Kostenlose Beratung zur ambulanten Intensivpflege. Krankenkasse übernimmt die Kosten. Seit 2013 in Nordhessen. Jetzt unverbindlich anfragen.
 robots: noindex, nofollow
 
