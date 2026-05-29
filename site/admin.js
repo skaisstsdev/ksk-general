@@ -170,13 +170,7 @@ function onSI(v){searchQuery=v;renderList()}
 function onQF(v){filterQual=v;renderList()}
 function resetF(){searchQuery='';filterQual='';document.getElementById('si').value='';document.getElementById('qf').value='';renderList()}
 
-function demo(){const n=Date.now();return[
-{id:'d1',created_at:new Date(n-36e5).toISOString(),vorname:'Maria',nachname:'Schmidt',email:'maria@example.de',telefon:'0170 1234567',qualifikation:'fachkraft',erfahrung:'3-5',fuehrerschein:'ja',arbeitszeit:'Vollzeit',nachricht:'Ich freue mich auf Ihre Rückmeldung!',status:'neu',notizen:'',stelle:'Pflegefachkraft (m/w/d)',cv:'https://example.com/cv.pdf'},
-{id:'d2',created_at:new Date(n-72e5).toISOString(),vorname:'Thomas',nachname:'Müller',email:'thomas.m@example.de',telefon:'0151 9876543',qualifikation:'altenpfleger',erfahrung:'5+',fuehrerschein:'ja',arbeitszeit:'Teilzeit',nachricht:'',status:'bearbeitung',notizen:'Termin nächste Woche',stelle:'Altenpfleger/in',dateien:[{name:'Zertifikat 1',url:'#'},{name:'Zertifikat 2',url:'#'}]},
-{id:'d3',created_at:new Date(n-864e5).toISOString(),vorname:'Anna',nachname:'Weber',email:'anna.w@example.de',telefon:'0176 5551234',qualifikation:'pflegehelfer',erfahrung:'1-2',fuehrerschein:'nein',arbeitszeit:'Minijob',nachricht:'Bin ab Juli verfügbar.',status:'neu',notizen:'',stelle:''},
-{id:'d4',created_at:new Date(n-1728e5).toISOString(),vorname:'Kemal',nachname:'Yilmaz',email:'kemal@example.de',telefon:'0172 3334455',qualifikation:'fachkraft',erfahrung:'5+',fuehrerschein:'ja',arbeitszeit:'Vollzeit',nachricht:'',status:'angenommen',notizen:'Start 01.06.',stelle:'Pflegefachkraft für Intensivpflege'},
-{id:'d5',created_at:new Date(n-6048e5).toISOString(),vorname:'Olga',nachname:'Petrov',email:'olga.p@example.de',telefon:'0163 7778899',qualifikation:'student',erfahrung:'keine',fuehrerschein:'nein',arbeitszeit:'Flexibel',nachricht:'Suche Praktikumsplatz.',status:'archiv',notizen:'Praktikum beendet',stelle:'Praktikum / Studentenjob'}
-]}
+function demo(){return[]}
 
 document.addEventListener('DOMContentLoaded',()=>{
   applyLang();
