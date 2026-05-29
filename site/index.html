@@ -24,7 +24,7 @@
       KSK Farmos <span class="sep">·</span> <span class="sub">Bewerbungsportal</span>
     </div>
     <div class="dash-tabs">
-      <button class="dash-tab active" data-tab="alle"><span data-t="tab_alle">Gesamt</span> <span class="cnt" id="cAll">0</span></button>
+      <button class="dash-tab active" data-tab="neu"><span data-t="tab_neu">Neu</span> <span class="cnt" id="cNeu">0</span></button>
       <button class="dash-tab" data-tab="angenommen"><span data-t="tab_angenommen">Angenommen</span> <span class="cnt" id="cAng">0</span></button>
       <button class="dash-tab" data-tab="abgelehnt"><span data-t="tab_abgelehnt">Abgelehnt</span> <span class="cnt" id="cAbg">0</span></button>
       <button class="dash-tab" data-tab="papierkorb"><span data-t="tab_trash">Papierkorb</span> <span class="cnt" id="cTrash">0</span></button>
@@ -37,11 +37,6 @@
   <div class="dash-content">
     <!-- STATS -->
     <div class="stats-grid">
-      <div class="s-card">
-        <div class="s-icon" style="background:#f1f5f9"><i data-lucide="users" style="width:18px;height:18px;color:#475569"></i></div>
-        <div class="s-val" id="sT">0</div>
-        <div class="s-lbl" data-t="stat_total">Gesamt</div>
-      </div>
       <div class="s-card">
         <div class="s-icon" style="background:var(--violet-pale)"><i data-lucide="star" style="width:18px;height:18px;color:var(--violet)"></i></div>
         <div class="s-val" style="color:var(--violet)" id="sN">0</div>
@@ -56,6 +51,11 @@
         <div class="s-icon" style="background:rgba(239,68,68,.15)"><i data-lucide="x-circle" style="width:18px;height:18px;color:#ef4444"></i></div>
         <div class="s-val" style="color:#ef4444" id="sA">0</div>
         <div class="s-lbl" data-t="stat_abg">Abgelehnt</div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon" style="background:#f1f5f9"><i data-lucide="trash-2" style="width:18px;height:18px;color:#64748b"></i></div>
+        <div class="s-val" style="color:#64748b" id="sT">0</div>
+        <div class="s-lbl" data-t="tab_trash">Papierkorb</div>
       </div>
     </div>
 

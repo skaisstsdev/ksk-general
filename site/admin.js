@@ -1,5 +1,5 @@
 const SUPABASE_URL='https://uggrdnbnxnmczkybqmoh.supabase.co',SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVnZ3JkbmJueG5tY3preWJxbW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5NDIzOTQsImV4cCI6MjA5NDUxODM5NH0.KmfXFQ_bNuePMuxUFxARVsRyorqbKKrUEnb-wZEjTss',PASSWORD='kskfarmos2025';
-let db=null,bewerbungen=[],activeTab='alle',searchQuery='',filterQual='',curModal=null;
+let db=null,bewerbungen=[],activeTab='neu',searchQuery='',filterQual='',curModal=null;
 let lang=localStorage.getItem('ksk-admin-lang')||'de';
 
 const avatarC={neu:'var(--violet)',bearbeitung:'#d97706',angenommen:'#059669',abgelehnt:'#dc2626',archiv:'var(--gray-600,#6b7280)',geloescht:'#94a3b8'};
@@ -8,7 +8,7 @@ const avatarC={neu:'var(--violet)',bearbeitung:'#d97706',angenommen:'#059669',ab
 const T={
   de:{
     login_title:'Anmelden', login_btn:'Anmelden', login_ph:'Passwort eingeben', login_err:'Falsches Passwort. Bitte erneut versuchen.',
-    tab_alle:'Gesamt', tab_angenommen:'Angenommen', tab_abgelehnt:'Abgelehnt', logout:'Abmelden', neue:'neue',
+    tab_neu:'Neu', tab_angenommen:'Angenommen', tab_abgelehnt:'Abgelehnt', logout:'Abmelden', neue:'neue',
     stat_total:'Gesamt', stat_neu:'Neu', stat_ang:'Angenommen', stat_abg:'Abgelehnt',
     search_ph:'Suchen nach Name, Telefon, E-Mail...', all_qual:'Alle Qualifikationen', reset:'Zurücksetzen',
     details:'Details →', call:'Anrufen', email:'E-Mail senden',
@@ -27,7 +27,7 @@ const T={
   },
   ru:{
     login_title:'Вход', login_btn:'Войти', login_ph:'Введите пароль', login_err:'Неверный пароль. Попробуйте снова.',
-    tab_alle:'Всего', tab_angenommen:'Принято', tab_abgelehnt:'Отклонено', logout:'Выйти', neue:'новых',
+    tab_neu:'Новые', tab_angenommen:'Принято', tab_abgelehnt:'Отклонено', logout:'Выйти', neue:'новых',
     stat_total:'Всего', stat_neu:'Новые', stat_ang:'Принято', stat_abg:'Отклонено',
     search_ph:'Поиск по имени, телефону, e-mail...', all_qual:'Все квалификации', reset:'Сбросить',
     details:'Подробнее →', call:'Позвонить', email:'Написать e-mail',
@@ -96,16 +96,15 @@ async function initDB(){
 function renderAll(){applyLang();updateStats();renderList()}
 
 function updateStats(){
-  const tot=bewerbungen.filter(b=>b.status!=='geloescht').length,
-        n=bewerbungen.filter(b=>b.status==='neu'||b.status==='bearbeitung').length,
+  const n=bewerbungen.filter(b=>b.status==='neu'||b.status==='bearbeitung').length,
         ang=bewerbungen.filter(b=>b.status==='angenommen').length,
         abg=bewerbungen.filter(b=>b.status==='abgelehnt').length,
         tr=bewerbungen.filter(b=>b.status==='geloescht').length;
-  document.getElementById('sT').textContent=tot;
-  document.getElementById('sN').textContent=n;
-  document.getElementById('sB').textContent=ang;
-  document.getElementById('sA').textContent=abg;
-  document.getElementById('cAll').textContent=tot;
+  const sT = document.getElementById('sT'); if (sT) sT.textContent=tr;
+  const sN = document.getElementById('sN'); if (sN) sN.textContent=n;
+  const sB = document.getElementById('sB'); if (sB) sB.textContent=ang;
+  const sA = document.getElementById('sA'); if (sA) sA.textContent=abg;
+  const cNeu = document.getElementById('cNeu'); if (cNeu) cNeu.textContent=n;
   const cAng = document.getElementById('cAng'); if (cAng) cAng.textContent=ang;
   const cAbg = document.getElementById('cAbg'); if (cAbg) cAbg.textContent=abg;
   const cTrash = document.getElementById('cTrash'); if (cTrash) cTrash.textContent=tr;
@@ -114,7 +113,7 @@ function updateStats(){
 
 function getF(){
   return bewerbungen.filter(b=>{
-    if(activeTab==='alle'&&b.status==='geloescht')return false;
+    if(activeTab==='neu'&&b.status!=='neu'&&b.status!=='bearbeitung')return false;
     if(activeTab==='angenommen'&&b.status!=='angenommen')return false;
     if(activeTab==='abgelehnt'&&b.status!=='abgelehnt')return false;
     if(activeTab==='papierkorb'&&b.status!=='geloescht')return false;
