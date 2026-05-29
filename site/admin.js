@@ -8,14 +8,14 @@ const avatarC={neu:'var(--violet)',bearbeitung:'#d97706',angenommen:'#059669',ab
 const T={
   de:{
     login_title:'Anmelden', login_btn:'Anmelden', login_ph:'Passwort eingeben', login_err:'Falsches Passwort. Bitte erneut versuchen.',
-    tab_alle:'Alle', tab_neu:'Neu', tab_archiv:'Archiv', logout:'Abmelden', neue:'neue',
-    stat_total:'Gesamt', stat_neu:'Neu', stat_bearb:'In Bearbeitung', stat_arch:'Archiviert',
+    tab_alle:'Gesamt', tab_angenommen:'Angenommen', tab_abgelehnt:'Abgelehnt', logout:'Abmelden', neue:'neue',
+    stat_total:'Gesamt', stat_neu:'Neu', stat_ang:'Angenommen', stat_abg:'Abgelehnt',
     search_ph:'Suchen nach Name, Telefon, E-Mail...', all_qual:'Alle Qualifikationen', reset:'Zurücksetzen',
     details:'Details →', call:'Anrufen', email:'E-Mail senden',
     lbl_exp:'Erfahrung', lbl_fs:'Führerschein B', lbl_az:'Arbeitszeit', lbl_src:'Stelle', lbl_msg:'Nachricht',
     initiativ:'Initiativbewerbung', notes:'Interne Notizen', notes_ph:'Notizen hier eingeben...', save:'Speichern', saved:'Gespeichert',
     lbl_files:'Angehängte Dateien', no_files:'Keine Dateien',
-    archive:'Archivieren', reject:'Ablehnen', reject_confirm:'Bewerbung wirklich ablehnen?',
+    accept:'Annehmen', reject:'Ablehnen', reject_confirm:'Bewerbung wirklich ablehnen?',
     empty:'Keine Bewerbungen gefunden', empty_sub:'Versuchen Sie andere Filter',
     st_neu:'Neu', st_bearb:'In Bearbeitung', st_ang:'Angenommen', st_abg:'Abgelehnt', st_arch:'Archiviert',
     q_fach:'Exam. Pflegefachkraft', q_alten:'Altenpfleger/in', q_helfer:'Pflegehelfer/in', q_student:'Medizinstudent/in', q_sonst:'Sonstiges',
@@ -27,14 +27,14 @@ const T={
   },
   ru:{
     login_title:'Вход', login_btn:'Войти', login_ph:'Введите пароль', login_err:'Неверный пароль. Попробуйте снова.',
-    tab_alle:'Все', tab_neu:'Новые', tab_archiv:'Архив', logout:'Выйти', neue:'новых',
-    stat_total:'Всего', stat_neu:'Новые', stat_bearb:'В обработке', stat_arch:'В архиве',
+    tab_alle:'Всего', tab_angenommen:'Принято', tab_abgelehnt:'Отклонено', logout:'Выйти', neue:'новых',
+    stat_total:'Всего', stat_neu:'Новые', stat_ang:'Принято', stat_abg:'Отклонено',
     search_ph:'Поиск по имени, телефону, e-mail...', all_qual:'Все квалификации', reset:'Сбросить',
     details:'Подробнее →', call:'Позвонить', email:'Написать e-mail',
     lbl_exp:'Опыт', lbl_fs:'Водительские права B', lbl_az:'Занятость', lbl_src:'Вакансия', lbl_msg:'Сообщение',
     initiativ:'Спонтанный отклик', notes:'Внутренние заметки', notes_ph:'Введите заметки...', save:'Сохранить', saved:'Сохранено',
     lbl_files:'Прикрепленные файлы', no_files:'Нет файлов',
-    archive:'В архив', reject:'Отклонить', reject_confirm:'Действительно отклонить заявку?',
+    accept:'Принять', reject:'Отклонить', reject_confirm:'Действительно отклонить заявку?',
     empty:'Заявки не найдены', empty_sub:'Попробуйте другие фильтры',
     st_neu:'Новая', st_bearb:'В обработке', st_ang:'Принята', st_abg:'Отклонена', st_arch:'В архиве',
     q_fach:'Мед. специалист (экзамен)', q_alten:'Гериатрическая медсестра', q_helfer:'Помощник по уходу', q_student:'Студент-медик', q_sonst:'Другое',
@@ -97,25 +97,26 @@ function renderAll(){applyLang();updateStats();renderList()}
 
 function updateStats(){
   const tot=bewerbungen.filter(b=>b.status!=='geloescht').length,
-        n=bewerbungen.filter(b=>b.status==='neu').length,
-        br=bewerbungen.filter(b=>b.status==='bearbeitung').length,
-        a=bewerbungen.filter(b=>b.status==='archiv'||b.status==='abgelehnt').length,
+        n=bewerbungen.filter(b=>b.status==='neu'||b.status==='bearbeitung').length,
+        ang=bewerbungen.filter(b=>b.status==='angenommen').length,
+        abg=bewerbungen.filter(b=>b.status==='abgelehnt').length,
         tr=bewerbungen.filter(b=>b.status==='geloescht').length;
   document.getElementById('sT').textContent=tot;
   document.getElementById('sN').textContent=n;
-  document.getElementById('sB').textContent=br;
-  document.getElementById('sA').textContent=a;
+  document.getElementById('sB').textContent=ang;
+  document.getElementById('sA').textContent=abg;
   document.getElementById('cAll').textContent=tot;
-  document.getElementById('cNeu').textContent=n+br;
-  document.getElementById('cArch').textContent=a;
+  const cAng = document.getElementById('cAng'); if (cAng) cAng.textContent=ang;
+  const cAbg = document.getElementById('cAbg'); if (cAbg) cAbg.textContent=abg;
   const cTrash = document.getElementById('cTrash'); if (cTrash) cTrash.textContent=tr;
   const bg=document.getElementById('bdg');if(n>0){bg.textContent=`${n} ${t('neue')}`;bg.classList.add('vis')}else bg.classList.remove('vis')
 }
 
 function getF(){
   return bewerbungen.filter(b=>{
-    if(activeTab==='neu'&&b.status!=='neu'&&b.status!=='bearbeitung')return false;
-    if(activeTab==='archiv'&&b.status!=='archiv'&&b.status!=='abgelehnt')return false;
+    if(activeTab==='alle'&&b.status==='geloescht')return false;
+    if(activeTab==='angenommen'&&b.status!=='angenommen')return false;
+    if(activeTab==='abgelehnt'&&b.status!=='abgelehnt')return false;
     if(activeTab==='papierkorb'&&b.status!=='geloescht')return false;
     if(activeTab!=='papierkorb'&&b.status==='geloescht')return false;
     if(searchQuery){const q=searchQuery.toLowerCase();if(!`${b.vorname} ${b.nachname} ${b.telefon||''} ${b.email||''}`.toLowerCase().includes(q))return false}
@@ -157,9 +158,9 @@ function openM(id){
 
   let dangerHtml = '';
   if (s === 'geloescht') {
-    dangerHtml = `<button class="btn-arch" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0" onclick="restoreI('${b.id}')"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i> ${t('restore')}</button><button class="btn-rej" onclick="deleteI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('delete_perm')}</button>`;
+    dangerHtml = `<button class="btn-arch" onclick="restoreI('${b.id}')"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i> ${t('restore')}</button><button class="btn-rej" onclick="deleteI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('delete_perm')}</button>`;
   } else {
-    dangerHtml = `<button class="btn-arch" onclick="archI('${b.id}')"><i data-lucide="archive" style="width:14px;height:14px"></i> ${t('archive')}</button><button class="btn-rej" onclick="rejI('${b.id}')"><i data-lucide="x-circle" style="width:14px;height:14px"></i> ${t('reject')}</button><button class="btn-rej" style="background:#fff7ed;color:#ea580c;border-color:#ffedd5" onclick="trashI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('trash')}</button>`;
+    dangerHtml = `<button class="btn-arch" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0" onclick="acceptI('${b.id}')"><i data-lucide="check" style="width:14px;height:14px"></i> ${t('accept')}</button><button class="btn-rej" onclick="rejI('${b.id}')"><i data-lucide="x-circle" style="width:14px;height:14px"></i> ${t('reject')}</button><button class="btn-rej" style="background:#fff7ed;color:#ea580c;border-color:#ffedd5" onclick="trashI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('trash')}</button>`;
   }
 
   mc.innerHTML=`<button class="m-close" onclick="closeM()"><i data-lucide="x" style="width:20px;height:20px"></i></button>
@@ -168,7 +169,7 @@ function openM(id){
 <div class="d-grid"><div class="d-item"><div class="lbl">${t('lbl_exp')}</div><div class="val">${el[b.erfahrung]||b.erfahrung||'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_fs')}</div><div class="val">${b.fuehrerschein==='ja'?t('fs_ja'):b.fuehrerschein==='nein'?t('fs_nein'):'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_az')}</div><div class="val">${b.arbeitszeit||'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_src')}</div><div class="val">${b.stelle||t('initiativ')}</div></div></div>
 ${msg}
 <div class="m-sec"><label>${t('lbl_files')}</label><div>${filesHtml}</div></div>
-<div class="m-sec"><label>${t('status_change')}</label><select id="mSt" onchange="updSt('${b.id}',this.value)"><option value="neu"${s==='neu'?' selected':''}>${t('st_neu')}</option><option value="bearbeitung"${s==='bearbeitung'?' selected':''}>${t('st_bearb')}</option><option value="angenommen"${s==='angenommen'?' selected':''}>${t('st_ang')}</option><option value="abgelehnt"${s==='abgelehnt'?' selected':''}>${t('st_abg')}</option><option value="archiv"${s==='archiv'?' selected':''}>${t('st_arch')}</option><option value="geloescht"${s==='geloescht'?' selected':''}>${t('st_geloescht')}</option></select><span id="spn"></span></div>
+<div class="m-sec"><label>${t('status_change')}</label><select id="mSt" onchange="updSt('${b.id}',this.value)"><option value="neu"${s==='neu'?' selected':''}>${t('st_neu')}</option><option value="bearbeitung"${s==='bearbeitung'?' selected':''}>${t('st_bearb')}</option><option value="angenommen"${s==='angenommen'?' selected':''}>${t('st_ang')}</option><option value="abgelehnt"${s==='abgelehnt'?' selected':''}>${t('st_abg')}</option><option value="geloescht"${s==='geloescht'?' selected':''}>${t('st_geloescht')}</option></select><span id="spn"></span></div>
 <div class="m-sec"><label>${t('notes')}</label><textarea id="mNo" rows="4" placeholder="${t('notes_ph')}">${b.notizen||''}</textarea><div style="margin-top:8px"><button class="btn btn-primary btn-sm" id="bSave" onclick="saveN('${b.id}')">${t('save')}</button></div></div>
 <div class="danger">${dangerHtml}</div>`;
   mo.classList.add('open');document.body.style.overflow='hidden';lucide.createIcons()
@@ -210,7 +211,7 @@ async function saveN(id){
   btn.innerHTML=`<i data-lucide="check-circle" style="width:14px;height:14px"></i> ${t('saved')}`;btn.style.background='#059669';lucide.createIcons();
   setTimeout(()=>{btn.textContent=t('save');btn.style.background=''},2000)
 }
-async function archI(id){await updSt(id,'archiv');closeM()}
+async function acceptI(id){await updSt(id,'angenommen');closeM()}
 async function rejI(id){if(!confirm(t('reject_confirm')))return;await updSt(id,'abgelehnt');closeM()}
 async function trashI(id){await updSt(id,'geloescht');closeM()}
 async function restoreI(id){await updSt(id,'neu');closeM()}
