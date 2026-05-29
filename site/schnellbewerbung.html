@@ -12,6 +12,7 @@
   <link rel="icon" href="img/logo-icon.png?v=3">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 </head>
 <body>
@@ -224,6 +225,46 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
   btn.disabled = true
   btn.innerHTML = 'Wird gesendet...'
 
+  // Read attached file and convert to base64
+  const fileInput = this.querySelector('input[type="file"]');
+  const file = fileInput && fileInput.files ? fileInput.files[0] : null;
+  let base64File = '';
+
+  if (file) {
+    if (file.size > 10 * 1024 * 1024) {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'form-alert form-alert-warning';
+      
+      const lang = document.documentElement.lang || 'de';
+      let msg = 'Die Datei ist zu groß (maximal 10MB).';
+      if (lang === 'ru') msg = 'Файл слишком большой (максимум 10МБ).';
+      if (lang === 'en') msg = 'File is too large (maximum 10MB).';
+      
+      alertDiv.innerHTML = `
+        <svg class="form-alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <div>${msg}</div>
+      `;
+      
+      panel.insertBefore(alertDiv, panel.firstChild);
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+      return;
+    }
+
+    try {
+      base64File = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+        reader.readAsDataURL(file);
+      });
+    } catch (fileErr) {
+      console.error('File reading error:', fileErr);
+    }
+  }
+
   const templateParams = {
     vorname: this.querySelector('[name="vorname"]').value,
     nachname: this.querySelector('[name="nachname"]').value,
@@ -233,7 +274,33 @@ document.getElementById('bewerbungForm').addEventListener('submit', async functi
     erfahrung: this.querySelector('[name="erfahrung"]')?.value || '—',
     fuehrerschein: this.querySelector('[name="fuehrerschein"]')?.value || '—',
     arbeitszeit: this.querySelector('[name="arbeitszeit"]')?.value || '—',
-    nachricht: this.querySelector('[name="nachricht"]')?.value || '—'
+    nachricht: this.querySelector('[name="nachricht"]')?.value || '—',
+    cv: base64File
+  }
+
+  // ── Supabase Integration ──
+  const SUPABASE_URL = 'https://uggrdnbnxnmczkybqmoh.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVnZ3JkbmJueG5tY3preWJxbW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg5NDIzOTQsImV4cCI6MjA5NDUxODM5NH0.KmfXFQ_bNuePMuxUFxARVsRyorqbKKrUEnb-wZEjTss';
+
+  if (typeof supabase !== 'undefined' && SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+    try {
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      await supabaseClient.from('bewerbungen').insert([{
+        vorname: templateParams.vorname,
+        nachname: templateParams.nachname,
+        email: templateParams.email,
+        telefon: templateParams.telefon,
+        qualifikation: templateParams.qualifikation === 'exam' ? 'fachkraft' : (templateParams.qualifikation === 'alten' ? 'altenpfleger' : (templateParams.qualifikation === 'helfer' ? 'pflegehelfer' : templateParams.qualifikation)),
+        erfahrung: templateParams.erfahrung,
+        fuehrerschein: templateParams.fuehrerschein,
+        arbeitszeit: templateParams.arbeitszeit,
+        nachricht: templateParams.nachricht,
+        cv: templateParams.cv,
+        source: 'Website Schnellbewerbung'
+      }]);
+    } catch (supaErr) {
+      console.error('Supabase Error:', supaErr);
+    }
   }
 
   try {
