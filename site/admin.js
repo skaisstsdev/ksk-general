@@ -131,7 +131,15 @@ function openM(id){
   if (b.cv) files.push({ name: 'Lebenslauf / CV', url: b.cv });
   if (b.dateien && Array.isArray(b.dateien)) files.push(...b.dateien);
   const filesHtml = files.length > 0 
-    ? files.map(f => `<a href="${f.url||f}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#ffffff;border:1px solid #e2e8f0;padding:8px 12px;border-radius:var(--r-md);color:#0f172a;text-decoration:none;font-size:.85rem;margin-right:8px;margin-bottom:8px;transition:all .2s" onmouseover="this.style.background='#f8fafc';this.style.borderColor='#cbd5e1'" onmouseout="this.style.background='#ffffff';this.style.borderColor='#e2e8f0'"><i data-lucide="paperclip" style="width:14px;height:14px;color:#64748b"></i> ${f.name||'Datei'}</a>`).join('')
+    ? files.map(f => {
+        const urlStr = f.url || f;
+        const isBase64 = urlStr.startsWith('data:');
+        if (isBase64) {
+          return `<a href="#" onclick="event.preventDefault(); window.openBase64('${urlStr}');" style="display:inline-flex;align-items:center;gap:6px;background:#ffffff;border:1px solid #e2e8f0;padding:8px 12px;border-radius:var(--r-md);color:#0f172a;text-decoration:none;font-size:.85rem;margin-right:8px;margin-bottom:8px;transition:all .2s" onmouseover="this.style.background='#f8fafc';this.style.borderColor='#cbd5e1'" onmouseout="this.style.background='#ffffff';this.style.borderColor='#e2e8f0'"><i data-lucide="paperclip" style="width:14px;height:14px;color:#64748b"></i> ${f.name||'Datei'}</a>`;
+        } else {
+          return `<a href="${urlStr}" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#ffffff;border:1px solid #e2e8f0;padding:8px 12px;border-radius:var(--r-md);color:#0f172a;text-decoration:none;font-size:.85rem;margin-right:8px;margin-bottom:8px;transition:all .2s" onmouseover="this.style.background='#f8fafc';this.style.borderColor='#cbd5e1'" onmouseout="this.style.background='#ffffff';this.style.borderColor='#e2e8f0'"><i data-lucide="paperclip" style="width:14px;height:14px;color:#64748b"></i> ${f.name||'Datei'}</a>`;
+        }
+      }).join('')
     : `<div style="font-size:.85rem;color:#64748b">${t('no_files')}</div>`;
 
   mc.innerHTML=`<button class="m-close" onclick="closeM()"><i data-lucide="x" style="width:20px;height:20px"></i></button>
@@ -146,6 +154,28 @@ ${msg}
   mo.classList.add('open');document.body.style.overflow='hidden';lucide.createIcons()
 }
 function closeM(){document.getElementById('mo').classList.remove('open');document.body.style.overflow='';curModal=null}
+
+window.openBase64 = function(base64Data) {
+  try {
+    const parts = base64Data.split(';');
+    const contentType = parts[0].split(':')[1];
+    const raw = window.atob(base64Data.split(',')[1]);
+    const rawLength = raw.length;
+    const uInt8Array = new Uint8Array(rawLength);
+    for (let i = 0; i < rawLength; ++i) {
+      uInt8Array[i] = raw.charCodeAt(i);
+    }
+    const blob = new Blob([uInt8Array], { type: contentType });
+    const blobUrl = URL.createObjectURL(blob);
+    window.open(blobUrl, '_blank');
+  } catch (err) {
+    console.error('Failed to open base64 file:', err);
+    const newTab = window.open();
+    if (newTab) {
+      newTab.document.write(`<iframe src="${base64Data}" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>`);
+    }
+  }
+};
 
 async function updSt(id,st){
   const sp=document.getElementById('spn');sp.innerHTML='<span class="spin"></span>';
