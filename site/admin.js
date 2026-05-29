@@ -2,7 +2,7 @@ const SUPABASE_URL='https://uggrdnbnxnmczkybqmoh.supabase.co',SUPABASE_KEY='eyJh
 let db=null,bewerbungen=[],activeTab='alle',searchQuery='',filterQual='',curModal=null;
 let lang=localStorage.getItem('ksk-admin-lang')||'de';
 
-const avatarC={neu:'var(--violet)',bearbeitung:'#d97706',angenommen:'#059669',abgelehnt:'#dc2626',archiv:'var(--gray-600,#6b7280)'};
+const avatarC={neu:'var(--violet)',bearbeitung:'#d97706',angenommen:'#059669',abgelehnt:'#dc2626',archiv:'var(--gray-600,#6b7280)',geloescht:'#94a3b8'};
 
 // ═══ i18n ═══
 const T={
@@ -22,7 +22,8 @@ const T={
     e_keine:'Keine', e_12:'1–2 Jahre', e_35:'3–5 Jahre', e_5p:'Über 5 Jahre',
     fs_ja:'Ja', fs_nein:'Nein',
     time_now:'gerade eben', time_min:'vor {n} Min.', time_h:'vor {n} Std.', time_d:'vor {n} Tagen',
-    toast_new:'🔔 Neue Bewerbung — '
+    toast_new:'🔔 Neue Bewerbung — ',
+    trash:'Papierkorb', tab_trash:'Papierkorb', restore:'Wiederherstellen', delete_perm:'Endgültig löschen', st_geloescht:'Papierkorb', delete_confirm:'Möchten Sie diese Bewerbung endgültig löschen?'
   },
   ru:{
     login_title:'Вход', login_btn:'Войти', login_ph:'Введите пароль', login_err:'Неверный пароль. Попробуйте снова.',
@@ -40,13 +41,14 @@ const T={
     e_keine:'Нет', e_12:'1–2 года', e_35:'3–5 лет', e_5p:'Более 5 лет',
     fs_ja:'Да', fs_nein:'Нет',
     time_now:'только что', time_min:'мин. назад: {n}', time_h:'ч. назад: {n}', time_d:'дн. назад: {n}',
-    toast_new:'🔔 Новая заявка — '
+    toast_new:'🔔 Новая заявка — ',
+    trash:'В корзину', tab_trash:'Корзина', restore:'Восстановить', delete_perm:'Удалить навсегда', st_geloescht:'Корзина', delete_confirm:'Действительно удалить заявку навсегда?'
   }
 };
 
 function t(key){return T[lang][key]||T.de[key]||key}
 
-const stMap=()=>({neu:t('st_neu'),bearbeitung:t('st_bearb'),angenommen:t('st_ang'),abgelehnt:t('st_abg'),archiv:t('st_arch')});
+const stMap=()=>({neu:t('st_neu'),bearbeitung:t('st_bearb'),angenommen:t('st_ang'),abgelehnt:t('st_abg'),archiv:t('st_arch'),geloescht:t('st_geloescht')});
 const qMap=()=>({fachkraft:t('q_fach'),altenpfleger:t('q_alten'),pflegehelfer:t('q_helfer'),student:t('q_student'),sonstiges:t('q_sonst'),exam:t('q_fach'),alten:t('q_alten'),helfer:t('q_helfer')});
 const eMap=()=>({keine:t('e_keine'),'0':t('e_keine'),'1-2':t('e_12'),'3-5':t('e_35'),'5+':t('e_5p')});
 
@@ -94,9 +96,19 @@ async function initDB(){
 function renderAll(){applyLang();updateStats();renderList()}
 
 function updateStats(){
-  const tot=bewerbungen.length,n=bewerbungen.filter(b=>b.status==='neu').length,br=bewerbungen.filter(b=>b.status==='bearbeitung').length,a=bewerbungen.filter(b=>b.status==='archiv'||b.status==='abgelehnt').length;
-  document.getElementById('sT').textContent=tot;document.getElementById('sN').textContent=n;document.getElementById('sB').textContent=br;document.getElementById('sA').textContent=a;
-  document.getElementById('cAll').textContent=tot;document.getElementById('cNeu').textContent=n+br;document.getElementById('cArch').textContent=a;
+  const tot=bewerbungen.filter(b=>b.status!=='geloescht').length,
+        n=bewerbungen.filter(b=>b.status==='neu').length,
+        br=bewerbungen.filter(b=>b.status==='bearbeitung').length,
+        a=bewerbungen.filter(b=>b.status==='archiv'||b.status==='abgelehnt').length,
+        tr=bewerbungen.filter(b=>b.status==='geloescht').length;
+  document.getElementById('sT').textContent=tot;
+  document.getElementById('sN').textContent=n;
+  document.getElementById('sB').textContent=br;
+  document.getElementById('sA').textContent=a;
+  document.getElementById('cAll').textContent=tot;
+  document.getElementById('cNeu').textContent=n+br;
+  document.getElementById('cArch').textContent=a;
+  const cTrash = document.getElementById('cTrash'); if (cTrash) cTrash.textContent=tr;
   const bg=document.getElementById('bdg');if(n>0){bg.textContent=`${n} ${t('neue')}`;bg.classList.add('vis')}else bg.classList.remove('vis')
 }
 
@@ -104,8 +116,9 @@ function getF(){
   return bewerbungen.filter(b=>{
     if(activeTab==='neu'&&b.status!=='neu'&&b.status!=='bearbeitung')return false;
     if(activeTab==='archiv'&&b.status!=='archiv'&&b.status!=='abgelehnt')return false;
+    if(activeTab==='papierkorb'&&b.status!=='geloescht')return false;
+    if(activeTab!=='papierkorb'&&b.status==='geloescht')return false;
     if(searchQuery){const q=searchQuery.toLowerCase();if(!`${b.vorname} ${b.nachname} ${b.telefon||''} ${b.email||''}`.toLowerCase().includes(q))return false}
-    if(filterQual&&b.qualifikation!==filterQual)return false;
     if(filterQual&&b.qualifikation!==filterQual)return false;
     return true
   })
@@ -142,15 +155,22 @@ function openM(id){
       }).join('')
     : `<div style="font-size:.85rem;color:#64748b">${t('no_files')}</div>`;
 
+  let dangerHtml = '';
+  if (s === 'geloescht') {
+    dangerHtml = `<button class="btn-arch" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0" onclick="restoreI('${b.id}')"><i data-lucide="rotate-ccw" style="width:14px;height:14px"></i> ${t('restore')}</button><button class="btn-rej" onclick="deleteI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('delete_perm')}</button>`;
+  } else {
+    dangerHtml = `<button class="btn-arch" onclick="archI('${b.id}')"><i data-lucide="archive" style="width:14px;height:14px"></i> ${t('archive')}</button><button class="btn-rej" onclick="rejI('${b.id}')"><i data-lucide="x-circle" style="width:14px;height:14px"></i> ${t('reject')}</button><button class="btn-rej" style="background:#fff7ed;color:#ea580c;border-color:#ffedd5" onclick="trashI('${b.id}')"><i data-lucide="trash-2" style="width:14px;height:14px"></i> ${t('trash')}</button>`;
+  }
+
   mc.innerHTML=`<button class="m-close" onclick="closeM()"><i data-lucide="x" style="width:20px;height:20px"></i></button>
 <div class="m-head"><div class="av" style="background:${avatarC[s]||avatarC.neu}">${ini(b.vorname,b.nachname)}</div><div><h2>${b.vorname} ${b.nachname}</h2><div class="qual">${ql[b.qualifikation]||b.qualifikation||'–'}</div><div class="date">${new Date(b.created_at).toLocaleDateString(lang==='ru'?'ru-RU':'de-DE',{day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'})}</div></div></div>
 <div class="m-acts"><a href="tel:${(b.telefon||'').replace(/\s/g,'')}" class="call"><i data-lucide="phone" style="width:16px;height:16px"></i> ${t('call')}: ${b.telefon||'–'}</a><a href="mailto:${b.email||''}" class="mail"><i data-lucide="mail" style="width:16px;height:16px"></i> ${t('email')}: ${b.email||'–'}</a></div>
 <div class="d-grid"><div class="d-item"><div class="lbl">${t('lbl_exp')}</div><div class="val">${el[b.erfahrung]||b.erfahrung||'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_fs')}</div><div class="val">${b.fuehrerschein==='ja'?t('fs_ja'):b.fuehrerschein==='nein'?t('fs_nein'):'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_az')}</div><div class="val">${b.arbeitszeit||'–'}</div></div><div class="d-item"><div class="lbl">${t('lbl_src')}</div><div class="val">${b.stelle||t('initiativ')}</div></div></div>
 ${msg}
 <div class="m-sec"><label>${t('lbl_files')}</label><div>${filesHtml}</div></div>
-<div class="m-sec"><label>${t('status_change')}</label><select id="mSt" onchange="updSt('${b.id}',this.value)"><option value="neu"${s==='neu'?' selected':''}>${t('st_neu')}</option><option value="bearbeitung"${s==='bearbeitung'?' selected':''}>${t('st_bearb')}</option><option value="angenommen"${s==='angenommen'?' selected':''}>${t('st_ang')}</option><option value="abgelehnt"${s==='abgelehnt'?' selected':''}>${t('st_abg')}</option><option value="archiv"${s==='archiv'?' selected':''}>${t('st_arch')}</option></select><span id="spn"></span></div>
+<div class="m-sec"><label>${t('status_change')}</label><select id="mSt" onchange="updSt('${b.id}',this.value)"><option value="neu"${s==='neu'?' selected':''}>${t('st_neu')}</option><option value="bearbeitung"${s==='bearbeitung'?' selected':''}>${t('st_bearb')}</option><option value="angenommen"${s==='angenommen'?' selected':''}>${t('st_ang')}</option><option value="abgelehnt"${s==='abgelehnt'?' selected':''}>${t('st_abg')}</option><option value="archiv"${s==='archiv'?' selected':''}>${t('st_arch')}</option><option value="geloescht"${s==='geloescht'?' selected':''}>${t('st_geloescht')}</option></select><span id="spn"></span></div>
 <div class="m-sec"><label>${t('notes')}</label><textarea id="mNo" rows="4" placeholder="${t('notes_ph')}">${b.notizen||''}</textarea><div style="margin-top:8px"><button class="btn btn-primary btn-sm" id="bSave" onclick="saveN('${b.id}')">${t('save')}</button></div></div>
-<div class="danger"><button class="btn-arch" onclick="archI('${b.id}')"><i data-lucide="archive" style="width:14px;height:14px"></i> ${t('archive')}</button><button class="btn-rej" onclick="rejI('${b.id}')"><i data-lucide="x-circle" style="width:14px;height:14px"></i> ${t('reject')}</button></div>`;
+<div class="danger">${dangerHtml}</div>`;
   mo.classList.add('open');document.body.style.overflow='hidden';lucide.createIcons()
 }
 function closeM(){document.getElementById('mo').classList.remove('open');document.body.style.overflow='';curModal=null}
@@ -192,6 +212,17 @@ async function saveN(id){
 }
 async function archI(id){await updSt(id,'archiv');closeM()}
 async function rejI(id){if(!confirm(t('reject_confirm')))return;await updSt(id,'abgelehnt');closeM()}
+async function trashI(id){await updSt(id,'geloescht');closeM()}
+async function restoreI(id){await updSt(id,'neu');closeM()}
+async function deleteI(id){
+  if(!confirm(t('delete_confirm')))return;
+  const sp=document.getElementById('spn');if(sp)sp.innerHTML='<span class="spin"></span>';
+  const i=bewerbungen.findIndex(b=>b.id===id);if(i!==-1)bewerbungen.splice(i,1);
+  if(db)await db.from('bewerbungen').delete().eq('id',id);
+  if(sp)sp.innerHTML=' ✓';
+  closeM();
+  renderAll();
+}
 
 function showToast(msg){const e=document.querySelector('.toast');if(e)e.remove();const el=document.createElement('div');el.className='toast';el.textContent=msg;document.body.appendChild(el);requestAnimationFrame(()=>el.classList.add('vis'));setTimeout(()=>{el.classList.remove('vis');setTimeout(()=>el.remove(),400)},5000)}
 
