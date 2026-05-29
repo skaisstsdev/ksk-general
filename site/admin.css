@@ -34,8 +34,12 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; max-width: 
 .dash-content{padding-top:var(--header-h,72px)}
 /* ═══ STATS ═══ */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:var(--sp-5);max-width:1200px;margin:0 auto}
-.s-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:var(--r-lg);padding:var(--sp-4);transition:var(--t-base);box-shadow:0 1px 3px rgba(0,0,0,0.02)}
+.s-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:var(--r-lg);padding:var(--sp-4);transition:var(--t-base);box-shadow:0 1px 3px rgba(0,0,0,0.02);cursor:pointer}
 .s-card:hover{border-color:#cbd5e1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.s-card.active.c-neu{border-color:var(--violet);box-shadow:0 0 0 3px var(--violet-pale)}
+.s-card.active.c-ang{border-color:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+.s-card.active.c-abg{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,.15)}
+.s-card.active.c-trash{border-color:#64748b;box-shadow:0 0 0 3px rgba(100,116,139,.15)}
 .s-card .s-icon{width:36px;height:36px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
 .s-card .s-val{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1;color:#0f172a}
 .s-card .s-lbl{font-size:.78rem;color:#64748b;margin-top:6px;text-transform:uppercase;letter-spacing:.5px;font-weight:500}
@@ -126,11 +130,8 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; max-width: 
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:900px){
-  .dash-header{height:auto;min-height:100px;flex-wrap:wrap;padding:12px 24px;justify-content:space-between}
-  .dash-brand{order:1}
-  .dash-right{order:2;margin-left:0}
-  .dash-tabs{order:3;width:100%;margin-top:12px;margin-left:0;margin-right:0;justify-content:space-between;display:flex}
-  .dash-content{padding-top:116px}
+  .dash-tabs{display:none}
+  .dash-content{padding-top:var(--header-h,72px)}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .a-card{grid-template-columns:1fr;gap:12px}
 }

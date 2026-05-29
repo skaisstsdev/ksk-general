@@ -226,7 +226,7 @@ async function deleteI(id){
 
 function showToast(msg){const e=document.querySelector('.toast');if(e)e.remove();const el=document.createElement('div');el.className='toast';el.textContent=msg;document.body.appendChild(el);requestAnimationFrame(()=>el.classList.add('vis'));setTimeout(()=>{el.classList.remove('vis');setTimeout(()=>el.remove(),400)},5000)}
 
-function setTab(tab){activeTab=tab;document.querySelectorAll('.dash-tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));renderList()}
+function setTab(tab){activeTab=tab;document.querySelectorAll('.dash-tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));document.querySelectorAll('.s-card').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));renderList()}
 function onSI(v){searchQuery=v;renderList()}
 function onQF(v){filterQual=v;renderList()}
 function resetF(){searchQuery='';filterQual='';document.getElementById('si').value='';document.getElementById('qf').value='';renderList()}

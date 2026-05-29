@@ -37,22 +37,22 @@
   <div class="dash-content">
     <!-- STATS -->
     <div class="stats-grid">
-      <div class="s-card">
+      <div class="s-card c-neu active" data-tab="neu" onclick="setTab('neu')">
         <div class="s-icon" style="background:var(--violet-pale)"><i data-lucide="star" style="width:18px;height:18px;color:var(--violet)"></i></div>
         <div class="s-val" style="color:var(--violet)" id="sN">0</div>
         <div class="s-lbl" data-t="stat_neu">Neu</div>
       </div>
-      <div class="s-card">
+      <div class="s-card c-ang" data-tab="angenommen" onclick="setTab('angenommen')">
         <div class="s-icon" style="background:rgba(16,185,129,.15)"><i data-lucide="check" style="width:18px;height:18px;color:#10b981"></i></div>
         <div class="s-val" style="color:#10b981" id="sB">0</div>
         <div class="s-lbl" data-t="stat_ang">Angenommen</div>
       </div>
-      <div class="s-card">
+      <div class="s-card c-abg" data-tab="abgelehnt" onclick="setTab('abgelehnt')">
         <div class="s-icon" style="background:rgba(239,68,68,.15)"><i data-lucide="x-circle" style="width:18px;height:18px;color:#ef4444"></i></div>
         <div class="s-val" style="color:#ef4444" id="sA">0</div>
         <div class="s-lbl" data-t="stat_abg">Abgelehnt</div>
       </div>
-      <div class="s-card">
+      <div class="s-card c-trash" data-tab="papierkorb" onclick="setTab('papierkorb')">
         <div class="s-icon" style="background:#f1f5f9"><i data-lucide="trash-2" style="width:18px;height:18px;color:#64748b"></i></div>
         <div class="s-val" style="color:#64748b" id="sT">0</div>
         <div class="s-lbl" data-t="tab_trash">Papierkorb</div>
@@ -98,7 +98,7 @@
   <div class="m-card" id="mc"></div>
 </div>
 
-<script src="admin.js"></script>
+<script src="admin.js?v=3"></script>
 <script>if(typeof lucide!=='undefined')lucide.createIcons();</script>
 </body>
 </html>
