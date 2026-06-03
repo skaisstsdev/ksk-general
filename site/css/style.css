@@ -346,6 +346,11 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
+  .hero-cutout .container {
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   .hero-cutout .hero-inner {
     display: block !important;
     min-height: 100svh !important;
@@ -355,6 +360,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     padding: 0 !important;
   }
   .hero-cutout .hero-content {
+    position: static !important;
     display: block !important;
     width: 100% !important;
     max-width: none !important;
