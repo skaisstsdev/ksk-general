@@ -228,36 +228,8 @@ function adjustHeroTitles() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── 0. Mobile blurred background clone ──────────────────
-  const initBlurredMobileBackdrops = () => {
-    document.querySelectorAll('.hero-home-photo-inner').forEach(inner => {
-      if (inner.querySelector('.hero-bg-blur-pic')) return;
 
-      const originalPic = inner.querySelector('picture');
-      if (!originalPic) return;
 
-      // Clone picture for blurred background
-      const blurPic = originalPic.cloneNode(true);
-      blurPic.className = 'hero-bg-blur-pic';
-      const blurImg = blurPic.querySelector('img');
-      if (blurImg) {
-        blurImg.className = 'hero-home-photo-blur';
-        blurImg.removeAttribute('alt');
-        blurImg.removeAttribute('loading');
-      }
-
-      // Add foreground tags to original
-      originalPic.className = 'hero-fg-clean-pic';
-      const cleanImg = originalPic.querySelector('img');
-      if (cleanImg) {
-        cleanImg.className = 'hero-home-photo-clean';
-      }
-
-      // Insert blurred picture before the clean one
-      inner.insertBefore(blurPic, originalPic);
-    });
-  };
-  initBlurredMobileBackdrops();
 
   // ── COOKIE BANNER ──────────────────────────────────────────────
   if (!localStorage.getItem('ksk-cookies')) {

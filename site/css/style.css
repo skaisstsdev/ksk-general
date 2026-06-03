@@ -1063,10 +1063,6 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
-    position: relative !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
@@ -1077,56 +1073,19 @@ html[dir="rtl"] .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center !important;
-  }
-
-  /* Blurred background and clean foreground contain style */
-  .hero-bg-blur-pic {
-    position: absolute !important;
-    inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 1 !important;
-    overflow: hidden !important;
-    display: block !important;
-  }
-  .hero-home-photo-blur {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    filter: blur(25px) brightness(0.65) !important;
-    transform: scale(1.15) !important;
-  }
-  .hero-fg-clean-pic {
-    position: relative !important;
-    z-index: 2 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    max-width: 100% !important;
-    max-height: 100% !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
-  .hero-home-photo-clean {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    width: auto !important;
-    height: auto !important;
-    object-fit: contain !important;
-    border-radius: 0 !important;
+    object-position: center top !important;
   }
   .hero-home-overlay {
     position: absolute !important;
     inset: 0 !important;
-    z-index: 3 !important;
+    z-index: 2 !important;
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.45) 0%,
-      rgba(0, 0, 0, 0.25) 50%,
-      rgba(0, 0, 0, 0.82) 100%
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.15) 45%,
+      rgba(0, 0, 0, 0.75) 100%
     ) !important;
+    pointer-events: none !important;
   }
   .kontakt-hero-section .hero-inner {
     min-height: calc(100svh - var(--header-h)) !important;
