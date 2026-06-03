@@ -1105,7 +1105,8 @@ html[dir="rtl"] .hero-home-photo {
   }
   .index-hero-frame .hero-home-photo {
     object-position: center top !important;
-    transform: translateY(-12%) !important;
+    transform: scale(1.25) translateY(-10%) !important;
+    transform-origin: center top !important;
   }
 }
 
