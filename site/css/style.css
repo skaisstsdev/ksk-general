@@ -412,19 +412,63 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     display: none !important;
   }
   .header {
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: 1px solid transparent !important;
-    box-shadow: none !important;
-    transition: background var(--t-base) var(--ease), border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease) !important;
-  }
-  .header.scrolled {
     background: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(24px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
     border-bottom: 1px solid rgba(0,0,0,0.06) !important;
     box-shadow: 0 1px 28px rgba(0,0,0,0.05) !important;
+    transition: background var(--t-base) var(--ease), border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease) !important;
+  }
+
+  .header.header-transparent-allowed {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+  }
+  .header.header-transparent-allowed .logo-text {
+    color: #ffffff !important;
+  }
+  .header.header-transparent-allowed .logo-text span {
+    color: rgba(255, 255, 255, 0.70) !important;
+  }
+  .header.header-transparent-allowed .mobile-toggle span {
+    background: #ffffff !important;
+  }
+
+  .header.header-transparent-allowed.scrolled {
+    background: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: 0 1px 28px rgba(0,0,0,0.05) !important;
+  }
+  .header.header-transparent-allowed.scrolled .logo-text {
+    color: var(--text-primary) !important;
+  }
+  .header.header-transparent-allowed.scrolled .logo-text span {
+    color: var(--text-muted) !important;
+  }
+  .header.header-transparent-allowed.scrolled .mobile-toggle span {
+    background: var(--text-primary) !important;
+  }
+
+  .header.menu-open {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  .header.menu-open .logo-text {
+    color: #ffffff !important;
+  }
+  .header.menu-open .logo-text span {
+    color: rgba(255, 255, 255, 0.70) !important;
+  }
+  .header.menu-open .mobile-toggle span {
+    background: #ffffff !important;
   }
 }
 

@@ -292,6 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 1. Header scroll behavior ──────────────────────────
   const header = document.getElementById('header');
+  if (header && document.querySelector('.hero-cutout')) {
+    header.classList.add('header-transparent-allowed');
+  }
   const handleScroll = () => {
     if (window.scrollY > 40) {
       if (header) header.classList.add('scrolled');
