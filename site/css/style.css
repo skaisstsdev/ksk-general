@@ -348,23 +348,25 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout .hero-inner {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
+    justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    padding-top: clamp(60px, 12vh, 120px) !important;
-    padding-bottom: clamp(50px, 8vh, 90px) !important;
-    min-height: calc(100svh - var(--header-h)) !important;
+    padding-top: calc(var(--header-h) + clamp(16px, 4vh, 40px)) !important;
+    padding-bottom: clamp(32px, 5vh, 60px) !important;
+    min-height: 100svh !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
   }
   .hero-cutout .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: 580px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     color: #fff !important;
-    padding-bottom: 0 !important;
   }
   .hero-cutout .hero-title {
     color: #ffffff !important;
@@ -396,6 +398,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     color: rgba(255, 255, 255, 0.90) !important;
     font-size: 1.05rem !important;
     line-height: 1.65 !important;
+    margin-top: clamp(20px, 4vh, 40px) !important;
     margin-bottom: var(--sp-5) !important;
     max-width: 500px !important;
     margin-left: auto !important;
