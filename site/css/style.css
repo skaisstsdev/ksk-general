@@ -404,7 +404,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
   em.ht-line {
-    color: var(--violet-light) !important;
+    color: #cbb5f0 !important;
     font-style: italic !important;
     font-weight: 600 !important;
     text-shadow: 
