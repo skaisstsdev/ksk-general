@@ -1103,7 +1103,7 @@ html[dir="rtl"] .hero-home-photo {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: rgba(0, 0, 0, 0.15) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
     pointer-events: none !important;
   }
   .kontakt-hero-section .hero-inner {
