@@ -336,25 +336,25 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media (max-width: 992px) {
   .hero-cutout {
-    min-height: auto !important;
+    min-height: 100svh !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: flex-end !important;
     align-items: stretch !important;
-    overflow: visible !important;
-    background: var(--off-white) !important;
+    overflow: hidden !important;
+    background: #000 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
   .hero-cutout .hero-inner {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-end !important;
     align-items: center !important;
     text-align: center !important;
-    padding-top: clamp(24px, 4vh, 40px) !important;
-    padding-bottom: clamp(32px, 6vh, 60px) !important;
-    min-height: auto !important;
+    padding-top: var(--header-h) !important;
+    padding-bottom: clamp(32px, 8vh, 72px) !important;
+    min-height: 100svh !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
@@ -364,73 +364,86 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
-    max-width: 580px !important;
+    max-width: 540px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    color: var(--text-primary) !important;
+    color: #ffffff !important;
   }
   .hero-cutout .hero-title {
-    color: var(--text-primary) !important;
-    font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
+    color: #ffffff !important;
+    font-size: clamp(1.9rem, 8.2vw, 2.6rem) !important;
     line-height: 1.15 !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 8px !important;
     letter-spacing: -0.02em !important;
     text-align: center !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
   }
   .hero-cutout .hero-title .ht-line {
-    display: inline !important;
-    white-space: normal !important;
+    display: block !important;
+    white-space: nowrap !important;
   }
   /* Legacy span/em support */
   .hero-cutout .hero-title > span:not(.ht-line),
   .hero-cutout .hero-title > em:not(.ht-line) {
-    display: inline !important;
-    white-space: normal !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
   }
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
   em.ht-line {
-    color: var(--violet) !important;
+    color: #e9d5ff !important;
     font-style: italic !important;
     font-weight: 600 !important;
-    text-shadow: none !important;
+    text-shadow: 0 2px 12px rgba(216, 180, 254, 0.5) !important;
   }
   .hero-cutout .hero-subtitle {
-    color: var(--text-secondary) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.65 !important;
-    margin-top: 12px !important;
-    margin-bottom: 24px !important;
-    max-width: 100% !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+    margin-top: 8px !important;
+    margin-bottom: 20px !important;
+    max-width: 460px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    text-shadow: none !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
   }
   .hero-cutout .hero-actions {
     width: 100% !important;
     justify-content: center !important;
-    gap: 12px !important;
-    flex-direction: column !important;
+    gap: 10px !important;
+    flex-direction: row !important;
   }
   .hero-cutout .hero-actions .btn {
-    width: 100% !important;
-    max-width: 320px !important;
+    flex: 1 !important;
+    width: auto !important;
+    max-width: 180px !important;
+    padding: 12px 16px !important;
+    font-size: 0.9rem !important;
+    white-space: nowrap !important;
     justify-content: center !important;
   }
   .hero-cutout .btn-outline {
-    color: var(--text-primary) !important;
-    border-color: var(--gray-200) !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
   }
   .hero-cutout .btn-outline:hover {
-    border-color: var(--violet) !important;
-    background: var(--violet-alpha) !important;
-    color: var(--violet) !important;
+    border-color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.18) !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
+  }
+  @media (max-width: 360px) {
+    .hero-cutout .hero-actions {
+      flex-direction: column !important;
+    }
+    .hero-cutout .hero-actions .btn {
+      width: 100% !important;
+      max-width: 280px !important;
+    }
   }
   .header {
     background: rgba(255, 255, 255, 0.90) !important;
@@ -496,16 +509,18 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 /* Compact layout for shorter mobile screens */
 @media (max-width: 992px) and (max-height: 750px) {
   .hero-cutout .hero-inner {
-    padding-top: clamp(40px, 6vh, 60px) !important;
-    padding-bottom: clamp(30px, 6vh, 50px) !important;
+    padding-top: var(--header-h) !important;
+    padding-bottom: 24px !important;
   }
   .hero-cutout .hero-title {
-    margin-bottom: var(--sp-2) !important;
+    font-size: clamp(1.6rem, 7.5vw, 2.1rem) !important;
+    margin-bottom: 6px !important;
   }
   .hero-cutout .hero-subtitle {
-    margin-bottom: var(--sp-3) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.85rem !important;
+    line-height: 1.45 !important;
+    margin-top: 6px !important;
+    margin-bottom: 16px !important;
   }
   .hero-cutout .hero-actions {
     gap: 8px !important;
@@ -514,28 +529,23 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media (max-width: 992px) and (max-height: 640px) {
   .hero-cutout .hero-inner {
-    padding-top: 35px !important;
-    padding-bottom: 25px !important;
+    padding-top: var(--header-h) !important;
+    padding-bottom: 16px !important;
   }
   .hero-cutout .hero-title {
-    margin-bottom: var(--sp-1) !important;
+    font-size: clamp(1.4rem, 7vw, 1.8rem) !important;
+    margin-bottom: 4px !important;
   }
   .hero-cutout .hero-subtitle {
-    margin-bottom: var(--sp-2) !important;
-    font-size: 0.88rem !important;
-    line-height: 1.4 !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    display: none !important; /* Hide subtitle completely on very short viewports to prevent covering faces */
   }
   .hero-cutout .hero-actions {
     gap: 6px !important;
   }
   .hero-cutout .btn-lg {
-    padding: 10px 18px !important;
-    font-size: 0.9rem !important;
-    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+    min-height: 40px !important;
   }
 }
 
@@ -1063,12 +1073,10 @@ html[dir="rtl"] .hero-home-photo {
   .karriere-hero-frame,
   .faq-hero-frame,
   .kontakt-hero-frame {
-    position: relative !important;
-    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
     width: 100vw !important;
-    height: 42svh !important;
-    min-height: 280px !important;
-    max-height: 380px !important;
+    height: 100% !important;
     transform: none !important;
     left: 0 !important;
     right: 0 !important;
@@ -1086,18 +1094,6 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
-    position: relative !important;
-  }
-  .hero-home-photo-inner::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    height: 100px !important;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%) !important;
-    z-index: 2 !important;
-    pointer-events: none !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
@@ -1108,32 +1104,42 @@ html[dir="rtl"] .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 20% !important;
+    object-position: center top !important;
   }
   .hero-home-overlay {
-    display: none !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.1) 45%,
+      rgba(0, 0, 0, 0.6) 75%,
+      rgba(0, 0, 0, 0.85) 100%
+    ) !important;
+    pointer-events: none !important;
   }
   .kontakt-hero-section .hero-inner {
-    min-height: auto !important;
-    padding-bottom: clamp(32px, 6vh, 60px) !important;
+    min-height: 100svh !important;
+    padding-bottom: clamp(32px, 8vh, 72px) !important;
   }
   .index-hero-frame .hero-home-photo {
     object-position: center top !important;
   }
   .ueber-uns-hero-frame .hero-home-photo {
-    object-position: center 25% !important;
+    object-position: center 20% !important;
   }
   .leistungen-hero-frame .hero-home-photo {
-    object-position: center 25% !important;
+    object-position: center 20% !important;
   }
   .karriere-hero-frame .hero-home-photo {
-    object-position: center 25% !important;
+    object-position: center 20% !important;
   }
   .faq-hero-frame .hero-home-photo {
     object-position: center 20% !important;
   }
   .kontakt-hero-frame .hero-home-photo {
-    object-position: center 25% !important;
+    object-position: center 20% !important;
   }
 }
 
