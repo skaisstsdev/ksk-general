@@ -1056,7 +1056,7 @@ html[dir="rtl"] .hero-home-photo {
   .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center !important;
     position: relative !important;
     z-index: 2 !important;

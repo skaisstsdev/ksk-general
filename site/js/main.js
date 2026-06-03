@@ -160,11 +160,24 @@ function adjustHeroLayout() {
 
     if (!title || !inner || !content) return;
 
-    // Reset font size to measure original values
+    // Reset font size and heights to measure original values
     title.style.removeProperty('font-size');
     if (subtitle) subtitle.style.removeProperty('font-size');
+    hero.style.removeProperty('height');
+    hero.style.removeProperty('min-height');
+    inner.style.removeProperty('height');
+    inner.style.removeProperty('min-height');
 
     if (!isMobile) return;
+
+    // Lock hero and inner height to prevent address-bar scroll jumps and fill screen
+    const vh = window.innerHeight;
+    hero.style.setProperty('height', vh + 'px', 'important');
+    hero.style.setProperty('min-height', vh + 'px', 'important');
+
+    const headerH = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 70;
+    inner.style.setProperty('height', (vh - headerH) + 'px', 'important');
+    inner.style.setProperty('min-height', (vh - headerH) + 'px', 'important');
 
     // Available width and height with safety margins
     const availableWidth = inner.clientWidth - 24;
