@@ -1017,22 +1017,56 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
+    position: relative !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-image: url('../img/hero-mobile/hero1.png');
+  }
+  .leistungen-hero-frame .hero-home-photo-inner {
+    background-image: url('../img/hero-mobile/hero2.png') !important;
+  }
+  .ueber-uns-hero-frame .hero-home-photo-inner {
+    background-image: url('../img/hero-mobile/hero3.jpg') !important;
+  }
+  .karriere-hero-frame .hero-home-photo-inner {
+    background-image: url('../img/hero-mobile/hero4.png') !important;
+  }
+  .faq-hero-frame .hero-home-photo-inner {
+    background-image: url('../img/hero-mobile/hero5.png') !important;
+  }
+  .kontakt-hero-frame .hero-home-photo-inner {
+    background-image: url('../img/hero-mobile/hero6.png') !important;
+  }
+  
+  .hero-home-photo-inner::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: -30px !important;
+    background-image: inherit !important;
+    background-size: cover !important;
+    background-position: center !important;
+    filter: blur(25px) brightness(0.6) !important;
+    z-index: 1 !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     object-position: center !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
   .hero-home-overlay {
     position: absolute !important;
     inset: 0 !important;
-    z-index: 2 !important;
+    z-index: 3 !important;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.45) 0%,
