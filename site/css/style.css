@@ -386,9 +386,10 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     letter-spacing: -0.02em !important;
     color: #ffffff !important;
     text-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.7), 
-      0 6px 14px rgba(0, 0, 0, 0.5), 
-      0 15px 35px rgba(0, 0, 0, 0.35) !important;
+      0 2px 4px rgba(0, 0, 0, 0.6), 
+      0 0 10px rgba(255, 255, 255, 0.65), 
+      0 0 20px rgba(255, 255, 255, 0.35),
+      0 12px 30px rgba(0, 0, 0, 0.4) !important;
     line-height: 1.15 !important;
   }
   .hero-cutout .hero-title .ht-line {
@@ -409,8 +410,9 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     font-weight: 600 !important;
     text-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.5), 
-      0 0 12px rgba(157, 118, 212, 0.8), 
-      0 12px 30px rgba(157, 118, 212, 0.45) !important;
+      0 0 8px rgba(255, 255, 255, 0.55),
+      0 0 16px rgba(157, 118, 212, 0.9), 
+      0 0 35px rgba(157, 118, 212, 0.5) !important;
   }
   .hero-cutout .hero-subtitle {
     position: absolute !important;
@@ -427,9 +429,9 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     z-index: 5 !important;
     color: rgba(255, 255, 255, 0.92) !important;
     text-shadow: 
-      0 2px 4px rgba(0, 0, 0, 0.65), 
-      0 5px 12px rgba(0, 0, 0, 0.45), 
-      0 12px 25px rgba(0, 0, 0, 0.25) !important;
+      0 2px 4px rgba(0, 0, 0, 0.55), 
+      0 0 8px rgba(255, 255, 255, 0.4), 
+      0 8px 20px rgba(0, 0, 0, 0.25) !important;
     line-height: 1.45 !important;
   }
   .hero-cutout .hero-subtitle .sub-line {
