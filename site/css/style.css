@@ -1103,6 +1103,10 @@ html[dir="rtl"] .hero-home-photo {
   .ueber-uns-hero-frame .hero-home-photo {
     object-position: center !important;
   }
+  .index-hero-frame .hero-home-photo {
+    object-position: center top !important;
+    transform: translateY(-12%) !important;
+  }
 }
 
 .leistungen-hero-frame {
