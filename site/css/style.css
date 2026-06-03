@@ -412,6 +412,14 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     display: none !important;
   }
   .header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+    transition: background var(--t-base) var(--ease), border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease) !important;
+  }
+  .header.scrolled {
     background: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(24px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
@@ -947,6 +955,9 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   .hero-home-photo {
     transform: scale(1.05);
   }
+  .hero-bg-blur-pic {
+    display: none !important;
+  }
 }
 
 .hero-home-overlay {
@@ -1008,6 +1019,10 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
@@ -1020,10 +1035,48 @@ html[dir="rtl"] .hero-home-photo {
     object-fit: cover !important;
     object-position: center !important;
   }
+
+  /* Blurred background and clean foreground contain style */
+  .hero-bg-blur-pic {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  .hero-home-photo-blur {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    filter: blur(25px) brightness(0.65) !important;
+    transform: scale(1.15) !important;
+  }
+  .hero-fg-clean-pic {
+    position: relative !important;
+    z-index: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .hero-home-photo-clean {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
+  }
   .hero-home-overlay {
     position: absolute !important;
     inset: 0 !important;
-    z-index: 2 !important;
+    z-index: 3 !important;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.45) 0%,
