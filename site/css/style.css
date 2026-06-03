@@ -460,34 +460,16 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     white-space: nowrap !important;
     justify-content: center !important;
   }
-  .hero-cutout .btn-primary {
-    background: rgba(107, 63, 160, 0.9) !important;
-    color: #ffffff !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-    backdrop-filter: blur(16px) saturate(130%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-    box-shadow: 
-      0 8px 32px rgba(107, 63, 160, 0.25), 
-      inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-  }
-  .hero-cutout .btn-primary:hover {
-    background: rgba(107, 63, 160, 1) !important;
-    border-color: rgba(255, 255, 255, 0.35) !important;
-  }
   .hero-cutout .btn-outline {
-    color: var(--violet) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(16px) saturate(130%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
-    box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.15), 
-      inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
   }
   .hero-cutout .btn-outline:hover {
     border-color: #ffffff !important;
-    background: rgba(255, 255, 255, 1) !important;
-    color: var(--violet-mid) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
