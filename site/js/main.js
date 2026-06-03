@@ -158,11 +158,25 @@ function adjustHeroTitles() {
   }
 
   document.querySelectorAll('.hero-title').forEach(title => {
+    // 1. Reset font-size so we measure the baseline size
     title.style.removeProperty('font-size');
+    
     const container = title.closest('.hero-content') || title.parentElement;
     if (!container) return;
 
+    // 2. Temporarily force width: 100% on the container to get the true horizontal constraint (prevents flex-shrink-to-fit expansion)
+    const originalWidth = container.style.width;
+    container.style.setProperty('width', '100%', 'important');
+
     const containerWidth = container.clientWidth - 24;
+    
+    // Restore original width
+    if (originalWidth) {
+      container.style.setProperty('width', originalWidth);
+    } else {
+      container.style.removeProperty('width');
+    }
+
     if (containerWidth <= 0) return;
 
     const spans = title.querySelectorAll('span, em');
@@ -207,7 +221,7 @@ function adjustHeroTitles() {
 
     if (maxRatio > 1) {
       const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      title.style.setProperty('font-size', (currentSize / maxRatio * 0.94) + 'px', 'important');
+      title.style.setProperty('font-size', (currentSize / maxRatio * 0.93) + 'px', 'important');
     }
   });
 }
@@ -694,9 +708,17 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Adjust hero titles on page load and window resize
+  // Adjust hero titles on page load, font load, window load and resize
   adjustHeroTitles();
   window.addEventListener('resize', adjustHeroTitles, { passive: true });
+  window.addEventListener('load', adjustHeroTitles);
+  if (document.fonts) {
+    document.fonts.ready.then(adjustHeroTitles);
+  }
+  // Safety checks for layout shifts or slower font rendering
+  setTimeout(adjustHeroTitles, 100);
+  setTimeout(adjustHeroTitles, 400);
+  setTimeout(adjustHeroTitles, 1000);
 
 });
 
