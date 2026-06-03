@@ -158,73 +158,65 @@ function adjustHeroTitles() {
   }
 
   document.querySelectorAll('.hero-title').forEach(title => {
-    // 1. Reset font-size so we measure the baseline size
+    // 1. Reset font-size to get CSS baseline
     title.style.removeProperty('font-size');
-    
+
     const container = title.closest('.hero-content') || title.parentElement;
     if (!container) return;
 
-    // 2. Temporarily force width: 100% on the container to get the true horizontal constraint (prevents flex-shrink-to-fit expansion)
-    const originalWidth = container.style.width;
+    // 2. Measure container width
+    const savedWidth = container.style.width;
     container.style.setProperty('width', '100%', 'important');
-
-    const containerWidth = container.clientWidth - 24;
-    
-    // Restore original width
-    if (originalWidth) {
-      container.style.setProperty('width', originalWidth);
-    } else {
-      container.style.removeProperty('width');
-    }
+    const containerWidth = container.clientWidth - 24; // 12px padding each side
+    if (savedWidth) container.style.setProperty('width', savedWidth);
+    else container.style.removeProperty('width');
 
     if (containerWidth <= 0) return;
 
-    const spans = title.querySelectorAll('span, em');
+    // 3. Find measurable line elements
+    const lines = title.querySelectorAll('.ht-line');
+    const targets = lines.length > 0
+      ? Array.from(lines)
+      : Array.from(title.querySelectorAll('span, em'));
+
     let maxRatio = 1;
 
-    if (spans.length > 0) {
-      spans.forEach(el => {
-        const originalDisplay = el.style.display;
-        const originalWhiteSpace = el.style.whiteSpace;
+    targets.forEach(el => {
+      // Save state
+      const savedDisplay = el.style.display;
+      const savedWs = el.style.whiteSpace;
+      const savedVis = el.style.visibility;
 
-        el.style.display = 'inline-block';
-        el.style.whiteSpace = 'nowrap';
+      // Force measurement: display:block so it occupies its own line,
+      // white-space:nowrap so words don't wrap
+      el.style.setProperty('display', 'block', 'important');
+      el.style.setProperty('white-space', 'nowrap', 'important');
+      el.style.setProperty('visibility', 'hidden', 'important');
 
-        const elWidth = el.offsetWidth;
+      const elWidth = el.scrollWidth;
 
-        el.style.display = originalDisplay;
-        el.style.whiteSpace = originalWhiteSpace;
-
-        if (elWidth > containerWidth) {
-          const ratio = elWidth / containerWidth;
-          if (ratio > maxRatio) {
-            maxRatio = ratio;
-          }
-        }
-      });
-    } else {
-      const originalDisplay = title.style.display;
-      const originalWhiteSpace = title.style.whiteSpace;
-
-      title.style.display = 'inline-block';
-      title.style.whiteSpace = 'nowrap';
-
-      const elWidth = title.offsetWidth;
-
-      title.style.display = originalDisplay;
-      title.style.whiteSpace = originalWhiteSpace;
+      // Restore
+      if (savedDisplay) el.style.display = savedDisplay;
+      else el.style.removeProperty('display');
+      if (savedWs) el.style.whiteSpace = savedWs;
+      else el.style.removeProperty('white-space');
+      if (savedVis) el.style.visibility = savedVis;
+      else el.style.removeProperty('visibility');
 
       if (elWidth > containerWidth) {
-        maxRatio = elWidth / containerWidth;
+        const ratio = elWidth / containerWidth;
+        if (ratio > maxRatio) maxRatio = ratio;
       }
-    }
+    });
 
     if (maxRatio > 1) {
       const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      title.style.setProperty('font-size', (currentSize / maxRatio * 0.93) + 'px', 'important');
+      // Scale down with a tiny safety margin (0.95)
+      title.style.setProperty('font-size', (currentSize / maxRatio * 0.95) + 'px', 'important');
     }
   });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
