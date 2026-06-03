@@ -336,24 +336,25 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media (max-width: 992px) {
   .hero-cutout {
-    min-height: 100svh !important;
+    min-height: auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
+    justify-content: flex-start !important;
     align-items: stretch !important;
-    overflow: hidden !important;
-    background: #000 !important;
+    overflow: visible !important;
+    background: var(--off-white) !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
   .hero-cutout .hero-inner {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-end !important;
+    justify-content: center !important;
     align-items: center !important;
     text-align: center !important;
-    padding-top: var(--header-h) !important;
-    padding-bottom: clamp(52px, 10vh, 100px) !important;
-    min-height: 100svh !important;
+    padding-top: clamp(24px, 4vh, 40px) !important;
+    padding-bottom: clamp(32px, 6vh, 60px) !important;
+    min-height: auto !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
@@ -366,59 +367,67 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     max-width: 580px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    color: #fff !important;
+    color: var(--text-primary) !important;
   }
   .hero-cutout .hero-title {
-    color: #ffffff !important;
-    font-size: clamp(3.8rem, 15vw, 6rem) !important;
-    line-height: 1.1 !important;
+    color: var(--text-primary) !important;
+    font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
+    line-height: 1.15 !important;
     margin-bottom: 12px !important;
     letter-spacing: -0.02em !important;
     text-align: center !important;
   }
   .hero-cutout .hero-title .ht-line {
-    display: block !important;
-    white-space: nowrap !important;
+    display: inline !important;
+    white-space: normal !important;
   }
   /* Legacy span/em support */
   .hero-cutout .hero-title > span:not(.ht-line),
   .hero-cutout .hero-title > em:not(.ht-line) {
-    display: inline-block !important;
-    white-space: nowrap !important;
+    display: inline !important;
+    white-space: normal !important;
   }
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
   em.ht-line {
-    color: #e9d5ff !important;
+    color: var(--violet) !important;
     font-style: italic !important;
     font-weight: 600 !important;
-    text-shadow: 0 2px 10px rgba(216, 180, 254, 0.4) !important;
+    text-shadow: none !important;
   }
   .hero-cutout .hero-subtitle {
-    color: rgba(255, 255, 255, 0.90) !important;
-    font-size: 1.05rem !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem !important;
     line-height: 1.65 !important;
-    margin-top: clamp(20px, 4vh, 40px) !important;
-    margin-bottom: var(--sp-5) !important;
-    max-width: 500px !important;
+    margin-top: 12px !important;
+    margin-bottom: 24px !important;
+    max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) !important;
+    text-shadow: none !important;
   }
   .hero-cutout .hero-actions {
+    width: 100% !important;
     justify-content: center !important;
     gap: 12px !important;
+    flex-direction: column !important;
+  }
+  .hero-cutout .hero-actions .btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
   }
   .hero-cutout .btn-outline {
-    color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--gray-200) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
   .hero-cutout .btn-outline:hover {
-    border-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.18) !important;
+    border-color: var(--violet) !important;
+    background: var(--violet-alpha) !important;
+    color: var(--violet) !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
@@ -1054,10 +1063,12 @@ html[dir="rtl"] .hero-home-photo {
   .karriere-hero-frame,
   .faq-hero-frame,
   .kontakt-hero-frame {
-    position: absolute !important;
-    inset: 0 !important;
+    position: relative !important;
+    display: block !important;
     width: 100vw !important;
-    height: 100% !important;
+    height: 42svh !important;
+    min-height: 280px !important;
+    max-height: 380px !important;
     transform: none !important;
     left: 0 !important;
     right: 0 !important;
@@ -1075,6 +1086,18 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
+    position: relative !important;
+  }
+  .hero-home-photo-inner::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 100px !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
@@ -1085,29 +1108,32 @@ html[dir="rtl"] .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center top !important;
+    object-position: center 20% !important;
   }
   .hero-home-overlay {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 2 !important;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.35) 0%,
-      rgba(0, 0, 0, 0.15) 45%,
-      rgba(0, 0, 0, 0.75) 100%
-    ) !important;
-    pointer-events: none !important;
+    display: none !important;
   }
   .kontakt-hero-section .hero-inner {
-    min-height: calc(100svh - var(--header-h)) !important;
-    padding-bottom: clamp(50px, 8vh, 90px) !important;
-  }
-  .ueber-uns-hero-frame .hero-home-photo {
-    object-position: center !important;
+    min-height: auto !important;
+    padding-bottom: clamp(32px, 6vh, 60px) !important;
   }
   .index-hero-frame .hero-home-photo {
     object-position: center top !important;
+  }
+  .ueber-uns-hero-frame .hero-home-photo {
+    object-position: center 25% !important;
+  }
+  .leistungen-hero-frame .hero-home-photo {
+    object-position: center 25% !important;
+  }
+  .karriere-hero-frame .hero-home-photo {
+    object-position: center 25% !important;
+  }
+  .faq-hero-frame .hero-home-photo {
+    object-position: center 20% !important;
+  }
+  .kontakt-hero-frame .hero-home-photo {
+    object-position: center 25% !important;
   }
 }
 
