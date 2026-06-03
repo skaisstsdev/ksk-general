@@ -348,11 +348,11 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout .hero-inner {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-end !important;
     align-items: center !important;
     text-align: center !important;
     padding-top: var(--header-h) !important;
-    padding-bottom: 0 !important;
+    padding-bottom: clamp(52px, 10vh, 100px) !important;
     min-height: 100svh !important;
     width: 100% !important;
     position: relative !important;
@@ -372,7 +372,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     color: #ffffff !important;
     font-size: clamp(3.8rem, 15vw, 6rem) !important;
     line-height: 1.1 !important;
-    margin-bottom: var(--sp-4) !important;
+    margin-bottom: 12px !important;
     letter-spacing: -0.02em !important;
     text-align: center !important;
   }
