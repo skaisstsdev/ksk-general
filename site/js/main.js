@@ -81,7 +81,7 @@ const I18N = {
       const key = el.getAttribute('data-i18n-ph');
       if (data[key] !== undefined) el.placeholder = data[key];
     });
-    adjustHeroLayout();
+    adjustHeroTitles();
   },
 
   // Helper: grab first and last icon from the float button (works for both <i> and <svg>)
@@ -149,55 +149,22 @@ const I18N = {
   }
 };
 
-let lastWidth = 0;
-
-function adjustHeroLayout() {
-  const isMobile = window.innerWidth <= 992;
-
-  if (isMobile && lastWidth !== 0 && window.innerWidth === lastWidth) {
+function adjustHeroTitles() {
+  if (window.innerWidth > 992) {
+    document.querySelectorAll('.hero-title').forEach(title => {
+      title.style.fontSize = '';
+    });
     return;
   }
-  lastWidth = window.innerWidth;
 
-  document.querySelectorAll('.hero-cutout').forEach(hero => {
-    const title = hero.querySelector('.hero-title');
-    const subtitle = hero.querySelector('.hero-subtitle');
-    const content = hero.querySelector('.hero-content');
-    const inner = hero.querySelector('.hero-inner');
+  document.querySelectorAll('.hero-title').forEach(title => {
+    title.style.fontSize = ''; // Reset to measure
+    const container = title.closest('.hero-content') || title.parentElement;
+    if (!container) return;
 
-    if (!title || !inner || !content) return;
+    const containerWidth = container.clientWidth - 24;
+    if (containerWidth <= 0) return;
 
-    // Reset font size and heights to measure original values
-    title.style.removeProperty('font-size');
-    if (subtitle) subtitle.style.removeProperty('font-size');
-    hero.style.removeProperty('height');
-    hero.style.removeProperty('min-height');
-    inner.style.removeProperty('height');
-    inner.style.removeProperty('min-height');
-
-    if (!isMobile) return;
-
-    // Lock hero and inner height to prevent address-bar scroll jumps and fill screen
-    const vh = window.innerHeight;
-    hero.style.setProperty('height', vh + 'px', 'important');
-    hero.style.setProperty('min-height', vh + 'px', 'important');
-
-    const headerH = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 70;
-    inner.style.setProperty('height', (vh - headerH) + 'px', 'important');
-    inner.style.setProperty('min-height', (vh - headerH) + 'px', 'important');
-
-    // Available width and height with safety margins
-    const availableWidth = inner.clientWidth - 24;
-    
-    // Calculate actual vertical space inside padding
-    const compStyle = window.getComputedStyle(inner);
-    const paddingTop = parseFloat(compStyle.paddingTop) || 0;
-    const paddingBottom = parseFloat(compStyle.paddingBottom) || 0;
-    const availableHeight = inner.clientHeight - paddingTop - paddingBottom - 20;
-
-    if (availableWidth <= 0 || availableHeight <= 0) return;
-
-    // 1. Width scaling
     const spans = title.querySelectorAll('span, em');
     let maxRatio = 1;
 
@@ -214,8 +181,8 @@ function adjustHeroLayout() {
         el.style.display = originalDisplay;
         el.style.whiteSpace = originalWhiteSpace;
 
-        if (elWidth > availableWidth) {
-          const ratio = elWidth / availableWidth;
+        if (elWidth > containerWidth) {
+          const ratio = elWidth / containerWidth;
           if (ratio > maxRatio) {
             maxRatio = ratio;
           }
@@ -233,30 +200,14 @@ function adjustHeroLayout() {
       title.style.display = originalDisplay;
       title.style.whiteSpace = originalWhiteSpace;
 
-      if (elWidth > availableWidth) {
-        maxRatio = elWidth / availableWidth;
+      if (elWidth > containerWidth) {
+        maxRatio = elWidth / containerWidth;
       }
     }
 
     if (maxRatio > 1) {
       const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      const newSize = (currentSize / maxRatio * 0.94) + 'px';
-      title.style.setProperty('font-size', newSize, 'important');
-    }
-
-    // 2. Height scaling
-    const contentHeight = content.offsetHeight;
-    if (contentHeight > availableHeight) {
-      const heightRatio = contentHeight / availableHeight;
-      const scaleFactor = (1 / heightRatio * 0.94);
-
-      const newTitleSize = parseFloat(window.getComputedStyle(title).fontSize) * scaleFactor;
-      title.style.setProperty('font-size', Math.max(20, newTitleSize) + 'px', 'important');
-
-      if (subtitle) {
-        const currentSubSize = parseFloat(window.getComputedStyle(subtitle).fontSize);
-        subtitle.style.setProperty('font-size', Math.max(13, currentSubSize * scaleFactor) + 'px', 'important');
-      }
+      title.style.fontSize = (currentSize / maxRatio * 0.95) + 'px';
     }
   });
 }
@@ -743,12 +694,9 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Adjust hero layout on page load, window resize, and font loading
-  adjustHeroLayout();
-  window.addEventListener('resize', adjustHeroLayout, { passive: true });
-  if (document.fonts) {
-    document.fonts.ready.then(adjustHeroLayout);
-  }
+  // Adjust hero titles on page load and window resize
+  adjustHeroTitles();
+  window.addEventListener('resize', adjustHeroTitles, { passive: true });
 
 });
 

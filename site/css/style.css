@@ -320,7 +320,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   }
 }
 .hero-cutout .hero-title{font-size:clamp(4.2rem, 9vw, 6.2rem);line-height:1.05;margin-bottom:var(--sp-4);font-family:var(--serif);color:var(--text-primary);letter-spacing:-0.03em}
-.hero-cutout .hero-title em{font-style:italic;color:#7c3aed;font-weight:600}
+.hero-cutout .hero-title em{font-style:italic;color:var(--violet);font-weight:500}
 .hero-cutout .hero-subtitle{font-size:1.05rem;color:var(--text-secondary);line-height:1.8;margin-bottom:var(--sp-5);max-width:550px}
 .hero-cutout .hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 
@@ -336,8 +336,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media (max-width: 992px) {
   .hero-cutout {
-    height: 100dvh !important;
-    min-height: 100dvh !important;
+    min-height: 100svh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
@@ -354,8 +353,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     text-align: center !important;
     padding-top: clamp(60px, 12vh, 120px) !important;
     padding-bottom: clamp(50px, 8vh, 90px) !important;
-    height: calc(100dvh - var(--header-h)) !important;
-    min-height: calc(100dvh - var(--header-h)) !important;
+    min-height: calc(100svh - var(--header-h)) !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
@@ -369,7 +367,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   }
   .hero-cutout .hero-title {
     color: #ffffff !important;
-    font-size: clamp(3.2rem, 12vw, 4.8rem);
+    font-size: clamp(3.2rem, 12vw, 4.8rem) !important;
     line-height: 1.12 !important;
     margin-bottom: var(--sp-4) !important;
     letter-spacing: -0.02em !important;
@@ -380,13 +378,13 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     white-space: nowrap !important;
   }
   .hero-cutout .hero-title em {
-    color: #c084fc !important;
-    font-weight: 750 !important;
-    text-shadow: 0 0 10px rgba(192, 132, 252, 0.85), 0 0 20px rgba(168, 85, 247, 0.5) !important;
+    color: #e9d5ff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 10px rgba(216, 180, 254, 0.4) !important;
   }
   .hero-cutout .hero-subtitle {
     color: rgba(255, 255, 255, 0.90) !important;
-    font-size: 1.05rem;
+    font-size: 1.05rem !important;
     line-height: 1.65 !important;
     margin-bottom: var(--sp-5) !important;
     max-width: 500px !important;
@@ -401,79 +399,23 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout .btn-outline {
     color: #ffffff !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
   }
   .hero-cutout .btn-outline:hover {
     border-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-  }
-  .hero-cutout .btn-primary {
-    background: rgba(107, 63, 160, 0.7) !important;
-    border-color: rgba(107, 63, 160, 0.7) !important;
-    color: #ffffff !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-  }
-  .hero-cutout .btn-primary:hover {
-    background: rgba(107, 63, 160, 0.85) !important;
-    border-color: rgba(107, 63, 160, 0.85) !important;
-    transform: translateY(-2px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
   }
-
-  /* Transparent header overlay inside hero on mobile */
-  .header:not(.scrolled):not(.menu-open) {
-    background: transparent !important;
-    border-bottom: 1px solid transparent !important;
-    box-shadow: none !important;
-  }
-  .header:not(.scrolled):not(.menu-open) .logo-text {
-    color: #ffffff !important;
-  }
-  .header:not(.scrolled):not(.menu-open) .logo-text span {
-    color: rgba(255, 255, 255, 0.7) !important;
-  }
-  .header:not(.scrolled):not(.menu-open) .mobile-toggle span {
-    background-color: #ffffff !important;
-  }
-
-  /* Center text inside FAQ page category pills and accordions */
-  .faq-cats {
-    justify-content: center !important;
-  }
-  .faq-question {
-    text-align: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    padding-right: 40px !important;
-  }
-  .faq-question .faq-toggle {
-    position: absolute !important;
-    right: 0 !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-  }
-  .faq-item.open .faq-toggle {
-    transform: translateY(-50%) rotate(45deg) !important;
-  }
-  .faq-answer-inner {
-    text-align: center !important;
-  }
-  
-  /* Center text inside Kontakt page description block */
-  .kontakt-hero-section + .section {
-    text-align: center !important;
-  }
-  .kontakt-hero-section + .section h2,
-  .kontakt-hero-section + .section p,
-  .kontakt-hero-section + .section span.section-tag {
-    text-align: center !important;
+  .header {
+    background: rgba(255, 255, 255, 0.90) !important;
+    backdrop-filter: blur(24px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+    box-shadow: 0 1px 28px rgba(0,0,0,0.05) !important;
   }
 }
 
@@ -1019,53 +961,22 @@ html[dir="rtl"] .hero-home-photo {
     height: 100% !important;
     border-radius: 0 !important;
     overflow: hidden !important;
-    position: relative !important;
-  }
-  .hero-home-photo-inner::before {
-    content: '' !important;
-    position: absolute !important;
-    inset: -120px !important;
-    background-size: cover !important;
-    background-position: center !important;
-    filter: blur(40px) brightness(0.65) !important;
-    z-index: 1 !important;
-    transform: scale(1.2) !important;
-    background-image: url('../img/hero-mobile/hero1.png') !important;
-  }
-  .leistungen-hero-frame .hero-home-photo-inner::before {
-    background-image: url('../img/hero-mobile/hero2.png') !important;
-  }
-  .ueber-uns-hero-frame .hero-home-photo-inner::before {
-    background-image: url('../img/hero-mobile/hero3.jpg') !important;
-  }
-  .karriere-hero-frame .hero-home-photo-inner::before {
-    background-image: url('../img/hero-mobile/hero4.png') !important;
-  }
-  .faq-hero-frame .hero-home-photo-inner::before {
-    background-image: url('../img/hero-mobile/hero5.png') !important;
-  }
-  .kontakt-hero-frame .hero-home-photo-inner::before {
-    background-image: url('../img/hero-mobile/hero6.png') !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
-    position: relative !important;
-    z-index: 2 !important;
   }
   .hero-home-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
-    position: relative !important;
-    z-index: 2 !important;
   }
   .hero-home-overlay {
     position: absolute !important;
     inset: 0 !important;
-    z-index: 3 !important;
+    z-index: 2 !important;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.45) 0%,
@@ -1074,7 +985,7 @@ html[dir="rtl"] .hero-home-photo {
     ) !important;
   }
   .kontakt-hero-section .hero-inner {
-    min-height: calc(100dvh - var(--header-h)) !important;
+    min-height: calc(100svh - var(--header-h)) !important;
     padding-bottom: clamp(50px, 8vh, 90px) !important;
   }
   .ueber-uns-hero-frame .hero-home-photo {
@@ -1113,6 +1024,7 @@ html[dir="rtl"] .hero-home-photo {
 
 .kontakt-hero-frame {
   transform: translateX(5vw);
+}
 }
 
 
