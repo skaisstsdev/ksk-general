@@ -161,14 +161,20 @@ function adjustHeroLayout() {
     if (!title || !inner || !content) return;
 
     // Reset font size to measure original values
-    title.style.fontSize = '';
-    if (subtitle) subtitle.style.fontSize = '';
+    title.style.removeProperty('font-size');
+    if (subtitle) subtitle.style.removeProperty('font-size');
 
     if (!isMobile) return;
 
     // Available width and height with safety margins
     const availableWidth = inner.clientWidth - 24;
-    const availableHeight = inner.clientHeight - 40;
+    
+    // Calculate actual vertical space inside padding
+    const compStyle = window.getComputedStyle(inner);
+    const paddingTop = parseFloat(compStyle.paddingTop) || 0;
+    const paddingBottom = parseFloat(compStyle.paddingBottom) || 0;
+    const availableHeight = inner.clientHeight - paddingTop - paddingBottom - 20;
+
     if (availableWidth <= 0 || availableHeight <= 0) return;
 
     // 1. Width scaling
@@ -214,7 +220,8 @@ function adjustHeroLayout() {
 
     if (maxRatio > 1) {
       const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      title.style.fontSize = (currentSize / maxRatio * 0.94) + 'px';
+      const newSize = (currentSize / maxRatio * 0.94) + 'px';
+      title.style.setProperty('font-size', newSize, 'important');
     }
 
     // 2. Height scaling
@@ -224,11 +231,11 @@ function adjustHeroLayout() {
       const scaleFactor = (1 / heightRatio * 0.94);
 
       const newTitleSize = parseFloat(window.getComputedStyle(title).fontSize) * scaleFactor;
-      title.style.fontSize = Math.max(20, newTitleSize) + 'px';
+      title.style.setProperty('font-size', Math.max(20, newTitleSize) + 'px', 'important');
 
       if (subtitle) {
         const currentSubSize = parseFloat(window.getComputedStyle(subtitle).fontSize);
-        subtitle.style.fontSize = Math.max(13, currentSubSize * scaleFactor) + 'px';
+        subtitle.style.setProperty('font-size', Math.max(13, currentSubSize * scaleFactor) + 'px', 'important');
       }
     }
   });

@@ -367,7 +367,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   }
   .hero-cutout .hero-title {
     color: #ffffff !important;
-    font-size: clamp(3.2rem, 12vw, 4.8rem) !important;
+    font-size: clamp(3.2rem, 12vw, 4.8rem);
     line-height: 1.12 !important;
     margin-bottom: var(--sp-4) !important;
     letter-spacing: -0.02em !important;
@@ -378,13 +378,13 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     white-space: nowrap !important;
   }
   .hero-cutout .hero-title em {
-    color: #d8b4fe !important;
-    font-weight: 700 !important;
-    text-shadow: 0 2px 15px rgba(216, 180, 254, 0.5) !important;
+    color: #c084fc !important;
+    font-weight: 750 !important;
+    text-shadow: 0 0 10px rgba(192, 132, 252, 0.85), 0 0 20px rgba(168, 85, 247, 0.5) !important;
   }
   .hero-cutout .hero-subtitle {
     color: rgba(255, 255, 255, 0.90) !important;
-    font-size: 1.05rem !important;
+    font-size: 1.05rem;
     line-height: 1.65 !important;
     margin-bottom: var(--sp-5) !important;
     max-width: 500px !important;
@@ -398,26 +398,28 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   }
   .hero-cutout .btn-outline {
     color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.5) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
+    border-color: rgba(255, 255, 255, 0.65) !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
   }
   .hero-cutout .btn-outline:hover {
     border-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
   }
   .hero-cutout .btn-primary {
-    background: rgba(107, 63, 160, 0.28) !important;
-    border-color: rgba(107, 63, 160, 0.55) !important;
+    background: var(--violet) !important;
+    border-color: var(--violet) !important;
     color: #ffffff !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 1px 2px rgba(107,63,160,0.25), 0 4px 14px rgba(107,63,160,0.28) !important;
   }
   .hero-cutout .btn-primary:hover {
-    background: rgba(107, 63, 160, 0.48) !important;
-    border-color: rgba(107, 63, 160, 0.75) !important;
+    background: var(--violet-mid) !important;
+    border-color: var(--violet-mid) !important;
+    transform: translateY(-2px) scale(1.02) !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
