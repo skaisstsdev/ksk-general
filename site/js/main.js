@@ -81,6 +81,7 @@ const I18N = {
       const key = el.getAttribute('data-i18n-ph');
       if (data[key] !== undefined) el.placeholder = data[key];
     });
+    adjustHeroLayout();
   },
 
   // Helper: grab first and last icon from the float button (works for both <i> and <svg>)
@@ -147,6 +148,91 @@ const I18N = {
     });
   }
 };
+
+function adjustHeroLayout() {
+  const isMobile = window.innerWidth <= 992;
+
+  document.querySelectorAll('.hero-cutout').forEach(hero => {
+    const title = hero.querySelector('.hero-title');
+    const subtitle = hero.querySelector('.hero-subtitle');
+    const content = hero.querySelector('.hero-content');
+    const inner = hero.querySelector('.hero-inner');
+
+    if (!title || !inner || !content) return;
+
+    // Reset font size to measure original values
+    title.style.fontSize = '';
+    if (subtitle) subtitle.style.fontSize = '';
+
+    if (!isMobile) return;
+
+    // Available width and height with safety margins
+    const availableWidth = inner.clientWidth - 24;
+    const availableHeight = inner.clientHeight - 40;
+    if (availableWidth <= 0 || availableHeight <= 0) return;
+
+    // 1. Width scaling
+    const spans = title.querySelectorAll('span, em');
+    let maxRatio = 1;
+
+    if (spans.length > 0) {
+      spans.forEach(el => {
+        const originalDisplay = el.style.display;
+        const originalWhiteSpace = el.style.whiteSpace;
+
+        el.style.display = 'inline-block';
+        el.style.whiteSpace = 'nowrap';
+
+        const elWidth = el.offsetWidth;
+
+        el.style.display = originalDisplay;
+        el.style.whiteSpace = originalWhiteSpace;
+
+        if (elWidth > availableWidth) {
+          const ratio = elWidth / availableWidth;
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+          }
+        }
+      });
+    } else {
+      const originalDisplay = title.style.display;
+      const originalWhiteSpace = title.style.whiteSpace;
+
+      title.style.display = 'inline-block';
+      title.style.whiteSpace = 'nowrap';
+
+      const elWidth = title.offsetWidth;
+
+      title.style.display = originalDisplay;
+      title.style.whiteSpace = originalWhiteSpace;
+
+      if (elWidth > availableWidth) {
+        maxRatio = elWidth / availableWidth;
+      }
+    }
+
+    if (maxRatio > 1) {
+      const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
+      title.style.fontSize = (currentSize / maxRatio * 0.94) + 'px';
+    }
+
+    // 2. Height scaling
+    const contentHeight = content.offsetHeight;
+    if (contentHeight > availableHeight) {
+      const heightRatio = contentHeight / availableHeight;
+      const scaleFactor = (1 / heightRatio * 0.94);
+
+      const newTitleSize = parseFloat(window.getComputedStyle(title).fontSize) * scaleFactor;
+      title.style.fontSize = Math.max(20, newTitleSize) + 'px';
+
+      if (subtitle) {
+        const currentSubSize = parseFloat(window.getComputedStyle(subtitle).fontSize);
+        subtitle.style.fontSize = Math.max(13, currentSubSize * scaleFactor) + 'px';
+      }
+    }
+  });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -628,6 +714,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 18. Initialize all icons ──────────────────────────
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
+  }
+
+  // Adjust hero layout on page load, window resize, and font loading
+  adjustHeroLayout();
+  window.addEventListener('resize', adjustHeroLayout, { passive: true });
+  if (document.fonts) {
+    document.fonts.ready.then(adjustHeroLayout);
   }
 
 });
