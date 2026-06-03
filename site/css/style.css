@@ -1103,12 +1103,7 @@ html[dir="rtl"] .hero-home-photo {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.15) 0%,
-      rgba(0, 0, 0, 0.05) 50%,
-      rgba(0, 0, 0, 0.25) 100%
-    ) !important;
+    background: rgba(0, 0, 0, 0.15) !important;
     pointer-events: none !important;
   }
   .kontakt-hero-section .hero-inner {
