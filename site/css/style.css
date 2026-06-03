@@ -401,10 +401,10 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
   em.ht-line {
-    color: var(--violet) !important;
+    color: var(--violet-light) !important;
     font-style: italic !important;
     font-weight: 600 !important;
-    text-shadow: none !important;
+    text-shadow: 0 0 8px rgba(157, 118, 212, 0.6), 0 0 20px rgba(157, 118, 212, 0.3), 0 1px 4px rgba(0, 0, 0, 0.25) !important;
   }
   .hero-cutout .hero-subtitle {
     position: absolute !important;
