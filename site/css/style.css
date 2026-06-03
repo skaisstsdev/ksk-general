@@ -336,7 +336,8 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 @media (max-width: 992px) {
   .hero-cutout {
-    min-height: 100svh !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
@@ -353,7 +354,8 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     text-align: center !important;
     padding-top: clamp(60px, 12vh, 120px) !important;
     padding-bottom: clamp(50px, 8vh, 90px) !important;
-    min-height: calc(100svh - var(--header-h)) !important;
+    height: calc(100dvh - var(--header-h)) !important;
+    min-height: calc(100dvh - var(--header-h)) !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
@@ -1018,35 +1020,31 @@ html[dir="rtl"] .hero-home-photo {
     border-radius: 0 !important;
     overflow: hidden !important;
     position: relative !important;
-    background-size: cover !important;
-    background-position: center !important;
-    background-image: url('../img/hero-mobile/hero1.png');
   }
-  .leistungen-hero-frame .hero-home-photo-inner {
-    background-image: url('../img/hero-mobile/hero2.png') !important;
-  }
-  .ueber-uns-hero-frame .hero-home-photo-inner {
-    background-image: url('../img/hero-mobile/hero3.jpg') !important;
-  }
-  .karriere-hero-frame .hero-home-photo-inner {
-    background-image: url('../img/hero-mobile/hero4.png') !important;
-  }
-  .faq-hero-frame .hero-home-photo-inner {
-    background-image: url('../img/hero-mobile/hero5.png') !important;
-  }
-  .kontakt-hero-frame .hero-home-photo-inner {
-    background-image: url('../img/hero-mobile/hero6.png') !important;
-  }
-  
   .hero-home-photo-inner::before {
     content: '' !important;
     position: absolute !important;
     inset: -30px !important;
-    background-image: inherit !important;
     background-size: cover !important;
     background-position: center !important;
-    filter: blur(25px) brightness(0.6) !important;
+    filter: blur(25px) brightness(0.65) !important;
     z-index: 1 !important;
+    background-image: url('../img/hero-mobile/hero1.png') !important;
+  }
+  .leistungen-hero-frame .hero-home-photo-inner::before {
+    background-image: url('../img/hero-mobile/hero2.png') !important;
+  }
+  .ueber-uns-hero-frame .hero-home-photo-inner::before {
+    background-image: url('../img/hero-mobile/hero3.jpg') !important;
+  }
+  .karriere-hero-frame .hero-home-photo-inner::before {
+    background-image: url('../img/hero-mobile/hero4.png') !important;
+  }
+  .faq-hero-frame .hero-home-photo-inner::before {
+    background-image: url('../img/hero-mobile/hero5.png') !important;
+  }
+  .kontakt-hero-frame .hero-home-photo-inner::before {
+    background-image: url('../img/hero-mobile/hero6.png') !important;
   }
   .hero-home-photo-inner picture {
     display: block !important;
@@ -1075,7 +1073,7 @@ html[dir="rtl"] .hero-home-photo {
     ) !important;
   }
   .kontakt-hero-section .hero-inner {
-    min-height: calc(100svh - var(--header-h)) !important;
+    min-height: calc(100dvh - var(--header-h)) !important;
     padding-bottom: clamp(50px, 8vh, 90px) !important;
   }
   .ueber-uns-hero-frame .hero-home-photo {
