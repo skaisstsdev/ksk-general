@@ -152,13 +152,13 @@ const I18N = {
 function adjustHeroTitles() {
   if (window.innerWidth > 992) {
     document.querySelectorAll('.hero-title').forEach(title => {
-      title.style.fontSize = '';
+      title.style.removeProperty('font-size');
     });
     return;
   }
 
   document.querySelectorAll('.hero-title').forEach(title => {
-    title.style.fontSize = ''; // Reset to measure
+    title.style.removeProperty('font-size');
     const container = title.closest('.hero-content') || title.parentElement;
     if (!container) return;
 
@@ -207,7 +207,7 @@ function adjustHeroTitles() {
 
     if (maxRatio > 1) {
       const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      title.style.fontSize = (currentSize / maxRatio * 0.95) + 'px';
+      title.style.setProperty('font-size', (currentSize / maxRatio * 0.94) + 'px', 'important');
     }
   });
 }
