@@ -347,36 +347,39 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     padding-bottom: 0 !important;
   }
   .hero-cutout .hero-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    text-align: center !important;
-    padding-top: var(--header-h) !important;
-    padding-bottom: clamp(32px, 8vh, 72px) !important;
+    display: block !important;
     min-height: 100svh !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
+    padding: 0 !important;
   }
   .hero-cutout .hero-content {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: block !important;
     width: 100% !important;
-    max-width: 540px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     color: #ffffff !important;
   }
   .hero-cutout .hero-title {
-    color: #ffffff !important;
-    font-size: clamp(1.9rem, 8.2vw, 2.6rem) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 8px !important;
-    letter-spacing: -0.02em !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 16px !important;
+    right: 16px !important;
+    transform: translateY(-50%) !important;
+    height: 120px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
     text-align: center !important;
+    z-index: 5 !important;
+    letter-spacing: -0.02em !important;
+    color: #ffffff !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+    line-height: 1.15 !important;
   }
   .hero-cutout .hero-title .ht-line {
     display: block !important;
@@ -397,27 +400,42 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     text-shadow: 0 2px 12px rgba(216, 180, 254, 0.5) !important;
   }
   .hero-cutout .hero-subtitle {
+    position: absolute !important;
+    top: calc(50% + 68px) !important; /* 60px half height of title + 8px gap */
+    left: 16px !important;
+    right: 16px !important;
+    height: 70px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    text-align: center !important;
+    z-index: 5 !important;
     color: rgba(255, 255, 255, 0.92) !important;
-    font-size: 0.92rem !important;
-    line-height: 1.55 !important;
-    margin-top: 8px !important;
-    margin-bottom: 20px !important;
-    max-width: 460px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
+    line-height: 1.45 !important;
+  }
+  .hero-cutout .hero-subtitle .sub-line {
+    display: block !important;
+    white-space: nowrap !important;
   }
   .hero-cutout .hero-actions {
-    width: 100% !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    flex-direction: row !important;
+    position: absolute !important;
+    top: calc(50% + 154px) !important; /* 68px + 70px (subtitle height) + 16px gap */
+    left: 16px !important;
+    right: 16px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 8px !important;
+    z-index: 5 !important;
   }
   .hero-cutout .hero-actions .btn {
-    flex: 1 !important;
-    width: auto !important;
-    max-width: 180px !important;
-    padding: 12px 16px !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 12.5px 16px !important;
     font-size: 0.9rem !important;
     white-space: nowrap !important;
     justify-content: center !important;

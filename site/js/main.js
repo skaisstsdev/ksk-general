@@ -150,69 +150,181 @@ const I18N = {
 };
 
 function adjustHeroTitles() {
-  if (window.innerWidth > 992) {
-    document.querySelectorAll('.hero-title').forEach(title => {
-      title.style.removeProperty('font-size');
+  const isMobile = window.innerWidth <= 992;
+
+  // Helper to split text into N lines by words as evenly as possible
+  function splitTextIntoLines(text, lineCount) {
+    const words = text.trim().split(/\s+/);
+    if (words.length <= lineCount) {
+      const res = [];
+      for (let i = 0; i < lineCount; i++) {
+        res.push(words[i] || '');
+      }
+      return res;
+    }
+    const totalChars = text.length;
+    const targetLineLen = totalChars / lineCount;
+    const lines = [];
+    let currentWordIdx = 0;
+
+    for (let l = 0; l < lineCount; l++) {
+      if (l === lineCount - 1) {
+        lines.push(words.slice(currentWordIdx).join(' '));
+        break;
+      }
+      let lineText = "";
+      while (currentWordIdx < words.length) {
+        const nextWord = words[currentWordIdx];
+        if (lineText === "") {
+          lineText = nextWord;
+          currentWordIdx++;
+        } else {
+          const currentDiff = Math.abs(lineText.length - targetLineLen);
+          const nextDiff = Math.abs((lineText + " " + nextWord).length - targetLineLen);
+          const remainingWords = words.length - (currentWordIdx + 1);
+          const remainingLines = lineCount - (l + 1);
+          if (remainingWords < remainingLines) {
+            break;
+          }
+          if (nextDiff < currentDiff || (lineText + " " + nextWord).length <= targetLineLen) {
+            lineText += " " + nextWord;
+            currentWordIdx++;
+          } else {
+            break;
+          }
+        }
+      }
+      lines.push(lineText);
+    }
+    return lines;
+  }
+
+  // Helper to highlight italic words in German
+  function wrapItalic(text) {
+    const italics = [
+      "die ankommt.",
+      "Leistungen",
+      "seit 2013",
+      "wirklich zählt.",
+      "Fragen",
+      "aufnehmen",
+      "an kommt.",
+      "wirklich zaehlt."
+    ];
+    let result = text;
+    italics.forEach(it => {
+      const regex = new RegExp(it.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi');
+      result = result.replace(regex, (match) => `<em>${match}</em>`);
     });
-    return;
+    return result;
   }
 
   document.querySelectorAll('.hero-title').forEach(title => {
-    // 1. Reset font-size to get CSS baseline
-    title.style.removeProperty('font-size');
-
-    const container = title.closest('.hero-content') || title.parentElement;
-    if (!container) return;
-
-    // 2. Measure container width
-    const savedWidth = container.style.width;
-    container.style.setProperty('width', '100%', 'important');
-    const containerWidth = container.clientWidth - 24; // 12px padding each side
-    if (savedWidth) container.style.setProperty('width', savedWidth);
-    else container.style.removeProperty('width');
-
-    if (containerWidth <= 0) return;
-
-    // 3. Find measurable line elements
-    const lines = title.querySelectorAll('.ht-line');
-    const targets = lines.length > 0
-      ? Array.from(lines)
-      : Array.from(title.querySelectorAll('span, em'));
-
-    let maxRatio = 1;
-
-    targets.forEach(el => {
-      // Save state
-      const savedDisplay = el.style.display;
-      const savedWs = el.style.whiteSpace;
-      const savedVis = el.style.visibility;
-
-      // Force measurement: display:block so it occupies its own line,
-      // white-space:nowrap so words don't wrap
-      el.style.setProperty('display', 'block', 'important');
-      el.style.setProperty('white-space', 'nowrap', 'important');
-      el.style.setProperty('visibility', 'hidden', 'important');
-
-      const elWidth = el.scrollWidth;
-
-      // Restore
-      if (savedDisplay) el.style.display = savedDisplay;
-      else el.style.removeProperty('display');
-      if (savedWs) el.style.whiteSpace = savedWs;
-      else el.style.removeProperty('white-space');
-      if (savedVis) el.style.visibility = savedVis;
-      else el.style.removeProperty('visibility');
-
-      if (elWidth > containerWidth) {
-        const ratio = elWidth / containerWidth;
-        if (ratio > maxRatio) maxRatio = ratio;
+    if (!isMobile) {
+      title.style.fontSize = '';
+      if (title.dataset.originalHtml) {
+        title.innerHTML = title.dataset.originalHtml;
+        delete title.dataset.originalHtml;
       }
-    });
+      return;
+    }
 
-    if (maxRatio > 1) {
-      const currentSize = parseFloat(window.getComputedStyle(title).fontSize);
-      // Scale down with a tiny safety margin (0.95)
-      title.style.setProperty('font-size', (currentSize / maxRatio * 0.95) + 'px', 'important');
+    if (!title.dataset.originalHtml) {
+      title.dataset.originalHtml = title.innerHTML;
+    }
+
+    // Clean up content to get raw text
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = title.dataset.originalHtml;
+    tempDiv.querySelectorAll('br').forEach(br => br.replaceWith(' '));
+    const rawText = tempDiv.textContent.replace(/\s+/g, ' ').trim();
+
+    // Split into exactly two lines
+    const lines = splitTextIntoLines(rawText, 2);
+    const line1Html = wrapItalic(lines[0]);
+    const line2Html = wrapItalic(lines[1]);
+
+    title.innerHTML = `
+      <span class="ht-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${line1Html}</span>
+      <span class="ht-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${line2Html}</span>
+    `;
+
+    // Measure and scale font-size to stretch to edges
+    const container = title.closest('.hero-content') || title.parentElement;
+    const containerWidth = container ? container.clientWidth - 32 : window.innerWidth - 32;
+
+    const tester = document.createElement('span');
+    tester.style.fontFamily = getComputedStyle(title).fontFamily;
+    tester.style.fontWeight = getComputedStyle(title).fontWeight;
+    tester.style.fontSize = '30px';
+    tester.style.position = 'absolute';
+    tester.style.visibility = 'hidden';
+    tester.style.whiteSpace = 'nowrap';
+    document.body.appendChild(tester);
+
+    tester.textContent = lines[0];
+    const w1 = tester.offsetWidth;
+    tester.textContent = lines[1];
+    const w2 = tester.offsetWidth;
+    document.body.removeChild(tester);
+
+    const maxWLine = Math.max(w1, w2);
+    if (maxWLine > 0 && containerWidth > 0) {
+      let targetFs = (containerWidth / maxWLine) * 30;
+      targetFs = Math.max(22, Math.min(targetFs, 42));
+      title.style.setProperty('font-size', targetFs + 'px', 'important');
+    }
+  });
+
+  document.querySelectorAll('.hero-subtitle').forEach(sub => {
+    if (!isMobile) {
+      sub.style.fontSize = '';
+      if (sub.dataset.originalHtml) {
+        sub.innerHTML = sub.dataset.originalHtml;
+        delete sub.dataset.originalHtml;
+      }
+      return;
+    }
+
+    if (!sub.dataset.originalHtml) {
+      sub.dataset.originalHtml = sub.innerHTML;
+    }
+
+    const rawText = sub.textContent.replace(/\s+/g, ' ').trim();
+    // Split into exactly three lines
+    const lines = splitTextIntoLines(rawText, 3);
+
+    sub.innerHTML = `
+      <span class="sub-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${lines[0]}</span>
+      <span class="sub-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${lines[1]}</span>
+      <span class="sub-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${lines[2]}</span>
+    `;
+
+    // Measure and scale subtitle font-size
+    const container = sub.closest('.hero-content') || sub.parentElement;
+    const containerWidth = container ? container.clientWidth - 32 : window.innerWidth - 32;
+
+    const tester = document.createElement('span');
+    tester.style.fontFamily = getComputedStyle(sub).fontFamily;
+    tester.style.fontSize = '16px';
+    tester.style.position = 'absolute';
+    tester.style.visibility = 'hidden';
+    tester.style.whiteSpace = 'nowrap';
+    document.body.appendChild(tester);
+
+    tester.textContent = lines[0];
+    const w1 = tester.offsetWidth;
+    tester.textContent = lines[1];
+    const w2 = tester.offsetWidth;
+    tester.textContent = lines[2];
+    const w3 = tester.offsetWidth;
+    document.body.removeChild(tester);
+
+    const maxWLine = Math.max(w1, w2, w3);
+    if (maxWLine > 0 && containerWidth > 0) {
+      let targetFs = (containerWidth / maxWLine) * 16;
+      targetFs = Math.max(11, Math.min(targetFs, 15));
+      sub.style.setProperty('font-size', targetFs + 'px', 'important');
     }
   });
 }
