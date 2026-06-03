@@ -149,8 +149,15 @@ const I18N = {
   }
 };
 
+let lastWidth = 0;
+
 function adjustHeroLayout() {
   const isMobile = window.innerWidth <= 992;
+
+  if (isMobile && lastWidth !== 0 && window.innerWidth === lastWidth) {
+    return;
+  }
+  lastWidth = window.innerWidth;
 
   document.querySelectorAll('.hero-cutout').forEach(hero => {
     const title = hero.querySelector('.hero-title');

@@ -1024,11 +1024,12 @@ html[dir="rtl"] .hero-home-photo {
   .hero-home-photo-inner::before {
     content: '' !important;
     position: absolute !important;
-    inset: -30px !important;
+    inset: -120px !important;
     background-size: cover !important;
     background-position: center !important;
-    filter: blur(25px) brightness(0.65) !important;
+    filter: blur(40px) brightness(0.65) !important;
     z-index: 1 !important;
+    transform: scale(1.2) !important;
     background-image: url('../img/hero-mobile/hero1.png') !important;
   }
   .leistungen-hero-frame .hero-home-photo-inner::before {
