@@ -411,5 +411,8 @@
   "srv.h1b": "medical",
   "ub.h1a": "Experience",
   "ub.h1b": "and care",
-  "kar.h1a": "Work where"
+  "kar.h1a": "Work where",
+  "ub.social.tag": "Social Media",
+  "ub.social.h2": "Follow us",
+  "ub.social.p": "Stay updated! On our social media channels, we share insights into our daily life, useful tips, and the latest news about care."
 }
