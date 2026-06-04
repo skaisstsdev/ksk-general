@@ -516,7 +516,8 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     left: 16px !important;
     right: 16px !important;
     transform: translateY(-50%) !important;
-    height: 120px !important;
+    min-height: 120px !important;
+    height: auto !important;
     margin: 0 !important;
     display: flex !important;
     flex-direction: column !important;
@@ -535,13 +536,13 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
   }
   .hero-cutout .hero-title .ht-line {
     display: block !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
   }
   /* Legacy span/em support */
   .hero-cutout .hero-title > span:not(.ht-line),
   .hero-cutout .hero-title > em:not(.ht-line) {
     display: inline-block !important;
-    white-space: nowrap !important;
+    white-space: normal !important;
   }
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
