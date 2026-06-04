@@ -532,11 +532,11 @@ document.addEventListener('DOMContentLoaded', () => {
         heroPhotos.forEach(img => {
           const frame = img.closest('.hero-home-photo-frame');
           if (isDesktop) {
-            const y = currentScroll * 0.28;
+            const y = currentScroll * 0.40;
             const isIndex = frame && frame.classList.contains('index-hero-frame');
             const baseScale = isIndex ? 1.12 : 1.05;
             const xShift = isIndex ? ' translateX(5%)' : '';
-            const scale = baseScale + currentScroll * 0.00015;
+            const scale = baseScale + currentScroll * 0.0005;
             img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})${xShift}`;
             if (frame) frame.style.transform = '';
           } else {
