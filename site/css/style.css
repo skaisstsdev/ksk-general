@@ -494,42 +494,35 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     max-width: 100% !important;
   }
   .hero-cutout .hero-inner {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: block !important;
     min-height: 100svh !important;
     width: 100% !important;
     position: relative !important;
     z-index: 3 !important;
-    padding: clamp(64px, 12vh, 120px) 16px clamp(48px, 8vh, 80px) 16px !important;
-    box-sizing: border-box !important;
+    padding: 0 !important;
   }
   .hero-cutout .hero-content {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
+    position: static !important;
+    display: block !important;
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     color: #ffffff !important;
-    z-index: 5 !important;
   }
   .hero-cutout .hero-title {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-    height: auto !important;
-    margin: 0 0 16px 0 !important;
-    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 16px !important;
+    right: 16px !important;
+    transform: translateY(-50%) !important;
+    height: 120px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
     text-align: center !important;
-    font-size: clamp(1.8rem, 8vw, 2.6rem) !important;
-    line-height: 1.2 !important;
     z-index: 5 !important;
     letter-spacing: -0.02em !important;
     color: #ffffff !important;
@@ -538,16 +531,17 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
       0 0 10px rgba(255, 255, 255, 0.65), 
       0 0 20px rgba(255, 255, 255, 0.35),
       0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    line-height: 1.15 !important;
   }
   .hero-cutout .hero-title .ht-line {
     display: block !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
   }
   /* Legacy span/em support */
   .hero-cutout .hero-title > span:not(.ht-line),
   .hero-cutout .hero-title > em:not(.ht-line) {
     display: inline-block !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
   }
   .hero-cutout .hero-title em,
   .hero-cutout .hero-title .ht-line em,
@@ -563,41 +557,41 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
       0 4px 15px rgba(0, 0, 0, 0.3) !important;
   }
   .hero-cutout .hero-subtitle {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    height: auto !important;
-    margin: 0 auto 24px auto !important;
-    max-width: 480px !important;
-    display: block !important;
+    position: absolute !important;
+    top: calc(50% + 68px) !important; /* 60px half height of title + 8px gap */
+    left: 16px !important;
+    right: 16px !important;
+    height: 70px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
     text-align: center !important;
     z-index: 5 !important;
     color: rgba(255, 255, 255, 0.92) !important;
-    font-size: clamp(0.95rem, 4.5vw, 1.1rem) !important;
     text-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.65), 
       0 0 10px rgba(255, 255, 255, 0.65), 
       0 0 20px rgba(255, 255, 255, 0.35),
       0 4px 15px rgba(0, 0, 0, 0.4) !important;
-    line-height: 1.5 !important;
+    line-height: 1.45 !important;
   }
   .hero-cutout .hero-subtitle .sub-line {
     display: block !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
   }
   .hero-cutout .hero-actions {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
+    position: absolute !important;
+    top: calc(50% + 154px) !important; /* 68px + 70px (subtitle height) + 16px gap */
+    left: 16px !important;
+    right: 16px !important;
     margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     gap: 8px !important;
     z-index: 5 !important;
-    width: 100% !important;
   }
   .hero-cutout .hero-actions .btn {
     width: 100% !important;
