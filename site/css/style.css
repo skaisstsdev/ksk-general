@@ -365,10 +365,22 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     justify-content: flex-end !important;
     align-items: stretch !important;
     overflow: hidden !important;
-    background: #000 !important;
+    background: transparent !important; /* Safari fix: don't put background on sticky element */
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     transform: translate3d(0,0,0) !important; /* Fix iOS Safari clipping bug */
+  }
+  /* Pseudo-element for black background to prevent Safari safe-area bleed */
+  .hero-cutout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: -1;
+    pointer-events: none;
   }
   /* All sections after hero scroll over it */
   .hero-cutout ~ section,
