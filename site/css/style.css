@@ -134,7 +134,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 
 /* ── CARDS ───────────────────────────────────────────────────── */
 .card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-4);transition:transform 0.35s ease,box-shadow 0.35s ease,border-color 0.35s ease}
-.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08);border-color:transparent}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08);border-color:transparent;transition:transform 0.35s ease,box-shadow 0.35s ease,border-color 0.35s ease}
 .card-icon{width:48px;height:48px;background:var(--violet-pale);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-3);color:var(--violet);flex-shrink:0;transition:transform 0.35s ease, background 0.3s ease}
 .card:hover .card-icon{transform:translateY(-2px);background:var(--violet);color:var(--white)}
 .card-icon svg{width:22px;height:22px;stroke-width:1.5}
@@ -142,7 +142,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .card p{font-size:0.9rem;line-height:1.72;color:var(--text-muted)}
 .card-centered{text-align:center;display:flex;flex-direction:column;align-items:center}
 .card-img{padding:0;overflow:hidden;border-radius:var(--r-2xl);background:var(--white);box-shadow:var(--shadow-md);transition:transform 0.35s ease,box-shadow 0.35s ease}
-.card-img:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
+.card-img:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08);transition:transform 0.35s ease,box-shadow 0.35s ease}
 .card-img .card-photo{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--gray-100)}
 .card-img .card-photo img{width:100%;height:100%;object-fit:cover}
 .card-img .card-body{padding:var(--sp-4) var(--sp-4) var(--sp-5)}
@@ -159,6 +159,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   position:relative;overflow:hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
+.btn:hover{transition:transform 0.35s ease,box-shadow 0.35s ease,background 0.35s ease,border-color 0.35s ease,color 0.35s ease}
 /* shimmer sweep */
 .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.22) 50%,transparent 65%);transform:translateX(-100%);pointer-events:none;transition:transform 0.55s ease}
 .btn:hover::after{transform:translateX(100%)}
@@ -816,9 +817,6 @@ html.lenis { height: auto; }
 
 /* ── SCROLL REVEAL ───────────────────────────────────────────── */
 /* ── SCROLL REVEAL ANIMATIONS ────────────────────────────────── */
-.reveal, .reveal-left, .reveal-right, .reveal-scale {
-  will-change: transform, opacity;
-}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-60px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
@@ -923,7 +921,7 @@ html.lenis { height: auto; }
 /* ── CONTACT CARDS (under form) ─────────────────────────────── */
 .contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-3)}
 .contact-card{position:relative;padding:var(--sp-4);background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);text-align:center;cursor:pointer;transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease}
-.contact-card:hover{border-color:transparent;box-shadow:0 16px 40px rgba(0,0,0,0.08);transform:translateY(-4px)}
+.contact-card:hover{border-color:transparent;box-shadow:0 16px 40px rgba(0,0,0,0.08);transform:translateY(-4px);transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease}
 .contact-card .card-icon{margin:0 auto var(--sp-2)}
 .contact-card h4{font-size:0.85rem;margin-bottom:8px}
 .contact-card p,.contact-card a{font-size:0.85rem;color:var(--text-muted);line-height:1.6}
@@ -933,7 +931,7 @@ html.lenis { height: auto; }
 /* ── REVIEW SECTION ─────────────────────────────────────────── */
 .review-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,28px)}
 .review-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-4);transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease}
-.review-card:hover{border-color:transparent;box-shadow:0 16px 40px rgba(0,0,0,0.08);transform:translateY(-6px)}
+.review-card:hover{border-color:transparent;box-shadow:0 16px 40px rgba(0,0,0,0.08);transform:translateY(-6px);transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease}
 .review-stars{display:flex;gap:2px;margin-bottom:var(--sp-2);color:#f59e0b;font-size:1.1rem;letter-spacing:2px}
 .review-card p{font-size:0.9rem;color:var(--text-secondary);line-height:1.72;margin-bottom:var(--sp-3);font-style:italic}
 .review-author{font-size:0.82rem;font-weight:600;color:var(--text-primary)}
