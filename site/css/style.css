@@ -1210,6 +1210,9 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   .hero-home-photo {
     transform: scale(1.05);
   }
+  .index-hero-frame .hero-home-photo {
+    object-position: 45% 33%;
+  }
   .hero-bg-blur-pic {
     display: none !important;
   }
