@@ -370,6 +370,12 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .hero-title{margin-bottom:var(--sp-3)}
 .hero-title em{font-style:italic;color:var(--violet);font-weight:500}
 .hero-subtitle{font-size:1.1rem;color:var(--text-secondary);line-height:1.8;margin-bottom:var(--sp-5);max-width:420px}
+body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subtitle, .hero-content h1, .hero-content p {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
 .hero-visual{position:relative}
 .hero-photo{aspect-ratio:4/5;border-radius:var(--r-xl);overflow:hidden}
 .hero-photo img,.hero-photo .photo-placeholder{width:100%;height:100%;object-fit:cover;border-radius:var(--r-xl);min-height:0}
@@ -1196,6 +1202,8 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   transform-origin: center;
   transition: none !important;
   filter: brightness(1.05);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @media (min-width: 993px) {
@@ -1384,7 +1392,7 @@ html[dir="rtl"] .hero-home-photo {
     bottom: 0;
     width: 48vw;
     z-index: 1;
-    overflow: hidden;
+    overflow: visible !important;
   }
   
   .section-edge-photo.img-left .edge-photo-frame {
@@ -1398,6 +1406,7 @@ html[dir="rtl"] .hero-home-photo {
   .section-edge-photo .edge-photo-inner {
     width: 100%;
     height: 100%;
+    overflow: hidden !important;
   }
   
   .section-edge-photo .edge-photo-inner img {
@@ -1407,11 +1416,14 @@ html[dir="rtl"] .hero-home-photo {
     will-change: transform;
     transform-origin: center;
     transition: none !important;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   
   .section-edge-photo .edge-photo-overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
     z-index: 2;
     pointer-events: none;
   }
@@ -1419,10 +1431,16 @@ html[dir="rtl"] .hero-home-photo {
   /* Fade/Blur from center to outside */
   .section-edge-photo.img-left .edge-photo-overlay {
     background: linear-gradient(to left, rgb(var(--bg-rgb)) 0%, rgb(var(--bg-rgb)) 4%, rgba(var(--bg-rgb), 0.7) 12%, rgba(var(--bg-rgb), 0) 30%);
+    left: 0 !important;
+    right: -10px !important;
+    width: auto !important;
   }
   
   .section-edge-photo.img-right .edge-photo-overlay {
     background: linear-gradient(to right, rgb(var(--bg-rgb)) 0%, rgb(var(--bg-rgb)) 4%, rgba(var(--bg-rgb), 0.7) 12%, rgba(var(--bg-rgb), 0) 30%);
+    left: -10px !important;
+    right: 0 !important;
+    width: auto !important;
   }
 
   .section-edge-photo p {
@@ -1491,49 +1509,110 @@ html[dir="rtl"] .hero-home-photo {
 }
 
 /* ── WIDE-SCREEN PROPORTIONAL SCALING ─────────────────────────
-   Фото: снимаем max-width, растёт с 66vw на любом экране.
-   Текст: transform: scale() — визуально увеличивает всё,
-   НЕ меняя позицию и не сдвигая блоки.
-   Ниже 1440px — ничего не меняется.
+   Lock position and size of both text and photo relative to the viewport width (vw).
+   No transform: scale() scaling, ensuring zero overlap and perfect alignment on any width.
    ──────────────────────────────────────────────────────────── */
 @media (min-width: 993px) {
+  .hero-cutout .container {
+    position: static !important;
+  }
+  .hero-cutout .hero-inner {
+    position: static !important;
+    display: block !important;
+    min-height: 100svh !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .hero-cutout .hero-content {
+    position: absolute !important;
+    top: 50% !important;
+    left: 8vw !important;
+    transform: translateY(-50%) !important;
+    width: 44vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  html[dir="rtl"] .hero-cutout .hero-content {
+    left: auto !important;
+    right: 8vw !important;
+    align-items: flex-end !important;
+    text-align: right !important;
+  }
+  
+  .hero-cutout .hero-title {
+    font-size: calc(2.4rem + 1.8vw) !important;
+    line-height: 1.08 !important;
+    margin-bottom: var(--sp-4) !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  html[dir="rtl"] .hero-cutout .hero-title {
+    text-align: right !important;
+  }
+  
+  .hero-cutout .hero-subtitle {
+    font-size: calc(0.95rem + 0.25vw) !important;
+    line-height: 1.75 !important;
+    margin-bottom: var(--sp-5) !important;
+    max-width: 90% !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  html[dir="rtl"] .hero-cutout .hero-subtitle {
+    text-align: right !important;
+  }
+  
+  .hero-cutout .hero-actions {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  html[dir="rtl"] .hero-cutout .hero-actions {
+    justify-content: flex-end !important;
+  }
+
   .hero-home-photo-frame {
     top: 0;
     bottom: 0;
     height: 100%;
     aspect-ratio: auto;
     max-width: none;
+    width: 48vw !important;
+    overflow: visible !important;
   }
+  .hero-home-photo-inner {
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+  }
+  
   .ueber-uns-hero-frame {
     aspect-ratio: auto;
     max-width: none;
+    width: 48vw !important;
+    overflow: visible !important;
   }
-}
-
-@media (min-width: 1441px) {
-  .hero-cutout .hero-content {
-    transform-origin: left center;
+  
+  .hero-home-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: -10px !important;
+    right: 0 !important;
+    width: auto !important;
+    z-index: 2 !important;
   }
-  html[dir="rtl"] .hero-cutout .hero-content {
-    transform-origin: right center;
-  }
-}
-
-@media (min-width: 1600px) {
-  .hero-cutout .hero-content {
-    transform: scale(1.1);
-  }
-}
-
-@media (min-width: 1920px) {
-  .hero-cutout .hero-content {
-    transform: scale(1.3);
-  }
-}
-
-@media (min-width: 2560px) {
-  .hero-cutout .hero-content {
-    transform: scale(1.5);
+  html[dir="rtl"] .hero-home-overlay {
+    left: 0 !important;
+    right: -10px !important;
   }
 }
 
