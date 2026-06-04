@@ -243,6 +243,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   -webkit-backdrop-filter: none !important;
   border-bottom: none !important;
   box-shadow: none !important;
+  transition: none !important;
 }
 .header.menu-open .logo-text,
 .header.scrolled.menu-open .logo-text,
@@ -556,6 +557,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     -webkit-backdrop-filter: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
+    transition: none !important;
   }
   .header.menu-open .logo-text,
   .header.scrolled.menu-open .logo-text,
