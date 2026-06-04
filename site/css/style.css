@@ -1177,7 +1177,7 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   will-change: transform;
   transform-origin: center;
   transition: none !important;
-  filter: brightness(1.05);
+  filter: brightness(1.20) contrast(1.03);
 }
 
 @media (min-width: 993px) {
@@ -1264,7 +1264,7 @@ html[dir="rtl"] .hero-home-photo {
     position: absolute !important;
     inset: 0 !important;
     z-index: 2 !important;
-    background: rgba(0, 0, 0, 0.35) !important;
+    background: rgba(0, 0, 0, 0.18) !important;
     pointer-events: none !important;
   }
   .kontakt-hero-section .hero-inner {
