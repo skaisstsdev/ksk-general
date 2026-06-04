@@ -167,21 +167,73 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .btn:hover svg{transform:translateX(3px)}
 .btn:active{transform:scale(0.975) !important}
 
-/* Primary — solid violet */
-.btn-primary{background:var(--violet);color:white;box-shadow:0 1px 2px rgba(107,63,160,0.25),0 4px 14px rgba(107,63,160,0.28),inset 0 1px 0 rgba(255,255,255,0.18)}
-.btn-primary:hover{transform:translateY(-2px) scale(1.02);background:var(--violet-mid);box-shadow:0 2px 4px rgba(107,63,160,0.2),0 10px 28px rgba(107,63,160,0.40),inset 0 1px 0 rgba(255,255,255,0.2)}
+/* Primary — dark glass with violet theme */
+.btn-primary {
+  background: rgba(107, 63, 160, 0.5) !important;
+  color: white !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  box-shadow: 0 12px 40px rgba(107, 63, 160, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(107, 63, 160, 0.65) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 12px 40px rgba(107, 63, 160, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
 
-/* Outline */
-.btn-outline{background:transparent;color:var(--text-primary);border:1.5px solid var(--gray-200);box-shadow:none;padding:12.5px 26px}
-.btn-outline:hover{transform:translateY(-2px);border-color:var(--violet);color:var(--violet);background:var(--violet-alpha);box-shadow:var(--shadow-sm)}
+/* Outline — dark glass */
+.btn-outline {
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: white !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+.btn-outline:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
 
 /* Glass — frosted on light bg */
-.btn-glass{background:rgba(255,255,255,0.62);color:var(--text-primary);border:1px solid rgba(255,255,255,0.95);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 2px rgba(0,0,0,0.06),0 4px 14px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,1),inset 0 -1px 0 rgba(0,0,0,0.03)}
-.btn-glass:hover{transform:translateY(-2px) scale(1.02);background:rgba(255,255,255,0.88);box-shadow:0 2px 6px rgba(0,0,0,0.08),0 12px 32px rgba(0,0,0,0.10),inset 0 1px 0 rgba(255,255,255,1)}
+.btn-glass {
+  background: rgba(0, 0, 0, 0.45) !important;
+  color: white !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+.btn-glass:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
 
 /* Glass Dark — frosted on violet/dark bg */
-.btn-glass-dark{background:rgba(255,255,255,0.12);color:white;border:1px solid rgba(255,255,255,0.22);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 2px rgba(0,0,0,0.18),0 4px 18px rgba(0,0,0,0.14),inset 0 1px 0 rgba(255,255,255,0.18),inset 0 -1px 0 rgba(0,0,0,0.08)}
-.btn-glass-dark:hover{transform:translateY(-2px) scale(1.02);background:rgba(255,255,255,0.20);border-color:rgba(255,255,255,0.38);box-shadow:0 2px 6px rgba(0,0,0,0.2),0 14px 38px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.22)}
+.btn-glass-dark {
+  background: rgba(0, 0, 0, 0.55) !important;
+  color: white !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+}
+.btn-glass-dark:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
 
 /* Sizes */
 .btn-sm{padding:9px 20px;font-size:0.82rem}.btn-sm.btn-outline{padding:7.5px 18px}
@@ -461,15 +513,17 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     justify-content: center !important;
   }
   .hero-cutout .btn-outline {
+    background: rgba(0, 0, 0, 0.45) !important;
+    backdrop-filter: blur(16px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(130%) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
     color: #ffffff !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(5px) !important;
-    -webkit-backdrop-filter: blur(5px) !important;
   }
   .hero-cutout .btn-outline:hover {
-    border-color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
   }
   .hero-photo-1, .hero-photo-2, .hero-photo-3 {
     display: none !important;
