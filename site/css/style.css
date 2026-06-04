@@ -1559,6 +1559,9 @@ html[dir="rtl"] .hero-home-photo {
     display: block !important;
     white-space: nowrap !important;
   }
+  .hero-cutout .hero-title br {
+    display: none !important;
+  }
   html[dir="rtl"] .hero-cutout .hero-title {
     text-align: right !important;
   }
