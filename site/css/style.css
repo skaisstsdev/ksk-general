@@ -1528,7 +1528,7 @@ html[dir="rtl"] .hero-home-photo {
     top: 50% !important;
     left: 8vw !important;
     transform: translateY(-50%) !important;
-    width: 44vw !important;
+    width: 46vw !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -1546,21 +1546,27 @@ html[dir="rtl"] .hero-home-photo {
   }
   
   .hero-cutout .hero-title {
-    font-size: calc(2.4rem + 1.8vw) !important;
-    line-height: 1.08 !important;
+    font-size: calc(2.8rem + 2.2vw) !important;
+    line-height: 1.05 !important;
     margin-bottom: var(--sp-4) !important;
     text-align: left !important;
     width: 100% !important;
+  }
+  .hero-cutout .hero-title .ht-line,
+  .hero-cutout .hero-title > span,
+  .hero-cutout .hero-title > em {
+    display: block !important;
+    white-space: nowrap !important;
   }
   html[dir="rtl"] .hero-cutout .hero-title {
     text-align: right !important;
   }
   
   .hero-cutout .hero-subtitle {
-    font-size: calc(0.95rem + 0.25vw) !important;
+    font-size: calc(1.05rem + 0.35vw) !important;
     line-height: 1.75 !important;
     margin-bottom: var(--sp-5) !important;
-    max-width: 90% !important;
+    max-width: 32vw !important;
     text-align: left !important;
     width: 100% !important;
   }
@@ -1585,7 +1591,8 @@ html[dir="rtl"] .hero-home-photo {
     height: 100%;
     aspect-ratio: auto;
     max-width: none;
-    width: 48vw !important;
+    width: 58vw !important;
+    transform: none !important;
     overflow: visible !important;
   }
   .hero-home-photo-inner {
@@ -1597,7 +1604,8 @@ html[dir="rtl"] .hero-home-photo {
   .ueber-uns-hero-frame {
     aspect-ratio: auto;
     max-width: none;
-    width: 48vw !important;
+    width: 58vw !important;
+    transform: none !important;
     overflow: visible !important;
   }
   
