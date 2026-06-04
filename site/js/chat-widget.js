@@ -216,6 +216,19 @@
     createWidget()
     document.getElementById('kskChatBtn').addEventListener('click', () => kskChat.toggle())
 
+    // Показать при первом скролле
+    const showChatOnScroll = () => {
+      if (window.scrollY > 20) {
+        const widget = document.getElementById('ksk-chat')
+        if (widget) {
+          widget.classList.add('visible')
+          window.removeEventListener('scroll', showChatOnScroll)
+        }
+      }
+    }
+    window.addEventListener('scroll', showChatOnScroll, { passive: true })
+    showChatOnScroll() // Вызвать сразу на случай, если страница уже прокручена при загрузке
+
     // Показать индикатор через 3 секунды если чат не открыт
     setTimeout(() => {
       if (!isOpen) {

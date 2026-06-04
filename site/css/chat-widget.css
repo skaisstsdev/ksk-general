@@ -1,5 +1,20 @@
 /* ═══ KSK CHAT WIDGET ═══ */
-#ksk-chat { position: fixed; bottom: 24px; right: 24px; z-index: 999; font-family: var(--sans); }
+#ksk-chat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  font-family: var(--sans);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#ksk-chat.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
 /* Кнопка открытия */
 .ksk-chat-btn {
