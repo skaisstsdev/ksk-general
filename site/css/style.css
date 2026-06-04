@@ -241,7 +241,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
+  border-bottom: 1px solid transparent !important;
   box-shadow: none !important;
   transition: none !important;
 }
@@ -555,7 +555,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border-bottom: none !important;
+    border-bottom: 1px solid transparent !important;
     box-shadow: none !important;
     transition: none !important;
   }
