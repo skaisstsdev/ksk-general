@@ -1298,7 +1298,7 @@ html[dir="rtl"] .hero-home-photo {
     display: block;
   }
   .section-edge-photo .edge-photo-inner img.crop-mobile {
-    transform: scale(1.43) translateY(-5%);
+    transform: scale(1.43) translateY(10%);
   }
   .section-edge-photo .edge-photo-overlay {
     display: block;
