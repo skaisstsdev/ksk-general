@@ -434,7 +434,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = mobileMenu.classList.toggle('open');
       mobileToggle.classList.toggle('open', isOpen);
       if (header) header.classList.toggle('menu-open', isOpen);
-      document.body.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
@@ -445,7 +444,6 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.remove('open');
         if (mobileToggle) mobileToggle.classList.remove('open');
         if (header) header.classList.remove('menu-open');
-        document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
       });
     });

@@ -223,7 +223,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .mobile-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .mobile-toggle.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .mobile-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;background:rgba(0,0,0,0.35) !important;backdrop-filter:blur(16px) saturate(130%) !important;-webkit-backdrop-filter:blur(16px) saturate(130%) !important;z-index:99;padding:calc(var(--header-h) + 60px) var(--pad-x) 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity var(--t-base),visibility var(--t-base)}
+.mobile-menu{position:fixed;inset:0;background:rgba(0,0,0,0.65) !important;backdrop-filter:blur(16px) saturate(130%) !important;-webkit-backdrop-filter:blur(16px) saturate(130%) !important;z-index:99;padding:calc(var(--header-h) + 60px) var(--pad-x) 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity var(--t-base),visibility var(--t-base)}
 .mobile-menu.open{opacity:1;visibility:visible}
 .mobile-menu .nav-link{font-size:1.8rem;padding:14px 20px;font-family:var(--serif);font-weight:500;color:rgba(255,255,255,0.9);transition:color var(--t-fast)}
 .mobile-menu .nav-link:hover,
@@ -237,8 +237,7 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
 .header.menu-open,
 .header.scrolled.menu-open,
 .header.header-transparent-allowed.menu-open,
-.header.header-transparent-allowed.scrolled.menu-open,
-body.menu-open .header {
+.header.header-transparent-allowed.scrolled.menu-open {
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -248,37 +247,32 @@ body.menu-open .header {
 .header.menu-open .logo-text,
 .header.scrolled.menu-open .logo-text,
 .header.header-transparent-allowed.menu-open .logo-text,
-.header.header-transparent-allowed.scrolled.menu-open .logo-text,
-body.menu-open .header .logo-text {
+.header.header-transparent-allowed.scrolled.menu-open .logo-text {
   color: white !important;
 }
 .header.menu-open .logo-text span,
 .header.scrolled.menu-open .logo-text span,
 .header.header-transparent-allowed.menu-open .logo-text span,
-.header.header-transparent-allowed.scrolled.menu-open .logo-text span,
-body.menu-open .header .logo-text span {
+.header.header-transparent-allowed.scrolled.menu-open .logo-text span {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 .header.menu-open .logo img,
 .header.scrolled.menu-open .logo img,
 .header.header-transparent-allowed.menu-open .logo img,
-.header.header-transparent-allowed.scrolled.menu-open .logo img,
-body.menu-open .header .logo img {
+.header.header-transparent-allowed.scrolled.menu-open .logo img {
   filter: invert(1) grayscale(1) brightness(10) !important;
   mix-blend-mode: screen !important;
 }
 .header.menu-open .mobile-toggle span,
 .header.scrolled.menu-open .mobile-toggle span,
 .header.header-transparent-allowed.menu-open .mobile-toggle span,
-.header.header-transparent-allowed.scrolled.menu-open .mobile-toggle span,
-body.menu-open .header .mobile-toggle span {
+.header.header-transparent-allowed.scrolled.menu-open .mobile-toggle span {
   background: white !important;
 }
 
 /* Hide chat widget when mobile menu is open */
 .mobile-menu.open ~ #ksk-chat,
-.header.menu-open ~ #ksk-chat,
-body.menu-open #ksk-chat {
+.header.menu-open ~ #ksk-chat {
   display: none !important;
 }
 
@@ -556,8 +550,7 @@ body.menu-open #ksk-chat {
   .header.menu-open,
   .header.scrolled.menu-open,
   .header.header-transparent-allowed.menu-open,
-  .header.header-transparent-allowed.scrolled.menu-open,
-  body.menu-open .header {
+  .header.header-transparent-allowed.scrolled.menu-open {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -567,22 +560,19 @@ body.menu-open #ksk-chat {
   .header.menu-open .logo-text,
   .header.scrolled.menu-open .logo-text,
   .header.header-transparent-allowed.menu-open .logo-text,
-  .header.header-transparent-allowed.scrolled.menu-open .logo-text,
-  body.menu-open .header .logo-text {
+  .header.header-transparent-allowed.scrolled.menu-open .logo-text {
     color: #ffffff !important;
   }
   .header.menu-open .logo-text span,
   .header.scrolled.menu-open .logo-text span,
   .header.header-transparent-allowed.menu-open .logo-text span,
-  .header.header-transparent-allowed.scrolled.menu-open .logo-text span,
-  body.menu-open .header .logo-text span {
+  .header.header-transparent-allowed.scrolled.menu-open .logo-text span {
     color: rgba(255, 255, 255, 0.70) !important;
   }
   .header.menu-open .mobile-toggle span,
   .header.scrolled.menu-open .mobile-toggle span,
   .header.header-transparent-allowed.menu-open .mobile-toggle span,
-  .header.header-transparent-allowed.scrolled.menu-open .mobile-toggle span,
-  body.menu-open .header .mobile-toggle span {
+  .header.header-transparent-allowed.scrolled.menu-open .mobile-toggle span {
     background: #ffffff !important;
   }
 }
