@@ -21,7 +21,7 @@
   width: 56px; height: 56px; border-radius: 50%;
   background: var(--violet); color: white; border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  box-shadow: var(--shadow-violet); transition: transform var(--t-fast) var(--ease-spring), box-shadow var(--t-fast) var(--ease-out), background var(--t-fast) var(--ease-out);
+  box-shadow: none !important; transition: transform var(--t-fast) var(--ease-spring), box-shadow var(--t-fast) var(--ease-out), background var(--t-fast) var(--ease-out);
   position: relative;
 }
 .ksk-chat-btn-inner {
@@ -35,7 +35,7 @@
   transform:translateX(-100%);transition:transform 0.55s var(--ease);pointer-events:none;
 }
 .ksk-chat-btn:hover .ksk-chat-btn-inner::after { transform: translateX(100%); }
-.ksk-chat-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: 0 12px 36px rgba(107,63,160,0.45); }
+.ksk-chat-btn:hover { transform: scale(1.1) translateY(-2px); box-shadow: none !important; }
 .ksk-chat-btn:active { transform: scale(0.95) !important; }
 .ksk-chat-btn svg { width: 24px; height: 24px; }
 .ksk-unread {
