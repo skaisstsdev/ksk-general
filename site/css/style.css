@@ -368,7 +368,6 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
     background: transparent !important; /* Safari fix: don't put background on sticky element */
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    transform: translate3d(0,0,0) !important; /* Fix iOS Safari clipping bug */
   }
   /* Pseudo-element for black background to prevent Safari safe-area bleed */
   .hero-cutout::before {
@@ -387,13 +386,11 @@ p{color:var(--text-secondary);line-height:1.75;margin-bottom:1.25rem}
   .hero-cutout ~ .section-edge-photo {
     position: relative !important;
     z-index: 2 !important;
-    transform: translate3d(0,0,0) !important; /* Fix iOS Safari clipping bug */
   }
   /* Footer is outside <main>, needs explicit z-index */
   .footer {
     position: relative;
     z-index: 2;
-    transform: translate3d(0,0,0); /* Fix iOS Safari clipping bug */
   }
   /* Ensure all content sections have opaque backgrounds */
   .hero-cutout ~ .section { background-color: var(--white); }
