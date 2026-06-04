@@ -515,8 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cinematic Parallax (Max Performance & Zero Stutter)
     function initParallax() {
       const heroPhotos = document.querySelectorAll('.hero-home-photo');
-      const otherPhotos = document.querySelectorAll('.edge-photo-inner img, .card-photo img');
-      if (heroPhotos.length === 0 && otherPhotos.length === 0) return;
+      if (heroPhotos.length === 0) return;
 
       let lastScroll = -9999;
 
@@ -528,7 +527,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScroll = currentScroll;
 
         const isDesktop = window.innerWidth > 992;
-        const viewHeight = window.innerHeight;
 
         // Render Hero Parallax
         heroPhotos.forEach(img => {
@@ -544,25 +542,6 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             img.style.transform = '';
             if (frame) frame.style.transform = '';
-          }
-        });
-
-        // Render Content Photos Parallax (Viewport-Relative)
-        otherPhotos.forEach(img => {
-          if (isDesktop) {
-            const container = img.closest('.edge-photo-inner, .card-photo');
-            if (!container) return;
-            const rect = container.getBoundingClientRect();
-            if (rect.bottom >= -100 && rect.top <= viewHeight + 100) {
-              const totalRange = viewHeight + rect.height;
-              const distanceScrolled = viewHeight - rect.top;
-              const progress = Math.max(0, Math.min(1, distanceScrolled / totalRange));
-              const scale = 1.12 + progress * 0.08;
-              const y = (progress - 0.5) * -20;
-              img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})`;
-            }
-          } else {
-            img.style.transform = '';
           }
         });
       }
