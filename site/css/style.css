@@ -1607,6 +1607,9 @@ html[dir="rtl"] .hero-home-photo {
     transform: none !important;
     overflow: visible !important;
   }
+  .index-hero-frame {
+    width: 54vw !important;
+  }
   .hero-home-photo-inner {
     width: 100%;
     height: 100%;
