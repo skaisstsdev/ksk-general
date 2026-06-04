@@ -1212,6 +1212,7 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   }
   .index-hero-frame .hero-home-photo {
     object-position: 45% 33%;
+    transform: scale(1.12) translateX(5%);
   }
   .hero-bg-blur-pic {
     display: none !important;
