@@ -1098,6 +1098,7 @@ html[dir="rtl"] .cookie-actions{justify-content:flex-start}
   will-change: transform;
   transform-origin: center;
   transition: none !important;
+  filter: brightness(1.05);
 }
 
 @media (min-width: 993px) {
