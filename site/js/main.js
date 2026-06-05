@@ -228,6 +228,17 @@ function adjustHeroTitles() {
     return result;
   }
 
+  // Helper to highlight italic words dynamically (works for any language)
+  function wrapItalicDynamic(text, italicPhrases) {
+    if (!italicPhrases || italicPhrases.length === 0) return text;
+    let result = text;
+    italicPhrases.forEach(phrase => {
+      const regex = new RegExp(phrase.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi');
+      result = result.replace(regex, (match) => `<em>${match}</em>`);
+    });
+    return result;
+  }
+
   document.querySelectorAll('.hero-title').forEach(title => {
     if (!isMobile) {
       title.style.fontSize = '';
@@ -245,13 +256,19 @@ function adjustHeroTitles() {
     // Clean up content to get raw text
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = title.dataset.originalHtml;
+    // Extract italic phrases from <em> elements in the original HTML
+    const italicPhrases = [];
+    tempDiv.querySelectorAll('em').forEach(em => {
+      const t = em.textContent.trim();
+      if (t) italicPhrases.push(t);
+    });
     tempDiv.querySelectorAll('br').forEach(br => br.replaceWith(' '));
     const rawText = tempDiv.textContent.replace(/\s+/g, ' ').trim();
 
     // Split into exactly two lines
     const lines = splitTextIntoLines(rawText, 2);
-    const line1Html = wrapItalic(lines[0]);
-    const line2Html = wrapItalic(lines[1]);
+    const line1Html = wrapItalicDynamic(lines[0], italicPhrases);
+    const line2Html = wrapItalicDynamic(lines[1], italicPhrases);
 
     title.innerHTML = `
       <span class="ht-line" style="display: block !important; white-space: nowrap !important; overflow: visible !important;">${line1Html}</span>
