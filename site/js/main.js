@@ -23,6 +23,15 @@ const I18N = {
 
   apply(data) {
     if (!data) return;
+    // Restore hero titles/subtitles to original structure before translating,
+    // so that their inner [data-i18n] spans are present in the DOM for translation.
+    document.querySelectorAll('.hero-title, .hero-subtitle').forEach(el => {
+      if (el.dataset.originalHtml) {
+        el.innerHTML = el.dataset.originalHtml;
+        el.style.fontSize = '';
+        delete el.dataset.originalHtml;
+      }
+    });
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (data[key] === undefined) return;
