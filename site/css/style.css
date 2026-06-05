@@ -594,6 +594,8 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     align-items: center !important;
     gap: 8px !important;
     z-index: 5 !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
   .hero-cutout .hero-actions .btn {
     width: 100% !important;
