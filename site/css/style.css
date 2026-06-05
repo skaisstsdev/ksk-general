@@ -911,6 +911,10 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
 .footer-contact{display:flex;flex-direction:column;gap:10px}
 .footer-bottom{padding-top:var(--sp-4);border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-bottom span{font-size:0.80rem;color:rgba(255,255,255,0.35)}
+.footer-social{display:flex;gap:20px;align-items:center}
+.footer-social a{color:rgba(255,255,255,0.35);transition:color 0.3s ease,transform 0.3s ease;display:flex;align-items:center;justify-content:center}
+.footer-social a:hover{color:#fff;transform:translateY(-2px)}
+.footer-social i{width:20px;height:20px}
 .footer-lang{display:flex;gap:4px;flex-wrap:wrap}
 .footer-lang a{font-size:0.76rem;color:rgba(255,255,255,0.40);padding:4px 9px;border-radius:var(--r-sm)}
 .footer-lang a:hover,.footer-lang a.active{color:white;background:rgba(255,255,255,0.08)}
@@ -924,19 +928,28 @@ html.lenis { height: auto; }
 
 /* ── SCROLL REVEAL ───────────────────────────────────────────── */
 /* ── SCROLL REVEAL ANIMATIONS ────────────────────────────────── */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
-.reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(60px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
-.reveal-right.visible{opacity:1;transform:translateX(0)}
-.reveal-scale{opacity:0;transform:scale(0.94);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
-.reveal-scale.visible{opacity:1;transform:scale(1)}
+.reveal, .reveal-left, .reveal-right, .reveal-scale {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible, .reveal-left.visible, .reveal-right.visible, .reveal-scale.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero elements specific reveal (appears from inside) */
+.hero-content .reveal, .hero-content .reveal-scale {
+  transform: scale(0.92);
+}
+.hero-content .reveal.visible, .hero-content .reveal-scale.visible {
+  transform: scale(1);
+}
 
 /* Stagger Delays (Both legacy reveal-d and new stagger- classes) */
-.reveal-d1{transition-delay:90ms}.reveal-d2{transition-delay:180ms}.reveal-d3{transition-delay:270ms}.reveal-d4{transition-delay:360ms}.reveal-d5{transition-delay:450ms}
-.stagger-1{transition-delay:.1s}.stagger-2{transition-delay:.2s}.stagger-3{transition-delay:.3s}.stagger-4{transition-delay:.4s}
-.stagger-5{transition-delay:.5s}.stagger-6{transition-delay:.6s}.stagger-7{transition-delay:.7s}.stagger-8{transition-delay:.8s}
+.reveal-d1{transition-delay:100ms}.reveal-d2{transition-delay:200ms}.reveal-d3{transition-delay:300ms}.reveal-d4{transition-delay:400ms}.reveal-d5{transition-delay:500ms}
+.stagger-1{transition-delay:.15s}.stagger-2{transition-delay:.3s}.stagger-3{transition-delay:.45s}.stagger-4{transition-delay:.6s}
+.stagger-5{transition-delay:.75s}.stagger-6{transition-delay:.9s}.stagger-7{transition-delay:1.05s}.stagger-8{transition-delay:1.2s}
 
 /* ── UTILITIES ───────────────────────────────────────────────── */
 .divider{width:56px;height:2px;background:var(--violet);margin:var(--sp-3) 0}
