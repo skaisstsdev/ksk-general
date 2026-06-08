@@ -914,7 +914,7 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
 .footer-social{display:flex;gap:20px;align-items:center;margin-top:6px}
 .footer-social a{color:rgba(255,255,255,0.35);transition:color 0.3s ease,transform 0.3s ease;display:flex;align-items:center;justify-content:center}
 .footer-social a:hover{color:#fff;transform:translateY(-2px)}
-.footer-social i{width:20px;height:20px}
+.footer-social i,.footer-social svg{width:20px;height:20px}
 .footer-lang{display:flex;gap:4px;flex-wrap:wrap}
 .footer-lang a{font-size:0.76rem;color:rgba(255,255,255,0.40);padding:4px 9px;border-radius:var(--r-sm)}
 .footer-lang a:hover,.footer-lang a.active{color:white;background:rgba(255,255,255,0.08)}
