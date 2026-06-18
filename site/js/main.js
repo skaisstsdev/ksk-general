@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isMobileInit) {
     let lastWidth = window.innerWidth;
     const lockHeights = () => {
-      document.querySelectorAll('.hero, .hero-cutout, .edge-photo-frame').forEach(el => {
+      document.querySelectorAll('.hero, .hero-cutout, .hero-inner, .edge-photo-frame').forEach(el => {
         el.style.height = '';
         el.style.minHeight = '';
         const h = el.getBoundingClientRect().height;
