@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Häusliche Intensivpflege Nordhessen — KSK Farmos</title>
+  <meta name="description" content="Kostenlose Beratung zur ambulanten Intensivpflege. Krankenkasse übernimmt die Kosten. Seit 2013 in Nordhessen. Jetzt unverbindlich anfragen.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/logo-icon.png">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>  <style>
+    /* ═══ ANIMATIONS ═══ */
+    @keyframes float-y { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes gradient-x { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+    /* ═══ VIOLET GLOW UTILITY ═══ */
+    .violet-glow { box-shadow:0 8px 40px rgba(107,63,160,.10); }
+    .violet-glow-hover { transition:box-shadow .4s ease, transform .4s ease; }
+    .violet-glow-hover:hover { box-shadow:0 12px 48px rgba(107,63,160,.18); transform:translateY(-4px); }
+
+    /* ═══ HERO ═══ */
+    .hero-cutout .hero-title { font-size:clamp(3rem,5.5vw,4.8rem) !important; max-width:650px; }
+    .hero-cutout .hero-title em { color:var(--violet); font-style:italic; }
+    .hero-cutout .hero-subtitle { font-size:1.15rem !important; max-width:500px; }
+    
+    .hero-actions .btn-outline { transition:all .3s ease !important; }
+    .hero-actions .btn-outline:hover { border-color:var(--violet) !important; color:var(--violet) !important; transform:translateY(-2px); }
+
+    /* ═══ HEADER ═══ */
+    .landing-header { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); background:rgba(255,255,255,.95); border-bottom:1px solid var(--gray-100); box-shadow:var(--shadow-sm); }
+    .landing-header .header-right { margin-left:auto !important; }
+    .landing-header .header-right .btn-primary { transition:all .3s ease; }
+    .landing-header .header-right .btn-primary:hover { transform:scale(1.05); box-shadow:0 4px 16px rgba(107,63,160,.25); }
+    @media(max-width:768px) { .landing-header .header-right .btn-primary { display:inline-flex !important; } }
+
+    /* ═══ TRUST BAR ═══ */
+    .landing-stats-row .stat-item { transition:transform .3s ease; }
+    .landing-stats-row .stat-item:hover { transform:translateY(-2px); }
+    @media(max-width:768px) {
+      .landing-stats-row { grid-template-columns:repeat(2,1fr) !important; }
+      .landing-stats-row .stat-item:nth-child(1),.landing-stats-row .stat-item:nth-child(2) { border-bottom:none !important; padding-bottom:0 !important; margin-bottom:0 !important; }
+      .landing-stats-row .stat-item { border:none !important; padding:0 !important; }
+    }
+
+    /* ═══ EDITORIAL — clean, no left border ═══ */
+    .editorial-accent { box-shadow:0 4px 32px rgba(107,63,160,.08) !important; }
+
+    /* ═══ CHECKLIST ═══ */
+    .check-list li { transition:all .25s ease; }
+    .check-list li:hover { transform:translateX(6px); }
+    .check-icon { color:var(--violet) !important; }
+
+    /* ═══ QUOTE ═══ */
+    .quote-block { box-shadow:0 4px 24px rgba(107,63,160,.06) !important; }
+
+    /* ═══ FORM CARD — violet glow ═══ */
+    .form-card { transition:all .4s ease !important; box-shadow:0 8px 40px rgba(107,63,160,.10) !important; }
+    .form-card:hover { transform:translateY(-4px) !important; box-shadow:0 16px 56px rgba(107,63,160,.16) !important; }
+    .form-control:focus { border-color:var(--violet) !important; box-shadow:0 0 0 3px rgba(107,63,160,.12) !important; outline:none !important; }
+
+
+
+    /* ═══ DIAGNOSIS CHIPS ═══ */
+    .diagnose-chip { transition:all .3s cubic-bezier(.4,0,.2,1) !important; cursor:default; }
+    .diagnose-chip:hover { transform:translateY(-3px) !important; box-shadow:0 8px 24px rgba(107,63,160,.12) !important; border-color:var(--violet) !important; }
+
+    /* ═══ PROCESS STEPS — glow under cards ═══ */
+    .process-step { transition:all .4s ease !important; box-shadow:0 4px 24px rgba(107,63,160,.06) !important; }
+    .process-step:hover { transform:translateY(-6px) !important; box-shadow:0 12px 40px rgba(107,63,160,.14) !important; }
+
+    /* ═══ CTA SECTION ═══ */
+    .section-violet { background:linear-gradient(135deg,var(--violet),#7c3aed,#9b59b6) !important; background-size:200% 200% !important; animation:gradient-x 6s ease infinite !important; }
+    .btn-glass-dark { transition:all .3s ease !important; }
+    .btn-glass-dark:hover { transform:translateY(-3px) !important; box-shadow:0 8px 24px rgba(0,0,0,.2) !important; }
+
+    /* ═══ MORE INFO SECTION ═══ */
+    .more-info-section { background:linear-gradient(135deg,#f8f6ff,#ede9ff); padding:var(--sp-5) 0; text-align:center; }
+    .more-info-card { background:white; border-radius:var(--r-xl); padding:clamp(32px,5vw,48px); box-shadow:0 8px 40px rgba(107,63,160,.10); border:1px solid rgba(107,63,160,.08); max-width:600px; margin:0 auto; transition:all .4s ease; }
+    .more-info-card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(107,63,160,.18); }
+    .more-info-card h2 { font-size:clamp(1.6rem,3vw,2rem); margin-bottom:12px; }
+    .more-info-card p { color:var(--text-secondary); margin-bottom:24px; line-height:1.6; }
+  </style>
+</head>
+<body>
+
+<!-- 1. HEADER -->
+<header class="header landing-header">
+  <div class="header-inner">
+    <a href="#" class="logo" style="pointer-events: none;">
+      <img src="img/logo-icon.png" alt="KSK Farmos">
+      <div class="logo-text">KSK Farmos<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
+    </a>
+    <div class="header-right">
+      <a href="tel:056939189907" class="btn btn-primary btn-sm" data-i18n="lp.hero.btn2"><i data-lucide="phone"></i> Anrufen</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- 2. HERO -->
+<section class="hero-cutout">
+  <div class="hero-bg"></div>
+  <div class="hero-home-photo-frame leistungen-hero-frame">
+    <div class="hero-home-photo-inner">
+      <img src="img/hero2.JPG" alt="KSK Farmos GmbH &amp; Co. KG Intensivpflege" class="hero-home-photo" loading="eager">
+    </div>
+    <div class="hero-home-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="hero-inner centered">
+      <div class="hero-content">
+        <h1 class="hero-title reveal" data-i18n="lp.hero.title">Ihr Angehöriger braucht Pflege?<br><em style="color: var(--violet); font-style: italic;">Wir sind für<br>Sie da.</em></h1>
+        <p class="hero-subtitle reveal stagger-1" data-i18n="lp.hero.sub">Kostenlose Erstberatung zur ambulanten Intensivpflege in Nordhessen.<br>Wir klären die Finanzierung — die Krankenkasse übernimmt die Kosten.</p>
+        <div class="hero-actions reveal stagger-2">
+          <a href="#formular" class="btn btn-primary btn-lg" data-i18n="lp.hero.btn1">Kostenlose Beratung anfragen</a>
+          <a href="tel:056939189907" class="btn btn-outline btn-lg" data-i18n="lp.hero.btn2">Jetzt anrufen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TRUST BAR -->
+<div style="background: var(--violet-pale); padding: var(--sp-4) 0; border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100);">
+  <div class="container">
+    <div class="stats-row landing-stats-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+      <div class="stat-item">
+        <div style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.75rem); color: var(--violet); font-weight: 600; line-height: 1;">2013</div>
+        <div data-i18n="lp.trust.1" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">Gegründet</div>
+      </div>
+      <div class="stat-item">
+        <div style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.75rem); color: var(--violet); font-weight: 600; line-height: 1;">5,5</div>
+        <div data-i18n="lp.trust.2" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">Mitarbeiter<br>pro Patient</div>
+      </div>
+      <div class="stat-item">
+        <div style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.75rem); color: var(--violet); font-weight: 600; line-height: 1;">24/7</div>
+        <div data-i18n="lp.trust.3" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">Betreuung<br>täglich</div>
+      </div>
+      <div class="stat-item">
+        <div style="font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.75rem); color: var(--violet); font-weight: 600; line-height: 1;">100%</div>
+        <div data-i18n="lp.trust.4" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">Krankenkasse<br>übernimmt</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. EDITORIAL ACCENT -->
+<section class="section" style="padding-top: var(--sp-5); padding-bottom: 0;">
+  <div class="container">
+    <div class="reveal" style="background:var(--white); padding:var(--sp-4); border-radius:var(--r-xl); border:1px solid var(--gray-100); box-shadow:0 4px 24px rgba(107,63,160,.06); text-align:center; max-width:700px; margin:0 auto;">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+        <i data-lucide="shield-check" style="width:18px;height:18px;color:var(--violet);"></i>
+      </div>
+      <p data-i18n="lp.editorial" style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--text-primary);line-height:1.7;margin:0;">Die Krankenkasse übernimmt die Kosten für die Intensivpflege in der Regel vollständig. Wir kümmern uns um die gesamte Kommunikation mit den Kostenträgern — Sie müssen sich um nichts kümmern.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. SPLIT: ПРЕИМУЩЕСТВА + ФОРМА -->
+<section class="section" id="formular">
+  <div class="container">
+    <div class="grid-2" style="align-items: start;">
+      <div class="reveal-left">
+        <span class="section-tag" data-i18n="lp.split.tag">Was wir für Sie tun</span>
+        <h2 data-i18n="lp.split.title">Wir nehmen Ihnen alles ab</h2>
+        
+        <ul class="check-list" style="margin-bottom: var(--sp-4);">
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li1">Kostenlose Erstberatung — unverbindlich und persönlich</div></li>
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li2">Kostenübernahme durch Krankenkasse — wir übernehmen die Kommunikation</div></li>
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li3">Pflege bei Ihnen zu Hause — oder in unserer Einrichtung in Kassel</div></li>
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li4">Examinierte Pflegefachkräfte — 5,5 Mitarbeiter pro Patient</div></li>
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li5">Rückmeldung innerhalb 24 Stunden — garantiert</div></li>
+          <li><span class="check-icon"><i data-lucide="check"></i></span><div data-i18n="lp.split.li6">Versorgung in ganz Hessen — seit 2013</div></li>
+        </ul>
+      </div>
+      
+      <div class="reveal-right">
+        <div class="form-card" style="box-shadow: var(--shadow-xl); border: 1px solid var(--gray-100); background: var(--white);">
+          <h3 data-i18n="lp.form.title" style="margin-top: 0; margin-bottom: 8px;">Jetzt Beratung anfragen</h3>
+          <p data-i18n="lp.form.desc" style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.5;">Kostenlos. Unverbindlich. Wir melden uns innerhalb von 24 Stunden.</p>
+          
+          <form data-form="beratung">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" name="vorname" required data-i18n="lp.form.vorname" placeholder="Vorname" class="form-control" style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-200); border-radius: var(--r-md); background: var(--white); outline: none; transition: all 0.2s; font-family: var(--sans);">
+              </div>
+              <div class="form-group">
+                <input type="text" name="nachname" required data-i18n="lp.form.nachname" placeholder="Nachname" class="form-control" style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-200); border-radius: var(--r-md); background: var(--white); outline: none; transition: all 0.2s; font-family: var(--sans);">
+              </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 16px;">
+              <input type="tel" name="telefon" required data-i18n="lp.form.telefon" placeholder="Telefon *" class="form-control" style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-200); border-radius: var(--r-md); background: var(--white); outline: none; transition: all 0.2s; font-family: var(--sans);">
+            </div>
+            <div class="form-group" style="margin-bottom: 16px;">
+              <input type="email" name="email" data-i18n="lp.form.email" placeholder="E-Mail (optional)" class="form-control" style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-200); border-radius: var(--r-md); background: var(--white); outline: none; transition: all 0.2s; font-family: var(--sans);">
+            </div>
+            <div class="form-group" style="margin-bottom: 20px;">
+              <textarea name="nachricht" rows="4" data-i18n-ph="lp.form.msg" placeholder="Diagnose oder Situation (optional)&#10;z.B. Beatmungspatient, suchen häusliche Pflege in Kassel..." class="form-control" style="width: 100%; padding: 14px 16px; border: 1px solid var(--gray-200); border-radius: var(--r-md); background: var(--white); outline: none; transition: all 0.2s; font-family: var(--sans); resize: vertical;"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label style="display: flex; gap: 12px; align-items: flex-start; cursor: pointer;">
+                <input type="checkbox" required style="margin-top: 4px; accent-color: var(--violet); width: 16px; height: 16px;"> 
+                <span data-i18n="lp.form.privacy" style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4;">Ich stimme der Datenschutzerklärung zu.</span>
+              </label>
+            </div>
+            <button type="submit" data-i18n="lp.form.submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">Beratung anfragen — kostenlos</button>
+            <p data-i18n="lp.form.spam" style="font-size: 0.75rem; color: var(--text-secondary); text-align: center; margin-top: 16px; margin-bottom: 0;">Keine Werbung. Keine Datenweitergabe. DSGVO-konform.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Phone Call CTA Centered Below -->
+    <div class="reveal" style="margin-top: var(--sp-6); display: flex; justify-content: center;">
+      <div style="background:var(--white); padding:var(--sp-4); border-radius:var(--r-xl); border:1px solid var(--gray-100); box-shadow:0 4px 24px rgba(107,63,160,.06); text-align:center; max-width:560px; width:100%;">
+        <div style="width:40px;height:40px;border-radius:50%;background:var(--violet-pale);display:flex;align-items:center;justify-content:center;margin: 0 auto 16px;">
+          <i data-lucide="phone" style="width:18px;height:18px;color:var(--violet);"></i>
+        </div>
+        <h4 data-i18n="lp.split.call" style="margin-top:0;margin-bottom:16px;font-size:1.1rem;">Lieber direkt anrufen?</h4>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+          <a href="tel:056939189907" class="btn btn-outline" style="justify-content:center;min-width:200px;">05693 / 9189907</a>
+          <a href="tel:01707652593" class="btn btn-outline" style="justify-content:center;min-width:200px;font-size:0.9rem;">0170 / 7652593 (Mobil)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DIAGNOSEN -->
+<section class="section section-gray">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="section-tag" data-i18n="lp.diag.tag">Diagnosen</span>
+      <h2 data-i18n="lp.diag.title">Welche Patienten wir versorgen</h2>
+    </div>
+    
+    <div class="diagnosen-row reveal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: var(--sp-4);">
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c1">Beatmungspatienten</span>
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c2">Wachkoma (Apallisches Syndrom)</span>
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c3">ALS</span>
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c4">Neurologische Erkrankungen</span>
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c5">Querschnittslähmung</span>
+      <span class="diagnose-chip" style="background: var(--white); padding: 10px 20px; border-radius: 100px; font-weight: 500; font-size: 0.95rem; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm); color: var(--text-primary);" data-i18n="lp.diag.c6">Schädel-Hirn-Trauma</span>
+    </div>
+    
+    <div class="reveal text-center">
+      <p data-i18n="lp.diag.help" style="color: var(--text-secondary); margin-bottom: 12px;">Nicht sicher ob wir helfen können? Rufen Sie uns an — kostenlos und unverbindlich.</p>
+      <a href="tel:056939189907" style="color: var(--violet); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">05693 / 9189907</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. WIE ES FUNKTIONIERT -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="section-tag" data-i18n="lp.how.tag">So funktioniert es</span>
+      <h2 data-i18n="lp.how.title">In 3 Schritten zur Versorgung</h2>
+    </div>
+    
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <h3 data-i18n="lp.how.s1.t">Kostenloses Erstgespräch</h3>
+        <p data-i18n="lp.how.s1.d">Wir lernen Ihre Situation kennen — telefonisch oder persönlich.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <h3 data-i18n="lp.how.s2.t">Individuelle Planung</h3>
+        <p data-i18n="lp.how.s2.d">Wir erstellen den Pflegeplan und klären die Kostenübernahme mit der Kasse.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <h3 data-i18n="lp.how.s3.t">Versorgungsbeginn</h3>
+        <p data-i18n="lp.how.s3.d">Ihr persönliches Pflegeteam beginnt die Betreuung — zuverlässig und menschlich.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ПОВТОРНЫЙ CTA -->
+<section class="section section-violet text-center">
+  <div class="container">
+    <div class="reveal-scale">
+      <h2 data-i18n="lp.cta.title" style="font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 16px;">Jetzt kostenlos anfragen</h2>
+      <p data-i18n="lp.cta.desc" style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">Wir sind für Sie da — persönlich, schnell und ohne Verpflichtung.</p>
+      <div class="flex-center" style="gap: 16px; flex-wrap: wrap;">
+        <a href="#formular" class="btn btn-glass-dark btn-xl" data-i18n="lp.cta.btn1">Beratung anfragen</a>
+        <a href="tel:056939189907" class="btn btn-glass-dark btn-lg"><i data-lucide="phone"></i> 05693 / 9189907</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+
+<!-- MORE INFO SECTION -->
+<section class="more-info-section">
+  <div class="container">
+    <div class="more-info-card reveal-scale">
+      <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet),#7c3aed);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;animation:float-y 3s ease infinite;">
+        <i data-lucide="globe" style="color:white;width:24px;height:24px;"></i>
+      </div>
+      <h2 data-i18n="lp.more.title">Erfahren Sie mehr über uns</h2>
+      <p data-i18n="lp.more.desc">Besuchen Sie unsere Hauptseite für ausführliche Informationen zu unseren Leistungen, dem Team und unserer Philosophie.</p>
+      <a href="https://ksk-farmos.vercel.app" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-i18n="lp.more.btn">
+        Zur Hauptseite →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FOOTER -->
+<footer class="footer" style="padding-top: var(--sp-4); padding-bottom: var(--sp-4);">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 32px; margin-bottom: 32px;">
+      <div class="footer-brand" style="margin-bottom: 0;">
+        <a href="#" class="logo" style="pointer-events: none;">
+          <img src="img/logo-icon.png" alt="KSK Farmos">
+          <div class="logo-text">KSK Farmos<span data-i18n="brand.sub">Intensivpflegedienst</span></div>
+        </a>
+        <p data-i18n="footer.desc" style="margin-top: 16px; max-width: 300px; font-size: 0.9rem; color: rgba(255,255,255,0.7);">Spezialisierter Intensivpflegedienst in Nordhessen — seit 2013.</p>
+      </div>
+      <div style="display: flex; gap: 24px; padding-top: 12px;">
+        <a href="impressum.html" data-i18n="footer.impressum" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.datenschutz" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-bottom" style="margin-top: 0; padding-top: 0; border-top: none;">
+      <span data-i18n="footer.copy">&copy; 2025 KSK Farmos GmbH & Co. KG — Alle Rechte vorbehalten.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 10. LANG SWITCHER + BACK TO TOP -->
+<div class="lang-float">
+  <button class="lang-float-btn" id="langFloatBtn"><i data-lucide="globe"></i> DE <i data-lucide="chevron-up"></i></button>
+  <div class="lang-float-dropdown" id="langDropdown">
+    <a href="#" data-lang="de" class="active">Deutsch</a>
+    <a href="#" data-lang="en">English</a>
+    <a href="#" data-lang="ru">Русский</a>
+    <a href="#" data-lang="tr">Türkçe</a>
+    <a href="#" data-lang="pl">Polski</a>
+    <a href="#" data-lang="ro">Română</a>
+    <a href="#" data-lang="bg">Български</a>
+    <a href="#" data-lang="ua">Українська</a>
+    <a href="#" data-lang="ar">العربية</a>
+    <a href="#" data-lang="bs">Bosanski</a>
+  </div>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Nach oben" style="position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: var(--violet); color: white; border: none; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transform: translateY(10px); transition: all 0.3s ease; z-index: 90; box-shadow: 0 4px 12px rgba(107,63,160,0.3); cursor: pointer;">
+  <i data-lucide="arrow-up"></i>
+</button>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Script specific to this landing page
+  document.addEventListener('DOMContentLoaded', () => {
+    // Back To Top logic if not already handled by main.js
+    const btt = document.getElementById('backToTop');
+    if (btt && !btt.hasAttribute('data-initialized')) {
+      btt.setAttribute('data-initialized', 'true');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          btt.style.opacity = '1';
+          btt.style.pointerEvents = 'auto';
+          btt.style.transform = 'translateY(0)';
+        } else {
+          btt.style.opacity = '0';
+          btt.style.pointerEvents = 'none';
+          btt.style.transform = 'translateY(10px)';
+        }
+      });
+      btt.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Scroll smoothing for #formular link
+    document.querySelectorAll('a[href="#formular"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.getElementById('formular');
+        if (target) {
+          // Adjust for fixed header offset
+          const yOffset = -80; 
+          const y = target.getBoundingClientRect().top + window.scrollY + yOffset;
+          window.scrollTo({top: y, behavior: 'smooth'});
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
