@@ -592,6 +592,14 @@ document.addEventListener('DOMContentLoaded', () => {
       let lastScale = -1;
 
       function render() {
+        const isMobile = window.innerWidth <= 992;
+        if (isMobile) {
+          heroPhotos.forEach(img => {
+            img.style.transform = 'none';
+          });
+          return;
+        }
+
         // Use scrollY directly — works for both sticky (mobile) and non-sticky (desktop) heroes
         const scrollY = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
         const vh = window.innerHeight;
