@@ -357,9 +357,40 @@ function adjustHeroTitles() {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-
-
+  // Lock heights of heroes and edge photo sections on mobile to prevent layout jumps when address bar collapses
+  const isMobileInit = window.innerWidth <= 992;
+  if (isMobileInit) {
+    let lastWidth = window.innerWidth;
+    const lockHeights = () => {
+      document.querySelectorAll('.hero, .hero-cutout, .edge-photo-frame').forEach(el => {
+        el.style.height = '';
+        el.style.minHeight = '';
+        const h = el.getBoundingClientRect().height;
+        if (el.classList.contains('edge-photo-frame')) {
+          el.style.setProperty('height', h + 'px', 'important');
+        } else {
+          el.style.setProperty('min-height', h + 'px', 'important');
+          el.style.setProperty('height', h + 'px', 'important');
+        }
+      });
+      document.querySelectorAll('.section-edge-photo').forEach(el => {
+        el.style.paddingTop = '';
+        el.style.paddingBottom = '';
+        const computedStyle = window.getComputedStyle(el);
+        const paddingTop = computedStyle.paddingTop;
+        const paddingBottom = computedStyle.paddingBottom;
+        el.style.setProperty('padding-top', paddingTop, 'important');
+        el.style.setProperty('padding-bottom', paddingBottom, 'important');
+      });
+    };
+    lockHeights();
+    window.addEventListener('resize', () => {
+      if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        lockHeights();
+      }
+    }, { passive: true });
+  }
 
   // ── COOKIE BANNER ──────────────────────────────────────────────
   if (!localStorage.getItem('ksk-cookies')) {
