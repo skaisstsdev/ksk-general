@@ -454,7 +454,8 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     align-items: stretch !important;
     overflow: hidden !important;
     background: transparent !important; /* Safari fix: don't put background on sticky element */
-    padding-top: 0 !important;
+    margin-top: -300px !important;
+    padding-top: 300px !important;
     padding-bottom: 0 !important;
   }
   /* Pseudo-element for black background to prevent Safari safe-area bleed */
