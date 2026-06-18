@@ -392,6 +392,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // Handle mobile overscroll bounce for sticky hero to keep it pinned to the header/viewport top
+  const heroCutout = document.querySelector('.hero-cutout');
+  if (heroCutout) {
+    window.addEventListener('scroll', () => {
+      const isMobile = window.innerWidth <= 992;
+      if (isMobile) {
+        const sy = window.scrollY;
+        if (sy < 0) {
+          heroCutout.style.setProperty('transform', `translateY(${sy}px)`, 'important');
+        } else {
+          heroCutout.style.transform = '';
+        }
+      } else {
+        heroCutout.style.transform = '';
+      }
+    }, { passive: true });
+  }
+
   // ── COOKIE BANNER ──────────────────────────────────────────────
   if (!localStorage.getItem('ksk-cookies')) {
     const banner = document.createElement('div');
