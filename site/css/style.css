@@ -454,8 +454,7 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     align-items: stretch !important;
     overflow: hidden !important;
     background: transparent !important; /* Safari fix: don't put background on sticky element */
-    margin-top: -300px !important;
-    padding-top: 300px !important;
+    padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
   /* Pseudo-element for black background to prevent Safari safe-area bleed */
@@ -663,12 +662,15 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, span, em, cite, .hero-title, .hero-subti
     }
   }
   .header {
+    position: sticky !important;
+    top: 0 !important;
+    margin-bottom: calc(-1 * var(--header-h)) !important;
+    z-index: 100 !important;
     background: rgba(255, 255, 255, 0.90) !important;
     backdrop-filter: blur(24px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
     border-bottom: 1px solid rgba(0,0,0,0.06) !important;
     box-shadow: 0 1px 28px rgba(0,0,0,0.05) !important;
-
   }
 
   .header.header-transparent-allowed {
