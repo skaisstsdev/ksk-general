@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=162">
+  <link rel="stylesheet" href="css/style.css?v=1062">
   <link rel="preload" as="image" href="img/hero/mobile/hero2.webp?v=10" media="(max-width: 992px)">
-  <link rel="preload" as="image" href="img/hero/desktop/hero2.webp?v=10" media="(min-width: 993px)">
+  <link rel="preload" as="image" href="img/hero/desktop/hero2.webp?v=20" media="(min-width: 993px)">
   <link rel="icon" href="img/common/logo-icon.png?v=3">
   <style>
     .fort-grid.center {
@@ -35,6 +35,12 @@
     }
   </style>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- OpenGraph Social Metadata -->
+  <meta property="og:title" content="Leistungen — KSK Farmos GmbH &amp; Co. KG Intensivpflegedienst">
+  <meta property="og:description" content="Häusliche Intensivpflege, Aufenthaltskonzept Kassel und Fortbildungen. Alle Leistungen von KSK Farmos GmbH &amp; Co. KG.">
+  <meta property="og:image" content="https://ksk-farmos.de/img/common/logo-icon.png">
+  <meta property="og:url" content="https://ksk-farmos.de/leistungen.html">
+  <meta property="og:type" content="website">
 </head>
 <body>
 
@@ -68,12 +74,12 @@
 <main>
 
 <!-- SUB-HERO -->
-<section class="hero-cutout">
+<section class="hero-cutout hero-fs">
   <div class="hero-home-photo-frame leistungen-hero-frame">
     <div class="hero-home-photo-inner">
       <picture>
         <source srcset="img/hero/mobile/hero2.webp?v=10" media="(max-width: 992px)">
-        <img src="img/hero/desktop/hero2.webp?v=10" alt="Leistungen" class="hero-home-photo" loading="eager">
+        <img src="img/hero/desktop/hero2.webp?v=20" alt="Leistungen" class="hero-home-photo" loading="eager">
       </picture>
     </div>
     <div class="hero-home-overlay"></div>
@@ -82,8 +88,10 @@
     <div class="hero-inner centered">
       <div class="hero-content">
         <h1 class="hero-title reveal">
-          <span class="ht-line" data-i18n="srv.h1a">Unsere</span>
-          <span class="ht-line" data-i18n="srv.h1b">medizinischen</span>
+          <span class="ht-line-first">
+            <span class="ht-line" data-i18n="srv.h1a">Unsere</span>
+            <span class="ht-line" data-i18n="srv.h1b">medizinischen</span>
+          </span>
           <em class="ht-line" data-i18n="srv.h1em">Leistungen</em>
         </h1>
         <p class="hero-subtitle reveal stagger-1" data-i18n="lei.lead">Intensivpflege zu Hause, einzigartige Wohnkonzepte und ständige Weiterbildung — alles aus einer Hand.</p>
@@ -97,7 +105,7 @@
 </section>
 
 <!-- BEATMUNGSPFLEGE ACCENT -->
-<section class="section section-gray">
+<section class="section">
   <div class="container">
     <div class="editorial-accent reveal">
       <p data-i18n="lei.beat"><span style="color: var(--violet); font-style: italic;">Die Beatmungspflege ist unsere Kernkompetenz.</span><br>Die erfahrenen Pflegefachkräfte für außerklinische Beatmung betreuen Klienten mit moderner Technik und in enger Zusammenarbeit mit Fachärzten für Pneumologie.</p>
@@ -106,7 +114,7 @@
 </section>
 
 <!-- SEKTION 1: HÄUSLICHE INTENSIVPFLEGE -->
-<section class="section-edge-photo img-left" id="haeuslich">
+<section class="section-edge-photo img-left section-gray" id="haeuslich">
   <div class="edge-photo-frame">
     <div class="edge-photo-inner">
       <img src="img/leistungen/leistungen-hero.jpg" alt="Häusliche Versorgung" class="pos-girl" loading="lazy">
@@ -177,34 +185,34 @@
 
 
 <!-- DIAGNOSEN CARDS -->
-<section class="section section-gray">
+<section class="section">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-tag" data-i18n="idx.diag.tag">Diagnosen</span>
       <h2 data-i18n="lei.diag.h2">Wen wir versorgen</h2>
     </div>
     <div class="flex-grid-3">
-      <div class="card card-centered reveal stagger-1">
+      <div class="card card-centered">
         <div class="card-graphic"><i data-lucide="wind"></i></div>
         <h3 data-i18n="idx.diag1">Beatmungspatienten</h3>
         <p data-i18n="lei.diag1.desc">Spezialisierte Intensivpflege für Menschen, die auf invasive oder nicht-invasive Beatmung angewiesen sind. Wir sichern die lückenlose Überwachung und professionelles Gerätemanagement.</p>
       </div>
-      <div class="card card-centered reveal stagger-2">
+      <div class="card card-centered">
         <div class="card-graphic"><i data-lucide="brain"></i></div>
         <h3 data-i18n="idx.diag2">Wachkoma (Apallisches Syndrom)</h3>
         <p data-i18n="lei.diag2.desc">Ganzheitliche Langzeitversorgung für Patienten mit schweren Bewusstseinsstörungen. Unser Fokus liegt auf basaler Stimulation und der Erhaltung von Körperfunktionen.</p>
       </div>
-      <div class="card card-centered reveal stagger-3">
+      <div class="card card-centered">
         <div class="card-graphic"><i data-lucide="activity"></i></div>
         <h3 data-i18n="idx.diag3">ALS / Neurologische Erkrankungen</h3>
         <p data-i18n="lei.diag3.desc">Individuelle Begleitung bei fortschreitenden neurologischen Veränderungen — empathisch, fachlich fundiert und auf die Erhaltung der Lebensqualität ausgerichtet.</p>
       </div>
-      <div class="card card-centered reveal stagger-4">
+      <div class="card card-centered">
         <div class="card-graphic"><i data-lucide="accessibility"></i></div>
         <h3 data-i18n="idx.diag4">Querschnittslähmung</h3>
         <p data-i18n="lei.diag4.desc">Professionelle Unterstützung und pflege für Menschen mit Rückenmarksverletzungen. Wir fördern die Selbstständigkeit und beugen gezielt Komplikationen vor.</p>
       </div>
-      <div class="card card-centered reveal stagger-5">
+      <div class="card card-centered">
         <div class="card-graphic"><i data-lucide="stethoscope"></i></div>
         <h3 data-i18n="idx.diag5">Schädel-Hirn-Trauma</h3>
         <p data-i18n="lei.diag5.desc">Langfristige Versorgung nach schweren Hirnverletzungen. Zielgerichtet auf die Stabilisierung des Zustands und Unterstützung im Alltag.</p>
@@ -214,7 +222,7 @@
 </section>
 
 <!-- SEKTION 2: AUFENTHALTSKONZEPT -->
-<section class="section-edge-photo img-right" id="aufenthalt">
+<section class="section-edge-photo img-right section-gray" id="aufenthalt">
   <div class="edge-photo-frame">
     <div class="edge-photo-inner">
       <picture>
@@ -253,7 +261,7 @@
 </section>
 
 <!-- SEKTION 3: PFLEGEBERATUNG -->
-<section class="section section-gray" id="fortbildung">
+<section class="section" id="fortbildung">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-tag" data-i18n="lei.f.tag">Pflegeberatung</span>
@@ -261,27 +269,27 @@
       <p data-i18n="lei.f.p">Wir bieten individuelle Pflegeberatungen für Pflegebedürftige und Angehörige zur optimalen Versorgung im häuslichen Umfeld.</p>
     </div>
     <div class="fort-grid center">
-      <div class="fort-item reveal stagger-1">
+      <div class="fort-item">
         <h3 data-i18n="lei.f1.h3">Pflegegrade &amp; Leistungen</h3>
         <p data-i18n="lei.f1.p">Beratung zu Pflegegraden und Leistungen der Pflegekasse.</p>
       </div>
-      <div class="fort-item reveal stagger-2">
+      <div class="fort-item">
         <h3 data-i18n="lei.f2.h3">Anleitung für Angehörige</h3>
         <p data-i18n="lei.f2.p">Anleitung von Angehörigen zur häuslichen Pflege.</p>
       </div>
-      <div class="fort-item reveal stagger-3">
+      <div class="fort-item">
         <h3 data-i18n="lei.f3.h3">Hilfsmittel-Organisation</h3>
         <p data-i18n="lei.f3.p">Hilfe bei der Organisation von Hilfsmitteln (Pflegebett, Rollatoren etc.).</p>
       </div>
-      <div class="fort-item reveal stagger-4">
+      <div class="fort-item">
         <h3 data-i18n="lei.f4.h3">Demenz &amp; Verhalten</h3>
         <p data-i18n="lei.f4.p">Beratung zu Demenz und Umgang mit herausforderndem Verhalten.</p>
       </div>
-      <div class="fort-item reveal stagger-5">
+      <div class="fort-item">
         <h3 data-i18n="lei.f5.h3">Entlastungsangebote</h3>
         <p data-i18n="lei.f5.p">Aufklärung und Erklärung über Entlastungsangebote für pflegende Angehörige.</p>
       </div>
-      <div class="fort-item reveal stagger-6">
+      <div class="fort-item">
         <h3 data-i18n="lei.f6.h3">Wohnraumanpassung</h3>
         <p data-i18n="lei.f6.p">Beratung zur Wohnraumanpassung und Barrierefreiheit.</p>
       </div>
@@ -290,7 +298,7 @@
 </section>
 
 <!-- KOSTEMÜBERNAHME -->
-<section class="section">
+<section class="section section-gray">
   <div class="container">
     <div class="section-header centered reveal">
       <span class="section-tag" data-i18n="lei.k.tag">KOSTENÜBERNAHME</span>
@@ -298,28 +306,28 @@
       <p class="section-lead" data-i18n="lei.k.lead" style="max-width: 860px; margin: 24px auto 0; font-size: 1.05rem; line-height: 1.7;">Intensivpflegedienst KSK Farmos GmbH &amp; Co. KG übernehmen nach Erhalt einer Vollmacht die Verhandlungen mit den Kostenträgern bezüglich Kostenübernahme.</p>
     </div>
     <div class="kosten-list">
-      <div class="kosten-item reveal stagger-1">
+      <div class="kosten-item">
         <div class="kosten-icon"><i data-lucide="shield-check"></i></div>
         <div>
           <h3 data-i18n="lei.k1.h3">Krankenkasse (SGB V)</h3>
           <div data-i18n="lei.k1.p" style="line-height: 1.6;">Die Krankenkasse zahlt medizinische Behandlung, unabhängig vom Pflegegrad:<ul style="margin-top: 8px; margin-left: 20px; list-style-type: disc;"><li>Arztbesuche und Therapien (Physio-, Ergo-, Logopädie)</li><li>Krankenhausbehandlung</li><li>Arznei-, Heil- und Hilfsmittel (z. B. Rollstuhl, Pflegebett – mit Genehmigung)</li><li>Häusliche Krankenpflege bei akuter Krankheit oder nach Krankenhaus</li></ul></div>
         </div>
       </div>
-      <div class="kosten-item reveal stagger-2">
+      <div class="kosten-item">
         <div class="kosten-icon"><i data-lucide="heart-handshake"></i></div>
         <div>
           <h3 data-i18n="lei.k2.h3">Pflegekasse (SGB XI)</h3>
           <div data-i18n="lei.k2.p" style="line-height: 1.6;">Die Pflegekasse zahlt pflegerische Unterstützung bei Pflegebedürftigkeit (Pflegegrad nötig):</div>
         </div>
       </div>
-      <div class="kosten-item reveal stagger-3">
+      <div class="kosten-item">
         <div class="kosten-icon"><i data-lucide="landmark"></i></div>
         <div>
           <h3 data-i18n="lei.k3.h3">Sozialamt</h3>
           <div data-i18n="lei.k3.p" style="line-height: 1.6;">Bei übersteigenden Kosten des tatsächlichen Pflegebedarfs die Leistungen der oben genannten Kostenträger (Pflegekasse)  muss der verbleibende Kostenanteil entweder privat getragen werden oder — sofern die Voraussetzungen gegeben sind — von unterschiedlichen Ämtern (Übernehmen Sozialamt, Beihilfe, Regierungspräsidium) übernommen werden.</div>
         </div>
       </div>
-      <div class="kosten-item reveal stagger-4">
+      <div class="kosten-item">
         <div class="kosten-icon"><i data-lucide="umbrella"></i></div>
         <div>
           <h3 data-i18n="lei.k4.h3">Private Versicherung</h3>
@@ -331,7 +339,7 @@
 </section>
 
 <!-- CTA -->
-<section class="section section-gray">
+<section class="section">
   <div class="container">
     <div class="cta-card-violet reveal-scale">
       <h2 data-i18n="cta.beratung">Kostenlose Beratung</h2>
@@ -379,7 +387,7 @@
 
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="js/main.js?v=5.3"></script>
+<script src="js/main.js?v=5.22"></script>
   <!-- KSK Chat Widget -->
   <link rel="stylesheet" href="css/chat-widget.css?v=6">
   <script src="js/chat-widget.js?v=3"></script>

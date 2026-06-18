@@ -397,11 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (header && document.querySelector('.hero-cutout')) {
     header.classList.add('header-transparent-allowed');
   }
+  let isScrolled = false;
   const handleScroll = () => {
-    if (window.scrollY > 40) {
-      if (header) header.classList.add('scrolled');
-    } else {
-      if (header) header.classList.remove('scrolled');
+    const shouldScroll = window.scrollY > 40;
+    if (shouldScroll !== isScrolled) {
+      isScrolled = shouldScroll;
+      if (header) {
+        if (isScrolled) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }
     }
   };
   handleScroll();
@@ -415,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.01, rootMargin: '0px 0px -10% 0px' });
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
     .forEach(el => revealObserver.observe(el));
@@ -494,31 +498,70 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      
       const item = btn.closest('.faq-item');
       if (!item) return;
+      
       const answer = item.querySelector('.faq-answer');
       if (!answer) return;
+      
       const isOpen = item.classList.contains('open');
 
-      // Close all
+      // Close all open items
       document.querySelectorAll('.faq-item.open').forEach(openItem => {
-        openItem.classList.remove('open');
         const openAnswer = openItem.querySelector('.faq-answer');
-        if (openAnswer) openAnswer.style.maxHeight = '0';
+        if (openAnswer) {
+          // If we had set maxHeight to 'none' for responsiveness, restore the actual scrollHeight first
+          if (openAnswer.style.maxHeight === 'none') {
+            openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
+          }
+          // Force layout reflow
+          openAnswer.offsetHeight;
+          // Set to 0 to trigger close transition
+          openAnswer.style.maxHeight = '0px';
+        }
+        openItem.classList.remove('open');
       });
 
-      // Open clicked
+      // Open clicked item
       if (!isOpen) {
+        // Explicitly set starting height to 0
+        answer.style.maxHeight = '0px';
+        // Force layout reflow
+        answer.offsetHeight;
+        // Add open class and set ending height to trigger transition
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
+        
+        // After transition completes, set max-height to none so content wraps responsively on resize
+        setTimeout(() => {
+          if (item.classList.contains('open')) {
+            answer.style.maxHeight = 'none';
+          }
+        }, 450);
+      }
+
+      // Notify Lenis of height change to prevent scroll jitter after transition finishes
+      if (window.lenis) {
+        setTimeout(() => {
+          if (window.lenis) window.lenis.resize();
+        }, 450);
       }
     });
   });
 
   // ── 8. Back to top button ──────────────────────────────
   const backToTop = document.getElementById('backToTop');
+  let isBackToTopVisible = false;
   const toggleBackToTop = () => {
-    if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 600);
+    const shouldShow = window.scrollY > 600;
+    if (shouldShow !== isBackToTopVisible) {
+      isBackToTopVisible = shouldShow;
+      if (backToTop) {
+        if (isBackToTopVisible) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+      }
+    }
   };
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
   
@@ -526,11 +569,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let lenis;
   if (typeof Lenis !== 'undefined') {
     lenis = new Lenis({
-      duration: 1.6,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1.1,
-      touchMultiplier: 2
+      syncTouch: false,
+      syncTouchIntent: false,
+      smoothTouch: false
     });
     function raf(time) {
       lenis.raf(time);
@@ -539,45 +584,39 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(raf);
     window.lenis = lenis;
 
-    // Cinematic Parallax (Max Performance & Zero Stutter)
+    // Hero scroll parallax — smooth zoom from center
     function initParallax() {
       const heroPhotos = document.querySelectorAll('.hero-home-photo');
       if (heroPhotos.length === 0) return;
 
-      let lastScroll = -9999;
+      let lastScale = -1;
 
       function render() {
-        const currentScroll = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
+        // Use scrollY directly — works for both sticky (mobile) and non-sticky (desktop) heroes
+        const scrollY = lenis.scroll !== undefined ? lenis.scroll : window.scrollY;
+        const vh = window.innerHeight;
 
-        // Prevent redundant styles
-        if (Math.abs(currentScroll - lastScroll) < 0.1) return;
-        lastScroll = currentScroll;
+        // Skip calculations if past viewport or scrolled up on bounce
+        if (scrollY < 0) return;
+        
+        const progress = Math.min(scrollY / vh, 1);
+        const scale = 1.0 + progress * 0.12;
 
-        const isDesktop = window.innerWidth > 992;
+        if (Math.abs(scale - lastScale) < 0.0002) return;
+        lastScale = scale;
 
-        // Render Hero Parallax
+        const scaleStr = scale.toFixed(4);
+
         heroPhotos.forEach(img => {
-          const frame = img.closest('.hero-home-photo-frame');
-          if (isDesktop) {
-            const y = currentScroll * 0.40;
-            const isIndex = frame && frame.classList.contains('index-hero-frame');
-            const baseScale = isIndex ? 1.12 : 1.05;
-            const xShift = isIndex ? ' translateX(5%)' : '';
-            const scale = baseScale + currentScroll * 0.0005;
-            img.style.transform = `translateY(${y.toFixed(2)}px) scale(${scale.toFixed(4)})${xShift}`;
-            if (frame) frame.style.transform = '';
-          } else {
-            img.style.transform = '';
-            if (frame) frame.style.transform = '';
-          }
+          img.style.transform = `scale(${scaleStr})`;
         });
       }
 
       lenis.on('scroll', render);
-      render();
+      window.addEventListener('resize', render, { passive: true });
+      render(); // initial state on load
     }
-    
-    // Initialize immediately to prevent layout pop/jumps
+
     initParallax();
   }
 
@@ -808,28 +847,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextBtn = document.querySelector('.slider-arrow.next');
 
   if (teamGrid && prevBtn && nextBtn) {
+    let isPrevDisabled = null;
+    let isNextDisabled = null;
+
     const updateArrows = () => {
       const scrollLeft = teamGrid.scrollLeft;
       const maxScroll = teamGrid.scrollWidth - teamGrid.clientWidth;
       
-      if (scrollLeft <= 5) {
-        prevBtn.disabled = true;
-        prevBtn.style.opacity = '0.35';
-        prevBtn.style.pointerEvents = 'none';
-      } else {
-        prevBtn.disabled = false;
-        prevBtn.style.opacity = '1';
-        prevBtn.style.pointerEvents = 'auto';
+      const shouldDisablePrev = scrollLeft <= 5;
+      const shouldDisableNext = scrollLeft >= maxScroll - 5;
+      
+      if (shouldDisablePrev !== isPrevDisabled) {
+        isPrevDisabled = shouldDisablePrev;
+        prevBtn.disabled = isPrevDisabled;
+        prevBtn.style.opacity = isPrevDisabled ? '0.35' : '1';
+        prevBtn.style.pointerEvents = isPrevDisabled ? 'none' : 'auto';
       }
 
-      if (scrollLeft >= maxScroll - 5) {
-        nextBtn.disabled = true;
-        nextBtn.style.opacity = '0.35';
-        nextBtn.style.pointerEvents = 'none';
-      } else {
-        nextBtn.disabled = false;
-        nextBtn.style.opacity = '1';
-        nextBtn.style.pointerEvents = 'auto';
+      if (shouldDisableNext !== isNextDisabled) {
+        isNextDisabled = shouldDisableNext;
+        nextBtn.disabled = isNextDisabled;
+        nextBtn.style.opacity = isNextDisabled ? '0.35' : '1';
+        nextBtn.style.pointerEvents = isNextDisabled ? 'none' : 'auto';
       }
     };
 
@@ -850,7 +889,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Adjust hero titles on page load, font load, window load and resize
   adjustHeroTitles();
-  window.addEventListener('resize', adjustHeroTitles, { passive: true });
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(adjustHeroTitles, 80);
+  }, { passive: true });
   window.addEventListener('load', adjustHeroTitles);
   if (document.fonts) {
     document.fonts.ready.then(adjustHeroTitles);

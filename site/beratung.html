@@ -8,11 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;450;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=162">
+  <link rel="stylesheet" href="css/style.css?v=1062">
   <link rel="icon" href="img/common/logo-icon.png?v=3">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init('FvtHmqXFbDTGygZuv')</script>
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- OpenGraph Social Metadata -->
+  <meta property="og:title" content="Kostenlose Beratung — KSK Farmos GmbH &amp; Co. KG">
+  <meta property="og:description" content="Kostenlose und unverbindliche Beratung zur Intensivpflege. Wir nehmen uns Zeit für Sie.">
+  <meta property="og:image" content="https://ksk-farmos.de/img/common/logo-icon.png">
+  <meta property="og:url" content="https://ksk-farmos.de/beratung.html">
+  <meta property="og:type" content="website">
 </head>
 <body>
 
@@ -35,29 +41,23 @@
 
 <main>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-  <div class="container">
-    <h1><span data-i18n="ber.h1">Kostenloses</span> <em data-i18n="ber.h1em">Erstgespräch</em></h1>
-    <p class="lead" data-i18n="ber.lead">Wir nehmen uns Zeit für Sie — persönlich, telefonisch oder per E-Mail.</p>
-  </div>
-</section>
-
 <!-- BERATUNG FORM -->
-<section class="section">
+<section class="section pt-header">
   <div class="container">
     <div class="grid-2">
-      <div>
-        <h2 class="reveal-left" data-i18n="ber.h2">Wir sind für Sie da</h2>
+      <div class="beratung-info">
+        <h2 class="reveal-left beratung-title" data-i18n="ber.h2">Wir sind für Sie da</h2>
         <ul class="check-list reveal-left stagger-1">
           <li><span class="check-icon"><i data-lucide="check"></i></span><div><span data-i18n="ber.c1">Komplett kostenlos und unverbindlich</span></div></li>
           <li><span class="check-icon"><i data-lucide="check"></i></span><div><span data-i18n="ber.c2">Persönlich oder telefonisch</span></div></li>
           <li><span class="check-icon"><i data-lucide="check"></i></span><div><span data-i18n="ber.c3">Rückmeldung innerhalb von 24 Stunden</span></div></li>
         </ul>
-        <div class="mb-lg"></div>
-        <a href="tel:056939189907" class="btn btn-outline btn-lg mb-sm reveal-left stagger-2">05693 / 9189907 <i data-lucide="phone"></i></a>
-        <br>
-        <a href="mailto:pflege@ksk-farmos.de" class="btn btn-outline reveal-left stagger-3">pflege@ksk-farmos.de <i data-lucide="mail"></i></a>
+        <div class="mb-lg hide-mobile"></div>
+        <div class="hide-mobile">
+          <a href="tel:056939189907" class="btn btn-outline btn-lg btn-contact mb-sm reveal-left stagger-2">05693 / 9189907 <i data-lucide="phone"></i></a>
+          <br>
+          <a href="mailto:pflege@ksk-farmos.de" class="btn btn-outline btn-lg btn-contact reveal-left stagger-3">pflege@ksk-farmos.de <i data-lucide="mail"></i></a>
+        </div>
       </div>
       <div class="reveal-right">
         <div class="form-card">
@@ -92,6 +92,10 @@
             <button type="submit" class="btn btn-primary btn-lg" data-i18n="ber.btn">Beratung anfordern <i data-lucide="arrow-right"></i></button>
           </form>
         </div>
+        <div class="contact-buttons-wrapper show-mobile mt-lg text-center">
+          <a href="tel:056939189907" class="btn btn-outline btn-lg btn-contact reveal-left stagger-2">05693 / 9189907 <i data-lucide="phone"></i></a>
+          <a href="mailto:pflege@ksk-farmos.de" class="btn btn-outline btn-lg btn-contact reveal-left stagger-3">pflege@ksk-farmos.de <i data-lucide="mail"></i></a>
+        </div>
       </div>
     </div>
   </div>
@@ -120,7 +124,7 @@
 
 
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="js/main.js?v=5.3"></script>
+<script src="js/main.js?v=5.22"></script>
   <!-- KSK Chat Widget -->
   <link rel="stylesheet" href="css/chat-widget.css?v=6">
   <script src="js/chat-widget.js?v=3"></script>
