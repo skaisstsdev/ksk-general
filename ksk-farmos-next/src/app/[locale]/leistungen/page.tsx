@@ -73,7 +73,7 @@ export default async function LeistungenPage({
       <section id="haeuslich" className="pt-break">
         <Grid>
           <Col span="text">
-            <StickyHeading
+            <SectionHeading
               eyebrow={haeuslich.eyebrow}
               title={haeuslich.title}
               lead={haeuslich.text}
