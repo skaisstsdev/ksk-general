@@ -8,13 +8,15 @@ import { Rule } from "@/components/ui/Rule";
 export function RuledList({
   items,
   title,
+  className,
 }: {
   items: readonly string[];
   /** Подпись группы над списком. */
   title?: string;
+  className?: string;
 }) {
   return (
-    <div>
+    <div className={className}>
       {title ? <h3 className="text-subhead text-ink">{title}</h3> : null}
       <ul className={title ? "mt-xs" : undefined}>
         {items.map((item, i) => (
