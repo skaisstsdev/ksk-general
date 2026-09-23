@@ -11,6 +11,7 @@ import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
+import { StickyCol } from "@/components/ui/StickyCol";
 import { closing } from "@/content/home";
 import {
   beatmung,
@@ -185,21 +186,24 @@ export default async function LeistungenPage({
           через прозрачность — вопросов к контрасту здесь нет, в отличие
           от промежуточного варианта на `violet-light`.
 
-          Левая колонка — обычная, без `StickyCol`: в отличие от
-          `StickyHeading`, которым пользуются остальные разделы
-          страницы, здесь заголовок должен уходить вместе с фиолетовым
-          полем, а не зависать над ним, пока проезжает белый текст. */}
+          Левая колонка закреплена (`StickyCol`) — тем же приёмом, что
+          и в остальных разделах страницы: заголовок держится на месте,
+          пока читается перечень. Фиолетовое поле общее на весь блок,
+          поэтому под закреплённым заголовком не проглядывает белая
+          страница — заливка не обрывается вместе с высотой колонки. */}
       <section id="kosten" className="pt-turn">
         <div className="bg-violet">
           <Grid className="py-2xl lg:py-3xl">
             <Col span="text">
-              <Eyebrow className="text-white-pure/90">{kosten.eyebrow}</Eyebrow>
-              <h2 className="mt-2xs max-w-[14ch] text-h1 text-white-pure">
-                {kosten.title}
-              </h2>
-              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
-                {kosten.text}
-              </p>
+              <StickyCol>
+                <Eyebrow className="text-white-pure/90">{kosten.eyebrow}</Eyebrow>
+                <h2 className="mt-2xs max-w-[14ch] text-h1 text-white-pure">
+                  {kosten.title}
+                </h2>
+                <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
+                  {kosten.text}
+                </p>
+              </StickyCol>
             </Col>
 
             <Col span="aside">
