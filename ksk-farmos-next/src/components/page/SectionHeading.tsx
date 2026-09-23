@@ -7,10 +7,11 @@ import { cn } from "@/lib/cn";
  * приглушённая метка и заголовок в размере `h1`, под ним при нужде
  * вводный абзац.
  *
- * `hyphens-auto` — только здесь, а не в базовом слое: немецкие
- * составные слова («Pflegeberatung», «Kostenübernahme») в узкой правой
- * колонке иначе ломаются посреди слова без дефиса. Базовый слой общий
- * с главной, и перенос в нём изменил бы уже выверенные заголовки.
+ * Ширина заголовка ограничена `18ch` — запас на случай, если колонка
+ * шире, чем самое длинное слово заголовка. Если слово всё равно не
+ * помещается (было с «Pflegeberatung» в узкой колонке `aside`,
+ * 444px слова против 420px места), дело не в этом пределе — не в
+ * ch и не в переносе, а в самой колонке; чинить нужно её, не здесь.
  */
 export function SectionHeading({
   eyebrow,
@@ -28,7 +29,7 @@ export function SectionHeading({
   return (
     <div className={className}>
       <Eyebrow className="text-ink-muted">{eyebrow}</Eyebrow>
-      <h2 className="mt-2xs max-w-[14ch] text-h1 text-ink hyphens-auto">
+      <h2 className="mt-2xs max-w-[18ch] text-h1 text-ink hyphens-auto">
         {title}
       </h2>
       {lead ? (
