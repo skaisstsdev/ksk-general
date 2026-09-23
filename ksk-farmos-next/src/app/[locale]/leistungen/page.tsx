@@ -99,12 +99,17 @@ export default async function LeistungenPage({
         </Grid>
       </section>
 
+      {/* Заголовок стоит в DOM первым (порядок чтения и порядок на
+          телефоне — заголовок раньше перечня), но на `lg` явное
+          размещение колонок (`textEnd`/`asideStart`) кладёт его
+          справа, а перечень — слева: зеркально к обычной паре
+          `text`/`aside`, по просьбе владельца. */}
       <section id="krankheitsbild" className="pt-turn">
         <Grid>
-          <Col span="text">
+          <Col span="textEnd">
             <StickyHeading eyebrow={diagnosen.eyebrow} title={diagnosen.title} />
           </Col>
-          <Col span="aside">
+          <Col span="asideStart">
             <NumberedList items={diagnosen.items} />
           </Col>
         </Grid>
