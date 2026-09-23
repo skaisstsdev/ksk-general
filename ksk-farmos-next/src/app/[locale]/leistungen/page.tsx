@@ -173,26 +173,31 @@ export default async function LeistungenPage({
 
       {/* Единственное место на сайте, где подложка красит целый блок,
           не отдельную карточку внутри него, — по прямому решению
-          владельца (испробовали построчную заливку, попросили ярче
-          и на весь раздел). Это расходится с правилом «подложка не
+          владельца (испробовали построчную заливку бледным, затем
+          насыщенным `violet-light`, в итоге — основной бренд-фиолетовый
+          на всю ширину). Это расходится с правилом «подложка не
           разделяет блоки»: здесь она обособляет один конкретный раздел
           намеренно, как исключение, а не как повторяющийся приём.
-          Поэтому у заголовка и списка — своя, автономная от
-          `StickyHeading`/`NumberedList` разметка: тем компонентам
-          отвечают приглушённые тона (`ink-muted`, фиолетовый номер),
-          которые на этом фоне ниже порога читаемости. Здесь везде
-          сплошной `ink` — 5.1:1 на `violet-light`, ровно по границе
-          AA для обычного текста, повторно проверить при следующей
-          правке цвета. */}
+
+          Текст — `white-pure`: в токенах он так и подписан («текст на
+          фиолетовом»), та же пара, что у заливки primary-кнопки.
+          7.4:1 у сплошного текста, не ниже 5.4:1 даже у приглушённых
+          через прозрачность — вопросов к контрасту здесь нет, в отличие
+          от промежуточного варианта на `violet-light`.
+
+          Левая колонка — обычная, без `StickyCol`: в отличие от
+          `StickyHeading`, которым пользуются остальные разделы
+          страницы, здесь заголовок должен уходить вместе с фиолетовым
+          полем, а не зависать над ним, пока проезжает белый текст. */}
       <section id="kosten" className="pt-turn">
-        <div className="bg-violet-light">
+        <div className="bg-violet">
           <Grid className="py-2xl lg:py-3xl">
             <Col span="text">
-              <Eyebrow className="text-ink">{kosten.eyebrow}</Eyebrow>
-              <h2 className="mt-2xs max-w-[14ch] text-h1 text-ink">
+              <Eyebrow className="text-white-pure/90">{kosten.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs max-w-[14ch] text-h1 text-white-pure">
                 {kosten.title}
               </h2>
-              <p className="mt-md max-w-[40ch] text-body text-ink">
+              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
                 {kosten.text}
               </p>
             </Col>
@@ -201,12 +206,12 @@ export default async function LeistungenPage({
               <ul className="flex flex-col gap-lg">
                 {kosten.items.map((item, i) => (
                   <li key={item.title} className="flex items-baseline gap-md">
-                    <span className="w-[2ch] shrink-0 text-meta tabular-nums text-ink">
+                    <span className="w-[2ch] shrink-0 text-meta tabular-nums text-white-pure/80">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex flex-col gap-2xs">
-                      <h3 className="text-h3 text-ink">{item.title}</h3>
-                      <div className="text-ui text-ink">
+                      <h3 className="text-h3 text-white-pure">{item.title}</h3>
+                      <div className="text-ui text-white-pure/90">
                         <p>{item.text}</p>
                         {"list" in item ? (
                           <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
