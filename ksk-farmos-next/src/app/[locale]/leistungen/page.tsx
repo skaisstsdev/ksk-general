@@ -9,6 +9,7 @@ import { PhotoSplit } from "@/components/page/PhotoSplit";
 import { RuledGrid } from "@/components/page/RuledGrid";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { closing } from "@/content/home";
 import {
@@ -170,36 +171,58 @@ export default async function LeistungenPage({
         </Grid>
       </section>
 
+      {/* Единственное место на сайте, где подложка красит целый блок,
+          не отдельную карточку внутри него, — по прямому решению
+          владельца (испробовали построчную заливку, попросили ярче
+          и на весь раздел). Это расходится с правилом «подложка не
+          разделяет блоки»: здесь она обособляет один конкретный раздел
+          намеренно, как исключение, а не как повторяющийся приём.
+          Поэтому у заголовка и списка — своя, автономная от
+          `StickyHeading`/`NumberedList` разметка: тем компонентам
+          отвечают приглушённые тона (`ink-muted`, фиолетовый номер),
+          которые на этом фоне ниже порога читаемости. Здесь везде
+          сплошной `ink` — 5.1:1 на `violet-light`, ровно по границе
+          AA для обычного текста, повторно проверить при следующей
+          правке цвета. */}
       <section id="kosten" className="pt-turn">
-        <Grid>
-          <Col span="text">
-            <StickyHeading
-              eyebrow={kosten.eyebrow}
-              title={kosten.title}
-              lead={kosten.text}
-            />
-          </Col>
-          <Col span="aside">
-            <NumberedList
-              items={kosten.items.map((item) => ({
-                title: item.title,
-                text:
-                  "list" in item ? (
-                    <>
-                      <p>{item.text}</p>
-                      <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
-                        {item.list.map((entry) => (
-                          <li key={entry}>{entry}</li>
-                        ))}
-                      </ul>
-                    </>
-                  ) : (
-                    item.text
-                  ),
-              }))}
-            />
-          </Col>
-        </Grid>
+        <div className="bg-violet-light">
+          <Grid className="py-2xl lg:py-3xl">
+            <Col span="text">
+              <Eyebrow className="text-ink">{kosten.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs max-w-[14ch] text-h1 text-ink">
+                {kosten.title}
+              </h2>
+              <p className="mt-md max-w-[40ch] text-body text-ink">
+                {kosten.text}
+              </p>
+            </Col>
+
+            <Col span="aside">
+              <ul className="flex flex-col gap-lg">
+                {kosten.items.map((item, i) => (
+                  <li key={item.title} className="flex items-baseline gap-md">
+                    <span className="w-[2ch] shrink-0 text-meta tabular-nums text-ink">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="flex flex-col gap-2xs">
+                      <h3 className="text-h3 text-ink">{item.title}</h3>
+                      <div className="text-ui text-ink">
+                        <p>{item.text}</p>
+                        {"list" in item ? (
+                          <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
+                            {item.list.map((entry) => (
+                              <li key={entry}>{entry}</li>
+                            ))}
+                          </ul>
+                        ) : null}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Col>
+          </Grid>
+        </div>
       </section>
 
       <PageClosing
