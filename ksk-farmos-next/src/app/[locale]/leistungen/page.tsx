@@ -14,7 +14,6 @@ import { Col, Grid } from "@/components/ui/Grid";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { closing } from "@/content/home";
 import {
-  beatmung,
   beratung,
   diagnosen,
   haeuslich,
@@ -31,16 +30,19 @@ export const metadata: Metadata = {
 };
 
 /**
- * Leistungen. Порядок блоков — как в старом `leistungen.html`:
+ * Leistungen. Порядок блоков — как в старом `leistungen.html`, кроме
+ * двух отступлений по решению владельца: вводная фраза про
+ * Beatmungspflege снята целиком, а häusliche Intensivpflege лишилась
+ * фотографии и встала в тот же текстовый разворот, что диагнозы
+ * и Kostenübernahme (закреплённый заголовок слева, перечень справа).
  *
  *   1. хиро
- *   2. Beatmungspflege — ключевая компетенция, одной фразой
- *   3. häusliche Intensivpflege            #haeuslich
- *   4. кого берём — пять диагнозов
- *   5. Wohnprojekte                       #wohnprojekte
- *   6. Pflegeberatung                      #beratung
- *   7. кто платит
- *   8. закрывающий разворот
+ *   2. häusliche Intensivpflege            #haeuslich
+ *   3. кого берём — пять диагнозов
+ *   4. Wohnprojekte                       #wohnprojekte
+ *   5. Pflegeberatung                      #beratung
+ *   6. кто платит
+ *   7. закрывающий разворот
  *
  * Якоря `#haeuslich`, `#wohnprojekte`, `#beratung` — цели ссылок
  * из списка услуг главной. В старом сайте два последних назывались
@@ -68,49 +70,34 @@ export default async function LeistungenPage({
         ]}
       />
 
-      {/* Одна крупная фраза — как вводная фраза главной после хиро. */}
-      <section className="pt-break">
+      <section id="haeuslich" className="pt-break">
         <Grid>
-          <Col span="wide">
-            <p className="text-h2 text-ink">{beatmung.statement}</p>
-            <p className="mt-md text-lead text-ink-soft">{beatmung.text}</p>
+          <Col span="text">
+            <StickyHeading
+              eyebrow={haeuslich.eyebrow}
+              title={haeuslich.title}
+              lead={haeuslich.text}
+            />
+          </Col>
+
+          <Col span="aside">
+            <Accordion
+              defaultOpen={haeuslich.groups[0].id}
+              items={haeuslich.groups.map((group) => ({
+                id: group.id,
+                title: group.title,
+                content: (
+                  <ul className="flex flex-col gap-3xs">
+                    {group.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ),
+              }))}
+            />
           </Col>
         </Grid>
       </section>
-
-      <PhotoSplit
-        id="haeuslich"
-        align="start"
-        photo={{
-          src: "/img/haeuslich.jpg",
-          alt: "Pflegefachkraft von KSK Farmos mit Notfalltasche am Einsatzfahrzeug",
-          ratio: "4 / 3",
-          ratioLg: "1 / 1",
-          position: "90% 50%",
-        }}
-      >
-        <SectionHeading
-          eyebrow={haeuslich.eyebrow}
-          title={haeuslich.title}
-          lead={haeuslich.text}
-        />
-
-        <Accordion
-          className="mt-xl"
-          defaultOpen={haeuslich.groups[0].id}
-          items={haeuslich.groups.map((group) => ({
-            id: group.id,
-            title: group.title,
-            content: (
-              <ul className="flex flex-col gap-3xs">
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ),
-          }))}
-        />
-      </PhotoSplit>
 
       <section id="krankheitsbild" className="pt-turn">
         <Grid>
