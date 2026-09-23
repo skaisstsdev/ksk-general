@@ -58,11 +58,6 @@ const spans = {
   wideEnd: "lg:col-span-7 lg:col-start-6",
   /** Фотография слева, зеркально к `aside`. */
   asideStart: "lg:col-span-5 lg:col-start-1",
-  /**
-   * Основная колонка справа, зеркально к `text` — для разворотов
-   * «заголовок и текст», где перечень (`asideStart`) стоит слева.
-   */
-  textEnd: "lg:col-span-6 lg:col-start-7",
 } as const;
 
 export function Col({
