@@ -13,3 +13,6 @@ export const closingFamily = {
   text: "Wir beraten Sie persönlich — unverbindlich und kostenfrei.", // cta.beratung.p
   cta: "Sprechen Sie uns an", // cta.sprechen
 } as const;
+
+/** Ссылка на Kontakt, которая повторяется вне навигации (хиро Über uns, FAQ). */
+export const kontaktCta = "Kontakt aufnehmen"; // cta.kontakt
