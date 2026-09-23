@@ -117,7 +117,8 @@ export const wohnprojekte = {
         "Umfassende pflegerische und medizinische Leistungen", // lei.a.6
         "Individuell gestalteter Tagesablauf", // lei.a.7
         "Validation und aktivierende Betreuung", // lei.a.8
-        "Förderung von vorhandenen Fähigkeiten.", // lei.a.9
+        // lei.a.9 «Förderung von vorhandenen Fähigkeiten.» убрано по
+        // просьбе владельца.
       ],
     },
   ],
