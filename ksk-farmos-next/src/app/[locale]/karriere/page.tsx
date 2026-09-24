@@ -63,13 +63,14 @@ export default async function KarrierePage({
         </Grid>
       </section>
 
+      {/* По просьбе владельца — вакансии не в узкой `aside`-колонке
+          рядом с заголовком, а во всю ширину разворота, строкой ниже. */}
       <section id="vakanzen" className="pt-turn">
         <Grid>
-          <Col span="text">
+          <Col>
             <SectionHeading eyebrow={vakanzen.eyebrow} title={vakanzen.title} />
-          </Col>
-          <Col span="aside">
-            <ul>
+
+            <ul className="mt-xl">
               {vakanzen.items.map((item, i) => (
                 <li key={item.title}>
                   <Rule index={i} />
