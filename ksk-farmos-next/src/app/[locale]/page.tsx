@@ -2,7 +2,6 @@ import { setRequestLocale } from "next-intl/server";
 
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ClosingCta } from "@/components/home/ClosingCta";
-import { Diagnoses } from "@/components/home/Diagnoses";
 import { Hero } from "@/components/home/Hero";
 import { Intro } from "@/components/home/Intro";
 import { MapSection } from "@/components/home/MapSection";
@@ -24,12 +23,15 @@ import { Steps } from "@/components/home/Steps";
  *                                      комментарий в `ServiceList.tsx` —
  *                                      и переставлена после кадра, а не
  *                                      сразу после вводной фразы)
- *   5. берёте ли такой случай       — диагнозы
- *   6. сколько ждать                — три шага
- *   7. работаете ли в моём районе   — карта Гессена
- *   8. кто вы такие                 — основатель
- *   9. что говорят другие           — отзывы
- *  10. что делать дальше            — закрывающий разворот
+ *   5. сколько ждать                — три шага
+ *   6. работаете ли в моём районе   — карта Гессена
+ *   7. кто вы такие                 — основатель
+ *   8. что говорят другие           — отзывы
+ *   9. что делать дальше            — закрывающий разворот
+ *
+ * Блок «берёте ли такой случай» (диагнозы, `Diagnoses`) убран со
+ * страницы по просьбе владельца — компонент и контент оставлены
+ * нетронутыми на случай, если он вернётся.
  */
 export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -41,7 +43,6 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
       <Intro />
       <Moment />
       <ServiceList />
-      <Diagnoses />
       <Steps />
       <MapSection />
       <AboutPreview />
