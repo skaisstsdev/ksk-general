@@ -42,6 +42,15 @@ export default async function KarrierePage({
           { href: "/schnellbewerbung", label: hero.bewerben },
           { href: "/karriere#vakanzen", label: hero.vakanzen, variant: "secondary" },
         ]}
+        image={{
+          src: "/img/karriere-hero.webp",
+          width: 2000,
+          height: 1125,
+          srcNarrow: "/img/karriere-hero-hoch.webp",
+          widthNarrow: 1000,
+          heightNarrow: 1502,
+          alt: "Pflegekraft stellt eine Infusionspumpe am Infusionsständer ein",
+        }}
       />
 
       {/* Тот же приём, что у Leitbild на Über uns и диагнозов на
