@@ -8,6 +8,7 @@ import { RuledGrid } from "@/components/page/RuledGrid";
 import { SectionHeading } from "@/components/page/SectionHeading";
 import { StepsGrid } from "@/components/page/StepsGrid";
 import { Button } from "@/components/ui/Button";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
 import { benefits, bewerbung, closing, hero, meta, vakanzen } from "@/content/pages/karriere";
@@ -102,10 +103,16 @@ export default async function KarrierePage({
         </Grid>
       </section>
 
+      {/* Заголовок здесь — не `SectionHeading` (тот даёт `text-h1`,
+          как у прочих разделов страницы), а `text-h2` напрямую, тем
+          же приёмом, что у «In 3 Schritten zur Versorgung» на главной
+          (`home/Steps.tsx`): по просьбе владельца этот блок должен
+          выглядеть точно как его аналог там. */}
       <section className="pt-break">
         <Grid>
           <Col>
-            <SectionHeading eyebrow={bewerbung.eyebrow} title={bewerbung.title} />
+            <Eyebrow className="text-ink-muted">{bewerbung.eyebrow}</Eyebrow>
+            <h2 className="mt-2xs text-h2 text-ink">{bewerbung.title}</h2>
             <StepsGrid items={bewerbung.steps} />
           </Col>
         </Grid>
