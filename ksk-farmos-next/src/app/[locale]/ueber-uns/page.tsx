@@ -29,12 +29,13 @@ export const metadata: Metadata = {
 };
 
 /**
- * Über uns. Порядок блоков — как в старом `ueber-uns.html`:
+ * Über uns. Порядок отличается от старого `ueber-uns.html` по решению
+ * владельца: Team переехал на первое место сразу после хиро.
  *
  *   1. хиро
- *   2. Leitbild — пять принципов
- *   3. Geschichte — фото основателя
- *   4. Team — люди за компанией
+ *   2. Team — люди за компанией
+ *   3. Leitbild — пять принципов
+ *   4. Geschichte — фото основателя
  *   5. Kooperationen — с кем работаем
  *   6. Social Media
  *   7. закрывающий разворот
@@ -58,6 +59,28 @@ export default async function UeberUnsPage({
       />
 
       <section className="pt-break">
+        <Grid>
+          <Col>
+            <SectionHeading eyebrow={team.eyebrow} title={team.title} />
+
+            <ul className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
+              {team.members.map((member, i) => (
+                <li key={member.name} className="flex flex-col gap-2xs">
+                  <Rule index={i} />
+                  <h3 className="mt-md text-h4 text-ink">{member.name}</h3>
+                  <p className="text-ui text-violet">{member.role}</p>
+                  <p className="mt-2xs text-meta text-ink-soft">{member.desc}</p>
+                  {"desc2" in member && member.desc2 ? (
+                    <p className="text-meta text-ink-soft">{member.desc2}</p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </Col>
+        </Grid>
+      </section>
+
+      <section className="pt-turn">
         <Grid>
           <Col span="text">
             <StickyHeading eyebrow={leitbild.eyebrow} title={leitbild.title} />
@@ -86,28 +109,6 @@ export default async function UeberUnsPage({
           ))}
         </div>
       </PhotoSplit>
-
-      <section className="pt-turn">
-        <Grid>
-          <Col>
-            <SectionHeading eyebrow={team.eyebrow} title={team.title} />
-
-            <ul className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
-              {team.members.map((member, i) => (
-                <li key={member.name} className="flex flex-col gap-2xs">
-                  <Rule index={i} />
-                  <h3 className="mt-md text-h4 text-ink">{member.name}</h3>
-                  <p className="text-ui text-violet">{member.role}</p>
-                  <p className="mt-2xs text-meta text-ink-soft">{member.desc}</p>
-                  {"desc2" in member && member.desc2 ? (
-                    <p className="text-meta text-ink-soft">{member.desc2}</p>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          </Col>
-        </Grid>
-      </section>
 
       <PhotoSplit
         side="end"
