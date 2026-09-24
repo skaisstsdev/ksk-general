@@ -6,6 +6,7 @@ import { PageClosing } from "@/components/page/PageClosing";
 import { RuledGrid } from "@/components/page/RuledGrid";
 import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
+import { closing as familyClosing } from "@/content/home";
 import { categories, closing, hero, meta, questions, topCards } from "@/content/pages/faq";
 import { kontaktCta } from "@/content/pages/shared";
 
@@ -57,10 +58,17 @@ export default async function FaqPage({
         </Grid>
       </section>
 
+      {/* Пункты — не новый текст: те же три (`ber.c1–3`), что уже
+          стоят в закрывающем развороте Leistungen/Über uns/Kontakt
+          (`familyClosing.points` из `home.ts`, туда попали со страницы
+          «Beratung»). Аудитория та же — семья, которая обращается
+          напрямую, — поэтому повторное приглашение написать не
+          получило собственного текста, а переиспользует готовый. */}
       <PageClosing
         eyebrow={hero.eyebrow}
         title={closing.title}
         text={closing.text}
+        points={familyClosing.points}
         action={{ href: "/kontakt", label: kontaktCta }}
       />
     </>
