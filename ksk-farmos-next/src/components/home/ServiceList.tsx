@@ -22,6 +22,10 @@ import { services } from "@/content/home";
  * где меняется уже сданная и выверенная главная: решение принято
  * отдельно и после того, как главная была подтверждена готовой.
  *
+ * Без верхнего отступа: раздел переставлен сразу после `Moment` —
+ * кадра во весь экран, — и владелец захотел стык без паузы между
+ * ними, фото сразу переходит в фиолетовое поле.
+ *
  * Текст — `white-pure`, как и на кнопках и на фиолетовой плашке
  * Leistungen: 7.4:1 у заголовка и заголовков строк, не ниже 4.9:1
  * у приглушённых через прозрачность (номер, описание). Линейки — тона
@@ -32,7 +36,7 @@ import { services } from "@/content/home";
  */
 export function ServiceList() {
   return (
-    <section id="leistungen" className="pt-break">
+    <section id="leistungen">
       <div className="bg-violet">
         <Grid className="py-2xl lg:py-3xl">
           <Col span="text">
