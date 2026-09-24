@@ -57,6 +57,15 @@ export default async function UeberUnsPage({
           { href: "/beratung", label: hero.beratung },
           { href: "/kontakt", label: hero.kontakt, variant: "secondary" },
         ]}
+        image={{
+          src: "/img/ueber-uns-hero.jpg",
+          width: 1600,
+          height: 1066,
+          srcNarrow: "/img/ueber-uns-hero-hoch.webp",
+          widthNarrow: 1024,
+          heightNarrow: 1536,
+          alt: "Pflegekraft im Gespräch mit einem Angehörigen in der Küche",
+        }}
       />
 
       <section className="pt-break">
