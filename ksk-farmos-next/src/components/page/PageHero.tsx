@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { getImageProps } from "next/image";
 
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -12,6 +12,60 @@ export type HeroAction = {
   variant?: "primary" | "secondary";
 };
 
+export type PageHeroImage = {
+  /** Горизонтальный кадр, от `lg`. */
+  src: string;
+  width: number;
+  height: number;
+  /** Вертикальный кадр для узких экранов. */
+  srcNarrow: string;
+  widthNarrow: number;
+  heightNarrow: number;
+  alt: string;
+  position?: string;
+};
+
+/**
+ * Два кадра с затемнением на весь экран — тот же приём art direction,
+ * что у `ExpandingPhoto` (горизонтальный снимок от `lg`, вертикальный
+ * до), но без сцены со скроллом: кадр здесь стоит на месте.
+ */
+function HeroPicture({ image }: { image: PageHeroImage }) {
+  const common = { alt: image.alt, sizes: "100vw", priority: true };
+  const {
+    props: { srcSet: wide },
+  } = getImageProps({
+    ...common,
+    src: image.src,
+    width: image.width,
+    height: image.height,
+  });
+  const {
+    props: { srcSet: narrow, ...img },
+  } = getImageProps({
+    ...common,
+    src: image.srcNarrow,
+    width: image.widthNarrow,
+    height: image.heightNarrow,
+  });
+
+  return (
+    <picture>
+      <source media="(min-width: 64rem)" srcSet={wide} />
+      <source srcSet={narrow} />
+      <img
+        {...img}
+        alt={image.alt}
+        className="size-full object-cover"
+        style={{
+          objectPosition: image.position ?? "center",
+          filter: "brightness(0.5)",
+        }}
+      />
+    </picture>
+  );
+}
+
 /**
  * Хиро внутренних страниц.
  *
@@ -22,11 +76,11 @@ export type HeroAction = {
  * поправка `--hero-bias` на узких экранах, колонка `wide`, одна правая
  * граница у заголовка и лида, линейка перед кнопками.
  *
- * Пока фотографий нет, под текстом лежит подложка `stand-in` — той же
- * глубины, что притемнённый снимок на главной, поэтому текст, кнопки
- * и переключатель языка (`data-tone="dark"`) уже стоят в своём
- * окончательном цвете. Фото добавляется одним пропом `image` и получает
- * то же затемнение, что на главной.
+ * Пока `image` не задан, под текстом лежит подложка `stand-in` — той
+ * же глубины, что притемнённый снимок на главной, поэтому текст,
+ * кнопки и переключатель языка (`data-tone="dark"`) уже стоят в своём
+ * окончательном цвете. С `image` — тот же приём, что на главной:
+ * снимок и то же затемнение (`brightness(0.5)` + `bg-ink/32`).
  */
 export function PageHero({
   eyebrow,
@@ -39,7 +93,7 @@ export function PageHero({
   title: string;
   lead?: string;
   actions?: HeroAction[];
-  image?: { src: string; alt: string; position?: string };
+  image?: PageHeroImage;
 }) {
   return (
     <section
@@ -48,18 +102,7 @@ export function PageHero({
     >
       {image ? (
         <div className="absolute inset-0">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{
-              objectPosition: image.position ?? "center",
-              filter: "brightness(0.5)",
-            }}
-          />
+          <HeroPicture image={image} />
           <div aria-hidden="true" className="absolute inset-0 bg-ink/32" />
         </div>
       ) : null}

@@ -70,6 +70,15 @@ export default async function LeistungenPage({
             variant: "secondary",
           },
         ]}
+        image={{
+          src: "/img/leistungen-hero.webp",
+          width: 2000,
+          height: 1125,
+          srcNarrow: "/img/leistungen-hero-hoch.webp",
+          widthNarrow: 1000,
+          heightNarrow: 1502,
+          alt: "Pflegekraft stellt ein Beatmungsgerät für die häusliche Intensivpflege ein",
+        }}
       />
 
       <section id="haeuslich" className="pt-break">
