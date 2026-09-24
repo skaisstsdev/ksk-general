@@ -72,9 +72,11 @@ export default async function KarrierePage({
           Заголовок шагов — не `SectionHeading` (тот даёт `text-h1`,
           как у остальных разделов страницы), а `text-h2` напрямую, тем
           же приёмом, что у «In 3 Schritten zur Versorgung» на главной
-          (`home/Steps.tsx`): по прежней просьбе владельца этот блок
-          должен выглядеть точно как его аналог там, и на фиолетовом
-          поле это по-прежнему верно. */}
+          (`home/ServiceList.tsx` — раньше был отдельным `Steps.tsx`,
+          теперь объединён с Leistungen тем же приёмом, что здесь):
+          по прежней просьбе владельца этот блок должен выглядеть
+          точно как его аналог там, и на фиолетовом поле это
+          по-прежнему верно. */}
       <section id="vakanzen" className="pt-turn">
         <div className="bg-violet">
           <Grid className="pt-2xl lg:pt-3xl">

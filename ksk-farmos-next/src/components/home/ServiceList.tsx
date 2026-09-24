@@ -1,10 +1,11 @@
 import { Link } from "@/i18n/navigation";
+import { StepsGrid } from "@/components/page/StepsGrid";
 import { ArrowRight } from "@/components/ui/icons";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
-import { services } from "@/content/home";
+import { services, steps } from "@/content/home";
 
 /**
  * Услуги.
@@ -33,12 +34,22 @@ import { services } from "@/content/home";
  * Стрелка и заголовок строки при наведении раньше меняли цвет на
  * фиолетовый — на фиолетовом поле это исчезающая подсказка, поэтому
  * обратная связь при наведении теперь — подчёркивание, а не цвет.
+ *
+ * По просьбе владельца ниже в том же фиолетовом поле — «In 3 Schritten
+ * zur Versorgung» (`steps`, прежде отдельным белым разделом `Steps.tsx`
+ * следом): тем же приёмом, что Vakanzen+Bewerbung на Karriere —
+ * `StepsGrid` в режиме `tone="paper"`, высота фиолетового не
+ * назначена числом, а сама набегает из двух `Grid` подряд одна под
+ * другой, внутренний стык — `mt-beat`, а не полноценная пауза между
+ * разделами: это по-прежнему один блок, а не два. Заголовок шагов —
+ * `text-h2` напрямую, а не `SectionHeading`, тем же приёмом, что уже
+ * был здесь (см. эту же логику разобранной на Karriere).
  */
 export function ServiceList() {
   return (
     <section id="leistungen">
       <div className="bg-violet">
-        <Grid className="py-2xl lg:py-3xl">
+        <Grid className="pt-2xl lg:pt-3xl">
           <Col span="text">
             <StickyCol>
               <Eyebrow className="text-white-pure/90">{services.eyebrow}</Eyebrow>
@@ -78,6 +89,16 @@ export function ServiceList() {
             </ul>
           </Col>
         </Grid>
+
+        <div id="ablauf">
+          <Grid className="mt-beat pb-2xl lg:pb-3xl">
+            <Col>
+              <Eyebrow className="text-white-pure/90">{steps.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs text-h2 text-white-pure">{steps.title}</h2>
+              <StepsGrid items={steps.items} tone="paper" />
+            </Col>
+          </Grid>
+        </div>
       </div>
     </section>
   );
