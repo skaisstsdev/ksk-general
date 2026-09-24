@@ -11,6 +11,7 @@ import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
+import { Photo } from "@/components/ui/Photo";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { closing } from "@/content/home";
 import {
@@ -100,29 +101,55 @@ export default async function LeistungenPage({
         </Grid>
       </section>
 
-      <PhotoSplit
-        id="wohnprojekte"
-        side="end"
-        pause="turn"
-        photo={{
-          src: "/img/wohnprojekt.webp",
-          alt: "Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts",
-          ratio: "4 / 5",
-          position: "40% 60%",
-        }}
-      >
-        <SectionHeading
-          eyebrow={wohnprojekte.eyebrow}
-          title={wohnprojekte.title}
-          lead={wohnprojekte.text}
-        />
+      {/* Не `PhotoSplit`: тому компоненту неоткуда взять фиолетовый —
+          он красит только колонку текста (см. её же приём на других
+          страницах), а тут нужен фиолетовый под всем разворотом
+          целиком, включая полосу за фото. Высоту фиолетового не
+          назначаю числом — она сама берётся из высоты строки сетки,
+          а строку задаёт самый высокий её элемент. Фото здесь выше
+          текста (проверено: 4/5 при ширине колонки даёт кадр заметно
+          выше шести строк вводного абзаца и двух коротких списков),
+          поэтому нижняя граница фиолетового совпадает с нижним краем
+          фото само собой — так же, как верхняя, без вычислений. */}
+      <section id="wohnprojekte" className="overflow-x-clip pt-turn">
+        <div className="bg-violet">
+          <Grid className="lg:items-center">
+            <Col span="text">
+              <Eyebrow className="text-white-pure/90">{wohnprojekte.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs max-w-[18ch] text-h1 text-white-pure hyphens-auto">
+                {wohnprojekte.title}
+              </h2>
+              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
+                {wohnprojekte.text}
+              </p>
 
-        <div className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2">
-          {wohnprojekte.groups.map((group) => (
-            <RuledList key={group.title} title={group.title} items={group.items} />
-          ))}
+              <div className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2">
+                {wohnprojekte.groups.map((group) => (
+                  <RuledList
+                    key={group.title}
+                    title={group.title}
+                    items={group.items}
+                    tone="paper"
+                  />
+                ))}
+              </div>
+            </Col>
+
+            <Col span="aside" className="lg:order-last">
+              <Photo
+                src="/img/wohnprojekt.webp"
+                alt="Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
+                ratio="4 / 5"
+                position="40% 60%"
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                bleed="end"
+                slide
+                parallax
+              />
+            </Col>
+          </Grid>
         </div>
-      </PhotoSplit>
+      </section>
 
       <section id="krankheitsbild" className="pt-turn">
         <Grid>
