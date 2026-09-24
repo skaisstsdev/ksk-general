@@ -65,9 +65,9 @@ export default async function KarrierePage({
           разворот на двоих, а не два отдельных блока. Фото здесь нет,
           поэтому высота фиолетового задаётся отступом (`py-2xl/3xl`),
           как в Kostenübernahme и в ServiceList на главной, а не берётся
-          из кадра. Между вакансиями и шагами внутри — `mt-turn`: тот же
-          отступ, что обычно разделяет разделы снаружи, здесь просто
-          не разрывает общую подложку.
+          из кадра. Между вакансиями и шагами внутри — `mt-beat`: по
+          просьбе владельца это теперь один блок, а не два, поэтому
+          отступ внутри него меньше, чем между обычными разделами.
 
           Заголовок шагов — не `SectionHeading` (тот даёт `text-h1`,
           как у остальных разделов страницы), а `text-h2` напрямую, тем
@@ -121,7 +121,7 @@ export default async function KarrierePage({
             </Col>
           </Grid>
 
-          <Grid className="mt-turn pb-2xl lg:pb-3xl">
+          <Grid className="mt-beat pb-2xl lg:pb-3xl">
             <Col>
               <Eyebrow className="text-white-pure/90">{bewerbung.eyebrow}</Eyebrow>
               <h2 className="mt-2xs text-h2 text-white-pure">{bewerbung.title}</h2>
