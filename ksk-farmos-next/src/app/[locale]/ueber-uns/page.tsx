@@ -7,6 +7,8 @@ import { PageHero } from "@/components/page/PageHero";
 import { PhotoSplit } from "@/components/page/PhotoSplit";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { ExpandingPhoto } from "@/components/ui/ExpandingPhoto";
 import { ArrowRight } from "@/components/ui/icons";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
@@ -81,24 +83,32 @@ export default async function UeberUnsPage({
         </Grid>
       </section>
 
-      <PhotoSplit
-        pause="turn"
-        photo={{
-          src: "/img/gruender.webp",
-          alt: "Viktor Beresnev, Gründer von KSK Farmos, im Gespräch mit einer Mitarbeiterin",
-          ratio: "4 / 3",
-          ratioLg: "3 / 2",
-        }}
-      >
-        <SectionHeading eyebrow={geschichte.eyebrow} title={geschichte.title} />
-        <div className="mt-md flex flex-col gap-sm">
-          {geschichte.paragraphs.map((p) => (
-            <p key={p} className="text-body text-ink-soft">
-              {p}
-            </p>
-          ))}
-        </div>
-      </PhotoSplit>
+      {/* Тот же приём, что у `Moment` на главной: кадр растёт при
+          прокрутке, текст проявляется следом. По просьбе владельца —
+          для блока Geschichte, с командным фото вместо портрета
+          основателя. Без верхнего отступа по той же причине, что
+          и там: пауза заложена в самой сцене. */}
+      <section>
+        <ExpandingPhoto
+          src="/img/team-garten.webp"
+          width={2000}
+          height={1125}
+          srcNarrow="/img/team-garten-hoch.webp"
+          widthNarrow={1000}
+          heightNarrow={1502}
+          alt="Das Team von KSK Farmos GmbH & Co. KG im Garten"
+        >
+          <div className="flex max-w-[34rem] flex-col gap-xs">
+            <Eyebrow className="text-paper/85">{geschichte.eyebrow}</Eyebrow>
+            <h3 className="text-h2 text-paper">{geschichte.title}</h3>
+            {geschichte.paragraphs.map((p) => (
+              <p key={p} className="text-body text-paper/90 lg:text-lead">
+                {p}
+              </p>
+            ))}
+          </div>
+        </ExpandingPhoto>
+      </section>
 
       <section className="pt-turn">
         <Grid>
