@@ -59,58 +59,76 @@ export default async function KarrierePage({
         </Grid>
       </section>
 
-      {/* По просьбе владельца — вакансии не в узкой `aside`-колонке
-          рядом с заголовком, а во всю ширину разворота, строкой ниже. */}
-      <section id="vakanzen" className="pt-turn">
-        <Grid>
-          <Col>
-            <SectionHeading eyebrow={vakanzen.eyebrow} title={vakanzen.title} />
+      {/* Второе исключение из «подложка не разделяет блоки» на этой
+          странице, по образцу Kostenübernahme на Leistungen: вакансии
+          и шаги подачи заявки — по просьбе владельца один фиолетовый
+          разворот на двоих, а не два отдельных блока. Фото здесь нет,
+          поэтому высота фиолетового задаётся отступом (`py-2xl/3xl`),
+          как в Kostenübernahme и в ServiceList на главной, а не берётся
+          из кадра. Между вакансиями и шагами внутри — `mt-turn`: тот же
+          отступ, что обычно разделяет разделы снаружи, здесь просто
+          не разрывает общую подложку.
 
-            <ul className="mt-xl">
-              {vakanzen.items.map((item, i) => (
-                <li key={item.title}>
-                  <Rule index={i} />
-                  <div className="flex flex-col items-start gap-md py-md sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex flex-col gap-2xs">
-                      <h3 className="text-h3 text-ink">{item.title}</h3>
-                      <div className="flex flex-wrap gap-2xs">
-                        {item.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="rounded-xs border border-line-strong px-2xs py-3xs text-caption text-ink-muted"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <Button href="/schnellbewerbung" variant="secondary" size="sm">
-                      {vakanzen.bewerben}
-                    </Button>
-                  </div>
-                </li>
-              ))}
-              <li aria-hidden="true">
-                <Rule index={vakanzen.items.length} />
-              </li>
-            </ul>
-          </Col>
-        </Grid>
-      </section>
-
-      {/* Заголовок здесь — не `SectionHeading` (тот даёт `text-h1`,
-          как у прочих разделов страницы), а `text-h2` напрямую, тем
+          Заголовок шагов — не `SectionHeading` (тот даёт `text-h1`,
+          как у остальных разделов страницы), а `text-h2` напрямую, тем
           же приёмом, что у «In 3 Schritten zur Versorgung» на главной
-          (`home/Steps.tsx`): по просьбе владельца этот блок должен
-          выглядеть точно как его аналог там. */}
-      <section className="pt-break">
-        <Grid>
-          <Col>
-            <Eyebrow className="text-ink-muted">{bewerbung.eyebrow}</Eyebrow>
-            <h2 className="mt-2xs text-h2 text-ink">{bewerbung.title}</h2>
-            <StepsGrid items={bewerbung.steps} />
-          </Col>
-        </Grid>
+          (`home/Steps.tsx`): по прежней просьбе владельца этот блок
+          должен выглядеть точно как его аналог там, и на фиолетовом
+          поле это по-прежнему верно. */}
+      <section id="vakanzen" className="pt-turn">
+        <div className="bg-violet">
+          <Grid className="pt-2xl lg:pt-3xl">
+            <Col>
+              <SectionHeading
+                eyebrow={vakanzen.eyebrow}
+                title={vakanzen.title}
+                tone="paper"
+              />
+
+              <ul className="mt-xl">
+                {vakanzen.items.map((item, i) => (
+                  <li key={item.title}>
+                    <Rule index={i} tone="paper" />
+                    <div className="flex flex-col items-start gap-md py-md sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex flex-col gap-2xs">
+                        <h3 className="text-h3 text-white-pure">{item.title}</h3>
+                        <div className="flex flex-wrap gap-2xs">
+                          {item.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-xs border border-white-pure/30 px-2xs py-3xs text-caption text-white-pure/80"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <Button
+                        href="/schnellbewerbung"
+                        variant="secondary"
+                        size="sm"
+                        className="border-white-pure/60 text-white-pure hover:border-white-pure hover:bg-white-pure/10"
+                      >
+                        {vakanzen.bewerben}
+                      </Button>
+                    </div>
+                  </li>
+                ))}
+                <li aria-hidden="true">
+                  <Rule index={vakanzen.items.length} tone="paper" />
+                </li>
+              </ul>
+            </Col>
+          </Grid>
+
+          <Grid className="mt-turn pb-2xl lg:pb-3xl">
+            <Col>
+              <Eyebrow className="text-white-pure/90">{bewerbung.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs text-h2 text-white-pure">{bewerbung.title}</h2>
+              <StepsGrid items={bewerbung.steps} tone="paper" />
+            </Col>
+          </Grid>
+        </div>
       </section>
 
       <PageClosing

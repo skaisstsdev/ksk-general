@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 
 import { Rule } from "@/components/ui/Rule";
+import { cn } from "@/lib/cn";
 
 export type StepItem = { title: string; text: string };
 
@@ -17,17 +18,31 @@ const STEP_STAGGER = 0.7;
  * заголовка: страница кладёт его сама через `SectionHeading`, а этот
  * компонент отвечает только за пронумерованный перечень. Номер здесь
  * оправдан — это настоящая последовательность, а не список пунктов.
+ *
+ * `tone="paper"` — для шагов на фиолетовом поле (Bewerbung на
+ * Karriere): номер того же цвета, что текст (фиолетовый на
+ * фиолетовом не виден), линейка и подпись светлеют, как у `RuledList`.
  */
-export function StepsGrid({ items }: { items: readonly StepItem[] }) {
+export function StepsGrid({
+  items,
+  tone = "ink",
+}: {
+  items: readonly StepItem[];
+  tone?: "ink" | "paper";
+}) {
   const reduced = useReducedMotion();
+  const onPaper = tone === "paper";
 
   return (
     <ol className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-3">
       {items.map((item, i) => (
         <li key={item.title} className="flex flex-col gap-2xs">
-          <Rule index={i} stagger={STEP_STAGGER} />
+          <Rule index={i} stagger={STEP_STAGGER} tone={onPaper ? "paper" : "ink"} />
           <motion.span
-            className="mt-md font-serif text-h2 leading-none tabular-nums text-violet"
+            className={cn(
+              "mt-md font-serif text-h2 leading-none tabular-nums",
+              onPaper ? "text-white-pure" : "text-violet",
+            )}
             initial={reduced ? undefined : { opacity: DIM }}
             whileInView={reduced ? undefined : { opacity: 1 }}
             viewport={{ once: true, margin: "-8% 0px -8% 0px" }}
@@ -35,8 +50,12 @@ export function StepsGrid({ items }: { items: readonly StepItem[] }) {
           >
             {String(i + 1).padStart(2, "0")}
           </motion.span>
-          <h3 className="mt-2xs text-subhead text-ink">{item.title}</h3>
-          <p className="text-ui text-ink-soft">{item.text}</p>
+          <h3 className={cn("mt-2xs text-subhead", onPaper ? "text-white-pure" : "text-ink")}>
+            {item.title}
+          </h3>
+          <p className={cn("text-ui", onPaper ? "text-white-pure/85" : "text-ink-soft")}>
+            {item.text}
+          </p>
         </li>
       ))}
     </ol>

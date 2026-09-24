@@ -12,28 +12,49 @@ import { cn } from "@/lib/cn";
  * помещается (было с «Pflegeberatung» в узкой колонке `aside`,
  * 444px слова против 420px места), дело не в этом пределе — не в
  * ch и не в переносе, а в самой колонке; чинить нужно её, не здесь.
+ *
+ * `tone="paper"` — для заголовка на фиолетовом поле (Vakanzen на
+ * Karriere), тем же приёмом, что у `RuledList`.
  */
 export function SectionHeading({
   eyebrow,
   title,
   lead,
   children,
+  tone = "ink",
   className,
 }: {
   eyebrow: string;
   title: string;
   lead?: string;
   children?: React.ReactNode;
+  tone?: "ink" | "paper";
   className?: string;
 }) {
+  const onPaper = tone === "paper";
+
   return (
     <div className={className}>
-      <Eyebrow className="text-ink-muted">{eyebrow}</Eyebrow>
-      <h2 className="mt-2xs max-w-[18ch] text-h1 text-ink hyphens-auto">
+      <Eyebrow className={onPaper ? "text-white-pure/90" : "text-ink-muted"}>
+        {eyebrow}
+      </Eyebrow>
+      <h2
+        className={cn(
+          "mt-2xs max-w-[18ch] text-h1 hyphens-auto",
+          onPaper ? "text-white-pure" : "text-ink",
+        )}
+      >
         {title}
       </h2>
       {lead ? (
-        <p className="mt-md max-w-[40ch] text-body text-ink-soft">{lead}</p>
+        <p
+          className={cn(
+            "mt-md max-w-[40ch] text-body",
+            onPaper ? "text-white-pure/90" : "text-ink-soft",
+          )}
+        >
+          {lead}
+        </p>
       ) : null}
       {children}
     </div>
