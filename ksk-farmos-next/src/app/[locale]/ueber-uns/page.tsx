@@ -134,36 +134,45 @@ export default async function UeberUnsPage({
         <RuledList className="mt-md" items={kooperationen.items} />
       </PhotoSplit>
 
+      {/* Фиолетовый на весь разворот — тот же приём, что у ServiceList
+          на главной и у Kostenübernahme/Wohnprojekte на Leistungen:
+          не карточка внутри блока, а сам блок целиком, во всю ширину
+          экрана. Своя, не через `SectionHeading` разметка заголовка —
+          тому компоненту неоткуда взять `white-pure` вместо `ink`. */}
       <section className="pt-beat">
-        <Grid>
-          <Col span="text">
-            <SectionHeading
-              eyebrow={social.eyebrow}
-              title={social.title}
-              lead={social.text}
-            />
-          </Col>
-          <Col span="aside" className="flex flex-col justify-center gap-md">
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between border-b border-line py-sm text-h4 text-ink transition-colors hover:text-violet"
-            >
-              Instagram
-              <ArrowRight className="size-5 text-violet transition-transform duration-200 ease-out-soft group-hover:translate-x-1 rtl:-scale-x-100" />
-            </a>
-            <a
-              href={socialLinks.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between border-b border-line py-sm text-h4 text-ink transition-colors hover:text-violet"
-            >
-              Facebook
-              <ArrowRight className="size-5 text-violet transition-transform duration-200 ease-out-soft group-hover:translate-x-1 rtl:-scale-x-100" />
-            </a>
-          </Col>
-        </Grid>
+        <div className="bg-violet">
+          <Grid className="py-2xl lg:py-3xl">
+            <Col span="text">
+              <Eyebrow className="text-white-pure/90">{social.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs max-w-[18ch] text-h1 text-white-pure hyphens-auto">
+                {social.title}
+              </h2>
+              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
+                {social.text}
+              </p>
+            </Col>
+            <Col span="aside" className="flex flex-col justify-center gap-md">
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-b border-white-pure/25 py-sm text-h4 text-white-pure underline decoration-transparent underline-offset-4 transition-colors hover:decoration-white-pure/50"
+              >
+                Instagram
+                <ArrowRight className="size-5 shrink-0 text-white-pure transition-transform duration-200 ease-out-soft rtl:-scale-x-100" />
+              </a>
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between border-b border-white-pure/25 py-sm text-h4 text-white-pure underline decoration-transparent underline-offset-4 transition-colors hover:decoration-white-pure/50"
+              >
+                Facebook
+                <ArrowRight className="size-5 shrink-0 text-white-pure transition-transform duration-200 ease-out-soft rtl:-scale-x-100" />
+              </a>
+            </Col>
+          </Grid>
+        </div>
       </section>
 
       <PageClosing
