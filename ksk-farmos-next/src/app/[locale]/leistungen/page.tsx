@@ -164,6 +164,7 @@ export default async function LeistungenPage({
 
       <PhotoSplit
         id="beratung"
+        side="end"
         pause="turn"
         photo={{
           src: "/img/beratung.webp",
