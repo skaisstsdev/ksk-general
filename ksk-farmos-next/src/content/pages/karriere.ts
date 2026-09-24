@@ -103,4 +103,15 @@ export const closing = {
   title: "Bereit für den nächsten Schritt?", // kar.cta.h2
   text: "Bewerben Sie sich jetzt — unkompliziert und schnell.", // kar.cta.p
   cta: "Jetzt bewerben", // kar.cta.btn
+  // Для этой карточки в словаре и в старом HTML пунктов нет — там
+  // только заголовок, текст и кнопка (в отличие от `cta.beratung`
+  // с тремя пунктами из Beratung, см. `closing.points` в `home.ts`).
+  // Три пункта ниже написаны по просьбе владельца тем же приёмом,
+  // что `moment` в `home.ts`: оформить блок так же, как его аналог
+  // для семьи, — с перечнем рядом с кнопкой.
+  points: [
+    "Rückmeldung innerhalb 48h",
+    "Per Formular, E-Mail oder Telefon",
+    "Kein Anschreiben nötig",
+  ],
 } as const;

@@ -131,14 +131,19 @@ export default async function KarrierePage({
         </div>
       </section>
 
+      {/* Тот же вид, что у закрывающего разворота для семьи на
+          Leistungen/Über uns/FAQ/Kontakt (`closingFamily` + `points`
+          из `home.ts`) — по просьбе владельца, вместо кнопки-обводки
+          без пунктов. `action.variant` не задан — кнопка по умолчанию
+          `primary`, фиолетовая. */}
       <PageClosing
         eyebrow={closing.eyebrow}
         title={closing.title}
         text={closing.text}
+        points={closing.points}
         action={{
           href: "/schnellbewerbung",
           label: closing.cta,
-          variant: "secondary",
         }}
       />
     </>
