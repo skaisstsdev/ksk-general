@@ -3,7 +3,7 @@
 import { useEffect, useId, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import type { NavItem } from "@/content/navigation";
 import { Button } from "@/components/ui/Button";
 import { Close, Menu } from "@/components/ui/icons";
@@ -33,6 +33,7 @@ export function MobileMenu({
 }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
+  const pathname = usePathname();
 
   // Пока панель открыта, фон под ней не прокручивается.
   useEffect(() => {
@@ -84,23 +85,27 @@ export function MobileMenu({
           >
             <nav className="px-gutter py-md">
               <ul className="flex flex-col">
-                {items.map((item, i) => (
-                  <li key={item.href}>
-                    <Rule index={i} trigger="mount" />
-                    <Link
-                      href={item.href}
-                      // Меню закрывается по клику, а не эффектом на смену
-                      // маршрута: так нет лишнего каскада перерисовок.
-                      onClick={() => setOpen(false)}
-                      className={cn(
-                        "block py-sm font-serif text-h4 text-ink",
-                        "transition-colors hover:text-violet",
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
+                {items.map((item, i) => {
+                  const active = item.href === pathname;
+                  return (
+                    <li key={item.href}>
+                      <Rule index={i} trigger="mount" />
+                      <Link
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        // Меню закрывается по клику, а не эффектом на смену
+                        // маршрута: так нет лишнего каскада перерисовок.
+                        onClick={() => setOpen(false)}
+                        className={cn(
+                          "block py-sm font-serif text-h4 transition-colors hover:text-violet",
+                          active ? "text-violet" : "text-ink",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
                 <li aria-hidden="true">
                   <Rule index={items.length} trigger="mount" />
                 </li>

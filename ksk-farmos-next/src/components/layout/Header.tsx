@@ -107,21 +107,35 @@ export function Header() {
 
           <nav aria-label="Hauptnavigation" className="hidden lg:block">
             <ul className="flex items-center gap-lg">
-              {mainNav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={cn(
-                      "text-ui transition-colors",
-                      transparent
-                        ? "text-paper/85 hover:text-paper"
-                        : "text-ink-soft hover:text-ink",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {mainNav.map((item) => {
+                const active = item.href === pathname;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        // Линия снизу — общий маркер текущей страницы;
+                        // на прозрачной шапке фиолетовый текст сам по
+                        // себе плохо виден на затемнённом фото (7.1:1
+                        // у violet посчитан против paper, не против
+                        // тёмного кадра), поэтому текущий пункт красится
+                        // тем же цветом, что при наведении, а не violet.
+                        "border-b-2 pb-3xs text-ui transition-colors",
+                        transparent
+                          ? active
+                            ? "border-violet text-paper"
+                            : "border-transparent text-paper/85 hover:text-paper"
+                          : active
+                            ? "border-violet text-ink"
+                            : "border-transparent text-ink-soft hover:text-ink",
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
