@@ -30,12 +30,13 @@ export const metadata: Metadata = {
 
 /**
  * Über uns. Порядок отличается от старого `ueber-uns.html` по решению
- * владельца: Team переехал на первое место сразу после хиро.
+ * владельца: Team переехал на первое место сразу после хиро,
+ * Geschichte — на второе, перед Leitbild.
  *
  *   1. хиро
  *   2. Team — люди за компанией
- *   3. Leitbild — пять принципов
- *   4. Geschichte — фото основателя
+ *   3. Geschichte — фото основателя
+ *   4. Leitbild — пять принципов
  *   5. Kooperationen — с кем работаем
  *   6. Social Media
  *   7. закрывающий разворот
@@ -80,17 +81,6 @@ export default async function UeberUnsPage({
         </Grid>
       </section>
 
-      <section className="pt-turn">
-        <Grid>
-          <Col span="text">
-            <StickyHeading eyebrow={leitbild.eyebrow} title={leitbild.title} />
-          </Col>
-          <Col span="aside">
-            <NumberedList items={leitbild.items} />
-          </Col>
-        </Grid>
-      </section>
-
       <PhotoSplit
         pause="turn"
         photo={{
@@ -109,6 +99,17 @@ export default async function UeberUnsPage({
           ))}
         </div>
       </PhotoSplit>
+
+      <section className="pt-turn">
+        <Grid>
+          <Col span="text">
+            <StickyHeading eyebrow={leitbild.eyebrow} title={leitbild.title} />
+          </Col>
+          <Col span="aside">
+            <NumberedList items={leitbild.items} />
+          </Col>
+        </Grid>
+      </section>
 
       <PhotoSplit
         side="end"
