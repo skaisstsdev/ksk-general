@@ -66,13 +66,13 @@ export function Hero() {
     >
       <div className="absolute inset-0">
         <Image
-          src="/img/pflege-zu-hause.webp"
+          src="/img/pflege-zu-hause.jpg"
           alt="Pflegefachkraft von KSK Farmos mit Notfalltasche am Einsatzfahrzeug"
           fill
           priority
           sizes="100vw"
           className="scale-[1.15] object-cover"
-          style={{ objectPosition: "62% top", filter: "brightness(0.5)" }}
+          style={{ objectPosition: "72% top", filter: "brightness(0.5)" }}
         />
         <div aria-hidden="true" className="absolute inset-0 bg-ink/32" />
       </div>
