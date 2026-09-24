@@ -130,7 +130,11 @@ export default async function UeberUnsPage({
           ratio: "4 / 5",
         }}
       >
-        <SectionHeading eyebrow={kooperationen.eyebrow} title={kooperationen.title} />
+        <SectionHeading
+          eyebrow={kooperationen.eyebrow}
+          title={kooperationen.title}
+          lead={kooperationen.text}
+        />
         <RuledList className="mt-md" items={kooperationen.items} />
       </PhotoSplit>
 

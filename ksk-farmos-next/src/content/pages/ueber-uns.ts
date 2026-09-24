@@ -94,6 +94,11 @@ export const team = {
 export const kooperationen = {
   eyebrow: "Kooperationen", // ub.koop.tag
   title: "Wir kooperieren eng mit:", // ub.koop.h2
+  // Единственная строка здесь, у которой нет ключа в словаре: в словаре
+  // после заголовка сразу идёт список, без вводной фразы. Написана по
+  // просьбе владельца — заполнить место между заголовком и списком,
+  // тем же приёмом, что `moment` в `home.ts`.
+  text: "Gute Pflege endet nicht an der eigenen Tür. Für eine lückenlose Versorgung arbeiten wir eng mit erfahrenen Partnern zusammen — abgestimmt, verlässlich und immer im Interesse unserer Klienten.",
   items: [
     "Fachärzten verschiedener Disziplin", // ub.koop.1
     "Physiotherapeuten", // ub.koop.2
