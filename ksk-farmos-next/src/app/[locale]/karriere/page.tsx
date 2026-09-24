@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
 import { PageHero } from "@/components/page/PageHero";
-import { PhotoSplit } from "@/components/page/PhotoSplit";
-import { RuledGrid } from "@/components/page/RuledGrid";
-import { SectionHeading } from "@/components/page/SectionHeading";
+import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { StepsGrid } from "@/components/page/StepsGrid";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -45,21 +44,17 @@ export default async function KarrierePage({
         ]}
       />
 
-      <PhotoSplit
-        photo={{
-          src: "/img/team.jpg",
-          alt: "Das Team von KSK Farmos gemeinsam im Büro",
-          ratio: "4 / 3",
-          ratioLg: "3 / 2",
-        }}
-      >
-        <SectionHeading eyebrow={benefits.eyebrow} title={benefits.title} />
-      </PhotoSplit>
-
-      <section className="pt-beat">
+      {/* Тот же приём, что у Leitbild на Über uns и диагнозов на
+          Leistungen: закреплённый заголовок слева, пронумерованный
+          перечень справа. По просьбе владельца — вместо фото
+          (`PhotoSplit`) и трёх карточек в ряд (`RuledGrid`). */}
+      <section className="pt-break">
         <Grid>
-          <Col>
-            <RuledGrid items={benefits.items} />
+          <Col span="text">
+            <StickyHeading eyebrow={benefits.eyebrow} title={benefits.title} />
+          </Col>
+          <Col span="aside">
+            <NumberedList items={benefits.items} />
           </Col>
         </Grid>
       </section>
