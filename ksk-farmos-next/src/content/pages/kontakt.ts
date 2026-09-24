@@ -49,16 +49,6 @@ export const form = {
   },
 } as const;
 
-/**
- * Блок для соискателей на странице контактов — есть в словаре
- * (`kon.bew.*`), но ни разу не показывался на старом сайте.
- */
-export const bewerber = {
-  eyebrow: "Für Bewerber", // kon.bew.tag
-  title: "Sie möchten bei uns arbeiten?", // kon.bew.h2
-  cta: "Karriere-Seite besuchen", // kon.bew.btn
-} as const;
-
 export const cards = {
   headquarters: "Zentrale Volkmarsen", // kon.card1
   mobile: "Mobil / 24h", // kon.card2

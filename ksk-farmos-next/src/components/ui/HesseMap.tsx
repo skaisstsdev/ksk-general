@@ -12,6 +12,7 @@ import {
 } from "@/content/hesse-map";
 import { locations } from "@/content/site";
 import { cn } from "@/lib/cn";
+import { LocationCards } from "./LocationCards";
 
 /**
  * Карта Гессена.
@@ -158,38 +159,18 @@ export function HesseMap({ ownLabels, className }: Props) {
         </svg>
       </div>
 
-      <dl className="grid gap-lg sm:grid-cols-2">
-        {HESSE_PLACES.filter((p) => p.kind === "own").map((p) => {
-          const info = ownLabels[p.name];
-          if (!info) return null;
-          const isActive = active === p.name;
-          return (
-            <div
-              key={p.name}
-              onMouseEnter={() => setActive(p.name)}
-              onMouseLeave={() => setActive(null)}
-              className={cn(
-                "border-s-2 ps-md transition-colors duration-200",
-                isActive ? "border-violet" : "border-line",
-              )}
-            >
-              <dt className="text-eyebrow uppercase text-ink-muted">
-                {info.role}
-              </dt>
-              <dd className="mt-3xs flex flex-col gap-3xs">
-                <span className="text-h4 text-ink">{p.name}</span>
-                <span className="text-ui text-ink-soft">{info.street}</span>
-                <a
-                  href={`tel:${info.phone.replace(/[^\d+]/g, "")}`}
-                  className="text-ui tabular-nums text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-violet"
-                >
-                  {info.phone}
-                </a>
-              </dd>
-            </div>
-          );
-        })}
-      </dl>
+      <LocationCards
+        items={HESSE_PLACES.filter((p) => p.kind === "own")
+          .map((p) => {
+            const info = ownLabels[p.name];
+            return info
+              ? { role: info.role, city: p.name, street: info.street, phone: info.phone }
+              : null;
+          })
+          .filter((item): item is NonNullable<typeof item> => item !== null)}
+        active={active}
+        onActivate={setActive}
+      />
     </div>
   );
 }

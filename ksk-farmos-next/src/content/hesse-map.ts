@@ -33,8 +33,9 @@ export type MapPlace = {
 };
 
 export const HESSE_PLACES: MapPlace[] = [
-  { name: "Kassel", x: 428.5, y: 137.0, kind: "own", anchor: "start" },
+  // Volkmarsen первым — Hauptzentrale, по просьбе владельца.
   { name: "Volkmarsen", x: 336.5, y: 97.6, kind: "own", anchor: "end" },
+  { name: "Kassel", x: 428.5, y: 137.0, kind: "own", anchor: "start" },
   { name: "Korbach", x: 275.1, y: 153.3, kind: "city", anchor: "end" },
   { name: "Marburg", x: 248.2, y: 340.1, kind: "city", anchor: "end" },
   { name: "Fulda", x: 479.4, y: 438.1, kind: "city", anchor: "start" },

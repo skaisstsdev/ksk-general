@@ -2,17 +2,32 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { ConsentMap } from "@/components/page/ConsentMap";
-import { PageClosing } from "@/components/page/PageClosing";
-import { PageHero } from "@/components/page/PageHero";
-import { SectionHeading } from "@/components/page/SectionHeading";
-import { Button } from "@/components/ui/Button";
+import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
+import { LocationCards } from "@/components/ui/LocationCards";
 import { Rule } from "@/components/ui/Rule";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { closing } from "@/content/home";
-import { bewerber, cards, form, hero, map, meta, standorte } from "@/content/pages/kontakt";
-import { closingFamily } from "@/content/pages/shared";
+import { cards, form, hero, map, meta, standorte } from "@/content/pages/kontakt";
 import { contact, impressum, locations } from "@/content/site";
+
+/**
+ * Volkmarsen первым — как на главной (`home/MapSection.tsx`),
+ * `locations.headquarters` и есть Volkmarsen.
+ */
+const standorteItems = [
+  {
+    role: standorte.headquartersRole,
+    city: locations.headquarters.city,
+    street: `${locations.headquarters.street}, ${locations.headquarters.postalCode} ${locations.headquarters.city}`,
+    phone: contact.phone.display,
+  },
+  {
+    role: standorte.residenceRole,
+    city: locations.residence.city,
+    street: `${locations.residence.street}, ${locations.residence.postalCode} ${locations.residence.city}`,
+    phone: contact.mobile.display,
+  },
+];
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -20,16 +35,36 @@ export const metadata: Metadata = {
 };
 
 /**
- * Kontakt. Порядок блоков — как в старом `kontakt.html`, с двумя
- * отличиями по решению владельца: адрес Касселя, которого на старой
- * странице не было ни разу, и согласие на карту, которое теперь
- * запоминается (`ConsentMap`) вместо того, чтобы спрашиваться заново
- * при каждом визите.
+ * Kontakt. Порядок блоков — как в старом `kontakt.html`, с тремя
+ * отличиями по решению владельца: хиро на этой странице больше нет,
+ * адрес Касселя, которого на старой странице не было ни разу, и
+ * согласие на карту, которое теперь запоминается (`ConsentMap`)
+ * вместо того, чтобы спрашиваться заново при каждом визите.
  *
- *   1. хиро — без кнопок, страница сама и есть действие
- *   2. форма + контактные каналы + блок для соискателей
- *   3. Standorte — оба адреса, карта Volkmarsen по согласию
- *   4. закрывающий разворот
+ *   1. закреплённый заголовок слева, форма справа
+ *   2. каналы связи строкой (телефон, мобильный, почта, факс)
+ *   3. Standorte — оба адреса теми же карточками, что у карты Гессена
+ *      на главной (`LocationCards`, вынесен из `HesseMap`), карта
+ *      Volkmarsen рядом по согласию
+ *
+ * Закрывающего разворота («Kostenlose Beratung» → `/beratung`) здесь
+ * больше нет по просьбе владельца: сама страница уже и есть та самая
+ * консультация — приглашать со страницы контактов на страницу
+ * контактов было лишним.
+ *
+ * Хиро убрано тем же приёмом, что на FAQ: заголовок слева (`text`,
+ * закреплён), контент справа (`aside`) — здесь это форма. Текст
+ * заголовка — прежний `hero` (был в `PageHero`), а не `form.eyebrow/
+ * title/text`: тот вводный абзац формы («Kontaktformular» рядом
+ * с самой формой) стал бы дублировать очевидное. Блок для
+ * соискателей (`bewerber`, ни разу не показывался и на старом сайте)
+ * убран со страницы целиком по просьбе владельца — карточка вела
+ * на Karriere, которая и так есть в шапке. Каналы связи, которые
+ * раньше стояли отдельной колонкой рядом с формой, теперь строкой
+ * пониже, на всю ширину — так им не тесно в узкой колонке.
+ * Страница убрана из `pagesWithHero` — шапка здесь всегда
+ * непрозрачная, первому блоку нужен свой отступ под неё
+ * (`--header-h`) вместо отступа хиро.
  */
 export default async function KontaktPage({
   params,
@@ -39,103 +74,68 @@ export default async function KontaktPage({
 
   return (
     <>
-      <PageHero eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
-
-      <section className="pt-break">
+      <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col span="text">
-            <SectionHeading eyebrow={form.eyebrow} title={form.title} lead={form.text} />
-            <div className="mt-lg">
-              <ContactForm />
-            </div>
+            <StickyHeading eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
           </Col>
-
           <Col span="aside">
-            <p className="text-meta text-ink-muted">{form.callLabel}</p>
-
-            <ul className="mt-2xs">
-              <li>
-                <Rule index={0} />
-                <div className="py-md">
-                  <p className="text-meta text-ink-muted">{cards.headquarters}</p>
-                  <a
-                    href={contact.phone.href}
-                    className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
-                  >
-                    {contact.phone.display}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <Rule index={1} />
-                <div className="py-md">
-                  <p className="text-meta text-ink-muted">{cards.mobile}</p>
-                  <a
-                    href={contact.mobile.href}
-                    className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
-                  >
-                    {contact.mobile.display}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <Rule index={2} />
-                <div className="py-md">
-                  <p className="text-meta text-ink-muted">{cards.email}</p>
-                  <a
-                    href={`mailto:${contact.email}`}
-                    className="text-h4 text-ink transition-colors hover:text-violet"
-                  >
-                    {contact.email}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <Rule index={3} />
-                <div className="py-md">
-                  <p className="text-meta text-ink-muted">{cards.fax}</p>
-                  <p className="text-h4 tabular-nums text-ink">{impressum.fax.display}</p>
-                </div>
-              </li>
-              <li aria-hidden="true">
-                <Rule index={4} />
-              </li>
-            </ul>
-
-            <div className="mt-xl border-s border-violet ps-md">
-              <p className="text-eyebrow uppercase text-violet">{bewerber.eyebrow}</p>
-              <p className="mt-2xs text-h4 text-ink">{bewerber.title}</p>
-              <Button href="/karriere" variant="secondary" size="sm" className="mt-sm">
-                {bewerber.cta}
-              </Button>
-            </div>
+            <ContactForm />
           </Col>
         </Grid>
       </section>
 
-      <section className="pt-turn">
+      <section className="pt-beat">
+        <Grid>
+          <Col>
+            <p className="text-meta text-ink-muted">{form.callLabel}</p>
+
+            <ul className="mt-md grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
+              <li className="flex flex-col gap-2xs">
+                <Rule index={0} />
+                <p className="mt-md text-meta text-ink-muted">{cards.headquarters}</p>
+                <a
+                  href={contact.phone.href}
+                  className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
+                >
+                  {contact.phone.display}
+                </a>
+              </li>
+              <li className="flex flex-col gap-2xs">
+                <Rule index={1} />
+                <p className="mt-md text-meta text-ink-muted">{cards.mobile}</p>
+                <a
+                  href={contact.mobile.href}
+                  className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
+                >
+                  {contact.mobile.display}
+                </a>
+              </li>
+              <li className="flex flex-col gap-2xs">
+                <Rule index={2} />
+                <p className="mt-md text-meta text-ink-muted">{cards.email}</p>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="text-h4 text-ink transition-colors hover:text-violet"
+                >
+                  {contact.email}
+                </a>
+              </li>
+              <li className="flex flex-col gap-2xs">
+                <Rule index={3} />
+                <p className="mt-md text-meta text-ink-muted">{cards.fax}</p>
+                <p className="text-h4 tabular-nums text-ink">{impressum.fax.display}</p>
+              </li>
+            </ul>
+          </Col>
+        </Grid>
+      </section>
+
+      <section className="pt-turn pb-turn">
         <Grid>
           <Col span="text">
             <SectionHeading eyebrow={standorte.eyebrow} title={standorte.title} />
-
-            <div className="mt-lg flex flex-col gap-lg">
-              <div>
-                <p className="text-subhead text-ink">{standorte.headquartersRole}</p>
-                <p className="mt-2xs text-ui text-ink-soft">
-                  {locations.headquarters.street}
-                  <br />
-                  {locations.headquarters.postalCode} {locations.headquarters.city}
-                </p>
-              </div>
-              <div>
-                <p className="text-subhead text-ink">{standorte.residenceRole}</p>
-                <p className="mt-2xs text-ui text-ink-soft">
-                  {locations.residence.street}
-                  <br />
-                  {locations.residence.postalCode} {locations.residence.city}
-                </p>
-              </div>
-            </div>
+            <LocationCards items={standorteItems} className="mt-lg" />
           </Col>
 
           <Col span="aside">
@@ -149,14 +149,6 @@ export default async function KontaktPage({
           </Col>
         </Grid>
       </section>
-
-      <PageClosing
-        eyebrow={closingFamily.eyebrow}
-        title={closingFamily.title}
-        text={closingFamily.text}
-        points={closing.points}
-        action={{ href: "/beratung", label: closingFamily.cta }}
-      />
     </>
   );
 }
