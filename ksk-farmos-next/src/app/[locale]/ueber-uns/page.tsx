@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { NumberedList } from "@/components/page/NumberedList";
-import { PageClosing } from "@/components/page/PageClosing";
 import { PageHero } from "@/components/page/PageHero";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
@@ -12,7 +11,6 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
-import { closing } from "@/content/home";
 import {
   geschichte,
   hero,
@@ -22,7 +20,6 @@ import {
   social,
   team,
 } from "@/content/pages/ueber-uns";
-import { closingFamily } from "@/content/pages/shared";
 import { social as socialLinks } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -31,9 +28,11 @@ export const metadata: Metadata = {
 };
 
 /**
- * Über uns. Порядок отличается от старого `ueber-uns.html` по решению
- * владельца: Team переехал на первое место сразу после хиро,
- * Geschichte — на второе, перед Leitbild.
+ * Über uns. Порядок и состав отличаются от старого `ueber-uns.html`
+ * по решению владельца: Team переехал на первое место сразу после
+ * хиро, Geschichte — на второе, перед Leitbild, закрывающий разворот
+ * (`PageClosing`) убран со страницы совсем, и последним блоком стоит
+ * Social Media.
  *
  *   1. хиро
  *   2. Team — люди за компанией
@@ -41,7 +40,6 @@ export const metadata: Metadata = {
  *   4. Leitbild — пять принципов
  *   5. Kooperationen — с кем работаем
  *   6. Social Media
- *   7. закрывающий разворот
  */
 export default async function UeberUnsPage({
   params,
@@ -155,7 +153,16 @@ export default async function UeberUnsPage({
         </div>
       </section>
 
-      <section className="pt-beat">
+      {/* Закрывающий разворот (`PageClosing`) убран с этой страницы
+          целиком по просьбе владельца — последний блок теперь Social
+          Media. Отступы — как у обычного разворота «заголовок слева,
+          перечень справа» (ServiceList, Kooperationen): раньше правая
+          колонка была растянута через `justify-center` до высоты
+          левой и центрировалась в ней, из-за чего между двумя
+          короткими ссылками и следующим блоком оставался неоправданно
+          большой зазор. Здесь тот же верхний край у обеих колонок,
+          без трюка. */}
+      <section className="pt-turn pb-turn">
         <Grid>
           <Col span="text">
             <SectionHeading
@@ -164,7 +171,7 @@ export default async function UeberUnsPage({
               lead={social.text}
             />
           </Col>
-          <Col span="aside" className="flex flex-col justify-center gap-md">
+          <Col span="aside" className="flex flex-col gap-md">
             <a
               href={socialLinks.instagram}
               target="_blank"
@@ -186,14 +193,6 @@ export default async function UeberUnsPage({
           </Col>
         </Grid>
       </section>
-
-      <PageClosing
-        eyebrow={closingFamily.eyebrow}
-        title={closingFamily.title}
-        text={closingFamily.text}
-        points={closing.points}
-        action={{ href: "/beratung", label: closingFamily.cta }}
-      />
     </>
   );
 }
