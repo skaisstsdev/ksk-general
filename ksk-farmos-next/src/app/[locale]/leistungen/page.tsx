@@ -115,6 +115,19 @@ export default async function LeistungenPage({
         <div className="bg-violet">
           <Grid className="lg:items-center">
             <Col span="text">
+              <Photo
+                src="/img/wohnprojekt.webp"
+                alt="Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
+                ratio="4 / 5"
+                position="40% 60%"
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                bleed="start"
+                slide
+                parallax
+              />
+            </Col>
+
+            <Col span="aside">
               <Eyebrow className="text-white-pure/90">{wohnprojekte.eyebrow}</Eyebrow>
               <h2 className="mt-2xs max-w-[18ch] text-h1 text-white-pure hyphens-auto">
                 {wohnprojekte.title}
@@ -133,19 +146,6 @@ export default async function LeistungenPage({
                   />
                 ))}
               </div>
-            </Col>
-
-            <Col span="aside" className="lg:order-last">
-              <Photo
-                src="/img/wohnprojekt.webp"
-                alt="Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
-                ratio="4 / 5"
-                position="40% 60%"
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                bleed="end"
-                slide
-                parallax
-              />
             </Col>
           </Grid>
         </div>
