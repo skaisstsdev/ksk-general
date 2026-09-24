@@ -30,16 +30,17 @@ export const metadata: Metadata = {
 };
 
 /**
- * Leistungen. Порядок блоков — как в старом `leistungen.html`, кроме
- * двух отступлений по решению владельца: вводная фраза про
- * Beatmungspflege снята целиком, а häusliche Intensivpflege лишилась
- * фотографии и встала в тот же текстовый разворот, что диагнозы
- * и Kostenübernahme (закреплённый заголовок слева, перечень справа).
+ * Leistungen. Порядок блоков отличается от старого `leistungen.html`
+ * по решению владельца: вводная фраза про Beatmungspflege снята
+ * целиком, häusliche Intensivpflege лишилась фотографии и встала
+ * в тот же текстовый разворот, что диагнозы и Kostenübernahme, а
+ * Wohnprojekte переехал сразу после неё — перед диагнозами, а не
+ * после.
  *
  *   1. хиро
  *   2. häusliche Intensivpflege            #haeuslich
- *   3. кого берём — пять диагнозов
- *   4. Wohnprojekte                       #wohnprojekte
+ *   3. Wohnprojekte                       #wohnprojekte
+ *   4. кого берём — пять диагнозов
  *   5. Pflegeberatung                      #beratung
  *   6. кто платит
  *   7. закрывающий разворот
@@ -99,17 +100,6 @@ export default async function LeistungenPage({
         </Grid>
       </section>
 
-      <section id="krankheitsbild" className="pt-turn">
-        <Grid>
-          <Col span="text">
-            <StickyHeading eyebrow={diagnosen.eyebrow} title={diagnosen.title} />
-          </Col>
-          <Col span="aside">
-            <NumberedList items={diagnosen.items} />
-          </Col>
-        </Grid>
-      </section>
-
       <PhotoSplit
         id="wohnprojekte"
         side="end"
@@ -133,6 +123,17 @@ export default async function LeistungenPage({
           ))}
         </div>
       </PhotoSplit>
+
+      <section id="krankheitsbild" className="pt-turn">
+        <Grid>
+          <Col span="text">
+            <StickyHeading eyebrow={diagnosen.eyebrow} title={diagnosen.title} />
+          </Col>
+          <Col span="aside">
+            <NumberedList items={diagnosen.items} />
+          </Col>
+        </Grid>
+      </section>
 
       <PhotoSplit
         id="beratung"
