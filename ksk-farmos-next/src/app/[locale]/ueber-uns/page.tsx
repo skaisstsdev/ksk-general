@@ -190,6 +190,20 @@ export default async function UeberUnsPage({
               Facebook
               <ArrowRight className="size-5 text-violet transition-transform duration-200 ease-out-soft group-hover:translate-x-1 rtl:-scale-x-100" />
             </a>
+            {/* Не сеть — ссылка на профиль компании в Google (отзывы
+                и карточка на Google Maps). Тот же адрес, что уже
+                используется на главной кнопкой «Bewertung abgeben»
+                под отзывами (`social.googleReview` в `site.ts`) —
+                не новый реквизит, а повтор существующего. */}
+            <a
+              href={socialLinks.googleReview}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between border-b border-line py-sm text-h4 text-ink transition-colors hover:text-violet"
+            >
+              Google
+              <ArrowRight className="size-5 text-violet transition-transform duration-200 ease-out-soft group-hover:translate-x-1 rtl:-scale-x-100" />
+            </a>
           </Col>
         </Grid>
       </section>
