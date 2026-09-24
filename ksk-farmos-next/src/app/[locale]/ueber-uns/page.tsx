@@ -4,13 +4,13 @@ import { setRequestLocale } from "next-intl/server";
 import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
 import { PageHero } from "@/components/page/PageHero";
-import { PhotoSplit } from "@/components/page/PhotoSplit";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ExpandingPhoto } from "@/components/ui/ExpandingPhoto";
 import { ArrowRight } from "@/components/ui/icons";
 import { Col, Grid } from "@/components/ui/Grid";
+import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
 import { closing } from "@/content/home";
 import {
@@ -121,18 +121,31 @@ export default async function UeberUnsPage({
         </Grid>
       </section>
 
-      <PhotoSplit
-        side="end"
-        pause="turn"
-        photo={{
-          src: "/img/kooperation.webp",
-          alt: "Pflegeberaterin und Seniorin besprechen gemeinsam Unterlagen",
-          ratio: "3 / 4",
-        }}
-      >
-        <SectionHeading eyebrow={kooperationen.eyebrow} title={kooperationen.title} />
-        <RuledList className="mt-md" items={kooperationen.items} />
-      </PhotoSplit>
+      {/* Не `PhotoSplit`: тот всегда отдаёт фото всю колонку и бли́т
+          её до края экрана, а тут по просьбе владельца — кадр меньше,
+          примерно на 30% (`w-[70%]`), поэтому и без вылета: сжатый
+          кадр, упирающийся в край экрана, читался бы нескладно. */}
+      <section className="overflow-x-clip pt-turn">
+        <Grid className="lg:items-center">
+          <Col span="text">
+            <SectionHeading eyebrow={kooperationen.eyebrow} title={kooperationen.title} />
+            <RuledList className="mt-md" items={kooperationen.items} />
+          </Col>
+
+          <Col span="aside">
+            <div className="w-full lg:ms-auto lg:w-[70%]">
+              <Photo
+                src="/img/kooperation-team.jpg"
+                alt="Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung"
+                ratio="4 / 5"
+                sizes="(min-width: 1024px) 33vw, 70vw"
+                slide
+                parallax
+              />
+            </div>
+          </Col>
+        </Grid>
+      </section>
 
       <section className="pt-beat">
         <Grid>
