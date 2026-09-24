@@ -160,6 +160,7 @@ export default async function KontaktPage({
               label={standorte.headquartersRole}
               consentText={map.consent}
               loadLabel={map.load}
+              loadingText={map.loading}
               revokeLabel={map.revoke}
             />
             <LocationCards items={standorteItems} />
