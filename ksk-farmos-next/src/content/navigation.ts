@@ -45,6 +45,5 @@ export const pagesWithHero: readonly string[] = [
   "/leistungen",
   "/ueber-uns",
   "/karriere",
-  "/faq",
   "/kontakt",
 ];
