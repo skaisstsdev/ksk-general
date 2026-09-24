@@ -40,9 +40,4 @@ export const applyCta: NavItem = {
  * прозрачна, пока страница не прокручена. Остальные (формы, юридические)
  * начинаются светлым полем, и шапка на них сразу сплошная.
  */
-export const pagesWithHero: readonly string[] = [
-  "/",
-  "/leistungen",
-  "/ueber-uns",
-  "/karriere",
-];
+export const pagesWithHero: readonly string[] = ["/", "/karriere"];

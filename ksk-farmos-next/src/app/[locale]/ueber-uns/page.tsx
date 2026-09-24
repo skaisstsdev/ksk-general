@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { NumberedList } from "@/components/page/NumberedList";
-import { PageHero } from "@/components/page/PageHero";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -13,7 +12,6 @@ import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
 import {
   geschichte,
-  hero,
   kooperationen,
   leitbild,
   meta,
@@ -29,17 +27,18 @@ export const metadata: Metadata = {
 
 /**
  * Über uns. Порядок и состав отличаются от старого `ueber-uns.html`
- * по решению владельца: Team переехал на первое место сразу после
- * хиро, Geschichte — на второе, перед Leitbild, закрывающий разворот
- * (`PageClosing`) убран со страницы совсем, и последним блоком стоит
- * Social Media.
+ * по решению владельца: Team стоит на первом месте, Geschichte — на
+ * втором, перед Leitbild, закрывающий разворот (`PageClosing`) убран
+ * со страницы совсем, и последним блоком стоит Social Media.
  *
- *   1. хиро
- *   2. Team — люди за компанией
- *   3. Geschichte — фото основателя
- *   4. Leitbild — пять принципов
- *   5. Kooperationen — с кем работаем
- *   6. Social Media
+ *   1. Team — люди за компанией
+ *   2. Geschichte — фото основателя
+ *   3. Leitbild — пять принципов
+ *   4. Kooperationen — с кем работаем
+ *   5. Social Media
+ *
+ * Хиро (полноэкранное фото) на этой странице временно убрано по
+ * просьбе владельца — страница начинается сразу с первого блока.
  */
 export default async function UeberUnsPage({
   params,
@@ -49,26 +48,7 @@ export default async function UeberUnsPage({
 
   return (
     <>
-      <PageHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        lead={hero.lead}
-        actions={[
-          { href: "/beratung", label: hero.beratung },
-          { href: "/kontakt", label: hero.kontakt, variant: "secondary" },
-        ]}
-        image={{
-          src: "/img/ueber-uns-hero.jpg",
-          width: 1600,
-          height: 1066,
-          srcNarrow: "/img/ueber-uns-hero-hoch.webp",
-          widthNarrow: 1024,
-          heightNarrow: 1536,
-          alt: "Pflegekraft im Gespräch mit einem Angehörigen in der Küche",
-        }}
-      />
-
-      <section className="pt-break">
+      <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col>
             <SectionHeading eyebrow={team.eyebrow} title={team.title} />

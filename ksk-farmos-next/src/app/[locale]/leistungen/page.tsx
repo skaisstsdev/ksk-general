@@ -4,7 +4,6 @@ import { setRequestLocale } from "next-intl/server";
 import { Accordion } from "@/components/page/Accordion";
 import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
-import { PageHero } from "@/components/page/PageHero";
 import { PhotoSplit } from "@/components/page/PhotoSplit";
 import { RuledGrid } from "@/components/page/RuledGrid";
 import { RuledList } from "@/components/page/RuledList";
@@ -18,7 +17,6 @@ import {
   beratung,
   diagnosen,
   haeuslich,
-  hero,
   kosten,
   meta,
   wohnprojekte,
@@ -38,13 +36,15 @@ export const metadata: Metadata = {
  * Wohnprojekte переехал сразу после неё — перед диагнозами, а не
  * после.
  *
- *   1. хиро
- *   2. häusliche Intensivpflege            #haeuslich
- *   3. Wohnprojekte                       #wohnprojekte
- *   4. кого берём — пять диагнозов
- *   5. Pflegeberatung                      #beratung
- *   6. кто платит
- *   7. закрывающий разворот
+ *   1. häusliche Intensivpflege            #haeuslich
+ *   2. Wohnprojekte                       #wohnprojekte
+ *   3. кого берём — пять диагнозов
+ *   4. Pflegeberatung                      #beratung
+ *   5. кто платит
+ *   6. закрывающий разворот
+ *
+ * Хиро (полноэкранное фото) на этой странице временно убрано по
+ * просьбе владельца — страница начинается сразу с первого блока.
  *
  * Якоря `#haeuslich`, `#wohnprojekte`, `#beratung` — цели ссылок
  * из списка услуг главной. В старом сайте два последних назывались
@@ -58,30 +58,7 @@ export default async function LeistungenPage({
 
   return (
     <>
-      <PageHero
-        eyebrow={hero.eyebrow}
-        title={hero.title}
-        lead={hero.lead}
-        actions={[
-          { href: "/beratung", label: hero.beratung },
-          {
-            href: "/leistungen#haeuslich",
-            label: hero.all,
-            variant: "secondary",
-          },
-        ]}
-        image={{
-          src: "/img/leistungen-hero.webp",
-          width: 2000,
-          height: 1125,
-          srcNarrow: "/img/leistungen-hero-hoch.webp",
-          widthNarrow: 1000,
-          heightNarrow: 1502,
-          alt: "Pflegekraft stellt ein Beatmungsgerät für die häusliche Intensivpflege ein",
-        }}
-      />
-
-      <section id="haeuslich" className="pt-break">
+      <section id="haeuslich" className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col span="text">
             <SectionHeading
