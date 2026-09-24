@@ -4,13 +4,13 @@ import { setRequestLocale } from "next-intl/server";
 import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
 import { PageHero } from "@/components/page/PageHero";
-import { PhotoSplit } from "@/components/page/PhotoSplit";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { ExpandingPhoto } from "@/components/ui/ExpandingPhoto";
 import { ArrowRight } from "@/components/ui/icons";
 import { Col, Grid } from "@/components/ui/Grid";
+import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
 import { closing } from "@/content/home";
 import {
@@ -121,22 +121,39 @@ export default async function UeberUnsPage({
         </Grid>
       </section>
 
-      <PhotoSplit
-        side="end"
-        pause="turn"
-        photo={{
-          src: "/img/kooperation-team.jpg",
-          alt: "Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung",
-          ratio: "4 / 5",
-        }}
-      >
-        <SectionHeading
-          eyebrow={kooperationen.eyebrow}
-          title={kooperationen.title}
-          lead={kooperationen.text}
-        />
-        <RuledList className="mt-md" items={kooperationen.items} />
-      </PhotoSplit>
+      {/* Тот же приём, что у Wohnprojekte на Leistungen: фиолетовый
+          на весь разворот, включая полосу за фото, но по высоте
+          не выходит за пределы самой фотографии — высота фиолетового
+          ничем не назначена, она берётся из высоты строки сетки,
+          а строку задаёт более высокий из двух элементов. */}
+      <section className="overflow-x-clip pt-turn">
+        <div className="bg-violet">
+          <Grid className="lg:items-center">
+            <Col span="text">
+              <Photo
+                src="/img/kooperation-team.jpg"
+                alt="Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung"
+                ratio="4 / 5"
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                bleed="start"
+                slide
+                parallax
+              />
+            </Col>
+
+            <Col span="aside">
+              <Eyebrow className="text-white-pure/90">{kooperationen.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs max-w-[18ch] text-h1 text-white-pure hyphens-auto">
+                {kooperationen.title}
+              </h2>
+              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
+                {kooperationen.text}
+              </p>
+              <RuledList className="mt-md" items={kooperationen.items} tone="paper" />
+            </Col>
+          </Grid>
+        </div>
+      </section>
 
       <section className="pt-beat">
         <Grid>
