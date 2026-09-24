@@ -6,10 +6,14 @@ import { about } from "@/content/home";
 import { company } from "@/content/site";
 
 /**
- * Кто мы. Снимок основателя — настоящий, не постановочный, и это ровно
- * тот регистр, который просил бриф. Кадр въезжает из левого края
- * экрана вслед за прокруткой, текст держит правую колонку сетки
- * и стоит по центру кадра.
+ * Кто мы. Настоящий снимок, не постановочный, и это ровно тот регистр,
+ * который просил бриф. Кадр въезжает из левого края экрана вслед
+ * за прокруткой, текст держит правую колонку сетки и стоит по центру
+ * кадра.
+ *
+ * По просьбе владельца — командное фото вместо портрета основателя
+ * с сотрудницей: та же история («кто мы»), но лицом всей команды,
+ * а не одного человека.
  */
 export function AboutPreview() {
   return (
@@ -17,8 +21,8 @@ export function AboutPreview() {
       <Grid className="lg:items-center">
         <Col span="text">
           <Photo
-            src="/img/gruender.webp"
-            alt={`${company.founder}, Gründer von ${company.legalName}, im Gespräch mit einer Mitarbeiterin`}
+            src="/img/about-team.webp"
+            alt={`Das Team von ${company.legalName}`}
             ratio="4 / 3"
             ratioLg="3 / 2"
             sizes="(min-width: 1024px) 55vw, 100vw"
