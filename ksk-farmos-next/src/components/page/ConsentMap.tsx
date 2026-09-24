@@ -44,7 +44,7 @@ export function ConsentMap({
 
   return (
     <div className="flex flex-col gap-2xs">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-xs bg-sunken">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-xs bg-sunken">
         {consent ? (
           <iframe
             title={label}

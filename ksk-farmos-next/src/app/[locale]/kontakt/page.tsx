@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { ConsentMap } from "@/components/page/ConsentMap";
-import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
+import { StickyHeading } from "@/components/page/SectionHeading";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { LocationCards } from "@/components/ui/LocationCards";
 import { Rule } from "@/components/ui/Rule";
+import { StickyCol } from "@/components/ui/StickyCol";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { map as homeMap } from "@/content/home";
 import { cards, form, hero, map, meta, standorte } from "@/content/pages/kontakt";
 import { contact, impressum, locations } from "@/content/site";
 
@@ -43,9 +46,10 @@ export const metadata: Metadata = {
  *
  *   1. закреплённый заголовок слева, форма справа
  *   2. каналы связи строкой (телефон, мобильный, почта, факс)
- *   3. Standorte — оба адреса теми же карточками, что у карты Гессена
- *      на главной (`LocationCards`, вынесен из `HesseMap`), карта
- *      Volkmarsen рядом по согласию
+ *   3. Standorte — буквально тот же блок, что MapSection на главной
+ *      (тот же заголовок и подтекст), но вместо карты Гессена —
+ *      карта Volkmarsen по согласию, а под ней те же карточки адресов
+ *      (`LocationCards`, вынесен из `HesseMap`)
  *
  * Закрывающего разворота («Kostenlose Beratung» → `/beratung`) здесь
  * больше нет по просьбе владельца: сама страница уже и есть та самая
@@ -131,14 +135,26 @@ export default async function KontaktPage({
         </Grid>
       </section>
 
+      {/* Буквально тот же блок, что MapSection на главной (тот же
+          заголовок и тот же подтекст, `map.coverage` из `home.ts`),
+          только вместо карты Гессена — карта Volkmarsen по согласию:
+          у HesseMap на этой странице нет смысла, а вот прямая ссылка
+          на дорогу до штаб-квартиры есть. Карточки адресов — под
+          картой, той же колонкой, тем же приёмом, что у HesseMap
+          (карта и `LocationCards` друг под другом, `gap-xl`). */}
       <section className="pt-turn pb-turn">
         <Grid>
           <Col span="text">
-            <SectionHeading eyebrow={standorte.eyebrow} title={standorte.title} />
-            <LocationCards items={standorteItems} className="mt-lg" />
+            <StickyCol>
+              <Eyebrow className="text-ink-muted">{standorte.eyebrow}</Eyebrow>
+              <h2 className="mt-2xs text-h1 text-ink">{standorte.title}</h2>
+              <p className="mt-md max-w-[34ch] text-body text-ink-soft">
+                {homeMap.coverage}
+              </p>
+            </StickyCol>
           </Col>
 
-          <Col span="aside">
+          <Col span="aside" className="flex flex-col gap-xl">
             <ConsentMap
               query={`${locations.headquarters.street}, ${locations.headquarters.postalCode} ${locations.headquarters.city}`}
               label={standorte.headquartersRole}
@@ -146,6 +162,7 @@ export default async function KontaktPage({
               loadLabel={map.load}
               revokeLabel={map.revoke}
             />
+            <LocationCards items={standorteItems} />
           </Col>
         </Grid>
       </section>
