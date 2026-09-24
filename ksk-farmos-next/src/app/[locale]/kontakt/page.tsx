@@ -100,7 +100,7 @@ export default async function KontaktPage({
                 <p className="mt-md text-meta text-ink-muted">{cards.headquarters}</p>
                 <a
                   href={contact.phone.href}
-                  className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
+                  className="text-subhead tabular-nums text-ink transition-colors hover:text-violet"
                 >
                   {contact.phone.display}
                 </a>
@@ -110,7 +110,7 @@ export default async function KontaktPage({
                 <p className="mt-md text-meta text-ink-muted">{cards.mobile}</p>
                 <a
                   href={contact.mobile.href}
-                  className="text-h4 tabular-nums text-ink transition-colors hover:text-violet"
+                  className="text-subhead tabular-nums text-ink transition-colors hover:text-violet"
                 >
                   {contact.mobile.display}
                 </a>
@@ -120,7 +120,7 @@ export default async function KontaktPage({
                 <p className="mt-md text-meta text-ink-muted">{cards.email}</p>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="text-h4 text-ink transition-colors hover:text-violet"
+                  className="text-subhead text-ink transition-colors hover:text-violet"
                 >
                   {contact.email}
                 </a>
@@ -128,7 +128,7 @@ export default async function KontaktPage({
               <li className="flex flex-col gap-2xs">
                 <Rule index={3} />
                 <p className="mt-md text-meta text-ink-muted">{cards.fax}</p>
-                <p className="text-h4 tabular-nums text-ink">{impressum.fax.display}</p>
+                <p className="text-subhead tabular-nums text-ink">{impressum.fax.display}</p>
               </li>
             </ul>
           </Col>
