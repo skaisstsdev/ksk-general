@@ -13,7 +13,7 @@ import {
 import { cn } from "@/lib/cn";
 import { Checkbox, Field, Honeypot, Select, Textarea } from "./fields";
 import { FormStatus } from "./FormStatus";
-import { submitStub } from "./submit";
+import { submitForm } from "./submit";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -162,17 +162,27 @@ export function BewerbungForm() {
     }
 
     setStatus("sending");
-    const result = await submitStub("schnellbewerbung", {
-      vorname,
-      nachname,
-      email,
-      telefon,
-      qualifikation,
-      erfahrung,
-      fuehrerschein,
-      nachricht,
-      cv: cv?.name ?? null,
-    });
+    const findLabel = (options: { value: string; label: string }[], value: string) =>
+      options.find((o) => o.value === value)?.label ?? value;
+    const qualifikationLabel = findLabel(qualifikationOptions, qualifikation);
+    const erfahrungLabel = findLabel(erfahrungOptions, erfahrung);
+    const fuehrerscheinLabel = findLabel(fuehrerscheinOptions, fuehrerschein);
+    const result = await submitForm(
+      "schnellbewerbung",
+      {
+        vorname,
+        nachname,
+        email,
+        telefon,
+        qualifikation: qualifikationLabel,
+        erfahrung: erfahrungLabel,
+        fuehrerschein: fuehrerscheinLabel,
+        nachricht,
+        honeypot: firma,
+        elapsedMs: Date.now() - startedAt.current,
+      },
+      cv,
+    );
     setStatus(result.ok ? "success" : "error");
   }
 

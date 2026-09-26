@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { Checkbox, Field, Honeypot, Textarea } from "./fields";
 import { FormStatus } from "./FormStatus";
-import { submitStub } from "./submit";
+import { submitForm } from "./submit";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -62,12 +62,14 @@ export function BeratungForm() {
     }
 
     setStatus("sending");
-    const result = await submitStub("beratung", {
+    const result = await submitForm("beratung", {
       vorname,
       nachname,
       email,
       telefon,
       nachricht,
+      honeypot: firma,
+      elapsedMs: Date.now() - startedAt.current,
     });
     setStatus(result.ok ? "success" : "error");
   }

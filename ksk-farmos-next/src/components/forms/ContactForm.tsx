@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { betreffValues } from "@/content/pages/kontakt";
 import { Checkbox, Field, Honeypot, Select, Textarea } from "./fields";
 import { FormStatus } from "./FormStatus";
-import { submitStub } from "./submit";
+import { submitForm } from "./submit";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -106,13 +106,18 @@ export function ContactForm() {
     }
 
     setStatus("sending");
-    const result = await submitStub("kontakt", {
+    const betreffLabel =
+      content.betreffOptions.find((o: { value: string; label: string }) => o.value === betreff)
+        ?.label ?? betreff;
+    const result = await submitForm("kontakt", {
       vorname,
       nachname,
       email,
       telefon,
-      betreff,
+      betreff: betreffLabel,
       nachricht,
+      honeypot: firma,
+      elapsedMs: Date.now() - startedAt.current,
     });
     setStatus(result.ok ? "success" : "error");
   }

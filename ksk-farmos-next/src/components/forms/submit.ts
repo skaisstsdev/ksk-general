@@ -1,20 +1,41 @@
 export type SubmitResult = { ok: true } | { ok: false; error: string };
 
 /**
- * Заглушка отправки форм.
+ * Отправка форм — POST на `/api/submit-form` (Resend, см. роут).
  *
- * Настоящая отправка — почтой через Resend — появляется на этапе 5
- * брифа; проверка данных и защита от спама на сервере — на этапе 4.
- * До тех пор формы должны быть полностью рабочими с точки зрения
- * пользователя (проверка полей, состояния загрузки/успеха/ошибки),
- * но ничего никуда не уходит — только пишет в консоль браузера,
- * чтобы это было видно при проверке.
+ * `honeypot`/`elapsedMs` едут в payload вместе с остальными полями —
+ * сервер проверяет их тоже (см. роут), не только браузер: бот, который
+ * шлёт запрос мимо формы, клиентскую проверку не встретит вообще.
+ *
+ * `cv` — только у формы с файлом (schnellbewerbung): тогда уходит
+ * `multipart/form-data`, иначе — обычный JSON, без причины городить
+ * FormData там, где нечего вкладывать.
  */
-export async function submitStub<T extends Record<string, unknown>>(
+export async function submitForm(
   formName: string,
-  payload: T,
+  payload: Record<string, unknown>,
+  cv?: File | null,
 ): Promise<SubmitResult> {
-  console.info(`[${formName}] заглушка отправки`, payload);
-  await new Promise((resolve) => setTimeout(resolve, 600));
-  return { ok: true };
+  try {
+    let response: Response;
+
+    if (cv) {
+      const body = new FormData();
+      body.set("formName", formName);
+      body.set("payload", JSON.stringify(payload));
+      body.set("cv", cv);
+      response = await fetch("/api/submit-form", { method: "POST", body });
+    } else {
+      response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formName, payload }),
+      });
+    }
+
+    if (!response.ok) return { ok: false, error: `HTTP ${response.status}` };
+    return { ok: true };
+  } catch {
+    return { ok: false, error: "network" };
+  }
 }
