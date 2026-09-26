@@ -125,8 +125,10 @@ export function PageHero({
                 {title}
               </h1>
 
+              {/* На телефоне лида нет — как на главной (`HeroCopy.tsx`):
+                  от заголовка сразу к кнопкам, без текста между ними. */}
               {lead ? (
-                <p className="mt-md max-w-[27ch] text-lead text-paper/90 lg:max-w-none">
+                <p className="mt-md hidden text-lead text-paper/90 lg:block">
                   {lead}
                 </p>
               ) : null}
