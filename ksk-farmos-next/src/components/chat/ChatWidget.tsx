@@ -243,7 +243,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="flex h-[min(32rem,70vh)] w-[calc(100vw-2rem)] max-w-[23rem] flex-col overflow-hidden rounded-xs bg-paper shadow-lifted"
+            className="flex h-[min(32rem,70vh)] w-[calc(100vw-2rem)] max-w-[23rem] flex-col overflow-hidden rounded-xs border border-white-pure bg-paper shadow-lifted"
           >
             <div className="flex shrink-0 items-center justify-between gap-sm bg-violet px-sm py-xs">
               <div className="flex items-center gap-xs">
