@@ -517,59 +517,54 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 6. (Removed — replaced by floating lang pill in §15) ──
 
   // ── 7. FAQ accordion ───────────────────────────────────
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Smooth open/close via direct Web Animations API height animation
+  // (not max-height, not CSS grid tracks — both are unreliable across
+  // browsers). One single source of truth for timing: this JS, nothing
+  // in CSS to drift out of sync with it.
+  function setAnswerOpen(item, opening) {
+    const answer = item.querySelector('.faq-answer');
+    if (!answer) return;
+
+    const currentHeight = parseFloat(getComputedStyle(answer).height) || 0;
+    const currentOpacity = parseFloat(getComputedStyle(answer).opacity) || 0;
+
+    if (answer._faqAnim) answer._faqAnim.cancel();
+    answer.style.height = currentHeight + 'px';
+    item.classList.toggle('open', opening);
+
+    const targetHeight = opening ? answer.scrollHeight : 0;
+    const targetOpacity = opening ? 1 : 0;
+
+    answer._faqAnim = answer.animate(
+      [
+        { height: currentHeight + 'px', opacity: currentOpacity },
+        { height: targetHeight + 'px', opacity: targetOpacity }
+      ],
+      { duration: 350, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' }
+    );
+
+    answer._faqAnim.onfinish = () => {
+      answer._faqAnim.cancel();
+      answer._faqAnim = null;
+      // Clear the inline override — CSS (.faq-item.open .faq-answer) now owns
+      // the resting state (height:auto/opacity:1 when open, 0/0 when closed),
+      // so there is no way for JS and CSS to disagree about the final look.
+      answer.style.height = '';
+      if (window.lenis) window.lenis.resize();
+    };
+  }
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      
-      const item = btn.closest('.faq-item');
-      if (!item) return;
-      
-      const answer = item.querySelector('.faq-answer');
-      if (!answer) return;
-      
-      const isOpen = item.classList.contains('open');
-
-      // Close all open items
+      const willOpen = !item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(openItem => {
-        const openAnswer = openItem.querySelector('.faq-answer');
-        if (openAnswer) {
-          // If we had set maxHeight to 'none' for responsiveness, restore the actual scrollHeight first
-          if (openAnswer.style.maxHeight === 'none') {
-            openAnswer.style.maxHeight = openAnswer.scrollHeight + 'px';
-          }
-          // Force layout reflow
-          openAnswer.offsetHeight;
-          // Set to 0 to trigger close transition
-          openAnswer.style.maxHeight = '0px';
-        }
-        openItem.classList.remove('open');
+        if (openItem !== item) setAnswerOpen(openItem, false);
       });
-
-      // Open clicked item
-      if (!isOpen) {
-        // Explicitly set starting height to 0
-        answer.style.maxHeight = '0px';
-        // Force layout reflow
-        answer.offsetHeight;
-        // Add open class and set ending height to trigger transition
-        item.classList.add('open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        
-        // After transition completes, set max-height to none so content wraps responsively on resize
-        setTimeout(() => {
-          if (item.classList.contains('open')) {
-            answer.style.maxHeight = 'none';
-          }
-        }, 450);
-      }
-
-      // Notify Lenis of height change to prevent scroll jitter after transition finishes
-      if (window.lenis) {
-        setTimeout(() => {
-          if (window.lenis) window.lenis.resize();
-        }, 450);
-      }
+      setAnswerOpen(item, willOpen);
     });
   });
 

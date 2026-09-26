@@ -3,13 +3,22 @@
   const CONFIG = {
     apiEndpoint: '/api/chat',
     welcomeMessages: {
-      de: 'Hallo! Ich bin der KI-Assistent von KSK Farmos. Wie kann ich Ihnen helfen?',
-      en: 'Hello! I\'m the KSK Farmos assistant. How can I help you?',
-      ru: 'Здравствуйте! Я ассистент KSK Farmos. Чем могу помочь?',
-      tr: 'Merhaba! KSK Farmos asistanıyım. Size nasıl yardımcı olabilirim?',
-      pl: 'Dzień dobry! Jestem asystentem KSK Farmos. Jak mogę pomóc?',
-      ar: 'مرحباً! أنا مساعد KSK Farmos. كيف يمكنني مساعدتك؟',
-      uk: 'Вітаю! Я асистент KSK Farmos. Чим можу допомогти?'
+      de: 'Hallo! Ich bin der KI-Assistent von KSK Farmos. Ich beantworte gern alle Ihre Fragen.',
+      en: 'Hello! I\'m the KSK Farmos AI assistant. I\'ll gladly answer all your questions.',
+      ru: 'Здравствуйте! Я ИИ-ассистент KSK Farmos. С радостью отвечу на все ваши вопросы.',
+      tr: 'Merhaba! KSK Farmos yapay zekâ asistanıyım. Tüm sorularınızı memnuniyetle yanıtlarım.',
+      pl: 'Dzień dobry! Jestem asystentem AI KSK Farmos. Chętnie odpowiem na wszystkie Państwa pytania.',
+      ar: 'مرحباً! أنا المساعد الذكي لـ KSK Farmos. يسعدني الإجابة على جميع أسئلتك.',
+      uk: 'Вітаю! Я ШІ-асистент KSK Farmos. Із радістю відповім на всі ваші запитання.'
+    },
+    disclaimers: {
+      de: 'KI-Assistent · Antworten werden mit OpenAI erstellt · <a href="datenschutz.html">Datenschutz</a>',
+      en: 'AI assistant · Responses generated with OpenAI · <a href="datenschutz.html">Privacy</a>',
+      ru: 'ИИ-ассистент · Ответы создаются с помощью OpenAI · <a href="datenschutz.html">Конфиденциальность</a>',
+      tr: 'Yapay zekâ asistanı · Yanıtlar OpenAI ile oluşturulur · <a href="datenschutz.html">Gizlilik</a>',
+      pl: 'Asystent AI · Odpowiedzi tworzone z OpenAI · <a href="datenschutz.html">Prywatność</a>',
+      ar: 'مساعد ذكاء اصطناعي · يتم إنشاء الردود بواسطة OpenAI · <a href="datenschutz.html">الخصوصية</a>',
+      uk: 'ШІ-асистент · Відповіді створюються за допомогою OpenAI · <a href="datenschutz.html">Конфіденційність</a>'
     },
     quickReplies: {
       de: ['Kostenübernahme?', 'Standorte?', 'Karriere?', 'Beratung anfragen'],
@@ -31,6 +40,11 @@
   // Получить быстрые ответы
   function getQuickReplies() {
     return CONFIG.quickReplies[currentLang] || CONFIG.quickReplies.de
+  }
+
+  // Получить строку прозрачности (кто генерирует ответы)
+  function getDisclaimer() {
+    return CONFIG.disclaimers[currentLang] || CONFIG.disclaimers.de
   }
 
   // Создать HTML виджета
@@ -98,6 +112,7 @@
             </svg>
           </button>
         </div>
+        <div class="ksk-chat-disclaimer" id="kskDisclaimer">${getDisclaimer()}</div>
       </div>
     `
     document.body.appendChild(widget)
@@ -246,6 +261,8 @@
     // Синхронизировать язык с lang-switcher сайта
     const observer = new MutationObserver(() => {
       currentLang = document.documentElement.lang || 'de'
+      const disclaimer = document.getElementById('kskDisclaimer')
+      if (disclaimer) disclaimer.innerHTML = getDisclaimer()
     })
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] })
   })
