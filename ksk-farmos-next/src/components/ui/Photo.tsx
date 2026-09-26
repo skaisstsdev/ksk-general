@@ -165,14 +165,24 @@ export function Photo({
         } as React.CSSProperties
       }
     >
-      {sliding ? (
+      {/* Датчики рендерятся по самим пропам (`slide`/`parallax`), не по
+          `sliding`/`moving`: те включают `isLg`, который на первом
+          рендере всегда `false` (см. `useIsLg`) и обновляется чуть
+          позже. Если датчик на первом рендере не смонтирован, а
+          `useScroll` его уже ждёт, — `ref` не успевает «гидратироваться»
+          к повторной проверке, и Motion бросает рантайм-ошибку
+          («Target ref is defined but not hydrated»). Датчик сам по себе
+          ничего не весит и не виден, поэтому держать его смонтированным
+          всегда — не проблема; используется его результат — только
+          когда `sliding`/`moving` истинны. */}
+      {slide ? (
         <div
           ref={slideSensorRef}
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-[50svh] h-1/2"
         />
       ) : null}
-      {moving ? (
+      {parallax ? (
         <div
           ref={parallaxSensorRef}
           aria-hidden="true"

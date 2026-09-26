@@ -131,8 +131,13 @@ export function ExpandingPhoto({
     return () => ro.disconnect();
   }, []);
 
+  // `target: reduced ? undefined : sceneRef`, не голый `sceneRef`:
+  // при `reduced` сцена (ниже) вообще не рендерится — закреплять
+  // нечего, — а `useScroll` с ref, который так и не дождался узла,
+  // бросает рантайм-ошибку («Target ref is defined but not hydrated»,
+  // см. `Photo.tsx` — тот же приём и то же объяснение).
   const { scrollYProgress: p } = useScroll({
-    target: sceneRef,
+    target: reduced ? undefined : sceneRef,
     offset: ["start start", "end end"],
   });
 
