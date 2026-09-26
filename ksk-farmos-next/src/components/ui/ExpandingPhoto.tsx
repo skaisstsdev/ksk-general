@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 
 import { cn } from "@/lib/cn";
+import { useIsLg } from "@/lib/useIsLg";
 
 /**
  * Фотография, которая раскрывается прокруткой.
@@ -17,26 +18,19 @@ import { cn } from "@/lib/cn";
  * Это самый сильный знак препинания на странице, поэтому он один:
  * второй такой рядом превратит приём в эффект.
  *
- * **Механика.** Раньше кадр буквально менял `width`/`height` на каждом
- * тике скролла — это раскладка (`layout`), самый дорогой вид
- * перерисовки, и на телефоне она не поспевала за пальцем: кадр дёргался,
- * а текст внутри него на ходу переносил строки. Сейчас кадр всегда
- * занимает всё поле сцены, а «маленький кадр» имитирует `clip-path`:
- * окно, которое открывается от центра к краям. `clip-path` и `transform`
- * умеет анимировать сам браузер, в обход JS и раскладки (Motion
- * подключает их к `ViewTimeline`, где браузер поддерживает —
- * см. `useScroll`/`useTransform` в `motion/react`).
- *
- * Единственная тонкость: `object-cover` внутри неизменного окна каждый
- * раз кроит один и тот же кусок снимка, а раньше, пока окно было
- * маленьким, `object-cover` показывал более крупный план (кроп меньше).
- * Это компенсирует `scale(p)` на самой картинке — см. `computeFrames`.
+ * **Два механизма, не один.** На десктопе кадр буквально меняет
+ * `width`/`height` (`--p`, записанный Motion, читает CSS `calc()`) —
+ * так было исходно, мощности десктопа для этого достаточно, и это
+ * ровно тот рисунок движения, который так и задуман. На телефоне то же
+ * самое — раскладка на каждый тик скролла — не поспевает за пальцем:
+ * кадр дёргался, а текст внутри переносил строки на ходу. Там кадр
+ * стоит на месте, а «маленькое окно» имитирует `clip-path`, который
+ * (вместе с `scale`, см. `computeFrames`) браузер умеет анимировать
+ * в обход JS, через `ViewTimeline`.
  *
  * Два кадра: горизонтальный от `lg` и вертикальный до — тот же
  * механизм art direction, что рекомендует next/image.
  */
-
-const LG = "(min-width: 64rem)";
 
 // Доли поля сцены, которые окно занимает в начале движения (p = 0).
 const NARROW = { w0: 0.82, h0: 0.56 };
@@ -66,7 +60,8 @@ function cover(w: number, h: number, iw: number, ih: number) {
 }
 
 /**
- * `clip-path` окна и `scale` снимка как функции доли прокрутки `p`.
+ * `clip-path` окна и `scale` снимка как функции доли прокрутки `p` —
+ * только для мобильного механизма (см. верхний комментарий).
  *
  * Проценты выреза линейны по `p` (окно растёт с постоянной скоростью),
  * поэтому им хватает двух ключевых кадров. Поправочный масштаб —
@@ -121,17 +116,9 @@ export function ExpandingPhoto({
   const sceneRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const isLg = useIsLg();
 
-  const [isLg, setIsLg] = useState(false);
   const [size, setSize] = useState({ w: 0, h: 0 });
-
-  useEffect(() => {
-    const mq = window.matchMedia(LG);
-    const onChange = () => setIsLg(mq.matches);
-    onChange();
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   useEffect(() => {
     const el = stickyRef.current;
@@ -192,8 +179,8 @@ export function ExpandingPhoto({
   });
 
   const picture = (
-    <picture>
-      <source media={LG} srcSet={wide} />
+    <picture className="contents">
+      <source media="(min-width: 64rem)" srcSet={wide} />
       <source srcSet={narrow} />
       <img
         {...img}
@@ -204,35 +191,72 @@ export function ExpandingPhoto({
     </picture>
   );
 
+  // Старый механизм: --t читает CSS напрямую из --p, кадр (ниже)
+  // растёт вокруг этого же текста через width/height.
+  const legacyCopy = children ? (
+    <>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/35 to-ink/0"
+        style={{ opacity: "var(--t)" }}
+      />
+      <div
+        className="absolute inset-x-0 bottom-0 px-gutter pb-3xl lg:pb-4xl"
+        style={{
+          opacity: "var(--t)",
+          transform: "translateY(calc((1 - var(--t)) * 1.5rem))",
+        }}
+      >
+        <div className="mx-auto max-w-page">{children}</div>
+      </div>
+    </>
+  ) : null;
+
   // Без движения — просто широкий кадр с текстом, без закрепления
   // и без сцены в два экрана: закреплять нечего.
   if (reduced) {
     return (
       <div
         className={cn(
-          "relative overflow-hidden bg-sunken aspect-[4/5] lg:aspect-[5/3]",
+          "relative overflow-hidden bg-sunken aspect-[4/5] lg:aspect-[5/3] [--t:1]",
           className,
         )}
       >
         {picture}
-        {children ? (
-          <>
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/35 to-ink/0"
-            />
-            <div className="absolute inset-x-0 bottom-0 px-gutter pb-3xl lg:pb-4xl">
-              <div className="mx-auto max-w-page">{children}</div>
-            </div>
-          </>
-        ) : null}
+        {legacyCopy}
+      </div>
+    );
+  }
+
+  if (isLg) {
+    return (
+      /* Сцена в два экрана: первый — пока кадр растёт, второй — пока
+         стоит раскрытым. Высота сцены и есть длина движения. */
+      <div ref={sceneRef} className={cn("relative h-[200svh]", className)}>
+        <motion.div
+          style={{ "--p": p } as React.CSSProperties}
+          className="sticky top-(--header-h) flex h-[calc(100svh-var(--header-h))] items-center justify-center [--w0:44%] [--h0:54%]"
+        >
+          <div
+            data-tone="dark"
+            className="relative overflow-hidden bg-sunken"
+            style={
+              {
+                width: "calc(var(--w0) * (1 - var(--p)) + 100% * var(--p))",
+                height: "calc(var(--h0) * (1 - var(--p)) + 100% * var(--p))",
+                "--t": "clamp(0, (var(--p) - 0.45) / 0.35, 1)",
+              } as React.CSSProperties
+            }
+          >
+            {picture}
+            {legacyCopy}
+          </div>
+        </motion.div>
       </div>
     );
   }
 
   return (
-    /* Сцена в два экрана: первый — пока кадр растёт, второй — пока
-       стоит раскрытым. Высота сцены и есть длина движения. */
     <div ref={sceneRef} className={cn("relative h-[200svh]", className)}>
       <div
         ref={stickyRef}

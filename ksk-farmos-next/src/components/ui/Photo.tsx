@@ -7,6 +7,7 @@ import { useLocale } from "next-intl";
 
 import { localeDir } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
+import { useIsLg } from "@/lib/useIsLg";
 
 /**
  * Фотография в композиции.
@@ -19,16 +20,15 @@ import { cn } from "@/lib/cn";
  * поэтому умеет разделять блоки — вылетать в край, подниматься снизу —
  * и тем самым заменяет собой смену подложки.
  *
- * **Выезд и параллакс — через `transform`, не через `x`/`y`.** Motion
- * умеет отдать анимацию скролла браузеру напрямую (`ViewTimeline`,
- * в обход JS на каждый кадр — то, что на телефоне не поспевает за
- * пальцем), но только когда стиль называется буквально `transform`
- * (а не удобным `x`/`y`) и когда границы скролла — один из именованных
- * пресетов Motion. Прежние границы (`"start center"`, `"start end"/"end
- * start"`) под пресеты не попадали; вместо этого здесь — невидимые
- * «датчики» (`slideSensorRef`/`parallaxSensorRef`), чьи размеры и
- * отступы внутри кадра подобраны так, что пресет `Enter`/`All` на них
- * даёт те же самые моменты начала и конца движения, что раньше.
+ * **Выезд и параллакс — два механизма.** На десктопе `x`/`y` считает
+ * JS на каждый тик скролла — так было исходно, и мощности десктопа
+ * хватает. На телефоне тот же JS на главном потоке отстаёт от пальца
+ * (мобильный браузер прокручивает страницу в отдельном потоке), поэтому
+ * там `transform` привязан к невидимым «датчикам» (`slideSensorRef`/
+ * `parallaxSensorRef`), чьи размеры и отступы внутри кадра подобраны
+ * так, что именованный пресет Motion (`Enter`/`All`) даёт те же моменты
+ * начала и конца движения, что и старые ручные границы, — но браузер
+ * ведёт эту анимацию сам, через `ViewTimeline`, в обход JS.
  */
 
 const DURATION = 0.6;
@@ -101,37 +101,45 @@ export function Photo({
   const slideSensorRef = useRef<HTMLDivElement>(null);
   const parallaxSensorRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  const isLg = useIsLg();
 
   const moving = parallax && !reduced;
   const sliding = slide && !reduced;
 
-  // Датчик высотой в половину кадра, сдвинутый на 50svh вниз от его
-  // верха: пресет `Enter` («start end» → «end end») на нём срабатывает
-  // ровно там же, где раньше срабатывали ручные границы «верх кадра
-  // у середины экрана» → «центр кадра у середины экрана» (расстояние
-  // между ними — половина высоты кадра).
-  const { scrollYProgress: slideP } = useScroll({
-    target: slideSensorRef,
-    offset: ["start end", "end end"],
+  // Десктоп (старый механизм): те же границы, что были всегда — от
+  // самого кадра, JS считает x/y на каждый тик.
+  const { scrollYProgress: legacyParallaxP } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const legacyY = useTransform(legacyParallaxP, [0, 1], ["-4.5%", "4.5%"]);
+
+  const { scrollYProgress: legacySlideP } = useScroll({
+    target: ref,
+    offset: ["start center", "center center"],
   });
   // Со стороны вылета: в RTL «start» — правый край, и кадр идёт справа.
   // Кадр с вылетом в конец строки въезжает с противоположной стороны.
   const fromStart = localeDir(useLocale()) === "ltr" ? -1 : 1;
   const fromBleed = bleed === "end" ? -fromStart : fromStart;
-  const x = useTransform(slideP, [0, 1], [
+  const legacyX = useTransform(legacySlideP, (v) => `${fromBleed * 33 * (1 - v)}%`);
+
+  // Мобилка (новый механизм): те же моменты начала и конца, но через
+  // датчики и `transform`, чтобы анимацию вёл браузер, а не JS.
+  const { scrollYProgress: slideP } = useScroll({
+    target: slideSensorRef,
+    offset: ["start end", "end end"],
+  });
+  const nativeX = useTransform(slideP, [0, 1], [
     `translateX(${fromBleed * 33}%)`,
     "translateX(0%)",
   ]);
 
-  // Датчик, расширяющий кадр на 100svh в обе стороны: пресет `All`
-  // («start start» → «end end») на нём срабатывает там же, где раньше
-  // «верх кадра у низа экрана» → «низ кадра у верха экрана» — весь
-  // путь кадра через экран.
   const { scrollYProgress: parallaxP } = useScroll({
     target: parallaxSensorRef,
     offset: ["start start", "end end"],
   });
-  const y = useTransform(parallaxP, [0, 1], [
+  const nativeY = useTransform(parallaxP, [0, 1], [
     "translateY(-4.5%)",
     "translateY(4.5%)",
   ]);
@@ -173,7 +181,9 @@ export function Photo({
       <motion.div
         style={
           moving
-            ? { transform: y, position: "absolute", inset: "-5% 0", height: "110%" }
+            ? isLg
+              ? { y: legacyY, position: "absolute", inset: "-5% 0", height: "110%" }
+              : { transform: nativeY, position: "absolute", inset: "-5% 0", height: "110%" }
             : { position: "absolute", inset: 0 }
         }
       >
@@ -198,7 +208,10 @@ export function Photo({
   );
 
   const body = sliding ? (
-    <motion.div style={{ transform: x }} className={fillLg ? "lg:h-full" : undefined}>
+    <motion.div
+      style={isLg ? { x: legacyX } : { transform: nativeX }}
+      className={fillLg ? "lg:h-full" : undefined}
+    >
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
