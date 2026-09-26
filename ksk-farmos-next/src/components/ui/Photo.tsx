@@ -162,8 +162,17 @@ export function Photo({
     </div>
   );
 
-  const body = sliding ? (
-    <motion.div style={{ x }} className={fillLg ? "lg:h-full" : undefined}>
+  // Обёртка существует, пока задан сам проп `slide` (он не меняется
+  // после монтирования), а не пока `sliding` (в котором есть isLg —
+  // на первом рендере всегда false, обновляется чуть позже). Если бы
+  // обёртка появлялась только после того, как isLg станет true, React
+  // видел бы это как смену типа элемента на месте `frame` и пересоздал
+  // бы его DOM-узел заново — а `useScroll` продолжал бы слушать старый,
+  // уже удалённый узел, и `x` застывал бы навсегда. Так обёртка не
+  // пересоздаётся никогда; меняется только сам `x` — `0%` (на месте),
+  // пока `sliding` не станет true.
+  const body = slide ? (
+    <motion.div style={{ x: sliding ? x : "0%" }} className={fillLg ? "lg:h-full" : undefined}>
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
