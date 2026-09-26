@@ -105,6 +105,7 @@ export function PageHero({
   return (
     <section
       data-tone="dark"
+      data-hero
       className="relative flex min-h-svh flex-col overflow-hidden bg-stand-in"
     >
       {image ? (
