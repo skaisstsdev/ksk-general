@@ -137,10 +137,6 @@ export function PageHero({
 
               {actions.length > 0 ? (
                 <div className="mt-lg flex flex-wrap items-center gap-x-md gap-y-sm">
-                  {/* На телефоне все кнопки — `w-full` (см. `HeroCopy.tsx`
-                      для развёрнутого объяснения): равная ширина без
-                      подгона под текст. От `lg` — по измеренному `min-w`,
-                      который несёт каждый action сам. */}
                   {actions.map((action) => (
                     <Button
                       key={action.href}
@@ -148,7 +144,6 @@ export function PageHero({
                       variant={action.variant ?? "primary"}
                       size="lg"
                       className={cn(
-                        "w-full lg:w-auto",
                         action.variant === "secondary" &&
                           "border-paper/60 text-paper hover:border-paper hover:bg-paper/10",
                         action.className,

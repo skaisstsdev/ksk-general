@@ -76,12 +76,12 @@ export default async function KarrierePage({
             href: "/karriere#vakanzen",
             label: hero.vakanzen,
             variant: "secondary",
-            // От `lg` ширина по первой кнопке: вторая короче по тексту
-            // и без этого заметно уже — тем же приёмом, что у дверей
-            // хиро главной (`hero/HeroCopy.tsx`). На телефоне обе и так
-            // `w-full` (см. `PageHero.tsx`), этот `min-w` там ни на что
-            // не влияет.
-            className: "justify-center lg:min-w-[176px]",
+            // Ширина по первой кнопке: вторая короче по тексту и без
+            // этого заметно уже — тем же приёмом, что у дверей хиро
+            // главной (`hero/HeroCopy.tsx`). Два числа: текст кнопок
+            // в хиро мельче на телефоне (см. `globals.css`, `[data-hero]`),
+            // так что и первая кнопка на телефоне уже, чем от `lg`.
+            className: "min-w-[169px] justify-center lg:min-w-[176px]",
           },
         ]}
         image={{
