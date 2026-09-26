@@ -34,8 +34,10 @@ export type PageHeroImage = {
 function HeroPicture({ image }: { image: PageHeroImage }) {
   // Как и на главной (`home/Hero.tsx`): `priority`/`preload` предзагрузил
   // бы оба кадра `<picture>` разом, поэтому вместо него —
-  // `fetchPriority="high"` на самом `<img>`.
-  const common = { alt: image.alt, sizes: "100vw" };
+  // `fetchPriority="high"` плюс `loading: "eager"` на самом `<img>`
+  // (без `eager` картинка по умолчанию ленивая и ждёт близости к вьюпорту,
+  // даже с высоким fetchPriority).
+  const common = { alt: image.alt, sizes: "100vw", loading: "eager" as const };
   const {
     props: { srcSet: wide },
   } = getImageProps({

@@ -15,10 +15,11 @@ function HeroPicture({ alt }: { alt: string }) {
   // включил предзагрузку обоих кадров разом — ровно то, от чего
   // предостерегает свой же пример art direction в доке Next.js
   // (`node_modules/next/dist/docs/.../image.md`, раздел «Theme image»).
-  // Вместо этого — `fetchPriority="high"` прямо на итоговом `<img>`:
-  // грузится только кадр, который реально показан, но с высоким
-  // приоритетом, а не как ленивая картинка где-то ниже экрана.
-  const common = { alt, sizes: "100vw", quality: 90 };
+  // Вместо этого — `fetchPriority="high"` прямо на итоговом `<img>`,
+  // и `loading: "eager"` в общих пропсах: без него `<img>` по умолчанию
+  // ленивый (грузится только у границы вьюпорта), даже с высоким
+  // fetchPriority — а этот кадр виден сразу, ждать нечего.
+  const common = { alt, sizes: "100vw", quality: 90, loading: "eager" as const };
   const {
     props: { srcSet: wide },
   } = getImageProps({
