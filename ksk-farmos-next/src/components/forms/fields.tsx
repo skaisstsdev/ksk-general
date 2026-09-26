@@ -16,8 +16,11 @@ import { cn } from "@/lib/cn";
  * текст, что видит зрячий пользователь, доступен и озвучке.
  */
 
+// `text-body` (17px), а не `text-ui` (15px), на телефоне: ниже 16px
+// Safari сам зумит экран при фокусе на поле — это про него, не про
+// желаемый размер текста. От `lg` зум ни при чём, возвращается `text-ui`.
 const inputBase =
-  "w-full rounded-xs border bg-surface px-sm py-xs text-ui text-ink placeholder:text-ink-muted transition-colors";
+  "w-full rounded-xs border bg-surface px-sm py-xs text-body text-ink placeholder:text-ink-muted transition-colors lg:text-ui";
 
 function borderClass(invalid: boolean) {
   return invalid

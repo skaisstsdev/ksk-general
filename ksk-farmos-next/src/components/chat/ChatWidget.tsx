@@ -321,7 +321,9 @@ export function ChatWidget() {
                 placeholder={t("chat.placeholder")}
                 aria-label={t("chat.placeholder")}
                 maxLength={500}
-                className="w-full rounded-xs border border-line-strong bg-surface px-sm py-2xs text-ui text-ink placeholder:text-ink-muted transition-colors focus:border-ink-muted"
+                // `text-body`, не `text-ui`, на телефоне: ниже 16px Safari
+                // сам зумит экран при фокусе на поле (см. `fields.tsx`).
+                className="w-full rounded-xs border border-line-strong bg-surface px-sm py-2xs text-body text-ink placeholder:text-ink-muted transition-colors focus:border-ink-muted lg:text-ui"
               />
               <button
                 type="submit"
