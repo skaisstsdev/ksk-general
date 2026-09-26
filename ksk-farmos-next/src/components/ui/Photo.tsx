@@ -18,6 +18,17 @@ import { cn } from "@/lib/cn";
  * Снимков мало, и это позиция: каждая работает знаком препинания,
  * поэтому умеет разделять блоки — вылетать в край, подниматься снизу —
  * и тем самым заменяет собой смену подложки.
+ *
+ * **Выезд и параллакс — через `transform`, не через `x`/`y`.** Motion
+ * умеет отдать анимацию скролла браузеру напрямую (`ViewTimeline`,
+ * в обход JS на каждый кадр — то, что на телефоне не поспевает за
+ * пальцем), но только когда стиль называется буквально `transform`
+ * (а не удобным `x`/`y`) и когда границы скролла — один из именованных
+ * пресетов Motion. Прежние границы (`"start center"`, `"start end"/"end
+ * start"`) под пресеты не попадали; вместо этого здесь — невидимые
+ * «датчики» (`slideSensorRef`/`parallaxSensorRef`), чьи размеры и
+ * отступы внутри кадра подобраны так, что пресет `Enter`/`All` на них
+ * даёт те же самые моменты начала и конца движения, что раньше.
  */
 
 const DURATION = 0.6;
@@ -87,27 +98,43 @@ export function Photo({
   className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const slideSensorRef = useRef<HTMLDivElement>(null);
+  const parallaxSensorRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-4.5%", "4.5%"]);
   const moving = parallax && !reduced;
+  const sliding = slide && !reduced;
 
-  // Въезд: отдельный отсчёт, потому что у него другие границы —
-  // от середины экрана до положения «кадр по центру».
-  const { scrollYProgress: slideProgress } = useScroll({
-    target: ref,
-    offset: ["start center", "center center"],
+  // Датчик высотой в половину кадра, сдвинутый на 50svh вниз от его
+  // верха: пресет `Enter` («start end» → «end end») на нём срабатывает
+  // ровно там же, где раньше срабатывали ручные границы «верх кадра
+  // у середины экрана» → «центр кадра у середины экрана» (расстояние
+  // между ними — половина высоты кадра).
+  const { scrollYProgress: slideP } = useScroll({
+    target: slideSensorRef,
+    offset: ["start end", "end end"],
   });
   // Со стороны вылета: в RTL «start» — правый край, и кадр идёт справа.
   // Кадр с вылетом в конец строки въезжает с противоположной стороны.
   const fromStart = localeDir(useLocale()) === "ltr" ? -1 : 1;
   const fromBleed = bleed === "end" ? -fromStart : fromStart;
-  const x = useTransform(slideProgress, (v) => `${fromBleed * 33 * (1 - v)}%`);
-  const sliding = slide && !reduced;
+  const x = useTransform(slideP, [0, 1], [
+    `translateX(${fromBleed * 33}%)`,
+    "translateX(0%)",
+  ]);
+
+  // Датчик, расширяющий кадр на 100svh в обе стороны: пресет `All`
+  // («start start» → «end end») на нём срабатывает там же, где раньше
+  // «верх кадра у низа экрана» → «низ кадра у верха экрана» — весь
+  // путь кадра через экран.
+  const { scrollYProgress: parallaxP } = useScroll({
+    target: parallaxSensorRef,
+    offset: ["start start", "end end"],
+  });
+  const y = useTransform(parallaxP, [0, 1], [
+    "translateY(-4.5%)",
+    "translateY(4.5%)",
+  ]);
 
   const frame = (
     <div
@@ -128,10 +155,25 @@ export function Photo({
         } as React.CSSProperties
       }
     >
+      {sliding ? (
+        <div
+          ref={slideSensorRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-[50svh] h-1/2"
+        />
+      ) : null}
+      {moving ? (
+        <div
+          ref={parallaxSensorRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 -top-[100svh] -bottom-[100svh]"
+        />
+      ) : null}
+
       <motion.div
         style={
           moving
-            ? { y, position: "absolute", inset: "-5% 0", height: "110%" }
+            ? { transform: y, position: "absolute", inset: "-5% 0", height: "110%" }
             : { position: "absolute", inset: 0 }
         }
       >
@@ -156,7 +198,7 @@ export function Photo({
   );
 
   const body = sliding ? (
-    <motion.div style={{ x }} className={fillLg ? "lg:h-full" : undefined}>
+    <motion.div style={{ transform: x }} className={fillLg ? "lg:h-full" : undefined}>
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
