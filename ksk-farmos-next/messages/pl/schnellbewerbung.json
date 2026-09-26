@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Szybka Aplikacja",
+    "description": "Aplikuj szybko i łatwo do KSK Farmos GmbH & Co. KG — w zaledwie 3 krokach."
+  },
+  "hero": {
+    "eyebrow": "Szybka Aplikacja",
+    "title": "Aplikuj w 3 krokach",
+    "lead": "Szybko i prosto — list motywacyjny nie jest wymagany."
+  },
+  "points": [
+    "Wynagrodzenie powyżej stawki",
+    "Samochód służbowy do użytku prywatnego",
+    "Płatne szkolenia",
+    "30 dni urlopu",
+    "Zespół i szacunek"
+  ],
+  "steps": [
+    "Dane osobowe",
+    "Kwalifikacje",
+    "Wiadomość"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Imię",
+      "nachname": "Nazwisko",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "qualifikationLabel": "Aktualny zawód / kwalifikacje",
+      "qualifikationPlaceholder": "Wybierz opcję",
+      "erfahrungLabel": "Doświadczenie w intensywnej opiece",
+      "fuehrerscheinLabel": "Prawo jazdy kat. B",
+      "nachrichtLabel": "Chcesz nam coś przekazać? (opcjonalnie)",
+      "nachrichtPlaceholder": "Opowiedz nam trochę o sobie...",
+      "cvLabel": "Załącz CV (opcjonalnie)",
+      "consentPrefix": "Przeczytałem/am ",
+      "consentLink": "politykę prywatności",
+      "consentSuffix": " i zgadzam się z jej warunkami.",
+      "weiter": "Dalej",
+      "zurueck": "Wstecz",
+      "submit": "Wyślij aplikację"
+    },
+    "qualifikationOptions": [
+      "Dyplomowana pielęgniarka",
+      "Opiekun osób starszych",
+      "Pomocnik pielęgniarski",
+      "Student medycyny",
+      "Inne"
+    ],
+    "erfahrungOptions": [
+      "Brak doświadczenia",
+      "1–2 lata",
+      "3–5 lat",
+      "Ponad 5 lat"
+    ],
+    "fuehrerscheinOptions": [
+      "Tak",
+      "Nie"
+    ],
+    "success": {
+      "title": "Aplikacja przyjęta!",
+      "text": "Dziękujemy za aplikację. Skontaktujemy się z Tobą w ciągu 24 godzin."
+    },
+    "error": {
+      "title": "Coś poszło nie tak.",
+      "text": "Spróbuj ponownie lub zadzwoń do nas bezpośrednio."
+    },
+    "validation": {
+      "vorname": "Proszę podać swoje imię.",
+      "nachname": "Proszę podać swoje nazwisko.",
+      "email": "Proszę podać prawidłowy adres e-mail.",
+      "telefon": "Proszę podać swój numer telefonu.",
+      "consent": "Proszę zaakceptować politykę prywatności.",
+      "cv": "Plik jest zbyt duży (maksymalnie 10 MB)."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Konsultacja",
+    "description": "Bezpłatna i niezobowiązująca konsultacja dotycząca opieki intensywnej. Poświęcamy Ci czas."
+  },
+  "hero": {
+    "eyebrow": "Konsultacja",
+    "title": "Bezpłatna Pierwsza Konsultacja",
+    "lead": "Poświęcimy Ci czas — osobiście, przez telefon lub mailowo."
+  },
+  "points": [
+    "Całkowicie bezpłatnie i bez zobowiązań",
+    "Osobiście lub telefonicznie",
+    "Odpowiedź maksymalnie w 24 godziny"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Imię",
+      "nachname": "Nazwisko",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "nachricht": "Wiadomość (opcjonalnie)",
+      "nachrichtPlaceholder": "Opisz krótko swoją sytuację...",
+      "consentPrefix": "Przeczytałem/am ",
+      "consentLink": "politykę prywatności",
+      "consentSuffix": " i zgadzam się z jej warunkami.",
+      "submit": "Poproś o Konsultację"
+    },
+    "success": {
+      "title": "Dziękujemy!",
+      "text": "Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą w ciągu 24 godzin."
+    },
+    "error": {
+      "title": "Coś poszło nie tak.",
+      "text": "Spróbuj ponownie lub zadzwoń do nas bezpośrednio."
+    },
+    "validation": {
+      "vorname": "Proszę podać swoje imię.",
+      "nachname": "Proszę podać swoje nazwisko.",
+      "email": "Proszę podać prawidłowy adres e-mail.",
+      "consent": "Proszę zaakceptować politykę prywatności."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

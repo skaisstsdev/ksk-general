@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Danışmanlık",
+    "description": "Yoğun bakım hakkında ücretsiz ve bağlayıcı olmayan danışmanlık. Sizin için zaman ayırıyoruz."
+  },
+  "hero": {
+    "eyebrow": "Danışmanlık",
+    "title": "Ücretsiz İlk Görüşme",
+    "lead": "Sizin için zaman ayırıyoruz — yüz yüze, telefonda veya e-posta yoluyla."
+  },
+  "points": [
+    "Tamamen ücretsiz ve yükümlülük içermez",
+    "Yüz yüze veya telefonla görüşme",
+    "En geç 24 saat içinde geri dönüş"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Adınız",
+      "nachname": "Soyadınız",
+      "email": "E-Posta",
+      "telefon": "Telefon",
+      "nachricht": "Mesajınız (İsteğe bağlı)",
+      "nachrichtPlaceholder": "Lütfen durumunuzu kısaca özetleyin...",
+      "consentPrefix": "",
+      "consentLink": "Gizlilik politikasını",
+      "consentSuffix": " okudum ve kabul ediyorum.",
+      "submit": "Danışmanlık Talep Et"
+    },
+    "success": {
+      "title": "Teşekkür ederiz!",
+      "text": "Talebiniz başarıyla gönderildi. 24 saat içinde size dönüş yapacağız."
+    },
+    "error": {
+      "title": "Bir şeyler ters gitti.",
+      "text": "Lütfen tekrar deneyin veya bizi doğrudan arayın."
+    },
+    "validation": {
+      "vorname": "Lütfen adınızı girin.",
+      "nachname": "Lütfen soyadınızı girin.",
+      "email": "Lütfen geçerli bir e-posta adresi girin.",
+      "consent": "Lütfen gizlilik politikasını kabul edin."
+    },
+    "honeypotLabel": "Şirket"
+  }
+}

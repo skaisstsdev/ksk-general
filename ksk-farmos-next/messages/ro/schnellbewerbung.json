@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Aplicație Rapidă",
+    "description": "Aplicați rapid și ușor la KSK Farmos GmbH & Co. KG — în doar 3 pași."
+  },
+  "hero": {
+    "eyebrow": "Aplicație Rapidă",
+    "title": "Aplică în 3 pași",
+    "lead": "Rapid și simplu — nu e nevoie de scrisoare de intenție."
+  },
+  "points": [
+    "Salariu peste tarif",
+    "Mașină de serviciu pentru uz personal",
+    "Cursuri plătite",
+    "30 zile de concediu",
+    "Echipă și apreciere"
+  ],
+  "steps": [
+    "Date personale",
+    "Calificări",
+    "Mesaj"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Prenume",
+      "nachname": "Nume de Familie",
+      "email": "Adresă E-Mail",
+      "telefon": "Telefon",
+      "qualifikationLabel": "Profesie actuală / calificare",
+      "qualifikationPlaceholder": "Vă rugăm să alegeți",
+      "erfahrungLabel": "Experiență în terapia intensivă",
+      "fuehrerscheinLabel": "Permis de conducere cat. B",
+      "nachrichtLabel": "Doriți să ne transmiteți ceva? (opțional)",
+      "nachrichtPlaceholder": "Spuneți-ne câte ceva despre dvs...",
+      "cvLabel": "Atașați CV-ul (opțional)",
+      "consentPrefix": "Am citit cu atenție ",
+      "consentLink": "politica de confidențialitate",
+      "consentSuffix": " și sunt de acord cu ea.",
+      "weiter": "Continuă",
+      "zurueck": "Înapoi",
+      "submit": "Trimite candidatura"
+    },
+    "qualifikationOptions": [
+      "Asistent medical autorizat",
+      "Asistent geriatric",
+      "Ajutor de îngrijire",
+      "Student la medicină",
+      "Altele"
+    ],
+    "erfahrungOptions": [
+      "Fără experiență",
+      "1–2 ani",
+      "3–5 ani",
+      "Peste 5 ani"
+    ],
+    "fuehrerscheinOptions": [
+      "Da",
+      "Nu"
+    ],
+    "success": {
+      "title": "Candidatura a fost primită!",
+      "text": "Vă mulțumim pentru candidatură. Vă vom răspunde în decurs de 24 de ore."
+    },
+    "error": {
+      "title": "Ceva nu a funcționat.",
+      "text": "Vă rugăm să încercați din nou sau să ne sunați direct."
+    },
+    "validation": {
+      "vorname": "Vă rugăm să introduceți prenumele dumneavoastră.",
+      "nachname": "Vă rugăm să introduceți numele dumneavoastră de familie.",
+      "email": "Vă rugăm să introduceți o adresă de e-mail validă.",
+      "telefon": "Vă rugăm să introduceți numărul dumneavoastră de telefon.",
+      "consent": "Vă rugăm să fiți de acord cu politica de confidențialitate.",
+      "cv": "Fișierul este prea mare (maximum 10 MB)."
+    },
+    "honeypotLabel": "Companie"
+  }
+}

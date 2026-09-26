@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ConsentMap } from "@/components/page/ConsentMap";
 import { StickyHeading } from "@/components/page/SectionHeading";
@@ -9,33 +9,15 @@ import { LocationCards } from "@/components/ui/LocationCards";
 import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { map as homeMap } from "@/content/home";
-import { cards, form, hero, map, meta, standorte } from "@/content/pages/kontakt";
 import { contact, impressum, locations } from "@/content/site";
 
-/**
- * Volkmarsen первым — как на главной (`home/MapSection.tsx`),
- * `locations.headquarters` и есть Volkmarsen.
- */
-const standorteItems = [
-  {
-    role: standorte.headquartersRole,
-    city: locations.headquarters.city,
-    street: `${locations.headquarters.street}, ${locations.headquarters.postalCode} ${locations.headquarters.city}`,
-    phone: contact.phone.display,
-  },
-  {
-    role: standorte.residenceRole,
-    city: locations.residence.city,
-    street: `${locations.residence.street}, ${locations.residence.postalCode} ${locations.residence.city}`,
-    phone: contact.mobile.display,
-  },
-];
-
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/kontakt">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "kontakt" });
+  return { title: t("meta.title"), description: t("meta.description") };
+}
 
 /**
  * Kontakt. Порядок блоков — как в старом `kontakt.html`, с тремя
@@ -75,6 +57,32 @@ export default async function KontaktPage({
 }: PageProps<"/[locale]/kontakt">) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("kontakt");
+  const tHome = await getTranslations("home");
+  const hero = t.raw("hero");
+  const form = t.raw("form");
+  const cards = t.raw("cards");
+  const standorte = t.raw("standorte");
+  const map = t.raw("map");
+
+  /**
+   * Volkmarsen первым — как на главной (`home/MapSection.tsx`),
+   * `locations.headquarters` и есть Volkmarsen.
+   */
+  const standorteItems = [
+    {
+      role: standorte.headquartersRole,
+      city: locations.headquarters.city,
+      street: `${locations.headquarters.street}, ${locations.headquarters.postalCode} ${locations.headquarters.city}`,
+      phone: contact.phone.display,
+    },
+    {
+      role: standorte.residenceRole,
+      city: locations.residence.city,
+      street: `${locations.residence.street}, ${locations.residence.postalCode} ${locations.residence.city}`,
+      phone: contact.mobile.display,
+    },
+  ];
 
   return (
     <>
@@ -149,7 +157,7 @@ export default async function KontaktPage({
               <Eyebrow className="text-ink-muted">{standorte.eyebrow}</Eyebrow>
               <h2 className="mt-2xs text-h1 text-ink">{standorte.title}</h2>
               <p className="mt-md max-w-[34ch] text-body text-ink-soft">
-                {homeMap.coverage}
+                {tHome("map.coverage")}
               </p>
             </StickyCol>
           </Col>

@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Quick Application",
+    "description": "Apply quickly and easily at KSK Farmos GmbH & Co. KG — in just 3 steps."
+  },
+  "hero": {
+    "eyebrow": "Quick Application",
+    "title": "Apply in 3 Steps",
+    "lead": "Quick and easy — no cover letter needed."
+  },
+  "points": [
+    "Above-average pay",
+    "Company car for private use",
+    "Paid continuing education",
+    "30 days of vacation",
+    "Supportive team and appreciation"
+  ],
+  "steps": [
+    "Personal Details",
+    "Qualifications",
+    "Message"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "First Name",
+      "nachname": "Last Name",
+      "email": "Email",
+      "telefon": "Phone",
+      "qualifikationLabel": "Current Profession / Qualification",
+      "qualifikationPlaceholder": "Please select",
+      "erfahrungLabel": "Experience in Intensive Care",
+      "fuehrerscheinLabel": "Driving License Class B",
+      "nachrichtLabel": "Would you like to tell us something? (optional)",
+      "nachrichtPlaceholder": "Tell us a bit about yourself...",
+      "cvLabel": "Attach CV (optional)",
+      "consentPrefix": "I have read and agree to the ",
+      "consentLink": "privacy policy",
+      "consentSuffix": ".",
+      "weiter": "Continue",
+      "zurueck": "Back",
+      "submit": "Submit Application"
+    },
+    "qualifikationOptions": [
+      "Registered Nurse",
+      "Geriatric Nurse",
+      "Care Assistant",
+      "Medical Student",
+      "Other"
+    ],
+    "erfahrungOptions": [
+      "No experience",
+      "1–2 years",
+      "3–5 years",
+      "Over 5 years"
+    ],
+    "fuehrerscheinOptions": [
+      "Yes",
+      "No"
+    ],
+    "success": {
+      "title": "Application received!",
+      "text": "Thank you for your application. We'll get back to you within 24 hours."
+    },
+    "error": {
+      "title": "Something went wrong.",
+      "text": "Please try again or call us directly."
+    },
+    "validation": {
+      "vorname": "Please enter your first name.",
+      "nachname": "Please enter your last name.",
+      "email": "Please enter a valid email address.",
+      "telefon": "Please enter your phone number.",
+      "consent": "Please agree to the privacy policy.",
+      "cv": "The file is too large (maximum 10 MB)."
+    },
+    "honeypotLabel": "Company"
+  }
+}

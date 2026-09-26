@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Services",
+    "description": "Home intensive care, the Kassel residential concept, and continuing education. All services from KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "Services",
+    "title": "Our medical services",
+    "lead": "Home intensive care, a unique residential concept, and ongoing professional training — all under one roof.",
+    "beratung": "Free Consultation",
+    "all": "All Services"
+  },
+  "beatmung": {
+    "statement": "Ventilation care is our core expertise.",
+    "text": "We support patients requiring invasive and non-invasive ventilation — with experienced professionals, cutting-edge equipment, and close collaboration with pulmonologists and anesthesiologists."
+  },
+  "haeuslich": {
+    "eyebrow": "Home Intensive Care",
+    "title": "Professional Care at Home",
+    "text": "We care for patients with serious medical conditions in their own homes — 24 hours a day, 7 days a week, 365 days a year.",
+    "groups": [
+      {
+        "title": "Basic Care",
+        "items": [
+          "Nursing and therapeutic care",
+          "Medication management",
+          "Vital signs monitoring"
+        ],
+        "detail": "Basic care forms the foundation of our home intensive care. It includes support with hygiene, mobility, and nutrition — tailored to each client's individual needs and abilities. Treatment care covers medically prescribed measures such as dressing changes, injections, or applying compression bandages.\n\nFor medication management, we prepare medication according to the prescription, monitor its effects and possible side effects, and document every dose without gaps. We stay in direct contact with the treating physician and the pharmacy for any questions.\n\nVital signs monitoring includes regularly measuring and documenting blood pressure, pulse, oxygen saturation, and temperature. This lets us catch changes early and respond quickly when needed, in coordination with the treating physicians."
+      },
+      {
+        "title": "Specialized Therapies",
+        "items": [
+          "Invasive and non-invasive ventilation",
+          "Tracheostomy management",
+          "Wound care and nutritional therapy"
+        ],
+        "detail": "Specialized therapies are for clients with particularly high medical care needs. For invasive and non-invasive ventilation, we handle the complete equipment management — from filter changes to alarm response — and closely align settings with the treating physicians. Fail-safe processes and trained staff ensure uninterrupted care.\n\nTracheostomy management includes professional tube changes, suctioning, and daily care of the stoma area, with particular attention to infection prevention.\n\nIn wound care, we treat chronic and complex wounds according to current nursing standards. When needed, we also support nutritional therapy, for example via a PEG tube, and closely document healing progress."
+      },
+      {
+        "title": "Coordination",
+        "items": [
+          "Care planning and documentation",
+          "Coordination with physicians and therapists"
+        ],
+        "detail": "Good organization is the foundation of reliable care behind the scenes. For every client, we create an individual care plan that reflects their personal situation, medical requirements, and wishes. This plan is reviewed regularly and adjusted whenever needed. We keep the legally required care documentation complete and traceable.\n\nWe also act as the central point of contact between physicians, therapists, pharmacies, and medical supply stores. This keeps everyone involved on the same page, coordinates arrangements, and keeps care coordinated from a single source — without family members having to mediate between different parties themselves."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Diagnoses",
+    "title": "The Patients We Serve",
+    "items": [
+      {
+        "title": "Ventilated Patients",
+        "text": "Specialized intensive care for people dependent on invasive or non-invasive ventilation. We ensure continuous monitoring and professional equipment management.",
+        "detail": "We care for people who depend on invasive or non-invasive ventilation — from the initial transfer out of the hospital to ongoing care at home. Every client receives an individual ventilation plan, developed together with the treating physicians and reviewed regularly.\n\nOur care team monitors ventilators, alarm limits, and breathing parameters around the clock and responds immediately to any change. This also includes proper handling of tracheostomy tubes, airway suctioning, and close cooperation with medical equipment partners for maintenance and device changes.\n\nCare is closely coordinated with the treating pulmonologists and anesthesiologists. Our team is available around the clock for emergencies, so families can rely on continuous, dependable care."
+      },
+      {
+        "title": "Persistent Vegetative State",
+        "text": "Holistic long-term care for patients with severe consciousness disorders. Our focus is on basal stimulation and the preservation of bodily functions.",
+        "detail": "People in a persistent vegetative state need particularly attentive, holistic long-term care. We use basal stimulation techniques to preserve and gently encourage awareness and bodily functions — adapted to each client's individual condition.\n\nA key focus is preventing complications such as contractures, pressure sores, or respiratory infections through regular repositioning, targeted movement exercises, and careful skin and body care. Nutrition, often via a feeding tube, is also closely monitored.\n\nFamily members are closely involved in care through guidance, open communication, and regular exchange with the care team — so care stays not only medically sound but also personally close."
+      },
+      {
+        "title": "ALS & Neurological Conditions",
+        "text": "Individual support for progressive neurological changes — empathetic, professionally grounded, and focused on maintaining quality of life.",
+        "detail": "ALS and other progressive neurological conditions continuously change the demands on care. We constantly adapt support and equipment to the current stage of the disease — from everyday assistance to specialized ventilation care in advanced stages.\n\nAs the disease progresses, communication aids and technical support become increasingly important. We work closely with speech therapists, occupational therapists, and equipment suppliers so clients can take part in daily life on their own terms for as long as possible.\n\nCare is closely coordinated with the treating neurologists and considers the emotional needs of clients and families alongside the medical ones."
+      },
+      {
+        "title": "Spinal Cord Injuries",
+        "text": "Professional support and care for people with spinal cord injuries. We promote independence and actively prevent complications.",
+        "detail": "With spinal cord injuries, our care focuses on supporting the greatest possible independence. We help with mobility, personal hygiene, and daily routines — always aiming to preserve and build on existing abilities.\n\nA central part of our work is actively preventing typical complications such as pressure sores, urinary tract infections, or spasticity through regular checks, adapted positioning, and consistent skin care. When needed, we also support bowel and bladder management.\n\nCare is closely coordinated with rehabilitation facilities, physiotherapists, and treating physicians so medical treatment and home care work together seamlessly."
+      },
+      {
+        "title": "Traumatic Brain Injury",
+        "text": "Long-term care after severe brain injuries. Focused on stabilizing the condition and providing support in daily life.",
+        "detail": "After a traumatic brain injury, our care follows the specific stage of recovery — from stabilization right after hospital discharge to long-term everyday support. We work closely with neurorehabilitation facilities to connect treatment and home care in a meaningful way.\n\nThe goal is to stabilize bodily functions, structure daily life, and gradually build abilities — for example in movement, communication, or memory — always at the individual's own pace of recovery.\n\nWe stay in close contact with neurologists, therapists, and family members, so everyone involved stays on the same page and care remains well coordinated."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Care in various residential projects",
+    "title": "What Awaits You",
+    "text": "Our outpatient care service specializes in caring for people with dementia in various residential projects. In a protected, home-like environment, we enable a dignified life with structure, safety, and individual attention.",
+    "groups": [
+      {
+        "title": "Living & Facilities",
+        "items": [
+          "Room with personal furniture",
+          "All necessary medical equipment",
+          "Spacious garden",
+          "Library and communal rooms"
+        ]
+      },
+      {
+        "title": "Care & Service",
+        "items": [
+          "24h care and monitoring",
+          "Comprehensive nursing and medical services",
+          "Individually tailored daily routine",
+          "Validation and activating care"
+        ]
+      }
+    ],
+    "alt": "Senior resident and caregiver with a tablet in a residential project's conservatory"
+  },
+  "beratung": {
+    "eyebrow": "Care Counseling",
+    "title": "Individual Care Counseling",
+    "text": "We offer individual care consultations for those in need of care and their relatives to ensure optimal care in the home environment.",
+    "items": [
+      {
+        "title": "Care Levels & Benefits",
+        "text": "Advice on care levels and benefits from the care insurance fund."
+      },
+      {
+        "title": "Instruction for Relatives",
+        "text": "Instruction and training for relatives on home care."
+      },
+      {
+        "title": "Aid Organization",
+        "text": "Assistance in organizing medical aids (care beds, rollators, etc.)."
+      },
+      {
+        "title": "Dementia & Behavior",
+        "text": "Counseling on dementia and dealing with challenging behavior."
+      },
+      {
+        "title": "Relief Services",
+        "text": "Explanation of support and relief services available to caring relatives."
+      },
+      {
+        "title": "Living Space Adaptations",
+        "text": "Advice on home adaptations and accessibility."
+      }
+    ],
+    "alt": "Care counselor and senior client reviewing documents together on a tablet"
+  },
+  "kosten": {
+    "eyebrow": "COST COVERAGE",
+    "title": "Who bears the costs",
+    "text": "Experienced staff from KSK Farmos GmbH & Co. KG handle negotiations with cost carriers regarding the financing of 24-hour intensive care after receiving power of attorney. These are usually:",
+    "items": [
+      {
+        "title": "Health Insurance (SGB V)",
+        "text": "The health insurance fund pays for medical treatment, regardless of the care level:",
+        "list": [
+          "Doctor visits and therapies (physio-, occupational, speech therapy)",
+          "Hospital treatment",
+          "Medicines, remedies and aids (e.g. wheelchair, nursing bed – with approval)",
+          "Home nursing care in case of acute illness or after hospital stay"
+        ]
+      },
+      {
+        "title": "Care Insurance (SGB XI)",
+        "text": "The care insurance fund pays for nursing support in case of need for care (care level required):"
+      },
+      {
+        "title": "Social Welfare Office",
+        "text": "If the costs of the actual care need exceed the benefits of the above-mentioned cost bearers (care insurance fund), the remaining share of the costs must either be borne privately or — if the requirements are met — covered by various offices (social welfare office, state aid, regional council)."
+      },
+      {
+        "title": "Private Insurance",
+        "text": "An additionally concluded health or accident insurance policy can cover a portion of the incurred costs, depending on the assessment."
+      }
+    ]
+  },
+  "moreCta": "Learn more"
+}

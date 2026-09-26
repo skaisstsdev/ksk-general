@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "O nama",
+    "description": "Upoznajte KSK Farmos GmbH & Co. KG — našu priču, naš moto, naš tim i naše partnere."
+  },
+  "hero": {
+    "eyebrow": "O nama",
+    "title": "Iskustvo i njega od 2013. godine",
+    "lead": "Od 2013. godine brinemo o ljudima sa teškim bolestima — profesionalno, pouzdano i s iskrenom brigom.",
+    "beratung": "Besplatne konsultacije",
+    "kontakt": "Kontaktirajte nas",
+    "alt": "Tim KSK Farmosa u vrtu"
+  },
+  "leitbild": {
+    "eyebrow": "Naši principi",
+    "title": "Ono što nas vodi",
+    "items": [
+      {
+        "title": "Podrška životnim procesima",
+        "text": "Ohrabrujemo samostalnost i pažljivo pratimo prirodne procese u organizmu."
+      },
+      {
+        "title": "Očuvanje tjelesnih funkcija",
+        "text": "Ciljano usmjerena i stručna njega u svrhu održavanja fizičke aktivnosti."
+      },
+      {
+        "title": "Kontrola nad bolešću",
+        "text": "Pažljivo praćenje dinamike i brza reakcija na bilo kakve promjene."
+      },
+      {
+        "title": "Briga o općem osjećaju",
+        "text": "Emocionalna stabilnost i fizičko zdravlje pacijenta su nam uvijek na prvom mjestu."
+      },
+      {
+        "title": "Prevencija komplikacija",
+        "text": "Pravovremena profilaksa i cjelodnevno praćenje zdravstvenog stanja."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Naša priča",
+    "title": "Osnovani na ubjeđenjima",
+    "paragraphs": [
+      "Službu za ambulantnu intenzivnu njegu KSK Farmos GmbH & Co. KG osnovao je Viktor Beresnev 2013. godine u Volkmarsenu s jasnim i plemenitim ciljem: pružiti ljudima s teškim dijagnozama priliku da vode dostojanstven i nezavisan život.",
+      "Od tada brinemo o pacijentima širom Hessena — u njihovim vlastitim domovima, kao i u našem centru u Kasselu."
+    ]
+  },
+  "team": {
+    "eyebrow": "Naš tim",
+    "title": "Ljudi koji čine KSK Farmos GmbH & Co. KG",
+    "members": [
+      {
+        "name": "",
+        "role": "Direktor",
+        "desc": "Rukovodstvo i organizacija preduzeća",
+        "desc2": "Planiranje finansija i likvidnosti"
+      },
+      {
+        "name": "",
+        "role": "Rukovodilac službe za njegu (PDL)",
+        "desc": "Stručnjak za vanbolničku ventilaciju, Direktna kontakt osoba za rodbinu.",
+        "desc2": "Odgovoran za stručno rukovodstvo i osiguranje kvaliteta svih mjera njege."
+      },
+      {
+        "name": "",
+        "role": "Zamjenik rukovodioca službe za njegu",
+        "desc": "Stručnjak za vanbolničku ventilaciju, Službenik za higijenu.",
+        "desc2": "Koordinacija timova za njegu."
+      },
+      {
+        "name": "Naš njegovateljski tim",
+        "role": "Njegovatelji za vanbolničku vještačku ventilaciju",
+        "desc": "Oko 30 zaposlenih — kvalifikovano, empatično i pouzdano na dužnosti.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "Naši partneri",
+    "title": "Blisko sarađujemo sa:",
+    "text": "Dobra njega ne završava na vlastitim vratima. Za neprekidnu podršku usko sarađujemo s iskusnim partnerima — usklađeno, pouzdano i uvijek u interesu naših klijenata.",
+    "items": [
+      "Ljekarima specijalistima različitih disciplina",
+      "Fizioterapeutima",
+      "Logopedima",
+      "Ergoterapeutima",
+      "Kompanijama za medicinsku tehnologiju",
+      "Zdravstvenim, penzionim i socijalnim kasama",
+      "Ortopedskim kućama"
+    ],
+    "alt": "Njegovatelj i član porodice zajedno sa starijom klijenticom razgovaraju o planu njege"
+  },
+  "social": {
+    "eyebrow": "Društvene mreže",
+    "title": "Pratite nas",
+    "text": "Budite u toku! Na našim kanalima na društvenim mrežama dijelimo uvide u naš svakodnevni život, korisne savjete i najnovije vijesti o njezi."
+  }
+}

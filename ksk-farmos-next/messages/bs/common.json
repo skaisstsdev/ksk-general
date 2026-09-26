@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Početna",
+    "leistungen": "Usluge",
+    "ueberUns": "O nama",
+    "karriere": "Karijera",
+    "faq": "ČPP",
+    "kontakt": "Kontakt",
+    "primaryCta": "Besplatne konsultacije",
+    "applyCta": "Prijavite se"
+  },
+  "legalNav": {
+    "datenschutz": "Politika privatnosti",
+    "impressum": "Impresum"
+  },
+  "footer": {
+    "desc": "Specijalizovana služba za intenzivnu njegu u Sjevernom Hessenu — od {year}.",
+    "navTitle": "Navigacija",
+    "kontaktTitle": "Kontakt",
+    "legalTitle": "Pravne informacije",
+    "standortenTitle": "Lokacije",
+    "rights": "Sva prava zadržana.",
+    "navAria": "Navigacija u podnožju"
+  },
+  "lang": {
+    "title": "Izaberite jezik"
+  },
+  "header": {
+    "mainNavAria": "Glavna navigacija"
+  },
+  "mobileMenu": {
+    "openAria": "Otvori meni",
+    "closeAria": "Zatvori meni"
+  },
+  "brand": {
+    "descriptor": "Služba intenzivne njege"
+  },
+  "meta": {
+    "titleSuffix": "Služba intenzivne njege u Sjevernom Hessenu"
+  },
+  "locations": {
+    "headquartersLabel": "Centrala Volkmarsen",
+    "residenceLabel": "Koncept stanovanja u Kasselu"
+  },
+  "closingFamily": {
+    "eyebrow": "Za pacijente i njihove porodice",
+    "title": "Besplatne konsultacije",
+    "text": "Savjetovat ćemo vas lično, besplatno i bez obaveza.",
+    "cta": "Razgovarajmo"
+  },
+  "kontaktCta": "Kontaktirajte nas",
+  "dialog": {
+    "close": "Zatvori"
+  },
+  "chat": {
+    "openAria": "Otvori chat",
+    "status": "Na mreži",
+    "welcome": "Dobar dan! Ja sam AI asistent kompanije KSK Farmos. Rado ću odgovoriti na vaša pitanja.",
+    "quickReplies": ["Ko plaća?", "Lokacije?", "Karijera?", "Zatraži konsultacije"],
+    "placeholder": "Vaše pitanje…",
+    "sendAria": "Pošalji",
+    "disclaimerPrefix": "AI asistent · Odgovore generiše OpenAI",
+    "errorFallback": "Nažalost, došlo je do greške. Molimo nazovite nas: {phone}"
+  }
+}

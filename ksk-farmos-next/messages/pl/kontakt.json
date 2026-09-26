@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Kontakt",
+    "description": "Skontaktuj się z KSK Farmos GmbH & Co. KG — bezpłatnie, niezobowiązująco, po ludzku. Telefon, e-mail lub formularz kontaktowy."
+  },
+  "hero": {
+    "eyebrow": "Kontakt",
+    "title": "Nawiąż Kontakt",
+    "lead": "Bezpłatnie. Niezobowiązująco. Po ludzku."
+  },
+  "form": {
+    "eyebrow": "Napisz do nas",
+    "title": "Formularz Kontaktowy",
+    "text": "Wypełnij formularz, a my skontaktujemy się z Tobą w ciągu 24 godzin.",
+    "callLabel": "Możesz do nas również zadzwonić:",
+    "fields": {
+      "vorname": "Imię",
+      "nachname": "Nazwisko",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "betreff": "Temat",
+      "betreffPlaceholder": "Wybierz opcję",
+      "nachricht": "Wiadomość",
+      "consentPrefix": "Przeczytałem/am ",
+      "consentLink": "politykę prywatności",
+      "consentSuffix": " i zgadzam się z jej warunkami.",
+      "submit": "Wyślij Wiadomość"
+    },
+    "betreffOptions": [
+      "Konsultacja w sprawie opieki",
+      "Projekty mieszkaniowe",
+      "Aplikacja o pracę / Kariera",
+      "Inne"
+    ],
+    "success": {
+      "title": "Dziękujemy!",
+      "text": "Twoja wiadomość została wysłana. Skontaktujemy się z Tobą w ciągu 24 godzin."
+    },
+    "error": {
+      "title": "Coś poszło nie tak.",
+      "text": "Spróbuj ponownie lub zadzwoń do nas bezpośrednio."
+    },
+    "validation": {
+      "vorname": "Proszę podać swoje imię.",
+      "nachname": "Proszę podać swoje nazwisko.",
+      "email": "Proszę podać prawidłowy adres e-mail.",
+      "nachricht": "Proszę wpisać wiadomość.",
+      "consent": "Proszę zaakceptować politykę prywatności."
+    },
+    "honeypotLabel": "Firma"
+  },
+  "cards": {
+    "headquarters": "Centrala Volkmarsen",
+    "mobile": "Mobilny / 24h",
+    "email": "E-mail",
+    "fax": "Faks"
+  },
+  "standorte": {
+    "eyebrow": "Lokalizacje",
+    "title": "Gdzie Się Znajdujemy",
+    "headquartersRole": "Główna Siedziba - Volkmarsen",
+    "residenceRole": "Koncepcja Pobytu - Kassel"
+  },
+  "map": {
+    "consent": "Aby zobaczyć interaktywną mapę Google, wyraź zgodę na przekazywanie swoich danych (w tym adresu IP) do Google.",
+    "load": "Załaduj mapę i zgódź się",
+    "loading": "Ładowanie mapy…",
+    "revoke": "Cofnij zgodę"
+  }
+}

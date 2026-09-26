@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Hızlı Başvuru",
+    "description": "KSK Farmos GmbH & Co. KG'ye hızlı ve kolayca başvurun — sadece 3 adımda."
+  },
+  "hero": {
+    "eyebrow": "Hızlı Başvuru",
+    "title": "Başvurunuzu yapın 3 Adımda",
+    "lead": "Hızlı ve kolay — ön yazıya gerek yok."
+  },
+  "points": [
+    "Tarifenin üstünde maaş",
+    "Özel kullanım için şirket aracı",
+    "Ücretli ileri eğitim",
+    "30 gün izin",
+    "Ekip ruhu ve değer görme"
+  ],
+  "steps": [
+    "Kişisel Bilgiler",
+    "Nitelikler",
+    "Mesaj"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Adınız",
+      "nachname": "Soyadınız",
+      "email": "E-Posta",
+      "telefon": "Telefon",
+      "qualifikationLabel": "Mevcut Meslek / Nitelik",
+      "qualifikationPlaceholder": "Lütfen seçin",
+      "erfahrungLabel": "Yoğun Bakım Deneyimi",
+      "fuehrerscheinLabel": "B Sınıfı Ehliyet",
+      "nachrichtLabel": "Bize bir şey söylemek ister misiniz? (isteğe bağlı)",
+      "nachrichtPlaceholder": "Kendinizden biraz bahsedin...",
+      "cvLabel": "Özgeçmiş ekleyin (isteğe bağlı)",
+      "consentPrefix": "",
+      "consentLink": "Gizlilik politikasını",
+      "consentSuffix": " okudum ve kabul ediyorum.",
+      "weiter": "İleri",
+      "zurueck": "Geri",
+      "submit": "Başvuruyu Gönder"
+    },
+    "qualifikationOptions": [
+      "Diplomalı Hemşire",
+      "Yaşlı Bakım Hemşiresi",
+      "Bakım Yardımcısı",
+      "Tıp Öğrencisi",
+      "Diğer"
+    ],
+    "erfahrungOptions": [
+      "Deneyim yok",
+      "1–2 yıl",
+      "3–5 yıl",
+      "5 yıldan fazla"
+    ],
+    "fuehrerscheinOptions": [
+      "Evet",
+      "Hayır"
+    ],
+    "success": {
+      "title": "Başvurunuz alındı!",
+      "text": "Başvurunuz için teşekkür ederiz. 24 saat içinde size dönüş yapacağız."
+    },
+    "error": {
+      "title": "Bir şeyler ters gitti.",
+      "text": "Lütfen tekrar deneyin veya bizi doğrudan arayın."
+    },
+    "validation": {
+      "vorname": "Lütfen adınızı girin.",
+      "nachname": "Lütfen soyadınızı girin.",
+      "email": "Lütfen geçerli bir e-posta adresi girin.",
+      "telefon": "Lütfen telefon numaranızı girin.",
+      "consent": "Lütfen gizlilik politikasını kabul edin.",
+      "cv": "Dosya çok büyük (en fazla 10 MB)."
+    },
+    "honeypotLabel": "Şirket"
+  }
+}

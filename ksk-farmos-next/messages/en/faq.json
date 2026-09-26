@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "description": "Frequently asked questions about intensive care, costs, process, and careers at KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "lead": "Answers to the most important questions about our intensive care services."
+  },
+  "categories": [
+    {
+      "id": "alle",
+      "label": "All"
+    },
+    {
+      "id": "pat",
+      "label": "Patients"
+    },
+    {
+      "id": "kost",
+      "label": "Costs"
+    },
+    {
+      "id": "abl",
+      "label": "Process"
+    },
+    {
+      "id": "kar",
+      "label": "Careers"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Is intensive care at home really possible?",
+      "a": "Yes — in many cases, comprehensive intensive care can be provided right in your own home. The prerequisite is a doctor's prescription for home nursing care.",
+      "action": {
+        "label": "Get Advice Now"
+      }
+    },
+    {
+      "q": "Which regions do you serve?",
+      "a": "We care for patients throughout Hesse — from Volkmarsen and Kassel to Frankfurt and beyond."
+    },
+    {
+      "q": "Who bears the cost of intensive care?",
+      "a": "In most cases, the costs are fully covered by health and care insurance. We take care of all communication with the funding bodies.",
+      "action": {
+        "label": "Get Advice Now"
+      }
+    },
+    {
+      "q": "Is the care level relevant for 24h care?",
+      "a": "24-hour intensive care is primarily funded through §37 SGB V and is not directly tied to the care level. A higher care level may unlock additional benefits."
+    },
+    {
+      "q": "How long does it take until care begins?",
+      "a": "From the initial consultation to the start of care, it typically takes 4 to 6 weeks."
+    },
+    {
+      "q": "What qualifications does your nursing staff have?",
+      "a": "All medically prescribed measures are carried out exclusively by certified nursing professionals who are regularly trained by specialist physicians."
+    },
+    {
+      "q": "What does the residential care concept include?",
+      "a": "In our assisted living projects, we offer clients private rooms, a garden, a library, and 24h care with 5.5 staff members per client."
+    },
+    {
+      "q": "How can I apply?",
+      "a": "Via the quick application form on our website, by phone, or by email to pflege@ksk-farmos.de.",
+      "action": {
+        "label": "Apply Now"
+      }
+    },
+    {
+      "q": "How does the transition from hospital to home work?",
+      "a": "We handle the entire transition management. Our team coordinates a seamless handover in close consultation with hospital staff and organizes all necessary medical equipment."
+    },
+    {
+      "q": "Do we have to buy medical equipment ourselves?",
+      "a": "No. All medical devices such as ventilators and monitors are provided by the health insurance. We work closely with specialized medical technology companies."
+    },
+    {
+      "q": "Are nursing staff present at night as well?",
+      "a": "Yes. With 24-hour intensive care, a certified nurse is always on-site — including at night — to ensure continuous and safe monitoring."
+    }
+  ],
+  "topCards": [
+    {
+      "title": "Costs",
+      "text": "Intensive care is usually covered in full by health insurance."
+    },
+    {
+      "title": "Timeline",
+      "text": "From initial consultation to the start of care: approximately 4–6 weeks."
+    },
+    {
+      "title": "Qualifications",
+      "text": "All services are delivered by certified, continuously trained professionals."
+    }
+  ],
+  "closing": {
+    "title": "Didn't Find Your Answer?",
+    "text": "Reach out to us directly — we're happy to help."
+  }
+}

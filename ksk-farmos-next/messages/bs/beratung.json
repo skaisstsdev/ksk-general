@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Konsultacije",
+    "description": "Besplatne i neobavezujuće konsultacije o intenzivnoj njezi. Posvećujemo vam vrijeme."
+  },
+  "hero": {
+    "eyebrow": "Konsultacije",
+    "title": "Besplatne početne konsultacije",
+    "lead": "Posvetit ćemo vam vremena koliko god bude potrebno — uživo, telefonom ili pismenim putem."
+  },
+  "points": [
+    "Potpuno besplatno i bez obaveza",
+    "Lični susret ili telefonski razgovor",
+    "Brz odgovor u roku od 24 sata"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Ime",
+      "nachname": "Prezime",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "nachricht": "Poruka (opciono)",
+      "nachrichtPlaceholder": "Kratko nam opišite svoju situaciju...",
+      "consentPrefix": "Pročitao/la sam ",
+      "consentLink": "politiku privatnosti",
+      "consentSuffix": " i slažem se sa njenim uslovima.",
+      "submit": "Zatražite konsultacije"
+    },
+    "success": {
+      "title": "Hvala vam!",
+      "text": "Vaš upit je uspješno poslan. Javit ćemo vam se u roku od 24 sata."
+    },
+    "error": {
+      "title": "Nešto je pošlo po zlu.",
+      "text": "Molimo pokušajte ponovo ili nas direktno pozovite."
+    },
+    "validation": {
+      "vorname": "Molimo unesite svoje ime.",
+      "nachname": "Molimo unesite svoje prezime.",
+      "email": "Molimo unesite ispravnu e-mail adresu.",
+      "consent": "Molimo prihvatite politiku privatnosti."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

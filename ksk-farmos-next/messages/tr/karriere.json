@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Kariyer",
+    "description": "KSK Farmos GmbH & Co. KG'de kariyer — tarife üstü maaş, eğitim imkanları ve güçlü bir ekip. Hemen başvurun."
+  },
+  "hero": {
+    "eyebrow": "Kariyer",
+    "title": "Gerçekten önemli olan yerde çalışın.",
+    "lead": "Sektör ortalamasının üzerinde maaş, sürekli mesleki eğitim fırsatları ve birbirini destekleyen güçlü bir takım.",
+    "bewerben": "Hemen Başvur",
+    "vakanzen": "Açık Pozisyonlar",
+    "alt": "Bir bakım uzmanı, infüzyon standındaki infüzyon pompasını ayarlıyor"
+  },
+  "benefits": {
+    "eyebrow": "SİZE NELER SUNUYORUZ",
+    "title": "KSK Farmos GmbH & Co. KG'deki Avantajlarınız",
+    "items": [
+      {
+        "title": "Tarife Üstü Maaş",
+        "text": "Tarifenin oldukça üzerinde ödeme yapıyoruz — çünkü emeğiniz bizim için çok değerli."
+      },
+      {
+        "title": "Güçlü Bir Ekip",
+        "text": "Arkadaşça bir atmosfer, karşılıklı yardımlaşma ve gerçek değer görme."
+      },
+      {
+        "title": "Eğitim ve Gelişim",
+        "text": "Sertifika veren eğitim kurumları aracılığıyla düzenli mesleki eğitim ve gelişim imkanları — tamamı şirket tarafından karşılanır."
+      },
+      {
+        "title": "Esneklik",
+        "text": "Özel hayatınız ile iş hayatınız arasındaki dengeye önem veriyor, vardiya planlamamızı esnek tutuyoruz."
+      },
+      {
+        "title": "Anlamlı Bir İş",
+        "text": "Ağır hastaların hayatında her gün gerçek bir fark yaratırsınız."
+      },
+      {
+        "title": "Kariyer Fırsatları",
+        "text": "Yükselme olanakları ve kişisel gelişim desteği. Performansınız ve özveriniz bizimle yeni kariyer fırsatlarına kapı açabilir."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "İş İlanları",
+    "title": "Açık Pozisyonlar",
+    "bewerben": "Başvur",
+    "items": [
+      {
+        "title": "Uzman Hemşire (e/k/d)",
+        "tags": [
+          "Tam / Yarı Zamanlı",
+          "Yoğun Bakım",
+          "B Sınıfı Ehliyet"
+        ]
+      },
+      {
+        "title": "Bakım Elemanı (e/k/d)",
+        "tags": [
+          "Tam / Yarı Zamanlı",
+          "B Sınıfı Ehliyet"
+        ]
+      },
+      {
+        "title": "Bakım Stajyeri (e/k/d)",
+        "tags": [
+          "Tam Zamanlı"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Başvuru Süreci",
+    "title": "Nasıl Başvurabilirsiniz?",
+    "steps": [
+      {
+        "title": "Başvurunuzu Gönderin",
+        "text": "Formumuzu doldurarak, e-posta göndererek veya bizi arayarak."
+      },
+      {
+        "title": "Kişisel Görüşme",
+        "text": "Sizinle rahat bir ortamda, eşit şartlarda tanışmak istiyoruz."
+      },
+      {
+        "title": "Ekibimize Hoş Geldiniz",
+        "text": "Oryantasyon süreci, eğitimler ve her adımda tam destek."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Sağlık Personelleri İçin",
+    "title": "Bir Sonraki Adıma Hazır Mısınız?",
+    "text": "Hemen başvurun — hızlı ve karmaşıklıktan uzak.",
+    "cta": "Hemen başvur",
+    "points": [
+      "48 saat içinde geri dönüş",
+      "Form, e-posta veya telefonla",
+      "Ön yazıya gerek yok"
+    ]
+  }
+}

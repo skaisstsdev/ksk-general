@@ -1,8 +1,9 @@
+import { getTranslations } from "next-intl/server";
+
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
-import { diagnoses } from "@/content/home";
 
 /**
  * «Кого мы обслуживаем» — первый вопрос семьи: берёте ли вы такой случай.
@@ -10,15 +11,18 @@ import { diagnoses } from "@/content/home";
  *
  * Заголовок закреплён: он держится, пока читается весь перечень.
  */
-export function Diagnoses() {
+export async function Diagnoses() {
+  const t = await getTranslations("home.diagnoses");
+  const items: { title: string; text: string }[] = t.raw("items");
+
   return (
     <section id="krankheitsbild" className="pt-turn">
       <Grid>
         <Col span="text">
           <StickyCol>
-            <Eyebrow className="text-ink-muted">{diagnoses.eyebrow}</Eyebrow>
+            <Eyebrow className="text-ink-muted">{t("eyebrow")}</Eyebrow>
             <h2 className="mt-2xs max-w-[12ch] text-h1 text-ink">
-              {diagnoses.title}
+              {t("title")}
             </h2>
           </StickyCol>
         </Col>
@@ -26,7 +30,7 @@ export function Diagnoses() {
         <Col span="aside">
           {/* Те же линейки, что в списке услуг: приём один на весь сайт */}
           <ul>
-            {diagnoses.items.map((item, i) => (
+            {items.map((item, i) => (
               <li key={item.title}>
                 <Rule index={i} />
                 <div className="flex items-baseline gap-md py-md">
@@ -42,7 +46,7 @@ export function Diagnoses() {
               </li>
             ))}
             <li aria-hidden="true">
-              <Rule index={diagnoses.items.length} />
+              <Rule index={items.length} />
             </li>
           </ul>
         </Col>

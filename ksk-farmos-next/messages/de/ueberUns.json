@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Über uns",
+    "description": "Lernen Sie KSK Farmos GmbH & Co. KG kennen — unsere Geschichte, unser Leitbild, unser Team und unsere Partner."
+  },
+  "hero": {
+    "eyebrow": "Über uns",
+    "title": "Erfahrung und Fürsorge seit 2013",
+    "lead": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen — professionell, menschlich und zuverlässig.",
+    "beratung": "Kostenlose Beratung",
+    "kontakt": "Kontakt aufnehmen",
+    "alt": "Das Team von KSK Farmos GmbH & Co. KG im Garten"
+  },
+  "leitbild": {
+    "eyebrow": "Unser Leitbild",
+    "title": "Woran wir uns orientieren",
+    "items": [
+      {
+        "title": "Lebensprozesse unterstützen",
+        "text": "Selbstständigkeit fördern und natürliche Prozesse begleiten."
+      },
+      {
+        "title": "Körperfunktionen fördern",
+        "text": "Gezielte Pflege zur Erhaltung körperlicher Funktionen."
+      },
+      {
+        "title": "Krankheit kontrollieren",
+        "text": "Verläufe überwachen, frühzeitig reagieren."
+      },
+      {
+        "title": "Wohlbefinden fördern",
+        "text": "Emotionales und körperliches Wohlbefinden im Fokus."
+      },
+      {
+        "title": "Komplikationen verhindern",
+        "text": "Prophylaxen und kontinuierliche Überwachung."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Unsere Geschichte",
+    "title": "Gegründet aus Überzeugung",
+    "paragraphs": [
+      "Der ambulante Intensivpflegedienst KSK Farmos GmbH & Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet — mit einem klaren Ziel: Menschen mit schweren Erkrankungen ein würdevolles, selbstbestimmtes Leben zu ermöglichen.",
+      "Seitdem versorgen wir Patienten hessenweit — in ihrem eigenen Zuhause oder in unserer Einrichtung in Kassel."
+    ]
+  },
+  "team": {
+    "eyebrow": "Unser Team",
+    "title": "Die Menschen hinter KSK Farmos GmbH & Co. KG",
+    "members": [
+      {
+        "name": "",
+        "role": "Geschäftsführer",
+        "desc": "Leitung und Organisation des Unternehmens",
+        "desc2": "Finanz- und Liquiditätsplanung"
+      },
+      {
+        "name": "",
+        "role": "Pflegedienstleitung (PDL)",
+        "desc": "Pflegeexperte für außerklinische Beatmung, direkte Ansprechpartnerin für Angehörige.",
+        "desc2": "Verantwortlich für die fachliche Leitung und Qualitätssicherung aller Pflegemaßnahmen."
+      },
+      {
+        "name": "",
+        "role": "Stellvertretende PDL",
+        "desc": "Pflegeexperte für außerklinische Beatmung, Hygienebeauftragte.",
+        "desc2": "Koordination der Pflegeteams."
+      },
+      {
+        "name": "Unser Pflegeteam",
+        "role": "Pflegefachkräfte für außerklinische Beatmung",
+        "desc": "Rund 30 Mitarbeiter — qualifiziert, empathisch und zuverlässig im Einsatz.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "Kooperationen",
+    "title": "Wir kooperieren eng mit:",
+    "text": "Gute Pflege endet nicht an der eigenen Tür. Für eine lückenlose Versorgung arbeiten wir eng mit erfahrenen Partnern zusammen — abgestimmt, verlässlich und immer im Interesse unserer Klienten.",
+    "items": [
+      "Fachärzten verschiedener Disziplin",
+      "Physiotherapeuten",
+      "Logopäden",
+      "Ergotherapeuten",
+      "Medizintechnik-Unternehmen",
+      "Kranken-, Pflege- und Sozialkassen",
+      "Sanitätshäuser"
+    ],
+    "alt": "Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung"
+  },
+  "social": {
+    "eyebrow": "Social Media",
+    "title": "Folgen Sie uns",
+    "text": "Bleiben Sie auf dem Laufenden! Auf unseren Social-Media-Kanälen teilen wir Einblicke in unseren Alltag, nützliche Tipps und aktuelle Neuigkeiten aus der Pflege."
+  }
+}

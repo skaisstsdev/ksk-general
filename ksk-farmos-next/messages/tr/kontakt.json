@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "İletişim",
+    "description": "KSK Farmos GmbH & Co. KG ile iletişime geçin — ücretsiz, bağlayıcı değil, insan odaklı. Telefon, e-posta veya iletişim formu."
+  },
+  "hero": {
+    "eyebrow": "İletişim",
+    "title": "Bizimle İletişime Geçin",
+    "lead": "Ücretsiz. Bağlayıcı değil. İnsan odaklı."
+  },
+  "form": {
+    "eyebrow": "Bize Yazın",
+    "title": "İletişim Formu",
+    "text": "Formu doldurduğunuzda, 24 saat içinde size dönüş yapacağız.",
+    "callLabel": "Dilerseniz bizi doğrudan da arayabilirsiniz:",
+    "fields": {
+      "vorname": "Adınız",
+      "nachname": "Soyadınız",
+      "email": "E-Posta",
+      "telefon": "Telefon",
+      "betreff": "Konu",
+      "betreffPlaceholder": "Lütfen seçin",
+      "nachricht": "Mesajınız",
+      "consentPrefix": "",
+      "consentLink": "Gizlilik politikasını",
+      "consentSuffix": " okudum ve kabul ediyorum.",
+      "submit": "Mesajı Gönder"
+    },
+    "betreffOptions": [
+      "Yoğun Bakım Danışmanlığı",
+      "Konut Projeleri",
+      "İş Başvurusu / Kariyer",
+      "Diğer"
+    ],
+    "success": {
+      "title": "Teşekkür ederiz!",
+      "text": "Mesajınız gönderildi. 24 saat içinde size dönüş yapacağız."
+    },
+    "error": {
+      "title": "Bir şeyler ters gitti.",
+      "text": "Lütfen tekrar deneyin veya bizi doğrudan arayın."
+    },
+    "validation": {
+      "vorname": "Lütfen adınızı girin.",
+      "nachname": "Lütfen soyadınızı girin.",
+      "email": "Lütfen geçerli bir e-posta adresi girin.",
+      "nachricht": "Lütfen bir mesaj girin.",
+      "consent": "Lütfen gizlilik politikasını kabul edin."
+    },
+    "honeypotLabel": "Şirket"
+  },
+  "cards": {
+    "headquarters": "Merkez Volkmarsen",
+    "mobile": "Mobil / 24 Saat",
+    "email": "E-posta",
+    "fax": "Faks"
+  },
+  "standorte": {
+    "eyebrow": "Lokasyonlarımız",
+    "title": "Bizi Nerede Bulabilirsiniz",
+    "headquartersRole": "Merkez Ofis - Volkmarsen",
+    "residenceRole": "Konaklamalı Bakım Merkezi - Kassel"
+  },
+  "map": {
+    "consent": "İnteraktif Google Haritasını görüntülemek için, lütfen verilerinizin (IP adresi dahil) Google'a aktarılmasına izin verin.",
+    "load": "Haritayı yükle ve onayla",
+    "loading": "Harita yükleniyor…",
+    "revoke": "Onayı geri çek"
+  }
+}

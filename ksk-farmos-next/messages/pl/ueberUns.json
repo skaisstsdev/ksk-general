@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "O nas",
+    "description": "Poznaj KSK Farmos GmbH & Co. KG — naszą historię, nasze wartości, nasz zespół i naszych partnerów."
+  },
+  "hero": {
+    "eyebrow": "O nas",
+    "title": "Doświadczenie i opieka od 2013 roku",
+    "lead": "Od 2013 roku z wielkim sercem opiekujemy się osobami z ciężkimi schorzeniami — profesjonalnie, po ludzku i rzetelnie.",
+    "beratung": "Bezpłatna Konsultacja",
+    "kontakt": "Skontaktuj Się",
+    "alt": "Zespół KSK Farmos w ogrodzie"
+  },
+  "leitbild": {
+    "eyebrow": "Nasze Wartości",
+    "title": "Czym Się Kierujemy",
+    "items": [
+      {
+        "title": "Wspieranie Procesów Życiowych",
+        "text": "Zachęcamy do samodzielności i z troską towarzyszymy naturalnym procesom organizmu."
+      },
+      {
+        "title": "Utrzymywanie Funkcji Fizycznych",
+        "text": "Celowana opieka w celu zachowania sprawności ruchowej i fizycznej."
+      },
+      {
+        "title": "Kontrola nad Chorobą",
+        "text": "Wnikliwe monitorowanie postępów i szybka reakcja na zmiany stanu zdrowia."
+      },
+      {
+        "title": "Promowanie Dobrego Samopoczucia",
+        "text": "Dobrostan psychiczny i komfort fizyczny pacjenta są dla nas zawsze na pierwszym miejscu."
+      },
+      {
+        "title": "Zapobieganie Komplikacjom",
+        "text": "Ciągła profilaktyka i całodobowa obserwacja stanu zdrowia pacjenta."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Nasza Historia",
+    "title": "Zbudowani na Przekonaniach",
+    "paragraphs": [
+      "Ambulatoryjna służba intensywnej opieki KSK Farmos GmbH & Co. KG została założona w 2013 roku przez Viktora Beresneva w Volkmarsen z jasnym i szlachetnym celem: umożliwienie osobom z ciężkimi diagnozami prowadzenia godnego i niezależnego życia.",
+      "Od tamtej pory dbamy o pacjentów na terenie całej Hesji — w ich domach, a także w naszym ośrodku w Kassel."
+    ]
+  },
+  "team": {
+    "eyebrow": "Nasz Zespół",
+    "title": "Ludzie Tworzący KSK Farmos GmbH & Co. KG",
+    "members": [
+      {
+        "name": "",
+        "role": "Dyrektor zarządzający",
+        "desc": "Zarządzanie i organizacja przedsiębiorstwa",
+        "desc2": "Planowanie finansowe i płynnościowe"
+      },
+      {
+        "name": "",
+        "role": "Dyrektor ds. Pielęgniarstwa (PDL)",
+        "desc": "Specjalista ds. wentylacji pozaszpitalnej, Bezpośredni kontakt dla bliskich.",
+        "desc2": "Odpowiedzialny za fachowe kierownictwo i zapewnienie jakości wszystkich zabiegów pielęgnacyjnych."
+      },
+      {
+        "name": "",
+        "role": "Zastępca Dyrektora ds. Pielęgniarstwa",
+        "desc": "Specjalista ds. wentylacji pozaszpitalnej, Inspektor ds. higieny.",
+        "desc2": "Koordynacja zespołów opiekuńczych."
+      },
+      {
+        "name": "Nasz Zespół Opiekunów",
+        "role": "Wykwalifikowany personel pielęgniarski ds. wentylacji pozaszpitalnej",
+        "desc": "Około 30 pracowników — wykwalifikowanych, empatycznych i niezawodnych w działaniu.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "Nasi Partnerzy",
+    "title": "Współpracujemy ściśle z:",
+    "text": "Dobra opieka nie kończy się za własnymi drzwiami. Dla zapewnienia ciągłej opieki ściśle współpracujemy z doświadczonymi partnerami — w sposób skoordynowany, niezawodny i zawsze w interesie naszych klientów.",
+    "items": [
+      "Lekarzami specjalistami różnych dyscyplin",
+      "Fizjoterapeutami",
+      "Logopedami",
+      "Ergoterapeutami",
+      "Firmami z branży technologii medycznych",
+      "Kasami chorych, opiekuńczymi i społecznymi",
+      "Sklepami medycznymi"
+    ],
+    "alt": "Opiekun i bliska osoba omawiają wspólnie ze starszą klientką plan opieki"
+  },
+  "social": {
+    "eyebrow": "Media społecznościowe",
+    "title": "Śledź nas",
+    "text": "Bądź na bieżąco! Na naszych kanałach społecznościowych dzielimy się migawkami z codziennego życia, przydatnymi wskazówkami i najnowszymi wiadomościami o opiece."
+  }
+}

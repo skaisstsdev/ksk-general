@@ -40,7 +40,7 @@ export function StepsGrid({
           <Rule index={i} stagger={STEP_STAGGER} tone={onPaper ? "paper" : "ink"} />
           <motion.span
             className={cn(
-              "mt-md font-serif text-h2 leading-none tabular-nums",
+              "mt-md text-h2 leading-none tabular-nums",
               onPaper ? "text-white-pure" : "text-violet",
             )}
             initial={reduced ? undefined : { opacity: DIM }}

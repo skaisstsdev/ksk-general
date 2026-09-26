@@ -17,7 +17,6 @@ export const company = {
   legalName: "KSK Farmos GmbH & Co. KG",
   fullLegalName: "Intensivpflegedienst KSK Farmos GmbH & Co. KG",
   shortName: "KSK Farmos",
-  descriptor: "Intensivpflegedienst",
   foundedYear: 2013,
   founder: "Viktor Beresnev",
   staffCount: 30,
@@ -50,10 +49,15 @@ export const impressum = {
   ikNumber: "460623855",
 } as const;
 
+/** Betrieblicher Datenschutzbeauftragter — контакт для Datenschutzerklärung. */
+export const dataProtectionOfficer = {
+  name: "Klaus Moldenhauer",
+  email: "system@ksk-farmos.de",
+} as const;
+
 export const locations = {
   headquarters: {
     id: "volkmarsen",
-    label: "Zentrale Volkmarsen", // kon.card1
     street: "Ehringer Weg 2b",
     postalCode: "34471",
     city: "Volkmarsen",
@@ -68,7 +72,6 @@ export const locations = {
    */
   residence: {
     id: "kassel",
-    label: "Aufenthaltskonzept Kassel", // ub.loc2.h3
     street: "Sommerbergstraße 14",
     postalCode: "34123",
     city: "Kassel",

@@ -1,0 +1,15 @@
+{
+  "tag": "Legal",
+  "impressum": {
+    "title": "Legal Notice",
+    "metaDescription": "Legal notice: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen, Germany."
+  },
+  "datenschutz": {
+    "title": "Privacy Policy",
+    "metaDescription": "Privacy policy of KSK Farmos GmbH & Co. KG. Information on data protection and data processing."
+  },
+  "cookieBanner": {
+    "text": "This website uses only technically necessary cookies.",
+    "dismiss": "Got it"
+  }
+}

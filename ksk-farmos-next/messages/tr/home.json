@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Kuzey Hessen'de Yoğun Bakım",
+    "title": "Gerçekten fark yaratan profesyonel bakım.",
+    "lead": "Kendi evinizde veya Kassel'deki merkezimizde ayakta yoğun bakım hizmeti — haftanın 7 günü 24 saat kesintisiz.",
+    "alt": "KSK Farmos bakım uzmanı, acil müdahale çantasıyla müdahale aracının yanında"
+  },
+  "doors": {
+    "family": {
+      "audience": "Hastalar ve Hasta Yakınları İçin",
+      "title": "Ücretsiz Danışmanlık Talep Edin",
+      "text": "Size şahsen, hiçbir ücret talep etmeden ve bağlayıcılığı olmadan danışmanlık yapıyoruz.",
+      "cta": "Danışmanlık İste",
+      "callLabel": "Hemen Ara"
+    },
+    "professional": {
+      "audience": "Sağlık Personelleri İçin",
+      "title": "Ekibimizin Bir Parçası Olun",
+      "text": "Ortalamanın üzerinde maaş, sürekli eğitim fırsatları ve şirket aracı imkanı.",
+      "cta": "Hemen Başvur",
+      "note": "Hızlı ve kolay — ön yazıya gerek yok."
+    }
+  },
+  "stats": {
+    "years": "Yıllık Deneyim",
+    "staffRatio": "Hasta Başına Çalışan",
+    "roundTheClock": "7/24 Kesintisiz",
+    "locations": "Hessen'de Şubeler",
+    "team": "Çalışan",
+    "weeksToStart": "Bakımın Başlamasına Kadar Hafta",
+    "responseTime": "Geri Dönüş"
+  },
+  "intro": {
+    "text": "2013 yılından bu yana ağır hastalığı olan bireylere bakım sunuyoruz. Uzman ve diplomalı kadromuzla, ev ortamında veya Kassel ile Waldeck-Frankenberg bölgesindeki anlaşmalı konut projelerinde en yüksek seviyede 7/24 bakım garantisi veriyoruz."
+  },
+  "moment": {
+    "eyebrow": "Evde Yoğun Bakım",
+    "title": "Hayat, ait olduğu yerde kalır.",
+    "text": "Solunum cihazı, trakeostomi, bitkisel hayat — ağır tablolarda bile bakım kendi evinizin dört duvarı arasında sürdürülebilir. Diplomalı bir uzman size günün her saati eşlik eder, masrafları genellikle sağlık ve bakım sigortası karşılar.",
+    "cta": "Başlangıç nasıl işliyor",
+    "alt": "Bir bakıcıyla bahçede yürüyüş yapan aile"
+  },
+  "services": {
+    "eyebrow": "Hizmetlerimiz",
+    "title": "Size Nasıl Yardımcı Olabiliriz?",
+    "items": [
+      {
+        "title": "Evde Yoğun Bakım",
+        "text": "Kendi evinizin huzurlu ortamında, günün her saati profesyonel bakım hizmeti."
+      },
+      {
+        "title": "Farklı Konut Projelerinde Bakım",
+        "text": "Güvenli. Tanıdık. Sevgi ve mesleki uzmanlıkla."
+      },
+      {
+        "title": "Kimlere Bakım Sağlıyoruz?",
+        "text": "Solunum bakımından apalik sendroma — her tanı için uzman destek."
+      },
+      {
+        "title": "§ 37.3 SGB XI / § 7 SGB XI uyarınca Bireysel Bakım Danışmanlığı",
+        "text": "Bakıma muhtaç kişilere ve yakınlarına, ev ortamında en iyi bakımı sağlamak amacıyla bireysel bakım danışmanlığı sunuyoruz."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Tanılar",
+    "title": "Kimlere Bakım Sağlıyoruz",
+    "items": [
+      {
+        "title": "Solunum Cihazına Bağlı Hastalar",
+        "text": "İnvaziv ve non-invaziv solunum desteği"
+      },
+      {
+        "title": "Bitkisel Hayat (Apallik Sendrom)",
+        "text": "Uzun süreli bakım ve stimülasyon tedavisi"
+      },
+      {
+        "title": "ALS ve Nörolojik Hastalıklar",
+        "text": "İlerleyici hastalıklarda destekleyici bakım"
+      },
+      {
+        "title": "Omurilik Yaralanmaları",
+        "text": "Bütüncül ve kapsamlı bakım yaklaşımı"
+      },
+      {
+        "title": "Travmatik Beyin Hasarı",
+        "text": "Rehabilitasyon ve durum stabilizasyonu"
+      },
+      {
+        "title": "Demans / Alzheimer",
+        "text": "Sabır ve saygılı iletişim"
+      }
+    ],
+    "quote": "Hastamızın refahı ve sağlığı, bizim en temel önceliğimizdir.",
+    "quoteCite": "Misyonumuz"
+  },
+  "steps": {
+    "eyebrow": "Süreç Nasıl İşler",
+    "title": "3 Adımda Bakıma Başlangıç",
+    "items": [
+      {
+        "title": "İlk Görüşme",
+        "text": "Tamamen ücretsiz ve bağlayıcı olmayan bir görüşme ile durumunuzu anlıyor ve size özel tavsiyelerde bulunuyoruz."
+      },
+      {
+        "title": "Bireysel Planlama",
+        "text": "Size özel bir bakım planı oluşturuyor, doktorlarınızla koordine oluyor ve finansman sürecini yönetiyoruz."
+      },
+      {
+        "title": "Bakımın Başlaması",
+        "text": "Kişisel bakım ekibiniz, profesyonel ve güvenilir bir şekilde görevine başlıyor."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Hakkımızda",
+    "title": "Biz Kimiz?",
+    "text": "KSK Farmos GmbH & Co. KG ayakta yoğun bakım servisi, 2013 yılında Viktor Beresnev tarafından Volkmarsen'de kuruldu. O günden bu yana Hessen genelindeki hastalarımıza sevgi, uzmanlık ve en son teknoloji ekipmanlarla hizmet veriyoruz.",
+    "highlight": "Hasta başına 5,5 personel ile sektör ortalamasının çok üzerindeyiz.",
+    "link": "Hakkımızda Daha Fazla Bilgi",
+    "alt": "{founder}, {legalName} kurucusu, bir çalışanla sohbet ediyor"
+  },
+  "reviews": {
+    "eyebrow": "Deneyimler",
+    "title": "Hastalarımız Ne Diyor",
+    "cta": "Değerlendirme bırakın",
+    "starsAria": "5 üzerinden 5 yıldız",
+    "items": [
+      {
+        "text": "\"Çok yetkin ve empatik bir ekip. Kassel'deki 24 saatlik bakım, ailemiz için büyük bir rahatlama oldu. Kendimizi mükemmel ellerde hissediyoruz.\"",
+        "name": "M. Ailesi",
+        "role": "Yakınlar, Kassel"
+      },
+      {
+        "text": "\"KSK Farmos GmbH & Co. KG'un evde yoğun bakımı sayesinde babam alışık olduğu ortamda kalabiliyor. Güvenilir ve her zaman dostça.\"",
+        "name": "Thomas W.",
+        "role": "Yakın, Volkmarsen"
+      },
+      {
+        "text": "\"İlk görüşmeden bakımın uygulanmasına kadar her şey sorunsuz ilerledi. Hemşireler son derece kalifiye ve çok profesyonel çalışıyor.\"",
+        "name": "Sabine K.",
+        "role": "Hasta, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Gelin Görüşelim",
+    "text": "Tamamen ücretsiz ve bağlayıcı değil.",
+    "callCta": "Hemen Ara",
+    "beratungCta": "Ücretsiz Danışmanlık",
+    "points": [
+      "Tamamen ücretsiz ve yükümlülük içermez",
+      "Yüz yüze veya telefonla görüşme",
+      "En geç 24 saat içinde geri dönüş"
+    ]
+  },
+  "map": {
+    "eyebrow": "Lokasyonlarımız",
+    "title": "Bizi Nerede Bulabilirsiniz",
+    "coverage": "Volkmarsen ve Kassel'den Frankfurt'a ve ötesine kadar, Hessen bölgesinin tamamındaki hastalara bakım sağlıyoruz.",
+    "headquartersRole": "Merkez Ofis - Volkmarsen",
+    "residenceRole": "Konaklamalı Bakım Merkezi - Kassel"
+  },
+  "servicesLink": "Tüm Hizmetler",
+  "conditions": [
+    "Tarifenin üstünde maaş",
+    "Özel kullanım için şirket aracı",
+    "Ücretli ileri eğitim",
+    "30 gün izin",
+    "Ekip ruhu ve değer görme"
+  ]
+}

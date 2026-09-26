@@ -1,8 +1,9 @@
+import { getTranslations } from "next-intl/server";
+
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Rule } from "@/components/ui/Rule";
-import { doors, hero } from "@/content/home";
-import { karriere, primaryCta } from "@/content/navigation";
+import { karriereNav, primaryCta } from "@/content/navigation";
 import { cn } from "@/lib/cn";
 
 /**
@@ -36,7 +37,7 @@ import { cn } from "@/lib/cn";
  * ширине — 273/201/195, заметно ровнее. `text-wrap: wrap` возвращает
  * обычный перенос только этому заголовку, не трогая остальной сайт.
  */
-export function HeroCopy({
+export async function HeroCopy({
   tone = "ink",
   className,
 }: {
@@ -44,12 +45,13 @@ export function HeroCopy({
   tone?: "ink" | "paper";
   className?: string;
 }) {
+  const t = await getTranslations("home");
   const onPhoto = tone === "paper";
 
   return (
     <div className={cn("flex flex-col", className)}>
       <Eyebrow className={onPhoto ? "text-paper/90" : "text-ink-muted"}>
-        {hero.eyebrow}
+        {t("hero.eyebrow")}
       </Eyebrow>
 
       <h1
@@ -58,7 +60,7 @@ export function HeroCopy({
           onPhoto ? "text-paper" : "text-ink",
         )}
       >
-        {hero.title}
+        {t("hero.title")}
       </h1>
 
       <p
@@ -67,7 +69,7 @@ export function HeroCopy({
           onPhoto ? "text-paper/90" : "text-ink-soft",
         )}
       >
-        {hero.lead}
+        {t("hero.lead")}
       </p>
 
       {/* Две двери — по одной на аудиторию. Линейка над ними отделяет
@@ -80,19 +82,24 @@ export function HeroCopy({
 
       <div className="mt-lg flex flex-wrap items-center gap-x-md gap-y-sm">
         <Button href={primaryCta.href} size="lg">
-          {doors.family.cta}
+          {t("doors.family.cta")}
         </Button>
 
+        {/* Ширина зафиксирована по первой кнопке (`min-w`, не `w-full`
+            контейнера): вторая кнопка короче по тексту и без этого
+            заметно уже — на одну аудиторию должна приходиться дверь
+            того же размера, что и на другую. */}
         <Button
-          href={karriere.href}
+          href={karriereNav.href}
           variant="secondary"
           size="lg"
           className={cn(
+            "min-w-[198px] justify-center",
             onPhoto &&
               "border-paper/60 text-paper hover:border-paper hover:bg-paper/10",
           )}
         >
-          {doors.professional.audience}
+          {t("doors.professional.audience")}
         </Button>
       </div>
     </div>

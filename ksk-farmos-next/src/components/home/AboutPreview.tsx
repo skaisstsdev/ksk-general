@@ -1,8 +1,9 @@
+import { getTranslations } from "next-intl/server";
+
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
-import { about } from "@/content/home";
 import { company } from "@/content/site";
 
 /**
@@ -11,14 +12,16 @@ import { company } from "@/content/site";
  * экрана вслед за прокруткой, текст держит правую колонку сетки
  * и стоит по центру кадра.
  */
-export function AboutPreview() {
+export async function AboutPreview() {
+  const t = await getTranslations("home.about");
+
   return (
     <section id="ueber-uns" className="pt-turn">
       <Grid className="lg:items-center">
         <Col span="text">
           <Photo
-            src="/img/gruender.webp"
-            alt={`${company.founder}, Gründer von ${company.legalName}, im Gespräch mit einer Mitarbeiterin`}
+            src="/img/home/gruender.webp"
+            alt={t("alt", { founder: company.founder, legalName: company.legalName })}
             ratio="4 / 3"
             ratioLg="3 / 2"
             sizes="(min-width: 1024px) 55vw, 100vw"
@@ -29,12 +32,12 @@ export function AboutPreview() {
         </Col>
 
         <Col span="aside">
-          <Eyebrow className="text-ink-muted">{about.eyebrow}</Eyebrow>
-          <h2 className="mt-2xs text-h1 text-ink">{about.title}</h2>
-          <p className="mt-md text-body text-ink-soft">{about.text}</p>
+          <Eyebrow className="text-ink-muted">{t("eyebrow")}</Eyebrow>
+          <h2 className="mt-2xs text-h1 text-ink">{t("title")}</h2>
+          <p className="mt-md text-body text-ink-soft">{t("text")}</p>
 
           <ArrowLink href="/ueber-uns" className="mt-lg">
-            {about.link}
+            {t("link")}
           </ArrowLink>
         </Col>
       </Grid>

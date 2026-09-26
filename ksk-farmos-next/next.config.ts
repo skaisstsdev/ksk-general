@@ -17,6 +17,12 @@ const legacyPages = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    // По умолчанию Next.js 16 разрешает только quality=75 и тихо
+    // округляет всё остальное до него — хиро главной запрашивает 90.
+    qualities: [75, 90],
+  },
+
   async redirects() {
     return [
       // `/index.html` → `/`

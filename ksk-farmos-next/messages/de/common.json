@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Startseite",
+    "leistungen": "Leistungen",
+    "ueberUns": "Über uns",
+    "karriere": "Karriere",
+    "faq": "FAQ",
+    "kontakt": "Kontakt",
+    "primaryCta": "Kostenlose Beratung",
+    "applyCta": "Jetzt bewerben"
+  },
+  "legalNav": {
+    "datenschutz": "Datenschutzerklärung",
+    "impressum": "Impressum"
+  },
+  "footer": {
+    "desc": "Spezialisierter Intensivpflegedienst in Nordhessen — seit {year}.",
+    "navTitle": "Navigation",
+    "kontaktTitle": "Kontakt",
+    "legalTitle": "Rechtliches",
+    "standortenTitle": "Standorte",
+    "rights": "Alle Rechte vorbehalten.",
+    "navAria": "Footer-Navigation"
+  },
+  "lang": {
+    "title": "Sprache wählen"
+  },
+  "header": {
+    "mainNavAria": "Hauptnavigation"
+  },
+  "mobileMenu": {
+    "openAria": "Menü öffnen",
+    "closeAria": "Menü schließen"
+  },
+  "brand": {
+    "descriptor": "Intensivpflegedienst"
+  },
+  "meta": {
+    "titleSuffix": "Intensivpflegedienst in Nordhessen"
+  },
+  "locations": {
+    "headquartersLabel": "Zentrale Volkmarsen",
+    "residenceLabel": "Aufenthaltskonzept Kassel"
+  },
+  "closingFamily": {
+    "eyebrow": "Für Patienten und Angehörige",
+    "title": "Kostenlose Beratung",
+    "text": "Wir beraten Sie persönlich — unverbindlich und kostenfrei.",
+    "cta": "Sprechen Sie uns an"
+  },
+  "kontaktCta": "Kontakt aufnehmen",
+  "dialog": {
+    "close": "Schließen"
+  },
+  "chat": {
+    "openAria": "Chat öffnen",
+    "status": "Online",
+    "welcome": "Hallo! Ich bin der KI-Assistent von KSK Farmos. Gerne beantworte ich Ihre Fragen.",
+    "quickReplies": ["Kostenübernahme?", "Standorte?", "Karriere?", "Beratung anfragen"],
+    "placeholder": "Ihre Frage…",
+    "sendAria": "Senden",
+    "disclaimerPrefix": "KI-Assistent · Antworten werden mit OpenAI erstellt",
+    "errorFallback": "Entschuldigung, es ist ein Fehler aufgetreten. Bitte rufen Sie uns an: {phone}"
+  }
+}

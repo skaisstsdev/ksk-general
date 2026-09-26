@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Acasă",
+    "leistungen": "Servicii",
+    "ueberUns": "Despre Noi",
+    "karriere": "Cariere",
+    "faq": "FAQ",
+    "kontakt": "Contact",
+    "primaryCta": "Consultație Gratuită",
+    "applyCta": "Aplică Acum"
+  },
+  "legalNav": {
+    "datenschutz": "Politică de Confidențialitate",
+    "impressum": "Imprint"
+  },
+  "footer": {
+    "desc": "Serviciu specializat de terapie intensivă în nordul Hessei — din {year}.",
+    "navTitle": "Navigare",
+    "kontaktTitle": "Contact",
+    "legalTitle": "Informații Legale",
+    "standortenTitle": "Locații",
+    "rights": "Toate drepturile rezervate.",
+    "navAria": "Navigație subsol"
+  },
+  "lang": {
+    "title": "Alegeți limba"
+  },
+  "header": {
+    "mainNavAria": "Navigație principală"
+  },
+  "mobileMenu": {
+    "openAria": "Deschide meniul",
+    "closeAria": "Închide meniul"
+  },
+  "brand": {
+    "descriptor": "Serviciu de Terapie Intensivă"
+  },
+  "meta": {
+    "titleSuffix": "Serviciu de Terapie Intensivă în Nordul Hessei"
+  },
+  "locations": {
+    "headquartersLabel": "Sediu Central Volkmarsen",
+    "residenceLabel": "Centrul Rezidențial de Îngrijire - Kassel"
+  },
+  "closingFamily": {
+    "eyebrow": "Pentru Pacienți și Familii",
+    "title": "Consultație Gratuită",
+    "text": "Vă vom sfătui personal — gratuit și fără nicio obligație.",
+    "cta": "Să Discutăm"
+  },
+  "kontaktCta": "Contactați-ne",
+  "dialog": {
+    "close": "Închide"
+  },
+  "chat": {
+    "openAria": "Deschide chatul",
+    "status": "Online",
+    "welcome": "Bună ziua! Sunt asistentul AI al KSK Farmos. Vă răspund cu plăcere la întrebări.",
+    "quickReplies": ["Cine plătește?", "Locații?", "Cariere?", "Solicită consultație"],
+    "placeholder": "Întrebarea dvs.…",
+    "sendAria": "Trimite",
+    "disclaimerPrefix": "Asistent AI · Răspunsurile sunt generate cu OpenAI",
+    "errorFallback": "Ne pare rău, a apărut o eroare. Vă rugăm să ne sunați: {phone}"
+  }
+}

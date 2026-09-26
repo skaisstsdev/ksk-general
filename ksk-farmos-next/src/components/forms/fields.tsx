@@ -1,3 +1,9 @@
+"use client";
+
+import { useEffect, useId, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+
+import { Check, ChevronDown } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
 
 /**
@@ -119,6 +125,13 @@ export function Textarea({
   );
 }
 
+/**
+ * Свой выпадающий список вместо нативного `<select>` — у него на macOS/iOS
+ * нет способа задать стиль (шрифт, радиус, рамку), поэтому единственное
+ * невёрстанное поле сайта. Устройство — то же, что у `LanguageSwitcher.tsx`:
+ * клик вне поля и Escape закрывают список, рамка вместо тени, чек-иконка
+ * на выбранном пункте вместо заливки.
+ */
 export function Select({
   id,
   label,
@@ -134,25 +147,91 @@ export function Select({
   options: readonly { value: string; label: string }[];
   placeholder: string;
 }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const labelId = useId();
+  const selected = options.find((option) => option.value === value);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e: PointerEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
-    <div className="flex flex-col gap-3xs">
-      <label htmlFor={id} className="text-meta text-ink-soft">
+    <div ref={ref} className="relative flex flex-col gap-3xs">
+      <span id={labelId} className="text-meta text-ink-soft">
         {label}
-      </label>
-      <select
+      </span>
+      <button
+        type="button"
         id={id}
-        name={id}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className={cn(inputBase, borderClass(false))}
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-labelledby={`${labelId} ${id}`}
+        className={cn(
+          inputBase,
+          borderClass(false),
+          "flex items-center justify-between gap-sm text-start",
+          !selected && "text-ink-muted",
+        )}
       >
-        <option value="">{placeholder}</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
+        <span className="truncate">{selected ? selected.label : placeholder}</span>
+        <ChevronDown
+          className={cn(
+            "size-4 shrink-0 text-ink-muted transition-transform",
+            open && "rotate-180",
+          )}
+        />
+      </button>
+
+      <AnimatePresence>
+        {open ? (
+          <motion.ul
+            role="listbox"
+            aria-labelledby={labelId}
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-x-0 top-full z-10 mt-2xs rounded-xs border border-line-strong bg-paper py-xs"
+          >
+            {options.map((option) => (
+              <li key={option.value}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={option.value === value}
+                  onClick={() => {
+                    onChange(option.value);
+                    setOpen(false);
+                  }}
+                  className={cn(
+                    "flex w-full items-center justify-between gap-sm px-sm py-2xs text-start text-ui transition-colors hover:bg-ink/5",
+                    option.value === value ? "text-ink" : "text-ink-soft",
+                  )}
+                >
+                  <span>{option.label}</span>
+                  {option.value === value ? (
+                    <Check className="size-4 shrink-0 text-violet" />
+                  ) : null}
+                </button>
+              </li>
+            ))}
+          </motion.ul>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }
@@ -209,13 +288,15 @@ export function Checkbox({
 export function Honeypot({
   value,
   onChange,
+  label,
 }: {
   value: string;
   onChange: (value: string) => void;
+  label: string;
 }) {
   return (
     <label className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
-      Firma
+      {label}
       <input
         type="text"
         name="firma"

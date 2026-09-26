@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "description": "Najczęściej zadawane pytania dotyczące intensywnej opieki, kosztów, przebiegu i kariery w KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Często Zadawane Pytania",
+    "lead": "Tutaj znajdziesz odpowiedzi na najważniejsze pytania dotyczące naszej opieki intensywnej."
+  },
+  "categories": [
+    {
+      "id": "alle",
+      "label": "Wszystkie"
+    },
+    {
+      "id": "pat",
+      "label": "Dla Pacjentów"
+    },
+    {
+      "id": "kost",
+      "label": "Koszty"
+    },
+    {
+      "id": "abl",
+      "label": "Przebieg"
+    },
+    {
+      "id": "kar",
+      "label": "Kariera"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Czy intensywna opieka w domu jest naprawdę możliwa?",
+      "a": "Tak — w wielu przypadkach pełna opieka intensywna we własnym domu jest możliwa. Warunkiem jest skierowanie lekarskie na domową opiekę pielęgniarską.",
+      "action": {
+        "label": "Skonsultuj Się Teraz"
+      }
+    },
+    {
+      "q": "W jakich regionach działacie?",
+      "a": "Świadczymy usługi dla pacjentów na terenie całej Hesji — od Volkmarsen i Kassel, aż po Frankfurt i dalej."
+    },
+    {
+      "q": "Kto pokrywa koszty opieki intensywnej?",
+      "a": "Koszty są zazwyczaj w pełni pokrywane przez kasę chorych i kasę opiekuńczą. Dbamy o całą komunikację z ubezpieczycielami.",
+      "action": {
+        "label": "Skonsultuj Się Teraz"
+      }
+    },
+    {
+      "q": "Czy stopień opieki ma znaczenie w przypadku opieki całodobowej?",
+      "a": "Całodobowa opieka intensywna jest finansowana głównie na podstawie §37 SGB V i nie jest bezpośrednio powiązana ze stopniem Pflegegrad. Jednak wyższy stopień opieki pozwala na dostęp do dodatkowych świadczeń."
+    },
+    {
+      "q": "Jak długo trwa rozpoczęcie opieki?",
+      "a": "Od pierwszej konsultacji do rozpoczęcia opieki mija zazwyczaj 4 do 6 tygodni."
+    },
+    {
+      "q": "Jakie kwalifikacje ma Państwa personel?",
+      "a": "Wszystkie zlecenia lekarskie są wykonywane wyłącznie przez wykwalifikowane pielęgniarki i pielęgniarzy, którzy regularnie szkolą się u lekarzy specjalistów."
+    },
+    {
+      "q": "Co obejmuje koncepcja pobytu?",
+      "a": "W naszych projektach mieszkaniowych oferujemy klientom własne pokoje, ogród, bibliotekę oraz całodobową opiekę przy wskaźniku 5,5 pracownika na klienta."
+    },
+    {
+      "q": "Jak mogę aplikować do pracy?",
+      "a": "Za pośrednictwem formularza szybkiej aplikacji na naszej stronie internetowej, telefonicznie lub e-mailem na adres pflege@ksk-farmos.de.",
+      "action": {
+        "label": "Aplikuj Teraz"
+      }
+    },
+    {
+      "q": "Jak działa przejście ze szpitala do domu?",
+      "a": "Zajmujemy się całym zarządzaniem przejściem. Nasz zespół koordynuje płynne przejście w ścisłym porozumieniu z personelem szpitala i organizuje wszystkie potrzebne środki."
+    },
+    {
+      "q": "Czy musimy sami kupować sprzęt medyczny?",
+      "a": "Nie. Wszystkie urządzenia medyczne, takie jak respiratory czy monitory, są zapewniane przez kasę chorych. Ściśle współpracujemy z wyspecjalizowanymi firmami techniki medycznej."
+    },
+    {
+      "q": "Czy personel pielęgniarski jest obecny w nocy?",
+      "a": "Tak. W przypadku 24-godzinnej opieki intensywnej zawsze na miejscu znajduje się wykwalifikowana pielęgniarka — także w nocy — aby zapewnić nieprzerwane i bezpieczne monitorowanie."
+    }
+  ],
+  "topCards": [
+    {
+      "title": "Koszty",
+      "text": "Opieka intensywna jest zazwyczaj w całości pokrywana przez kasę chorych."
+    },
+    {
+      "title": "Czas trwania",
+      "text": "Od pierwszej rozmowy do rozpoczęcia opieki mija zwykle około 4–6 tygodni."
+    },
+    {
+      "title": "Kwalifikacje",
+      "text": "Wszystkie świadczenia realizowane są wyłącznie przez certyfikowanych specjalistów."
+    }
+  ],
+  "closing": {
+    "title": "Nie znalazłeś odpowiedzi na swoje pytanie?",
+    "text": "Skontaktuj się z nami bezpośrednio — z przyjemnością Ci pomożemy."
+  }
+}

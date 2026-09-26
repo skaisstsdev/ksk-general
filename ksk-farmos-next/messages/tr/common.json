@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Ana Sayfa",
+    "leistungen": "Hizmetlerimiz",
+    "ueberUns": "Hakkımızda",
+    "karriere": "Kariyer",
+    "faq": "SSS",
+    "kontakt": "İletişim",
+    "primaryCta": "Ücretsiz Danışmanlık",
+    "applyCta": "Hemen Başvur"
+  },
+  "legalNav": {
+    "datenschutz": "Gizlilik Politikası",
+    "impressum": "Künye"
+  },
+  "footer": {
+    "desc": "{year}'ten beri Kuzey Hessen'de uzman yoğun bakım hizmeti.",
+    "navTitle": "Menü",
+    "kontaktTitle": "İletişim",
+    "legalTitle": "Yasal Bilgiler",
+    "standortenTitle": "Şubelerimiz",
+    "rights": "Tüm hakları saklıdır.",
+    "navAria": "Alt bilgi menüsü"
+  },
+  "lang": {
+    "title": "Dil Seçin"
+  },
+  "header": {
+    "mainNavAria": "Ana menü"
+  },
+  "mobileMenu": {
+    "openAria": "Menüyü aç",
+    "closeAria": "Menüyü kapat"
+  },
+  "brand": {
+    "descriptor": "Yoğun Bakım Hizmeti"
+  },
+  "meta": {
+    "titleSuffix": "Kuzey Hessen'de Yoğun Bakım Hizmeti"
+  },
+  "locations": {
+    "headquartersLabel": "Merkez Volkmarsen",
+    "residenceLabel": "Konaklamalı Bakım Merkezi - Kassel"
+  },
+  "closingFamily": {
+    "eyebrow": "Hastalar ve Hasta Yakınları İçin",
+    "title": "Ücretsiz Danışmanlık",
+    "text": "Size özel, ücretsiz ve hiçbir yükümlülük getirmeyen danışmanlık sağlıyoruz.",
+    "cta": "Gelin Görüşelim"
+  },
+  "kontaktCta": "Bize Ulaşın",
+  "dialog": {
+    "close": "Kapat"
+  },
+  "chat": {
+    "openAria": "Sohbeti aç",
+    "status": "Çevrimiçi",
+    "welcome": "Merhaba! KSK Farmos yapay zekâ asistanıyım. Sorularınızı yanıtlamaktan memnuniyet duyarım.",
+    "quickReplies": ["Ödeme kim yapar?", "Şubeler?", "Kariyer?", "Danışmanlık talebi"],
+    "placeholder": "Sorunuz…",
+    "sendAria": "Gönder",
+    "disclaimerPrefix": "Yapay zekâ asistanı · Yanıtlar OpenAI ile oluşturulur",
+    "errorFallback": "Üzgünüz, bir hata oluştu. Lütfen bizi arayın: {phone}"
+  }
+}

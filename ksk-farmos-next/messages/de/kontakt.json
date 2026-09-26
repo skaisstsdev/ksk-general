@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie KSK Farmos GmbH & Co. KG — kostenlos, unverbindlich, menschlich. Telefon, E-Mail oder Kontaktformular."
+  },
+  "hero": {
+    "eyebrow": "Kontakt",
+    "title": "Sprechen Sie uns an",
+    "lead": "Kostenlos. Unverbindlich. Menschlich."
+  },
+  "form": {
+    "eyebrow": "Schreiben Sie uns",
+    "title": "Kontaktformular",
+    "text": "Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden.",
+    "callLabel": "Sie können uns auch direkt anrufen:",
+    "fields": {
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "betreff": "Betreff",
+      "betreffPlaceholder": "Bitte wählen",
+      "nachricht": "Nachricht",
+      "consentPrefix": "Ich habe die ",
+      "consentLink": "Datenschutzerklärung",
+      "consentSuffix": " gelesen und stimme zu.",
+      "submit": "Nachricht senden"
+    },
+    "betreffOptions": [
+      "Beratung zur Intensivpflege",
+      "Wohnprojekte",
+      "Bewerbung / Karriere",
+      "Sonstiges"
+    ],
+    "success": {
+      "title": "Vielen Dank!",
+      "text": "Ihre Nachricht wurde gesendet. Wir melden uns innerhalb von 24 Stunden."
+    },
+    "error": {
+      "title": "Etwas ist schiefgelaufen.",
+      "text": "Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+    },
+    "validation": {
+      "vorname": "Bitte geben Sie Ihren Vornamen an.",
+      "nachname": "Bitte geben Sie Ihren Nachnamen an.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+      "nachricht": "Bitte geben Sie eine Nachricht ein.",
+      "consent": "Bitte stimmen Sie der Datenschutzerklärung zu."
+    },
+    "honeypotLabel": "Firma"
+  },
+  "cards": {
+    "headquarters": "Zentrale Volkmarsen",
+    "mobile": "Mobil / 24h",
+    "email": "E-Mail",
+    "fax": "Fax"
+  },
+  "standorte": {
+    "eyebrow": "Standorte",
+    "title": "Wo Sie uns finden",
+    "headquartersRole": "Hauptzentrale Volkmarsen",
+    "residenceRole": "Aufenthaltskonzept Kassel"
+  },
+  "map": {
+    "consent": "Um die interaktive Google-Karte zu sehen, stimmen Sie bitte der Übertragung Ihrer Daten (inkl. IP-Adresse) an Google zu.",
+    "load": "Karte laden & zustimmen",
+    "loading": "Karte wird geladen…",
+    "revoke": "Zustimmung widerrufen"
+  }
+}

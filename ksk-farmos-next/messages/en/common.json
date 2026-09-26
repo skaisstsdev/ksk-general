@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Home",
+    "leistungen": "Services",
+    "ueberUns": "About Us",
+    "karriere": "Careers",
+    "faq": "FAQ",
+    "kontakt": "Contact",
+    "primaryCta": "Free Consultation",
+    "applyCta": "Apply Now"
+  },
+  "legalNav": {
+    "datenschutz": "Privacy Policy",
+    "impressum": "Legal Notice"
+  },
+  "footer": {
+    "desc": "Specialized intensive care service in Northern Hesse — since {year}.",
+    "navTitle": "Navigation",
+    "kontaktTitle": "Contact",
+    "legalTitle": "Legal",
+    "standortenTitle": "Locations",
+    "rights": "All rights reserved.",
+    "navAria": "Footer navigation"
+  },
+  "lang": {
+    "title": "Choose Language"
+  },
+  "header": {
+    "mainNavAria": "Main navigation"
+  },
+  "mobileMenu": {
+    "openAria": "Open menu",
+    "closeAria": "Close menu"
+  },
+  "brand": {
+    "descriptor": "Intensive Care Service"
+  },
+  "meta": {
+    "titleSuffix": "Intensive Care Service in Northern Hesse"
+  },
+  "locations": {
+    "headquartersLabel": "Headquarters Volkmarsen",
+    "residenceLabel": "Residential Care — Kassel"
+  },
+  "closingFamily": {
+    "eyebrow": "For Patients & Families",
+    "title": "Free Consultation",
+    "text": "We'll advise you personally — no cost, no obligation.",
+    "cta": "Let's Talk"
+  },
+  "kontaktCta": "Get in Touch",
+  "dialog": {
+    "close": "Close"
+  },
+  "chat": {
+    "openAria": "Open chat",
+    "status": "Online",
+    "welcome": "Hello! I'm the KSK Farmos AI assistant. I'm glad to answer your questions.",
+    "quickReplies": ["Who pays?", "Locations?", "Careers?", "Free consultation"],
+    "placeholder": "Your question…",
+    "sendAria": "Send",
+    "disclaimerPrefix": "AI assistant · Responses generated with OpenAI",
+    "errorFallback": "Sorry, something went wrong. Please call us: {phone}"
+  }
+}

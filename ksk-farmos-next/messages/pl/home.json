@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Intensywna Opieka w Północnej Hesji",
+    "title": "Profesjonalna opieka, która ma znaczenie.",
+    "lead": "Ambulatoryjna opieka intensywna w Twoim domu lub w naszej placówce w Kassel — 24 godziny na dobę, 7 dni w tygodniu.",
+    "alt": "Specjalistka opieki KSK Farmos z torbą ratunkową przy pojeździe wyjazdowym"
+  },
+  "doors": {
+    "family": {
+      "audience": "Dla Pacjentów i Rodzin",
+      "title": "Poproś o Bezpłatną Konsultację",
+      "text": "Doradzimy Ci osobiście — całkowicie bezpłatnie i bez zobowiązań.",
+      "cta": "Poproś o Konsultację",
+      "callLabel": "Zadzwoń Teraz"
+    },
+    "professional": {
+      "audience": "Dla Pielęgniarzy",
+      "title": "Dołącz Do Naszego Zespołu",
+      "text": "Ponadstandardowe wynagrodzenie, ciągłe szkolenia i samochód służbowy.",
+      "cta": "Aplikuj Teraz",
+      "note": "Szybko i prosto — list motywacyjny nie jest wymagany."
+    }
+  },
+  "stats": {
+    "years": "Lat doświadczenia",
+    "staffRatio": "Pracowników na pacjenta",
+    "roundTheClock": "Całodobowo",
+    "locations": "Placówek w Hesji",
+    "team": "Pracowników",
+    "weeksToStart": "tygodni do rozpoczęcia opieki",
+    "responseTime": "Odpowiedź"
+  },
+  "intro": {
+    "text": "Od 2013 roku opiekujemy się osobami z ciężkimi schorzeniami. Z zespołem wykwalifikowanych specjalistów gwarantujemy całodobową opiekę 24/7 na najwyższym poziomie — w ich własnych domach lub w partnerskich projektach mieszkaniowych w regionie Kassel i Waldeck-Frankenberg."
+  },
+  "moment": {
+    "eyebrow": "Intensywna opieka w domu",
+    "title": "Życie zostaje tam, gdzie jego miejsce.",
+    "text": "Wentylacja, tracheostomia, zespół apalliczny — nawet ciężkie schorzenia można pielęgnować we własnych czterech ścianach. Wykwalifikowany personel jest przy Tobie przez całą dobę, a koszty pokrywa zazwyczaj kasa chorych i kasa opiekuńcza.",
+    "cta": "Jak wygląda rozpoczęcie opieki",
+    "alt": "Rodzina na spacerze w ogrodzie z opiekunką"
+  },
+  "services": {
+    "eyebrow": "Nasze Usługi",
+    "title": "Jak Możemy Pomóc",
+    "items": [
+      {
+        "title": "Intensywna Opieka Domowa",
+        "text": "Profesjonalna pomoc medyczna w zaciszu Twojego domu — przez całą dobę."
+      },
+      {
+        "title": "Opieka w różnych projektach mieszkaniowych",
+        "text": "Bezpiecznie. Blisko. Z sercem i profesjonalizmem."
+      },
+      {
+        "title": "Kogo Obejmujemy Opieką",
+        "text": "Od opieki oddechowej po zespół apaliczny — specjalistyczne wsparcie przy każdym schorzeniu."
+      },
+      {
+        "title": "Indywidualne doradztwo opiekuńcze wg § 37.3 SGB XI / § 7 SGB XI",
+        "text": "Oferujemy indywidualne konsultacje opiekuńcze dla osób potrzebujących opieki oraz ich bliskich w celu optymalizacji opieki domowej."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Diagnozy",
+    "title": "Kim Się Opiekujemy",
+    "items": [
+      {
+        "title": "Pacjenci wentylowani mechanicznie",
+        "text": "Inwazyjna i nieinwazyjna wentylacja (respirator)"
+      },
+      {
+        "title": "Zespół apalliczny (śpiączka czuwająca)",
+        "text": "Długoterminowa opieka i terapia stymulująca"
+      },
+      {
+        "title": "ALS i choroby neurologiczne",
+        "text": "Wsparcie w chorobach postępujących"
+      },
+      {
+        "title": "Uszkodzenia rdzenia kręgowego",
+        "text": "Holistyczne podejście do opieki"
+      },
+      {
+        "title": "Urazy czaszkowo-mózgowe",
+        "text": "Rehabilitacja i stabilizacja stanu zdrowia"
+      },
+      {
+        "title": "Demencja / Alzheimer",
+        "text": "Cierpliwość i komunikacja pełna szacunku"
+      }
+    ],
+    "quote": "Dobro pacjenta jest dla nas najwyższym prawem.",
+    "quoteCite": "Nasza Misja"
+  },
+  "steps": {
+    "eyebrow": "Jak To Działa",
+    "title": "Trzy Kroki do Opieki",
+    "items": [
+      {
+        "title": "Pierwsza Konsultacja",
+        "text": "Całkowicie bezpłatna i niezobowiązująca — poznamy Twoją sytuację i udzielimy osobistej porady."
+      },
+      {
+        "title": "Indywidualne Planowanie",
+        "text": "Opracujemy plan opieki, skonsultujemy się z lekarzami i zajmiemy się formalnościami finansowymi."
+      },
+      {
+        "title": "Rozpoczęcie Opieki",
+        "text": "Twój osobisty zespół opiekuńczy rozpoczyna pracę — rzetelnie i profesjonalnie."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "O nas",
+    "title": "Kim Jesteśmy",
+    "text": "Ambulatoryjna służba intensywnej opieki KSK Farmos GmbH & Co. KG została założona w 2013 roku przez Viktora Beresneva w Volkmarsen. Od tego czasu otaczamy opieką pacjentów w całej Hesji — z sercem, specjalistyczną wiedzą i nowoczesnym sprzętem.",
+    "highlight": "5,5 pracownika na pacjenta — znacznie powyżej średniej w branży.",
+    "link": "Dowiedz Się Więcej o Nas",
+    "alt": "{founder}, założyciel {legalName}, w rozmowie z pracownicą"
+  },
+  "reviews": {
+    "eyebrow": "Opinie",
+    "title": "Co mówią nasi pacjenci",
+    "cta": "Zostaw opinię",
+    "starsAria": "5 na 5 gwiazdek",
+    "items": [
+      {
+        "text": "\"Bardzo kompetentny i empatyczny zespół. Całodobowa opieka w Kassel to ogromna ulga dla naszej rodziny. Czujemy się w doskonałych rękach.\"",
+        "name": "Rodzina M.",
+        "role": "Bliscy, Kassel"
+      },
+      {
+        "text": "\"Dzięki domowej intensywnej opiece KSK Farmos GmbH & Co. KG mój ojciec może pozostać w znajomym otoczeniu. Niezawodni i zawsze przyjaźni.\"",
+        "name": "Thomas W.",
+        "role": "Krewny, Volkmarsen"
+      },
+      {
+        "text": "\"Od pierwszej rozmowy po wdrożenie opieki wszystko przebiegło sprawnie. Pielęgniarki są wysoko wykwalifikowane i pracują bardzo profesjonalnie.\"",
+        "name": "Sabine K.",
+        "role": "Pacjentka, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Porozmawiajmy",
+    "text": "Całkowicie bezpłatnie i niezobowiązująco.",
+    "callCta": "Zadzwoń Teraz",
+    "beratungCta": "Bezpłatna Konsultacja",
+    "points": [
+      "Całkowicie bezpłatnie i bez zobowiązań",
+      "Osobiście lub telefonicznie",
+      "Odpowiedź maksymalnie w 24 godziny"
+    ]
+  },
+  "map": {
+    "eyebrow": "Lokalizacje",
+    "title": "Gdzie Się Znajdujemy",
+    "coverage": "Świadczymy usługi dla pacjentów na terenie całej Hesji — od Volkmarsen i Kassel, aż po Frankfurt i dalej.",
+    "headquartersRole": "Główna Siedziba - Volkmarsen",
+    "residenceRole": "Koncepcja Pobytu - Kassel"
+  },
+  "servicesLink": "Wszystkie usługi",
+  "conditions": [
+    "Wynagrodzenie powyżej stawki",
+    "Samochód służbowy do użytku prywatnego",
+    "Płatne szkolenia",
+    "30 dni urlopu",
+    "Zespół i szacunek"
+  ]
+}

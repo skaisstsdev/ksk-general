@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
@@ -10,12 +10,14 @@ import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
-import { benefits, bewerbung, closing, hero, meta, vakanzen } from "@/content/pages/karriere";
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/karriere">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "karriere" });
+  return { title: t("meta.title"), description: t("meta.description") };
+}
 
 /**
  * Karriere. Порядок блоков — как в старом `karriere.html`:
@@ -31,25 +33,63 @@ export default async function KarrierePage({
 }: PageProps<"/[locale]/karriere">) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("karriere");
+  const hero = t.raw("hero");
+  const benefits = t.raw("benefits");
+  const vakanzen: {
+    eyebrow: string;
+    title: string;
+    bewerben: string;
+    items: { title: string; tags: string[] }[];
+  } = t.raw("vakanzen");
+  const bewerbung = t.raw("bewerbung");
+  const closing = t.raw("closing");
+
+  /**
+   * На узких экранах естественный перенос даёт «Arbeiten, wo es» /
+   * «wirklich zählt.» — по просьбе владельца заголовок разбит на три
+   * строки вручную («Arbeiten,» / «wo es» / «wirklich zählt.»), только
+   * для немецкого текста и только ниже `lg`: обычным переносом такое
+   * неравномерное деление (9/5/15 символов) не получить ни при какой
+   * ширине колонки — единственный способ передать её точно.
+   */
+  const heroTitle =
+    locale === "de" ? (
+      <>
+        Arbeiten,
+        <br className="lg:hidden" /> wo es
+        <br className="lg:hidden" /> wirklich zählt.
+      </>
+    ) : (
+      hero.title
+    );
 
   return (
     <>
       <PageHero
         eyebrow={hero.eyebrow}
-        title={hero.title}
+        title={heroTitle}
         lead={hero.lead}
         actions={[
           { href: "/schnellbewerbung", label: hero.bewerben },
-          { href: "/karriere#vakanzen", label: hero.vakanzen, variant: "secondary" },
+          {
+            href: "/karriere#vakanzen",
+            label: hero.vakanzen,
+            variant: "secondary",
+            // Ширина по первой кнопке: вторая короче по тексту и без
+            // этого заметно уже — тем же приёмом, что у дверей хиро
+            // главной (`hero/HeroCopy.tsx`).
+            className: "min-w-[176px] justify-center",
+          },
         ]}
         image={{
-          src: "/img/karriere-hero.webp",
+          src: "/img/karriere/karriere-hero.webp",
           width: 2000,
           height: 1125,
-          srcNarrow: "/img/karriere-hero-hoch.webp",
+          srcNarrow: "/img/karriere/karriere-hero-hoch.webp",
           widthNarrow: 1000,
           heightNarrow: 1502,
-          alt: "Pflegekraft stellt eine Infusionspumpe am Infusionsständer ein",
+          alt: hero.alt,
         }}
       />
 
@@ -87,7 +127,7 @@ export default async function KarrierePage({
           точно как его аналог там, и на фиолетовом поле это
           по-прежнему верно. */}
       <section id="vakanzen" className="pt-turn">
-        <div className="bg-violet">
+        <div data-tone="dark" className="bg-violet">
           <Grid className="pt-2xl lg:pt-3xl">
             <Col>
               <SectionHeading

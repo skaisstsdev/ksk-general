@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "FAQ",
+    "description": "Întrebări frecvente despre terapia intensivă, costuri, proces și carieră la KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "FAQ",
+    "title": "Întrebări Frecvente",
+    "lead": "Găsiți aici răspunsuri la cele mai importante și frecvente întrebări legate de serviciile noastre de terapie intensivă."
+  },
+  "categories": [
+    {
+      "id": "alle",
+      "label": "Toate"
+    },
+    {
+      "id": "pat",
+      "label": "Pacienți"
+    },
+    {
+      "id": "kost",
+      "label": "Costuri"
+    },
+    {
+      "id": "abl",
+      "label": "Proces"
+    },
+    {
+      "id": "kar",
+      "label": "Carieră"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Îngrijirea intensivă la domiciliu este într-adevăr posibilă?",
+      "a": "Da — în multe cazuri, o îngrijire intensivă completă este posibilă în propriul cămin. Condiția este o prescripție medicală pentru îngrijiri la domiciliu.",
+      "action": {
+        "label": "Primiți Sfaturi Acum"
+      }
+    },
+    {
+      "q": "În ce regiuni vă desfășurați activitatea?",
+      "a": "Ne ocupăm de pacienți de pe tot teritoriul regiunii Hesse — începând din Volkmarsen și Kassel, până la Frankfurt și chiar mai departe."
+    },
+    {
+      "q": "Cine suportă costurile îngrijirii intensive?",
+      "a": "De regulă, costurile sunt acoperite integral de casa de asigurări de sănătate și de cea de îngrijire. Ne ocupăm de întreaga comunicare cu plătitorii.",
+      "action": {
+        "label": "Primiți Sfaturi Acum"
+      }
+    },
+    {
+      "q": "Este gradul de îngrijire relevant pentru asistența 24/7?",
+      "a": "Terapia intensivă nonstop este finanțată, în primul rând, conform articolului §37 SGB V și nu depinde în mod direct de nivelul gradului de îngrijire. Totuși, deținerea unui grad de îngrijire superior deschide accesul către servicii suplimentare."
+    },
+    {
+      "q": "Cât timp durează până la începerea îngrijirii?",
+      "a": "De la prima consultație și până la începerea îngrijirii trec, de regulă, între 4 și 6 săptămâni."
+    },
+    {
+      "q": "Ce calificări are personalul dumneavoastră?",
+      "a": "Toate măsurile prescrise de medic sunt efectuate exclusiv de asistenți medicali calificați, care sunt instruiți regulat de medici specialiști."
+    },
+    {
+      "q": "Ce include conceptul de cazare?",
+      "a": "În cadrul proiectelor noastre rezidențiale, oferim clienților camere proprii, o grădină, o bibliotecă și asistență 24/7 cu 5,5 angajați per client."
+    },
+    {
+      "q": "Cum pot aplica pentru un loc de muncă la voi?",
+      "a": "Prin formularul de aplicare rapidă de pe site-ul nostru, telefonic sau prin e-mail la pflege@ksk-farmos.de.",
+      "action": {
+        "label": "Aplică Acum"
+      }
+    },
+    {
+      "q": "Cum funcționează transferul de la spital acasă?",
+      "a": "Ne ocupăm de întregul management al transferului. Echipa noastră coordonează o tranziție lină în strânsă consultare cu personalul spitalului și organizează toate echipamentele necesare."
+    },
+    {
+      "q": "Trebuie să cumpărăm singuri echipamentele medicale?",
+      "a": "Nu. Toate echipamentele medicale, precum ventilatoarele sau monitoarele, sunt asigurate de casa de asigurări de sănătate. Lucrăm îndeaproape cu companii specializate în tehnologie medicală."
+    },
+    {
+      "q": "Sunt prezente asistente și noaptea?",
+      "a": "Da. La îngrijirea intensivă de 24 de ore, o asistentă autorizată este întotdeauna la fața locului — inclusiv noaptea — pentru a asigura o monitorizare continuă și sigură."
+    }
+  ],
+  "topCards": [
+    {
+      "title": "Costuri",
+      "text": "Terapia intensivă este, în majoritatea cazurilor, acoperită 100% de asigurarea de sănătate."
+    },
+    {
+      "title": "Durată",
+      "text": "De la prima convorbire până la începerea îngrijirilor, trec de obicei între 4 și 6 săptămâni."
+    },
+    {
+      "title": "Calificări",
+      "text": "Toate actele medicale sunt prestate exclusiv de specialiști formați și certificați."
+    }
+  ],
+  "closing": {
+    "title": "Nu ați găsit răspunsul pe care îl căutați?",
+    "text": "Vă rugăm să ne contactați direct — suntem aici și ne face plăcere să vă ajutăm."
+  }
+}

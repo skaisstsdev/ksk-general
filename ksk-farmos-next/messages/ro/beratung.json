@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Consultație",
+    "description": "Consultație gratuită și fără obligații despre terapia intensivă. Ne facem timp pentru dumneavoastră."
+  },
+  "hero": {
+    "eyebrow": "Consultație",
+    "title": "Consultație Gratuită",
+    "lead": "Ne rezervăm timp pentru dumneavoastră — în persoană, prin telefon sau e-mail."
+  },
+  "points": [
+    "Complet gratuită și fără absolut nicio obligație",
+    "Întâlnire personală sau discuție telefonică",
+    "Răspuns garantat în maximum 24 de ore"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Prenume",
+      "nachname": "Nume de Familie",
+      "email": "Adresă E-Mail",
+      "telefon": "Telefon",
+      "nachricht": "Mesajul Tău (Opțional)",
+      "nachrichtPlaceholder": "Descrieți-ne pe scurt situația dumneavoastră...",
+      "consentPrefix": "Am citit cu atenție ",
+      "consentLink": "politica de confidențialitate",
+      "consentSuffix": " și sunt de acord cu ea.",
+      "submit": "Cereți o Consultație"
+    },
+    "success": {
+      "title": "Vă mulțumim!",
+      "text": "Solicitarea dumneavoastră a fost trimisă cu succes. Vă vom răspunde în decurs de 24 de ore."
+    },
+    "error": {
+      "title": "Ceva nu a funcționat.",
+      "text": "Vă rugăm să încercați din nou sau să ne sunați direct."
+    },
+    "validation": {
+      "vorname": "Vă rugăm să introduceți prenumele dumneavoastră.",
+      "nachname": "Vă rugăm să introduceți numele dumneavoastră de familie.",
+      "email": "Vă rugăm să introduceți o adresă de e-mail validă.",
+      "consent": "Vă rugăm să fiți de acord cu politica de confidențialitate."
+    },
+    "honeypotLabel": "Companie"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Careers",
+    "description": "Careers at KSK Farmos GmbH & Co. KG — above-tariff pay, continuing education, and a strong team. Apply now."
+  },
+  "hero": {
+    "eyebrow": "Careers",
+    "title": "Work where it matters.",
+    "lead": "Above-average pay, continuous professional development, and a team that has your back.",
+    "bewerben": "Apply Now",
+    "vakanzen": "Open Positions",
+    "alt": "Caregiver adjusting an infusion pump on an IV stand"
+  },
+  "benefits": {
+    "eyebrow": "WHAT WE OFFER YOU",
+    "title": "Your benefits at KSK Farmos GmbH & Co. KG",
+    "items": [
+      {
+        "title": "Above-tariff payment",
+        "text": "We pay significantly above the tariff — because your work is worth a lot to us."
+      },
+      {
+        "title": "Strong team",
+        "text": "Friendly atmosphere, mutual support, and genuine appreciation."
+      },
+      {
+        "title": "Training & Further Education",
+        "text": "Regular training and further education opportunities through institutes with certificate issuance — fully funded by the company."
+      },
+      {
+        "title": "Flexibility",
+        "text": "We take your private and professional life into consideration and design our scheduling flexibly."
+      },
+      {
+        "title": "Meaningful work",
+        "text": "You make a real difference in the lives of seriously ill people every day."
+      },
+      {
+        "title": "Career opportunities",
+        "text": "Advancement opportunities and support for personal development. Your performance and commitment can lead to new career opportunities with us."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "Job Openings",
+    "title": "Open Positions",
+    "bewerben": "Apply",
+    "items": [
+      {
+        "title": "Nursing Specialist (m/f/d)",
+        "tags": [
+          "Full-time / Part-time",
+          "Intensive Care",
+          "Driving License B"
+        ]
+      },
+      {
+        "title": "Nursing Assistant (m/f/d)",
+        "tags": [
+          "Full-time / Part-time",
+          "Driving License B"
+        ]
+      },
+      {
+        "title": "Nursing Intern (m/f/d)",
+        "tags": [
+          "Full-time"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Application",
+    "title": "How to Apply",
+    "steps": [
+      {
+        "title": "Submit Your Application",
+        "text": "Via our form, email, or by phone."
+      },
+      {
+        "title": "Personal Interview",
+        "text": "We'd love to meet you — relaxed and on equal footing."
+      },
+      {
+        "title": "Welcome to the Team",
+        "text": "Thorough onboarding, training, and ongoing support."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "For Care Professionals",
+    "title": "Ready for the Next Step?",
+    "text": "Apply now — it's quick and straightforward.",
+    "cta": "Apply Now",
+    "points": [
+      "Response within 48h",
+      "By form, email, or phone",
+      "No cover letter needed"
+    ]
+  }
+}

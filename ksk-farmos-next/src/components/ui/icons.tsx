@@ -88,3 +88,15 @@ export const Plus = (p: IconProps) => (
     <path d="M5 12h14" />
   </Icon>
 );
+
+export const ChatBubble = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z" />
+  </Icon>
+);
+
+export const Send = (p: IconProps) => (
+  <Icon {...p}>
+    <path d="m3 11 18-8-8 18-2-8-8-2Z" />
+  </Icon>
+);

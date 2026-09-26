@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { NumberedList } from "@/components/page/NumberedList";
 import { RuledList } from "@/components/page/RuledList";
@@ -10,20 +10,16 @@ import { ArrowRight } from "@/components/ui/icons";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
-import {
-  geschichte,
-  kooperationen,
-  leitbild,
-  meta,
-  social,
-  team,
-} from "@/content/pages/ueber-uns";
+import { teamMemberNames } from "@/content/pages/ueber-uns";
 import { social as socialLinks } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/ueber-uns">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ueberUns" });
+  return { title: t("meta.title"), description: t("meta.description") };
+}
 
 /**
  * Über uns. Порядок и состав отличаются от старого `ueber-uns.html`
@@ -45,6 +41,20 @@ export default async function UeberUnsPage({
 }: PageProps<"/[locale]/ueber-uns">) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("ueberUns");
+  const leitbild = t.raw("leitbild");
+  const geschichte: { eyebrow: string; title: string; paragraphs: string[] } = t.raw("geschichte");
+  const team: {
+    eyebrow: string;
+    title: string;
+    members: { name: string; role: string; desc: string; desc2: string }[];
+  } = t.raw("team");
+  const kooperationen = t.raw("kooperationen");
+  const social = t.raw("social");
+  const teamMembers = team.members.map((member, i) => ({
+    ...member,
+    name: teamMemberNames[i] ?? member.name,
+  }));
 
   return (
     <>
@@ -54,7 +64,7 @@ export default async function UeberUnsPage({
             <SectionHeading eyebrow={team.eyebrow} title={team.title} />
 
             <ul className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
-              {team.members.map((member, i) => (
+              {teamMembers.map((member, i) => (
                 <li key={member.name} className="flex flex-col gap-2xs">
                   <Rule index={i} />
                   <h3 className="mt-md text-h4 text-ink">{member.name}</h3>
@@ -77,13 +87,13 @@ export default async function UeberUnsPage({
           и там: пауза заложена в самой сцене. */}
       <section>
         <ExpandingPhoto
-          src="/img/team-garten.webp"
+          src="/img/ueber-uns/team-garten.webp"
           width={2000}
           height={1125}
-          srcNarrow="/img/team-garten-hoch.webp"
+          srcNarrow="/img/ueber-uns/team-garten-hoch.webp"
           widthNarrow={1000}
           heightNarrow={1502}
-          alt="Das Team von KSK Farmos GmbH & Co. KG im Garten"
+          alt={t("hero.alt")}
         >
           <div className="flex max-w-[34rem] flex-col gap-xs">
             <Eyebrow className="text-paper/85">{geschichte.eyebrow}</Eyebrow>
@@ -112,14 +122,17 @@ export default async function UeberUnsPage({
           на весь разворот, включая полосу за фото, но по высоте
           не выходит за пределы самой фотографии — высота фиолетового
           ничем не назначена, она берётся из высоты строки сетки,
-          а строку задаёт более высокий из двух элементов. */}
+          а строку задаёт более высокий из двух элементов. Ниже `lg`
+          колонки складываются в столбец и последней идёт не фото,
+          а текст — `pb-2xl` даёт ей отступ снизу тем же значением,
+          что у остальных фиолетовых разворотов сайта. */}
       <section className="overflow-x-clip pt-turn">
-        <div className="bg-violet">
-          <Grid className="lg:items-center">
+        <div data-tone="dark" className="bg-violet">
+          <Grid className="pb-2xl lg:items-center lg:pb-0">
             <Col span="text">
               <Photo
-                src="/img/kooperation-team.jpg"
-                alt="Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung"
+                src="/img/ueber-uns/kooperation-team.webp"
+                alt={kooperationen.alt}
                 ratio="4 / 5"
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 bleed="start"

@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "Strona Główna",
+    "leistungen": "Nasze Usługi",
+    "ueberUns": "O nas",
+    "karriere": "Kariera",
+    "faq": "FAQ",
+    "kontakt": "Kontakt",
+    "primaryCta": "Bezpłatna Konsultacja",
+    "applyCta": "Aplikuj Teraz"
+  },
+  "legalNav": {
+    "datenschutz": "Polityka Prywatności",
+    "impressum": "Nota Prawna"
+  },
+  "footer": {
+    "desc": "Specjalistyczna usługa intensywnej opieki w Północnej Hesji — od {year} roku.",
+    "navTitle": "Nawigacja",
+    "kontaktTitle": "Kontakt",
+    "legalTitle": "Informacje Prawne",
+    "standortenTitle": "Lokalizacje",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "navAria": "Nawigacja w stopce"
+  },
+  "lang": {
+    "title": "Wybierz język"
+  },
+  "header": {
+    "mainNavAria": "Nawigacja główna"
+  },
+  "mobileMenu": {
+    "openAria": "Otwórz menu",
+    "closeAria": "Zamknij menu"
+  },
+  "brand": {
+    "descriptor": "Służba Intensywnej Opieki"
+  },
+  "meta": {
+    "titleSuffix": "Służba Intensywnej Opieki w Północnej Hesji"
+  },
+  "locations": {
+    "headquartersLabel": "Centrala Volkmarsen",
+    "residenceLabel": "Koncepcja Pobytu - Kassel"
+  },
+  "closingFamily": {
+    "eyebrow": "Dla Pacjentów i Rodzin",
+    "title": "Bezpłatna Konsultacja",
+    "text": "Doradzimy Ci osobiście — za darmo i bez żadnych zobowiązań.",
+    "cta": "Porozmawiajmy"
+  },
+  "kontaktCta": "Skontaktuj Się",
+  "dialog": {
+    "close": "Zamknij"
+  },
+  "chat": {
+    "openAria": "Otwórz czat",
+    "status": "Online",
+    "welcome": "Dzień dobry! Jestem asystentem AI KSK Farmos. Chętnie odpowiem na Państwa pytania.",
+    "quickReplies": ["Kto płaci?", "Lokalizacje?", "Kariera?", "Umów konsultację"],
+    "placeholder": "Twoje pytanie…",
+    "sendAria": "Wyślij",
+    "disclaimerPrefix": "Asystent AI · Odpowiedzi generowane przez OpenAI",
+    "errorFallback": "Przepraszamy, wystąpił błąd. Prosimy do nas zadzwonić: {phone}"
+  }
+}

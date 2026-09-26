@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Karijera",
+    "description": "Karijera u KSK Farmos GmbH & Co. KG — plata iznad tarife, edukacija i snažan tim. Prijavite se odmah."
+  },
+  "hero": {
+    "eyebrow": "Karijera",
+    "title": "Radite tamo gdje je zaista važno.",
+    "lead": "Plata iznad tarife, kontinuiran profesionalni razvoj i složan tim koji pruža podršku.",
+    "bewerben": "Prijavite se",
+    "vakanzen": "Otvorene pozicije",
+    "alt": "Njegovatelj podešava infuzionu pumpu na infuzionom stalku"
+  },
+  "benefits": {
+    "eyebrow": "ŠTA VAM NUDIMO",
+    "title": "Vaše prednosti u KSK Farmos GmbH & Co. KG",
+    "items": [
+      {
+        "title": "Iznadprosječna plata",
+        "text": "Plaćamo znatno iznad tarife — jer nam vaš rad mnogo vrijedi."
+      },
+      {
+        "title": "Snažan tim",
+        "text": "Prijateljska atmosfera, međusobna podrška i istinsko poštovanje."
+      },
+      {
+        "title": "Edukacija i stručno usavršavanje",
+        "text": "Redovne mogućnosti stručnog usavršavanja i obuke preko instituta za edukaciju uz izdavanje sertifikata — u potpunosti finansirane od strane kompanije."
+      },
+      {
+        "title": "Fleksibilnost",
+        "text": "Uzimamo u obzir vaš privatni i poslovni život i fleksibilno planiramo raspored rada."
+      },
+      {
+        "title": "Smislen rad",
+        "text": "Svakodnevno činite stvarnu razliku u životima teško bolesnih ljudi."
+      },
+      {
+        "title": "Mogućnosti za karijeru",
+        "text": "Mogućnosti napredovanja i podrška ličnom razvoju. Vaš rad i posvećenost mogu kod nas dovesti do novih karijernih šansi."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "Slobodna radna mjesta",
+    "title": "Otvorene pozicije",
+    "bewerben": "Prijavi se",
+    "items": [
+      {
+        "title": "Medicinski tehničar / sestra (m/ž/d)",
+        "tags": [
+          "Puno / Nepuno radno vrijeme",
+          "Intenzivna njega",
+          "Vozačka dozvola B"
+        ]
+      },
+      {
+        "title": "Njegovatelj (m/ž/d)",
+        "tags": [
+          "Puno / Nepuno radno vrijeme",
+          "Vozačka dozvola B"
+        ]
+      },
+      {
+        "title": "Praktikant u njezi (m/ž/d)",
+        "tags": [
+          "Puno radno vrijeme"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Proces prijave",
+    "title": "Kako se prijaviti",
+    "steps": [
+      {
+        "title": "Pošaljite prijavu",
+        "text": "Putem obrasca na web stranici, e-mailom ili jednostavnim pozivom."
+      },
+      {
+        "title": "Lični intervju",
+        "text": "Želimo vas upoznati u opuštenoj atmosferi i razgovarati s vama kao s partnerom."
+      },
+      {
+        "title": "Dobrodošli u tim",
+        "text": "Osigurat ćemo vam proces integracije, edukaciju i svestranu podršku."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Za medicinske stručnjake",
+    "title": "Spremni za sljedeći korak?",
+    "text": "Prijavite se odmah — brzo je i jednostavno.",
+    "cta": "Prijavite se sada",
+    "points": [
+      "Odgovor u roku od 48h",
+      "Putem obrasca, e-maila ili telefona",
+      "Propratno pismo nije potrebno"
+    ]
+  }
+}

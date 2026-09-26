@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Contact KSK Farmos GmbH & Co. KG — free, no obligation, human. By phone, email, or contact form."
+  },
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Get in Touch",
+    "lead": "Free. No obligation. Human."
+  },
+  "form": {
+    "eyebrow": "Write to Us",
+    "title": "Contact Form",
+    "text": "Fill out the form and we'll get back to you within 24 hours.",
+    "callLabel": "You can also call us directly:",
+    "fields": {
+      "vorname": "First Name",
+      "nachname": "Last Name",
+      "email": "Email",
+      "telefon": "Phone",
+      "betreff": "Subject",
+      "betreffPlaceholder": "Please select",
+      "nachricht": "Message",
+      "consentPrefix": "I have read and agree to the ",
+      "consentLink": "privacy policy",
+      "consentSuffix": ".",
+      "submit": "Send Message"
+    },
+    "betreffOptions": [
+      "Intensive care consultation",
+      "Residential Projects",
+      "Career / Application",
+      "Other"
+    ],
+    "success": {
+      "title": "Thank you!",
+      "text": "Your message has been sent. We'll get back to you within 24 hours."
+    },
+    "error": {
+      "title": "Something went wrong.",
+      "text": "Please try again or call us directly."
+    },
+    "validation": {
+      "vorname": "Please enter your first name.",
+      "nachname": "Please enter your last name.",
+      "email": "Please enter a valid email address.",
+      "nachricht": "Please enter a message.",
+      "consent": "Please agree to the privacy policy."
+    },
+    "honeypotLabel": "Company"
+  },
+  "cards": {
+    "headquarters": "Headquarters Volkmarsen",
+    "mobile": "Mobile / 24h",
+    "email": "Email",
+    "fax": "Fax"
+  },
+  "standorte": {
+    "eyebrow": "Locations",
+    "title": "Where to Find Us",
+    "headquartersRole": "Headquarters — Volkmarsen",
+    "residenceRole": "Residential Care — Kassel"
+  },
+  "map": {
+    "consent": "To view the interactive Google Map, please consent to the transfer of your data (incl. IP address) to Google.",
+    "load": "Load map & consent",
+    "loading": "Loading map…",
+    "revoke": "Revoke consent"
+  }
+}

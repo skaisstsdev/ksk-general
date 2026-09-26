@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Hizmetlerimiz",
+    "description": "Evde yoğun bakım, Kassel konaklama konsepti ve mesleki eğitimler. KSK Farmos GmbH & Co. KG'nin tüm hizmetleri."
+  },
+  "hero": {
+    "eyebrow": "Hizmetlerimiz",
+    "title": "Tıbbi hizmetlerimiz",
+    "lead": "Evde yoğun bakım, benzersiz bir konaklama konsepti ve personellerimiz için sürekli eğitim — hepsi tek çatı altında.",
+    "beratung": "Ücretsiz Danışmanlık",
+    "all": "Tüm Hizmetler"
+  },
+  "beatmung": {
+    "statement": "Solunum (ventilatör) bakımı bizim en temel uzmanlık alanımızdır.",
+    "text": "İnvaziv ve non-invaziv solunum cihazına bağlı hastalarımızı; deneyimli uzmanlarımız, modern cihazlarımız ve göğüs hastalıkları ile anestezi uzmanlarıyla yakın iş birliği içinde destekliyoruz."
+  },
+  "haeuslich": {
+    "eyebrow": "Evde Yoğun Bakım",
+    "title": "Evinizin Rahatlığında Profesyonel Bakım",
+    "text": "Ağır hastalıkları olan bireylere, kendi evlerinin alıştıkları ortamında — yılın 365 günü, haftanın 7 günü, 24 saat boyunca kesintisiz bakım sağlıyoruz.",
+    "groups": [
+      {
+        "title": "Temel Bakım",
+        "items": [
+          "Temel ve tedavi edici bakım",
+          "İlaç takibi ve yönetimi",
+          "Hayati belirtilerin izlenmesi ve monitörizasyon"
+        ],
+        "detail": "Temel bakım, evde yoğun bakım hizmetimizin temelini oluşturur. Her danışanın bireysel ihtiyaç ve yeteneklerine göre uyarlanmış hijyen, hareketlilik ve beslenme desteğini kapsar. Tedavi bakımı ise pansuman değişimi, enjeksiyon veya kompresyon bandajı uygulaması gibi hekim tarafından reçete edilen tıbbi işlemleri içerir.\n\nİlaç yönetiminde ilaçları hekim reçetesine göre hazırlar, etki ve olası yan etkileri izler, her uygulamayı eksiksiz belgeleriz. Sorularda hekim ve eczaneyle doğrudan iletişim hâlindeyiz.\n\nYaşamsal bulgu takibi; kan basıncı, nabız, oksijen satürasyonu ve vücut ısısının düzenli ölçülmesi ve belgelenmesini kapsar. Böylece değişiklikleri erken fark eder, gerektiğinde tedaviyi yürüten hekimlerle koordineli şekilde hızlı müdahale ederiz."
+      },
+      {
+        "title": "Özel Terapiler",
+        "items": [
+          "İnvaziv ve non-invaziv solunum desteği (Ventilatör)",
+          "Trakeostomi bakımı ve yönetimi",
+          "Yara bakımı ve beslenme tedavisi"
+        ],
+        "detail": "Özel terapiler, özellikle yüksek tıbbi bakım ihtiyacı olan danışanlar içindir. İnvaziv ve non-invaziv solunum desteğinde filtre değişiminden alarm müdahalesine kadar tüm cihaz yönetimini üstlenir, ayarları tedaviyi yürüten hekimlerle yakından uyumlu hâle getiririz. Güvenli yedekli süreçler ve eğitimli personel kesintisiz bakım sağlar.\n\nTrakeostomi yönetimi; profesyonel kanül değişimini, aspirasyonu ve stoma bölgesinin günlük bakımını kapsar; enfeksiyon önlemeye özellikle dikkat edilir.\n\nYara bakımında kronik ve karmaşık yaraları güncel hemşirelik standartlarına göre tedavi ederiz. Gerektiğinde PEG tüpü gibi yöntemlerle beslenme desteği de sağlar, iyileşme sürecini sıkı biçimde belgeleriz."
+      },
+      {
+        "title": "Organizasyon",
+        "items": [
+          "Bakım planlaması ve belgelendirme",
+          "Doktorlar ve terapistlerle koordinasyon"
+        ],
+        "detail": "İyi bir organizasyon, perde arkasındaki güvenilir bakımın temelidir. Her danışan için kişisel durumu, tıbbi gereklilikleri ve isteklerini yansıtan kişiye özel bir bakım planı hazırlarız. Bu plan düzenli olarak gözden geçirilir ve gerektiğinde güncellenir. Yasal olarak zorunlu bakım belgelendirmesini eksiksiz ve izlenebilir şekilde yürütürüz.\n\nAyrıca hekimler, terapistler, eczaneler ve tıbbi malzeme tedarikçileri arasında merkezi irtibat noktası olarak görev yaparız. Böylece tüm taraflar aynı bilgiye sahip olur, düzenlemeler koordine edilir ve bakım tek elden yürütülür — yakınların farklı kurumlar arasında aracılık yapmasına gerek kalmaz."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Tanılar",
+    "title": "Kimlere Bakım Sağlıyoruz?",
+    "items": [
+      {
+        "title": "Solunum Cihazına Bağlı Hastalar",
+        "text": "İnvaziv veya non-invaziv solunum cihazlarına bağlı olanlar için uzman yoğun bakım. Kesintisiz izleme ve profesyonel cihaz yönetimi sağlıyoruz.",
+        "detail": "İnvaziv veya non-invaziv solunum desteğine ihtiyaç duyan kişilere bakıyoruz — hastaneden ilk devir tesliminden evde sürekli bakıma kadar. Her danışan için, tedaviyi yürüten hekimlerle birlikte oluşturulan ve düzenli olarak gözden geçirilen kişiye özel bir solunum konsepti hazırlanır.\n\nBakım ekibimiz solunum cihazlarını, alarm sınırlarını ve solunum parametrelerini 7/24 izler ve her değişikliğe anında müdahale eder. Buna trakeostomi kanüllerinin uzmanca kullanımı, hava yolu aspirasyonu ve bakım/cihaz değişiminde tıbbi cihaz ortaklarıyla yakın iş birliği de dahildir.\n\nBakım, tedaviyi yürüten pulmologlar ve anestezistlerle yakından koordine edilir. Acil durumlar için ekibimiz 7/24 hazır bulunur, böylece yakınlar güvenilir ve kesintisiz bir bakıma güvenebilir."
+      },
+      {
+        "title": "Bitkisel Hayat (Apallik Sendrom)",
+        "text": "Ciddi bilinç bozukluğu olan hastalar için bütünsel uzun süreli bakım. Odak noktamız bazal stimülasyon ve vücut fonksiyonlarının korunmasıdır.",
+        "detail": "Apalik sendromlu kişiler özellikle dikkatli, bütüncül uzun süreli bakıma ihtiyaç duyar. Farkındalığı ve vücut fonksiyonlarını korumak ve nazikçe teşvik etmek için bazal stimülasyon yöntemleri uygularız — her danışanın bireysel durumuna uyarlanmış şekilde.\n\nDüzenli pozisyon değişikliği, hedefe yönelik hareket egzersizleri ve özenli cilt ve vücut bakımı yoluyla kontraktür, bası yarası veya solunum yolu enfeksiyonu gibi komplikasyonların önlenmesine özel önem verilir. Genellikle bir sonda yoluyla yapılan beslenme de sıkı takip edilir.\n\nYakınlar; yönlendirme, açık iletişim ve bakım ekibiyle düzenli bilgi alışverişi yoluyla bakıma yakından dahil edilir. Böylece bakım hem tıbbi açıdan sağlam hem de insani açıdan yakın kalır."
+      },
+      {
+        "title": "ALS ve Nörolojik Hastalıklar",
+        "text": "İlerleyici nörolojik değişimlerde bireysel refakat — empatik, profesyonel temelli ve yaşam kalitesini korumaya yönelik.",
+        "detail": "ALS ve diğer ilerleyici nörolojik hastalıklar bakım gereksinimlerini sürekli değiştirir. Desteği ve yardımcı araçları hastalığın mevcut aşamasına sürekli uyarlarız — günlük yaşam desteğinden ileri aşamalarda özel solunum bakımına kadar.\n\nHastalık ilerledikçe iletişim yardımcıları ve teknik destek giderek daha önemli hâle gelir. Danışanların günlük yaşama mümkün olduğunca uzun süre kendi kararlarıyla katılabilmesi için konuşma terapistleri, ergoterapistler ve yardımcı araç tedarikçileriyle yakın çalışırız.\n\nSüreç, tedaviyi yürüten nörologlarla yakından koordine edilir ve tıbbi ihtiyaçların yanı sıra danışanların ve yakınlarının duygusal ihtiyaçlarını da göz önünde bulundurur."
+      },
+      {
+        "title": "Omurilik Yaralanmaları",
+        "text": "Omurilik yaralanmaları olan kişiler için profesyonel destek ve bakım. Bağımsızlığı teşvik ediyor ve komplikasyonları hedefli olarak önlüyoruz.",
+        "detail": "Omurilik felcinde bakımımızın odağında mümkün olan en yüksek bağımsızlığın desteklenmesi yer alır. Hareketlilik, kişisel bakım ve günlük rutinlerde destek olur, her zaman mevcut becerileri korumayı ve geliştirmeyi hedefleriz.\n\nÇalışmamızın önemli bir parçası; düzenli kontroller, uygun pozisyonlama ve tutarlı cilt bakımı yoluyla bası yarası, idrar yolu enfeksiyonu veya spastisite gibi tipik komplikasyonları önceden önlemektir. Gerektiğinde bağırsak ve mesane yönetiminde de destek sağlarız.\n\nBakım, tıbbi tedavi ile ev bakımının sorunsuz bir şekilde birbirini tamamlaması için rehabilitasyon merkezleri, fizyoterapistler ve tedaviyi yürüten hekimlerle yakından koordine edilir."
+      },
+      {
+        "title": "Travmatik Beyin Hasarı",
+        "text": "Ciddi beyin yaralanmalarından sonra uzun vadeli bakım. Durumu stabilize etmeye ve günlük yaşamda destek olmaya yöneliktir.",
+        "detail": "Bir kafa travmasından sonra bakımımız, iyileşmenin ilgili aşamasına göre şekillenir — hastaneden çıkışın hemen ardından stabilizasyondan, günlük yaşamda uzun vadeli desteğe kadar. Tedavi ile ev bakımını anlamlı biçimde bir araya getirmek için nörorehabilitasyon merkezleriyle yakın çalışırız.\n\nAmaç; vücut fonksiyonlarını stabilize etmek, günlük yaşamı düzenlemek ve hareket, iletişim veya hafıza gibi alanlarda becerileri kademeli olarak geliştirmektir — her zaman bireyin kendi iyileşme hızına uygun şekilde.\n\nTüm tarafların aynı bilgiye sahip olması ve bakımın en iyi şekilde koordine edilmesi için nörologlar, terapistler ve yakınlarla yakın temas hâlindeyiz."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Farklı konut projelerinde bakım",
+    "title": "Sizi Neler Bekliyor?",
+    "text": "Ayakta bakım hizmetimiz, çeşitli konut projelerinde demanslı kişilerin bakımı konusunda uzmanlaşmıştır. Korumalı, ev sıcaklığındaki bir ortamda yapılandırılmış, güvenli ve kişiye özel ilgiyle onurlu bir yaşam sunuyoruz.",
+    "groups": [
+      {
+        "title": "Konaklama ve Donanım",
+        "items": [
+          "Kendi eşyalarınızla döşeyebileceğiniz özel oda",
+          "Tüm gerekli tıbbi cihaz ve donanımlar",
+          "Ferah ve dinlendirici bir bahçe",
+          "Kütüphane ve ortak sosyal alanlar"
+        ]
+      },
+      {
+        "title": "Bakım ve Hizmetler",
+        "items": [
+          "Günün her saati kesintisiz bakım ve gözetim",
+          "Kapsamlı hemşirelik ve tıbbi hizmetler",
+          "Bireysel ihtiyaçlara göre şekillendirilmiş günlük rutin",
+          "Validasyon ve aktive edici bakım"
+        ]
+      }
+    ],
+    "alt": "Bir konut projesinin kış bahçesinde tablet ile yaşlı sakin ve bakıcısı"
+  },
+  "beratung": {
+    "eyebrow": "Bakım Danışmanlığı",
+    "title": "Bireysel Bakım Danışmanlığı",
+    "text": "Bakıma muhtaç kişilere ve yakınlarına, ev ortamında en iyi bakımı sağlamak amacıyla bireysel bakım danışmanlığı sunuyoruz.",
+    "items": [
+      {
+        "title": "Bakım Dereceleri ve Haklar",
+        "text": "Bakım dereceleri ve bakım kasasından alınacak yardımlar hakkında danışmanlık."
+      },
+      {
+        "title": "Hasta Yakınlarına Eğitim",
+        "text": "Hasta yakınlarına evde bakım konusunda pratik eğitim ve rehberlik."
+      },
+      {
+        "title": "Medikal Cihaz Temini",
+        "text": "Yardımcı araç ve gereçlerin (hasta yatağı, yürüteç vb.) temininde destek."
+      },
+      {
+        "title": "Demans ve Davranış",
+        "text": "Demans ve zorlayıcı davranışlarla başa çıkma konusunda danışmanlık."
+      },
+      {
+        "title": "Destek ve Kolaylıklar",
+        "text": "Bakım veren yakınları için destekleyici ve kolaylaştırıcı hizmetlerin açıklanması."
+      },
+      {
+        "title": "Ev Adaptasyonu",
+        "text": "Ev ortamının engelsiz hale getirilmesi ve uyarlanması konusunda danışmanlık."
+      }
+    ],
+    "alt": "Bakım danışmanı ve yaşlı danışan tablette belgeleri birlikte inceliyor"
+  },
+  "kosten": {
+    "eyebrow": "MASRAFLARIN KARŞILANMASI",
+    "title": "Masrafları kim karşılıyor",
+    "text": "KSK Farmos GmbH & Co. KG yoğun bakım servisi, vekaletname alındıktan sonra masrafların karşılanması konusunda finansörlerle müzakereleri üstlenir.",
+    "items": [
+      {
+        "title": "Sağlık Sigortası (SGB V)",
+        "text": "Sağlık sigortası, bakım derecesinden bağımsız olarak tıbbi tedaviyi öder:",
+        "list": [
+          "Doktor ziyaretleri ve tedaviler (fizik tedavi, ergoterapi, konuşma terapisi)",
+          "Hastane tedavisi",
+          "İlaçlar, tıbbi sarf malzemeleri ve yardımcı araçlar (örn. tekerlekli sandalye, hasta yatağı – onay ile)",
+          "Akut hastalık durumunda veya hastane sonrasında evde hasta bakımı"
+        ]
+      },
+      {
+        "title": "Bakım Sigortası (SGB XI)",
+        "text": "Bakım sigortası, bakım ihtiyacı durumunda (bakım derecesi gereklidir) bakım desteğini öder:"
+      },
+      {
+        "title": "Sosyal Yardım Dairesi",
+        "text": "Gerçek bakım ihtiyacının maliyetinin yukarıda belirtilen kurumların (bakım sigortası) ödemelerini aşması durumunda, kalan maliyet payı ya özel olarak karşılanmalı ya da — gerekli şartlar sağlandığında — farklı resmi daireler (Sosyal Yardım Dairesi, devlet yardımı, valilik) tarafından üstlenilmelidir."
+      },
+      {
+        "title": "Özel Sigorta",
+        "text": "Ek olarak yaptırılan bir sağlık veya kaza sigortası, incelemeye bağlı olarak ortaya çıkan maliyetlerin bir kısmını üstlenebilir."
+      }
+    ]
+  },
+  "moreCta": "Daha fazla bilgi"
+}

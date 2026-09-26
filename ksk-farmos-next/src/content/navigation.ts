@@ -1,39 +1,41 @@
 /**
- * Структура навигации отделена от разметки: на этапе 6 подписи начнут
- * приходить из словарей next-intl, а компоненты не изменятся — поменяется
- * только источник. То же требование действует и для будущего переезда
- * на headless CMS (раздел 8 брифа).
+ * Структура навигации отделена от разметки. Подписи приходят из
+ * словаря next-intl (`common.nav.*`, `common.legalNav.*`) по ключу
+ * `key` — здесь остаётся только то, что не переводится: маршруты
+ * и их стабильный порядок.
  */
 
-export type NavItem = { href: string; label: string };
+export type NavKey =
+  | "start"
+  | "leistungen"
+  | "ueberUns"
+  | "karriere"
+  | "faq"
+  | "kontakt";
+
+export type NavItem = { href: string; key: NavKey };
 
 /** Страница для соискателей — на неё ведёт вторая дверь хиро. */
-export const karriere: NavItem = { href: "/karriere", label: "Karriere" };
+export const karriereNav: NavItem = { href: "/karriere", key: "karriere" };
 
 export const mainNav: NavItem[] = [
-  { href: "/", label: "Startseite" }, // nav.start
-  { href: "/leistungen", label: "Leistungen" },
-  { href: "/ueber-uns", label: "Über uns" },
-  karriere,
-  { href: "/faq", label: "FAQ" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/", key: "start" },
+  { href: "/leistungen", key: "leistungen" },
+  { href: "/ueber-uns", key: "ueberUns" },
+  karriereNav,
+  { href: "/faq", key: "faq" },
+  { href: "/kontakt", key: "kontakt" },
 ];
 
-export const legalNav: NavItem[] = [
-  { href: "/datenschutz", label: "Datenschutzerklärung" },
-  { href: "/impressum", label: "Impressum" },
+export const legalNav: { href: string; key: "datenschutz" | "impressum" }[] = [
+  { href: "/datenschutz", key: "datenschutz" },
+  { href: "/impressum", key: "impressum" },
 ];
 
 /** Главный призыв шапки. Живёт отдельно: он не пункт меню. */
-export const primaryCta: NavItem = {
-  href: "/beratung",
-  label: "Kostenlose Beratung",
-};
+export const primaryCta = { href: "/beratung" };
 
-export const applyCta: NavItem = {
-  href: "/schnellbewerbung",
-  label: "Jetzt bewerben",
-};
+export const applyCta = { href: "/schnellbewerbung" };
 
 /**
  * Страницы, которые начинаются тёмным хиро во весь экран: шапка на них

@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Intensivpflege in Nordhessen",
+    "title": "Professionelle Pflege, die ankommt.",
+    "lead": "Ambulante Intensivpflege bei Ihnen zu Hause oder in unserer Einrichtung in Kassel — 24 Stunden am Tag, 7 Tage die Woche.",
+    "alt": "Pflegefachkraft von KSK Farmos mit Notfalltasche am Einsatzfahrzeug"
+  },
+  "doors": {
+    "family": {
+      "audience": "Für Patienten und Angehörige",
+      "title": "Kostenlose Beratung anfragen",
+      "text": "Wir beraten Sie persönlich — unverbindlich und kostenfrei.",
+      "cta": "Beratung anfragen",
+      "callLabel": "Jetzt anrufen"
+    },
+    "professional": {
+      "audience": "Für Pflegekräfte",
+      "title": "Werden Sie Teil unseres Teams",
+      "text": "Übertarifliche Bezahlung, Weiterbildung und Firmenwagen.",
+      "cta": "Jetzt bewerben",
+      "note": "Schnell und unkompliziert — kein Anschreiben nötig."
+    }
+  },
+  "stats": {
+    "years": "Jahre Erfahrung",
+    "staffRatio": "Mitarbeiter pro Patient",
+    "roundTheClock": "Rund-um-die-Uhr",
+    "locations": "Standorte in Hessen",
+    "team": "Mitarbeiter",
+    "weeksToStart": "Wochen bis Versorgungsbeginn",
+    "responseTime": "Rückmeldung"
+  },
+  "intro": {
+    "text": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen. Mit einem Team aus examinierten Fachkräften garantieren wir eine 24/7-Versorgung auf höchstem Niveau — im eigenen Zuhause oder in kooperierenden Wohnprojekten im Raum Kassel und Waldeck-Frankenberg."
+  },
+  "moment": {
+    "eyebrow": "Intensivpflege zu Hause",
+    "title": "Das Leben bleibt dort, wo es hingehört.",
+    "text": "Beatmung, Tracheostoma, Wachkoma — auch schwere Krankheitsbilder lassen sich in den eigenen vier Wänden versorgen. Eine examinierte Fachkraft ist rund um die Uhr da, die Kosten übernehmen in der Regel Kranken- und Pflegekasse.",
+    "cta": "Wie der Einstieg abläuft",
+    "alt": "Familie mit Pflegekraft beim Spaziergang im Garten"
+  },
+  "services": {
+    "eyebrow": "Unsere Leistungen",
+    "title": "Wie wir helfen",
+    "items": [
+      {
+        "title": "Häusliche Intensivpflege",
+        "text": "Professionelle Versorgung in Ihren eigenen vier Wänden — rund um die Uhr."
+      },
+      {
+        "title": "Pflege in verschiedenen Wohnprojekten",
+        "text": "Sicher. Vertraut. Mit Herz und Fachkompetenz."
+      },
+      {
+        "title": "Welche Patienten wir versorgen",
+        "text": "Von Beatmungspflege bis Wachkoma — spezialisierte Betreuung für jedes Krankheitsbild."
+      },
+      {
+        "title": "Individuelle Pflegeberatung nach § 37.3 SGB XI / nach § 7 SGB XI",
+        "text": "Wir bieten individuelle Pflegeberatungen für Pflegebedürftige und Angehörige zur optimalen Versorgung im häuslichen Umfeld."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Krankheitsbild",
+    "title": "Wen versorgen wir",
+    "items": [
+      {
+        "title": "Beatmungsklienten",
+        "text": "Invasive und nicht-invasive Beatmung"
+      },
+      {
+        "title": "Wachkoma (Apallisches Syndrom)",
+        "text": "Langzeitversorgung und Stimulation"
+      },
+      {
+        "title": "ALS / Neurologische Erkrankungen",
+        "text": "Progressive Begleitung"
+      },
+      {
+        "title": "Querschnittslähmung",
+        "text": "Ganzheitliche Pflege"
+      },
+      {
+        "title": "Schädel-Hirn-Trauma",
+        "text": "Rehabilitation und Stabilisierung"
+      },
+      {
+        "title": "Demenz/Alzheimer",
+        "text": "Geduld und wertschätzende Kommunikation"
+      }
+    ],
+    "quote": "Das Wohl des Patienten ist oberstes Gesetz.",
+    "quoteCite": "Unser Leitbild"
+  },
+  "steps": {
+    "eyebrow": "So funktioniert es",
+    "title": "In 3 Schritten zur Versorgung",
+    "items": [
+      {
+        "title": "Erstes Gespräch",
+        "text": "Kostenlos und unverbindlich — wir lernen Ihre Situation kennen und beraten Sie persönlich."
+      },
+      {
+        "title": "Individuelle Planung",
+        "text": "Wir erstellen einen individuellen Versorgungsplan und klären die Kostenübernahme mit Kranken- und Pflegekassen."
+      },
+      {
+        "title": "Versorgungsbeginn",
+        "text": "Unser Pflegeteam beginnt die Versorgung — professionell und zuverlässig."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Über uns",
+    "title": "Wer wir sind",
+    "text": "Der ambulante Intensivpflegedienst KSK Farmos GmbH & Co. KG wurde 2013 von Viktor Beresnev in Volkmarsen gegründet. Seitdem versorgen wir Klienten mit Herz, Fachwissen und modernster Ausstattung.",
+    "highlight": "5,5 Mitarbeiter pro Patient — weit über dem Branchendurchschnitt.",
+    "link": "Mehr über uns",
+    "alt": "{founder}, Gründer von {legalName}, im Gespräch mit einer Mitarbeiterin"
+  },
+  "reviews": {
+    "eyebrow": "Erfahrungen",
+    "title": "Das sagen unsere Patienten",
+    "cta": "Bewertung abgeben",
+    "starsAria": "5 von 5 Sternen",
+    "items": [
+      {
+        "text": "\"Sehr kompetentes und einfühlsames Team. Die 24h-Betreuung in Kassel ist eine enorme Entlastung für unsere Familie. Wir fühlen uns perfekt aufgehoben.\"",
+        "name": "Familie M.",
+        "role": "Angehörige, Kassel"
+      },
+      {
+        "text": "\"Dank der häuslichen Intensivpflege von KSK Farmos GmbH & Co. KG kann mein Vater in seiner gewohnten Umgebung bleiben. Zuverlässig und stets freundlich.\"",
+        "name": "Thomas W.",
+        "role": "Angehöriger, Volkmarsen"
+      },
+      {
+        "text": "\"Vom ersten Gespräch bis zur Umsetzung der Pflege lief alles reibungslos. Die Pflegekräfte sind hochqualifiziert und arbeiten sehr professionell.\"",
+        "name": "Sabine K.",
+        "role": "Patientin, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Sprechen Sie uns an",
+    "text": "Kostenlos und unverbindlich.",
+    "callCta": "Jetzt anrufen",
+    "beratungCta": "Kostenlose Beratung",
+    "points": [
+      "Kostenlos und unverbindlich",
+      "Persönlich oder telefonisch",
+      "Rückmeldung innerhalb 24h"
+    ]
+  },
+  "map": {
+    "eyebrow": "Standorte",
+    "title": "Wo Sie uns finden",
+    "coverage": "Wir versorgen Patienten in ganz Hessen — von Volkmarsen und Kassel bis Frankfurt und darüber hinaus.",
+    "headquartersRole": "Hauptzentrale Volkmarsen",
+    "residenceRole": "Aufenthaltskonzept Kassel"
+  },
+  "servicesLink": "Alle Leistungen",
+  "conditions": [
+    "Übertarifliche Vergütung",
+    "Firmenwagen zur privaten Nutzung",
+    "Bezahlte Weiterbildungen",
+    "30 Tage Urlaub",
+    "Kollegiales Team und Wertschätzung"
+  ]
+}

@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
-import type { NavItem } from "@/content/navigation";
 import { Button } from "@/components/ui/Button";
 import { Close, Menu } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
@@ -18,20 +18,41 @@ import { Rule } from "@/components/ui/Rule";
  * API) — все давали сбои в Safari, а таймаут `setTimeout(…, 450)` в JS
  * должен был вручную совпадать с 400ms перехода в CSS и расходился при
  * любой правке. Здесь длительность существует ровно в одном месте.
+ *
+ * `open`/`onOpenChange` управляются снаружи (`Header.tsx`), а не внутри:
+ * шапке нужно знать, раскрыта ли панель, чтобы на страницах с прозрачной
+ * шапкой над хиро перестать быть прозрачной, пока панель открыта —
+ * иначе сплошная белая панель начинается не от верхнего края экрана,
+ * а от нижнего края всё ещё прозрачной шапки, и между ними виден обрывок
+ * фотографии с плавающим крестиком поверх неё.
  */
+type MenuItem = { href: string; label: string };
+
 export function MobileMenu({
   items,
   cta,
   tone = "ink",
+  open,
+  onOpenChange,
+  forceVisible = false,
 }: {
-  items: NavItem[];
-  cta: NavItem;
+  items: MenuItem[];
+  cta: MenuItem;
   /** `paper` — когда кнопка открытия плавает поверх тёмной фотографии.
    *  Панель, которая раскрывается по клику, всегда светлая и остаётся
    *  на `ink`: тон относится только к закрытой кнопке-гамбургеру. */
   tone?: "ink" | "paper";
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  /** От `lg` кнопка обычно скрыта — на этой ширине помещается десктопная
+   *  навигация. `Header.tsx` измеряет, действительно ли она помещается
+   *  при текущей длине переведённого текста, и на нетипичных разрешениях,
+   *  где строка навигации не влезает даже выше `lg`, включает эту кнопку
+   *  и здесь: `lg:hidden` снимается, гамбургер остаётся единственным
+   *  рабочим входом в меню вместо не влезающей строки. */
+  forceVisible?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const t = useTranslations("common");
   const panelId = useId();
   const pathname = usePathname();
 
@@ -48,22 +69,23 @@ export function MobileMenu({
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") onOpenChange(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, onOpenChange]);
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => onOpenChange(!open)}
         aria-expanded={open}
         aria-controls={panelId}
-        aria-label={open ? "Menü schließen" : "Menü öffnen"}
+        aria-label={open ? t("mobileMenu.closeAria") : t("mobileMenu.openAria")}
         className={cn(
-          "-me-2xs inline-flex items-center justify-center p-2xs transition-colors lg:hidden",
+          "-me-2xs inline-flex items-center justify-center p-2xs transition-colors",
+          !forceVisible && "lg:hidden",
           // Как только панель открыта, за иконкой уже не фото, а собственная
           // светлая панель — цвет возвращается к обычному вне зависимости
           // от того, что было снаружи.
@@ -81,10 +103,19 @@ export function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-x-0 bottom-0 top-(--header-h) z-40 overflow-y-auto border-t border-line bg-paper lg:hidden"
+            className={cn(
+              "fixed inset-x-0 bottom-0 top-(--header-h) z-40 flex flex-col overflow-y-auto border-t border-line bg-paper",
+              !forceVisible && "lg:hidden",
+            )}
           >
-            <nav className="px-gutter py-md">
-              <ul className="flex flex-col">
+            {/* Пункты сами растягиваются на всю высоту панели
+                (`ul` — `flex-1 justify-between`), а не жмутся мелким
+                блоком где-то посередине экрана: шесть пунктов достаточно
+                крупного кегля (`text-h1`, тот же, что у заголовков
+                страниц) с промежутками, которые считает сам flex, сами
+                занимают весь телефон от линии под шапкой до кнопки внизу. */}
+            <nav className="flex flex-1 flex-col px-gutter py-xl">
+              <ul className="flex flex-1 flex-col justify-between">
                 {items.map((item, i) => {
                   const active = item.href === pathname;
                   return (
@@ -95,9 +126,9 @@ export function MobileMenu({
                         aria-current={active ? "page" : undefined}
                         // Меню закрывается по клику, а не эффектом на смену
                         // маршрута: так нет лишнего каскада перерисовок.
-                        onClick={() => setOpen(false)}
+                        onClick={() => onOpenChange(false)}
                         className={cn(
-                          "block py-sm font-serif text-h4 transition-colors hover:text-violet",
+                          "block py-2xs font-serif text-h2 font-medium transition-colors hover:text-violet",
                           active ? "text-violet" : "text-ink",
                         )}
                       >
@@ -111,7 +142,7 @@ export function MobileMenu({
                 </li>
               </ul>
 
-              <div className="mt-lg">
+              <div className="mt-xl">
                 <Button href={cta.href} size="lg" className="w-full">
                   {cta.label}
                 </Button>

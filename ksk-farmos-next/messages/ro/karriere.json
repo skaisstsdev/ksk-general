@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Cariere",
+    "description": "Carieră la KSK Farmos GmbH & Co. KG — salariu peste grila tarifară, formare continuă și o echipă puternică. Aplică acum."
+  },
+  "hero": {
+    "eyebrow": "Cariere",
+    "title": "Lucrează acolo unde chiar contează.",
+    "lead": "Salariu cu mult peste medie, dezvoltare profesională continuă și o echipă pe care te poți baza oricând.",
+    "bewerben": "Aplică Acum",
+    "vakanzen": "Poziții Deschise",
+    "alt": "Un îngrijitor reglează o pompă de perfuzie pe un stativ de perfuzie"
+  },
+  "benefits": {
+    "eyebrow": "CE VĂ OFERIM",
+    "title": "Avantajele dumneavoastră la KSK Farmos GmbH & Co. KG",
+    "items": [
+      {
+        "title": "Plată peste grila tarifară",
+        "text": "Plătim semnificativ peste grila tarifară — pentru că munca dumneavoastră este foarte valoroasă pentru noi."
+      },
+      {
+        "title": "Echipă puternică",
+        "text": "Atmosferă prietenoasă, sprijin reciproc și apreciere sinceră."
+      },
+      {
+        "title": "Formare continuă",
+        "text": "Oportunități regulate de formare și specializare prin institute acreditate cu eliberare de certificate — finanțate integral de companie."
+      },
+      {
+        "title": "Flexibilitate",
+        "text": "Ținem cont de viața dumneavoastră privată și profesională și organizăm flexibil planificarea turelor."
+      },
+      {
+        "title": "Muncă plină de sens",
+        "text": "Faceți o diferență reală în fiecare zi în viața oamenilor grav bolnavi."
+      },
+      {
+        "title": "Oportunități de carieră",
+        "text": "Oportunități de avansare și sprijin pentru dezvoltarea personală. Performanța și dedicarea dumneavoastră pot deschide noi perspective de carieră la noi."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "Locuri de Muncă",
+    "title": "Poziții Disponibile",
+    "bewerben": "Aplică",
+    "items": [
+      {
+        "title": "Asistent medical (m/f/d)",
+        "tags": [
+          "Normă Întreagă / Normă Parțială",
+          "Terapie Intensivă",
+          "Permis de Conducere Cat. B"
+        ]
+      },
+      {
+        "title": "Asistent de îngrijire (m/f/d)",
+        "tags": [
+          "Normă Întreagă / Normă Parțială",
+          "Permis de Conducere Cat. B"
+        ]
+      },
+      {
+        "title": "Practicant în îngrijire (m/f/d)",
+        "tags": [
+          "Normă întreagă"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Aplicație",
+    "title": "Cum Să Aplici La Noi",
+    "steps": [
+      {
+        "title": "Trimite Aplicația",
+        "text": "Folosind formularul online, prin e-mail sau direct prin telefon."
+      },
+      {
+        "title": "Interviu Personal",
+        "text": "Ne dorim să te cunoaștem într-o atmosferă relaxată și la nivel de egalitate."
+      },
+      {
+        "title": "Bun Venit în Echipă!",
+        "text": "Proces de integrare, sesiuni de training și suport pas cu pas la locul de muncă."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Pentru Profesioniștii Medicali",
+    "title": "Ești Pregătit Pentru Următorul Pas?",
+    "text": "Aplică acum — este simplu, rapid și fără complicații.",
+    "cta": "Aplică acum",
+    "points": [
+      "Răspuns în 48h",
+      "Prin formular, e-mail sau telefon",
+      "Nu este nevoie de scrisoare de intenție"
+    ]
+  }
+}

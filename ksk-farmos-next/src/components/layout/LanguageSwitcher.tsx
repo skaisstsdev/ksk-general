@@ -1,19 +1,15 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "motion/react";
-import { useLocale } from "next-intl";
+import { AnimatePresence, motion } from "motion/react";
+import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { localeMeta, type Locale } from "@/i18n/routing";
 import { Globe } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
+import { useOnDark } from "@/lib/useOnDark";
 
 /**
  * Переключатель языков.
@@ -28,37 +24,19 @@ import { cn } from "@/lib/cn";
  * раз в корневом layout, поверх всех страниц.
  *
  * Прозрачная рамка в цвет текста, без заливки и тени. Чтобы она читалась и
- * на светлом поле, и на тёмном (фото хиро, раскрытый кадр, футер), он
- * смотрит, что под ним: тёмные поверхности помечены `data-tone="dark"`,
- * и при каждой прокрутке `elementsFromPoint` проверяет, лежит ли под
- * центром кнопки такая поверхность. Никаких порогов по пикселям —
+ * на светлом поле, и на тёмном (фото хиро, раскрытый кадр, футер), она
+ * смотрит, что под ней — см. `useOnDark`. Никаких порогов по пикселям —
  * поверхность сама говорит, какая она.
  */
 export function LanguageSwitcher() {
+  const t = useTranslations("common");
   const [open, setOpen] = useState(false);
-  const [onDark, setOnDark] = useState(false);
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollY } = useScroll();
-  const probe = () => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const under = document
-      .elementsFromPoint(r.left + r.width / 2, r.top + r.height / 2)
-      .find((n) => !el.contains(n));
-    setOnDark(Boolean(under?.closest('[data-tone="dark"]')));
-  };
-  useMotionValueEvent(scrollY, "change", probe);
-  useEffect(() => {
-    probe();
-    window.addEventListener("resize", probe);
-    return () => window.removeEventListener("resize", probe);
-  }, []);
+  const onDark = useOnDark(ref);
 
   useEffect(() => {
     if (!open) return;
@@ -79,11 +57,13 @@ export function LanguageSwitcher() {
   function switchTo(next: Locale) {
     setOpen(false);
     // Тот же маршрут, другой язык: динамические сегменты переносятся как есть.
+    // `scroll: false` — смена языка не должна возвращать читателя в начало
+    // страницы: он остаётся на том же месте, где выбирал язык.
     router.replace(
       // @ts-expect-error — pathname здесь типизирован как конкретный маршрут,
       // а мы переносим его без изменений вместе с параметрами.
       { pathname, params },
-      { locale: next },
+      { locale: next, scroll: false },
     );
   }
 
@@ -94,7 +74,7 @@ export function LanguageSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label="Sprache wählen"
+        aria-label={t("lang.title")}
         className={cn(
           "inline-flex h-10 items-center gap-2xs rounded-xs border bg-transparent px-sm text-meta font-medium transition-colors duration-300",
           onDark

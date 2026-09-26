@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Kariera",
+    "description": "Kariera w KSK Farmos GmbH & Co. KG — wynagrodzenie powyżej taryfy, szkolenia i silny zespół. Aplikuj już teraz."
+  },
+  "hero": {
+    "eyebrow": "Kariera",
+    "title": "Pracuj tam, gdzie to ma znaczenie.",
+    "lead": "Ponadstandardowe wynagrodzenie, ciągły rozwój zawodowy i zespół, na który zawsze możesz liczyć.",
+    "bewerben": "Aplikuj Teraz",
+    "vakanzen": "Otwarte Pozycje",
+    "alt": "Pracownik opieki ustawia pompę infuzyjną na stojaku infuzyjnym"
+  },
+  "benefits": {
+    "eyebrow": "CO OFERUJEMY",
+    "title": "Twoje korzyści w KSK Farmos GmbH & Co. KG",
+    "items": [
+      {
+        "title": "Wynagrodzenie powyżej taryfy",
+        "text": "Płacimy znacznie powyżej stawek taryfowych — ponieważ Twoja praca jest dla nas bardzo cenna."
+      },
+      {
+        "title": "Silny zespół",
+        "text": "Przyjazna atmosfera, wzajemne wsparcie i prawdziwy szacunek."
+      },
+      {
+        "title": "Szkolenia i kursy",
+        "text": "Regularne możliwości szkoleń i kursów doszkalających za pośrednictwem certyfikowanych instytutów — w pełni finansowane przez firmę."
+      },
+      {
+        "title": "Elastyczność",
+        "text": "Szanujemy Twoje życie prywatne oraz zawodowe i elastycznie planujemy grafik dyżurów."
+      },
+      {
+        "title": "Praca z sensem",
+        "text": "Codziennie robisz realną różnicę w życiu ciężko chorych ludzi."
+      },
+      {
+        "title": "Szansa na karierę",
+        "text": "Możliwości awansu i wsparcie w rozwoju osobistym. Twoje zaangażowanie i wyniki mogą prowadzić do nowych ścieżek kariery."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "Oferty Pracy",
+    "title": "Otwarte Stanowiska",
+    "bewerben": "Aplikuj",
+    "items": [
+      {
+        "title": "Pielęgniarz/Pielęgniarka (m/k/d)",
+        "tags": [
+          "Pełny / Częściowy Etat",
+          "Intensywna Opieka",
+          "Prawo Jazdy Kat. B"
+        ]
+      },
+      {
+        "title": "Asystent opieki (m/k/d)",
+        "tags": [
+          "Pełny / Częściowy Etat",
+          "Prawo Jazdy Kat. B"
+        ]
+      },
+      {
+        "title": "Praktykant opieki (m/k/d)",
+        "tags": [
+          "Pełny etat"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Proces Rekrutacji",
+    "title": "Jak Złożyć Aplikację",
+    "steps": [
+      {
+        "title": "Prześlij Zgłoszenie",
+        "text": "Za pomocą formularza, e-maila lub po prostu dzwoniąc."
+      },
+      {
+        "title": "Rozmowa Kwalifikacyjna",
+        "text": "Chcemy Cię poznać w luźnej atmosferze, jako partnera."
+      },
+      {
+        "title": "Witamy w Zespole",
+        "text": "Wdrożenie do pracy, szkolenia wprowadzające i pełne wsparcie zespołu."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Dla Pielęgniarzy",
+    "title": "Gotowy na Następny Krok?",
+    "text": "Aplikuj już teraz — szybko i bez zbędnych formalności.",
+    "cta": "Aplikuj teraz",
+    "points": [
+      "Odpowiedź w ciągu 48h",
+      "Przez formularz, e-mail lub telefon",
+      "List motywacyjny niepotrzebny"
+    ]
+  }
+}

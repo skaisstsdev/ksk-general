@@ -5,7 +5,15 @@ import { useMemo, useState } from "react";
 import { Accordion } from "@/components/page/Accordion";
 import { CategoryFilter } from "@/components/page/CategoryFilter";
 import { Button } from "@/components/ui/Button";
-import type { Category, categories, questions } from "@/content/pages/faq";
+import type { Category } from "@/content/pages/faq";
+
+type QuestionItem = {
+  id: string;
+  category: Category;
+  q: string;
+  a: string;
+  action?: { href?: string; label: string };
+};
 
 /**
  * Фильтр по категориям плюс раскрывающийся перечень — устройство
@@ -16,8 +24,8 @@ export function FaqList({
   categories: options,
   questions: items,
 }: {
-  categories: typeof categories;
-  questions: typeof questions;
+  categories: { id: Category; label: string }[];
+  questions: QuestionItem[];
 }) {
   const [active, setActive] = useState<Category>("alle");
 

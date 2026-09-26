@@ -1,0 +1,15 @@
+{
+  "tag": "Prawne",
+  "impressum": {
+    "title": "Nota Prawna",
+    "metaDescription": "Nota prawna: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen, Niemcy."
+  },
+  "datenschutz": {
+    "title": "Polityka Prywatności",
+    "metaDescription": "Polityka prywatności KSK Farmos GmbH & Co. KG. Informacje o ochronie i przetwarzaniu danych."
+  },
+  "cookieBanner": {
+    "text": "Ta strona wykorzystuje wyłącznie technicznie niezbędne pliki cookie.",
+    "dismiss": "Rozumiem"
+  }
+}

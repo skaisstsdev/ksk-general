@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Accordion } from "@/components/page/Accordion";
+import { DetailList } from "@/components/page/DetailList";
 import { NumberedList } from "@/components/page/NumberedList";
 import { PageClosing } from "@/components/page/PageClosing";
 import { PhotoSplit } from "@/components/page/PhotoSplit";
@@ -12,21 +13,15 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
 import { StickyCol } from "@/components/ui/StickyCol";
-import { closing } from "@/content/home";
-import {
-  beratung,
-  diagnosen,
-  haeuslich,
-  kosten,
-  meta,
-  wohnprojekte,
-} from "@/content/pages/leistungen";
-import { closingFamily } from "@/content/pages/shared";
+import { haeuslichGroupIds } from "@/content/pages/leistungen";
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/leistungen">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "leistungen" });
+  return { title: t("meta.title"), description: t("meta.description") };
+}
 
 /**
  * Leistungen. Порядок блоков отличается от старого `leistungen.html`
@@ -55,6 +50,33 @@ export default async function LeistungenPage({
 }: PageProps<"/[locale]/leistungen">) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("leistungen");
+  const tHome = await getTranslations("home");
+  const tCommon = await getTranslations("common");
+
+  const haeuslich = t.raw("haeuslich");
+  const haeuslichGroups = haeuslich.groups.map(
+    (group: { title: string; items: string[]; detail: string }, i: number) => ({
+      ...group,
+      id: haeuslichGroupIds[i],
+    }),
+  );
+  const diagnosen = t.raw("diagnosen");
+  const wohnprojekte: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    alt: string;
+    groups: { title: string; items: string[] }[];
+  } = t.raw("wohnprojekte");
+  const beratung = t.raw("beratung");
+  const kosten: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    items: { title: string; text: string; list?: string[] }[];
+  } = t.raw("kosten");
+  const closingFamily = tCommon.raw("closingFamily");
 
   return (
     <>
@@ -70,18 +92,27 @@ export default async function LeistungenPage({
 
           <Col span="aside">
             <Accordion
-              defaultOpen={haeuslich.groups[0].id}
-              items={haeuslich.groups.map((group) => ({
-                id: group.id,
-                title: group.title,
-                content: (
-                  <ul className="flex flex-col gap-3xs">
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                ),
-              }))}
+              defaultOpen={haeuslichGroups[0].id}
+              items={haeuslichGroups.map(
+                (group: {
+                  id: string;
+                  title: string;
+                  items: string[];
+                  detail: string;
+                }) => ({
+                  id: group.id,
+                  title: group.title,
+                  content: (
+                    <DetailList
+                      title={group.title}
+                      items={group.items}
+                      detail={group.detail}
+                      moreLabel={t("moreCta")}
+                      closeLabel={tCommon("dialog.close")}
+                    />
+                  ),
+                }),
+              )}
             />
           </Col>
         </Grid>
@@ -90,20 +121,27 @@ export default async function LeistungenPage({
       {/* Не `PhotoSplit`: тому компоненту неоткуда взять фиолетовый —
           он красит только колонку текста (см. её же приём на других
           страницах), а тут нужен фиолетовый под всем разворотом
-          целиком, включая полосу за фото. Высоту фиолетового не
-          назначаю числом — она сама берётся из высоты строки сетки,
+          целиком, включая полосу за фото. От `lg` высоту фиолетового
+          не назначаю числом — она сама берётся из высоты строки сетки,
           а строку задаёт самый высокий её элемент. Фото здесь выше
           текста (проверено: 4/5 при ширине колонки даёт кадр заметно
           выше шести строк вводного абзаца и двух коротких списков),
           поэтому нижняя граница фиолетового совпадает с нижним краем
-          фото само собой — так же, как верхняя, без вычислений. */}
+          фото само собой — так же, как верхняя, без вычислений.
+
+          Ниже `lg` колонки складываются в столбец, и последним идёт
+          не фото, а текст — этому трюку неоткуда взять отступ снизу,
+          поэтому `pb-2xl` здесь назначен явно, тем же значением, что
+          у остальных фиолетовых разворотов сайта (Kostenübernahme на
+          этой же странице, Vakanzen+Bewerbung на Karriere, услуги
+          главной). */}
       <section id="wohnprojekte" className="overflow-x-clip pt-turn">
-        <div className="bg-violet">
-          <Grid className="lg:items-center">
+        <div data-tone="dark" className="bg-violet">
+          <Grid className="pb-2xl lg:items-center lg:pb-0">
             <Col span="text">
               <Photo
-                src="/img/wohnprojekt.webp"
-                alt="Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
+                src="/img/leistungen/wohnprojekt.webp"
+                alt={wohnprojekte.alt}
                 ratio="4 / 5"
                 position="40% 60%"
                 sizes="(min-width: 1024px) 55vw, 100vw"
@@ -143,7 +181,11 @@ export default async function LeistungenPage({
             <StickyHeading eyebrow={diagnosen.eyebrow} title={diagnosen.title} />
           </Col>
           <Col span="aside">
-            <NumberedList items={diagnosen.items} />
+            <NumberedList
+              items={diagnosen.items}
+              moreLabel={t("moreCta")}
+              closeLabel={tCommon("dialog.close")}
+            />
           </Col>
         </Grid>
       </section>
@@ -153,8 +195,8 @@ export default async function LeistungenPage({
         side="end"
         pause="turn"
         photo={{
-          src: "/img/beratung.webp",
-          alt: "Pflegeberaterin und Seniorin besprechen gemeinsam Unterlagen auf dem Tablet",
+          src: "/img/leistungen/beratung.webp",
+          alt: beratung.alt,
           ratio: "3 / 2",
           position: "40% 40%",
         }}
@@ -194,7 +236,7 @@ export default async function LeistungenPage({
           поэтому под закреплённым заголовком не проглядывает белая
           страница — заливка не обрывается вместе с высотой колонки. */}
       <section id="kosten" className="pt-turn">
-        <div className="bg-violet">
+        <div data-tone="dark" className="bg-violet">
           <Grid className="py-2xl lg:py-3xl">
             <Col span="text">
               <StickyCol>
@@ -219,7 +261,7 @@ export default async function LeistungenPage({
                       <h3 className="text-h3 text-white-pure">{item.title}</h3>
                       <div className="text-ui text-white-pure/90">
                         <p>{item.text}</p>
-                        {"list" in item ? (
+                        {item.list ? (
                           <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
                             {item.list.map((entry) => (
                               <li key={entry}>{entry}</li>
@@ -240,7 +282,7 @@ export default async function LeistungenPage({
         eyebrow={closingFamily.eyebrow}
         title={closingFamily.title}
         text={closingFamily.text}
-        points={closing.points}
+        points={tHome.raw("closing.points")}
         action={{ href: "/beratung", label: closingFamily.cta }}
       />
     </>

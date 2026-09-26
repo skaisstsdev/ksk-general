@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
-import { form as content } from "@/content/pages/kontakt";
+import { betreffValues } from "@/content/pages/kontakt";
 import { Checkbox, Field, Honeypot, Select, Textarea } from "./fields";
 import { FormStatus } from "./FormStatus";
 import { submitStub } from "./submit";
@@ -28,6 +29,32 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
  * молча, без сообщения об ошибке боту.
  */
 export function ContactForm() {
+  const t = useTranslations("kontakt.form");
+  const content = {
+    eyebrow: t("eyebrow"),
+    title: t("title"),
+    text: t("text"),
+    callLabel: t("callLabel"),
+    fields: {
+      vorname: t("fields.vorname"),
+      nachname: t("fields.nachname"),
+      email: t("fields.email"),
+      telefon: t("fields.telefon"),
+      betreff: t("fields.betreff"),
+      betreffPlaceholder: t("fields.betreffPlaceholder"),
+      nachricht: t("fields.nachricht"),
+      consentPrefix: t("fields.consentPrefix"),
+      consentLink: t("fields.consentLink"),
+      consentSuffix: t("fields.consentSuffix"),
+      submit: t("fields.submit"),
+    },
+    betreffOptions: t
+      .raw("betreffOptions")
+      .map((label: string, i: number) => ({ value: betreffValues[i], label })),
+    success: { title: t("success.title"), text: t("success.text") },
+    error: { title: t("error.title"), text: t("error.text") },
+  };
+
   const [vorname, setVorname] = useState("");
   const [nachname, setNachname] = useState("");
   const [email, setEmail] = useState("");
@@ -62,11 +89,11 @@ export function ContactForm() {
     e.preventDefault();
 
     const nextErrors: Errors = {};
-    if (!vorname.trim()) nextErrors.vorname = "Bitte geben Sie Ihren Vornamen an.";
-    if (!nachname.trim()) nextErrors.nachname = "Bitte geben Sie Ihren Nachnamen an.";
-    if (!EMAIL_RE.test(email)) nextErrors.email = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
-    if (!nachricht.trim()) nextErrors.nachricht = "Bitte geben Sie eine Nachricht ein.";
-    if (!consent) nextErrors.consent = "Bitte stimmen Sie der Datenschutzerklärung zu.";
+    if (!vorname.trim()) nextErrors.vorname = t("validation.vorname");
+    if (!nachname.trim()) nextErrors.nachname = t("validation.nachname");
+    if (!EMAIL_RE.test(email)) nextErrors.email = t("validation.email");
+    if (!nachricht.trim()) nextErrors.nachricht = t("validation.nachricht");
+    if (!consent) nextErrors.consent = t("validation.consent");
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
@@ -92,7 +119,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-md">
-      <Honeypot value={firma} onChange={setFirma} />
+      <Honeypot value={firma} onChange={setFirma} label={t("honeypotLabel")} />
 
       <div className="grid gap-md sm:grid-cols-2">
         <Field

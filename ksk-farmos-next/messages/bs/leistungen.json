@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Usluge",
+    "description": "Intenzivna njega kod kuće, koncept stanovanja u Kasselu i stručno usavršavanje. Sve usluge KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "Usluge",
+    "title": "Naše medicinske usluge",
+    "lead": "Intenzivna njega kod kuće, jedinstven koncept stanovanja i kontinuirana edukacija osoblja — sve na jednom mjestu.",
+    "beratung": "Besplatne konsultacije",
+    "all": "Sve usluge"
+  },
+  "beatmung": {
+    "statement": "Njega pacijenata na umjetnoj ventilaciji pluća je naša ključna kompetencija.",
+    "text": "Osiguravamo podršku kod invazivne i neinvazivne ventilacije uz iskusne stručnjake, modernu opremu i usku saradnju sa pulmolozima i anesteziolozima."
+  },
+  "haeuslich": {
+    "eyebrow": "Intenzivna njega kod kuće",
+    "title": "Profesionalna briga u kućnim uslovima",
+    "text": "Brinemo o pacijentima sa teškim oboljenjima u njihovom poznatom okruženju — 24 sata dnevno, 7 dana u sedmici, 365 dana u godini.",
+    "groups": [
+      {
+        "title": "Osnovna njega",
+        "items": [
+          "Opća i medicinska njega",
+          "Kontrola uzimanja lijekova",
+          "Praćenje vitalnih parametara"
+        ],
+        "detail": "Osnovna njega predstavlja temelj naše kućne intenzivne njege. Obuhvata podršku pri higijeni, pokretljivosti i ishrani — prilagođenu individualnim potrebama i mogućnostima svakog klijenta. Medicinska njega obuhvata mjere propisane od strane ljekara, poput promjene zavoja, injekcija ili postavljanja kompresivnih zavoja.\n\nU okviru upravljanja lijekovima pripremamo lijekove prema ljekarskom receptu, pratimo djelovanje i moguće nuspojave te u potpunosti dokumentujemo svaku primjenu. Za sva pitanja smo u direktnom kontaktu s ljekarom i apotekom.\n\nKontrola vitalnih znakova obuhvata redovno mjerenje i dokumentovanje krvnog pritiska, pulsa, saturacije kisikom i temperature. Tako rano uočavamo promjene i možemo brzo reagovati kada je potrebno, u dogovoru s ljekarima koji vode terapiju."
+      },
+      {
+        "title": "Specijalizovane terapije",
+        "items": [
+          "Invazivna i neinvazivna ventilacija pluća",
+          "Njega traheostome",
+          "Tretman rana i terapijska ishrana"
+        ],
+        "detail": "Specijalizovane terapije namijenjene su klijentima s posebno visokim potrebama za medicinskom njegom. Kod invazivne i neinvazivne ventilacije preuzimamo kompletno upravljanje opremom — od zamjene filtera do reakcije na alarme — i pažljivo usklađujemo postavke s ljekarima koji vode terapiju. Pouzdani procesi i obučeno osoblje osiguravaju neprekidnu njegu.\n\nUpravljanje trahealnom kanilom obuhvata profesionalnu zamjenu kanile, aspiraciju i svakodnevnu njegu područja stome, uz posebnu pažnju na prevenciju infekcija.\n\nU njezi rana liječimo hronične i kompleksne rane prema aktuelnim standardima njege. Po potrebi pomažemo i s nutritivnom terapijom, na primjer putem PEG sonde, i pomno dokumentujemo tok zarastanja."
+      },
+      {
+        "title": "Organizacija",
+        "items": [
+          "Planiranje i dokumentovanje procesa njege",
+          "Koordinacija sa ljekarima i terapeutima"
+        ],
+        "detail": "Dobra organizacija je temelj pouzdane njege u pozadini. Za svakog klijenta izrađujemo individualni plan njege koji odražava ličnu situaciju, medicinske zahtjeve i želje. Ovaj plan se redovno provjerava i prilagođava kada je potrebno. Zakonom propisanu dokumentaciju njege vodimo potpuno i transparentno.\n\nTakođer smo centralna kontakt tačka između ljekara, terapeuta, apoteka i prodavnica medicinske opreme. Tako su svi uključeni uvijek informisani, dogovori se koordiniraju, a njega ostaje koordinirana iz jednog izvora — bez potrebe da porodica sama posreduje između različitih institucija."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Dijagnoze",
+    "title": "Kome pomažemo",
+    "items": [
+      {
+        "title": "Pacijenti na respiratoru",
+        "text": "Specijalizovana intenzivna njega za osobe koje zavise od invazivne ili neinvazivne ventilacije. Osiguravamo neprekidan nadzor i profesionalno upravljanje opremom.",
+        "detail": "Brinemo se o osobama koje zavise od invazivne ili neinvazivne ventilacije — od prvog preuzimanja iz bolnice do trajne njege kod kuće. Za svakog klijenta izrađuje se individualni koncept ventilacije, koji se kreira zajedno s ljekarima koji vode terapiju i redovno provjerava.\n\nNaš tim za njegu 24 sata dnevno nadzire respiratore, alarmne granice i parametre disanja te odmah reaguje na svaku promjenu. To uključuje i stručno rukovanje trahealnim kanilama, aspiraciju dišnih puteva te blisku saradnju s partnerima za medicinsku opremu prilikom održavanja i zamjene uređaja.\n\nNjega se usko koordinira s pulmolozima i anesteziolozima koji vode terapiju. Za hitne slučajeve naš tim je dostupan 24 sata dnevno, tako da se porodice mogu osloniti na pouzdanu, neprekidnu njegu."
+      },
+      {
+        "title": "Apalni sindrom (budna koma)",
+        "text": "Holistička dugoročna njega za pacijente sa teškim poremećajima svijesti. Naš fokus je na bazalnoj stimulaciji i očuvanju tjelesnih funkcija.",
+        "detail": "Osobe u apaličkom sindromu trebaju posebno pažljivu, cjelovitu dugoročnu njegu. Primjenjujemo tehnike bazalne stimulacije kako bismo očuvali i nježno podsticali svijest i tjelesne funkcije — prilagođeno individualnom stanju svakog klijenta.\n\nVažan naglasak je na prevenciji komplikacija poput kontraktura, dekubitusa ili respiratornih infekcija kroz redovnu promjenu položaja, ciljane vježbe pokreta i pažljivu njegu kože i tijela. Ishrana, često putem sonde, također se pomno prati.\n\nČlanovi porodice su usko uključeni u njegu kroz uputstva, otvorenu komunikaciju i redovnu razmjenu informacija s timom za njegu. Tako njega ostaje ne samo medicinski utemeljena, već i ljudski bliska."
+      },
+      {
+        "title": "ALS i neurološka oboljenja",
+        "text": "Individualna pratnja kod progresivnih neuroloških promjena — empatično, stručno i usmjereno na održavanje kvaliteta života.",
+        "detail": "ALS i druge progresivne neurološke bolesti neprestano mijenjaju zahtjeve za njegom. Kontinuirano prilagođavamo podršku i opremu trenutnoj fazi bolesti — od pomoći u svakodnevnom životu do specijalizovane njege disanja u naprednim fazama.\n\nKako bolest napreduje, komunikacijska pomagala i tehnička podrška postaju sve važniji. Blisko sarađujemo s logopedima, radnim terapeutima i dobavljačima pomagala kako bi klijenti što duže mogli samostalno učestvovati u svakodnevnom životu.\n\nPraćenje se usklađuje s neurolozima koji vode terapiju i uzima u obzir, uz medicinske, i emocionalne potrebe klijenata i njihovih porodica."
+      },
+      {
+        "title": "Povrede kičmene moždine",
+        "text": "Profesionalna podrška i njega za osobe sa povredama kičmene moždine. Podstičemo samostalnost i ciljano sprečavamo komplikacije.",
+        "detail": "Kod ozljede kičmene moždine u fokusu naše njege je podrška što većoj samostalnosti. Pomažemo pri pokretljivosti, ličnoj higijeni i svakodnevnim rutinama — uvijek s ciljem očuvanja i razvijanja postojećih sposobnosti.\n\nCentralni dio našeg rada je ciljana prevencija tipičnih komplikacija poput dekubitusa, infekcija mokraćnih puteva ili spastičnosti kroz redovne kontrole, prilagođeno pozicioniranje i dosljednu njegu kože. Po potrebi pomažemo i s upravljanjem crijevima i mokraćnom bešikom.\n\nNjega se usko koordinira s rehabilitacijskim ustanovama, fizioterapeutima i ljekarima koji vode terapiju, kako bi se medicinsko liječenje i kućna njega besprijekorno nadopunjavali."
+      },
+      {
+        "title": "Traumatske povrede mozga",
+        "text": "Dugoročna njega nakon teških povreda mozga. Usmjerena na stabilizaciju stanja i podršku u svakodnevnom životu.",
+        "detail": "Nakon traumatske ozljede mozga naša njega prati konkretnu fazu oporavka — od stabilizacije odmah nakon otpusta iz bolnice do dugoročne podrške u svakodnevnom životu. Blisko sarađujemo s ustanovama za neurorehabilitaciju kako bismo smisleno povezali liječenje i kućnu njegu.\n\nCilj je stabilizacija tjelesnih funkcija, organizacija svakodnevnice i postepeni razvoj sposobnosti — na primjer u pokretu, komunikaciji ili pamćenju — uvijek prema individualnom tempu oporavka.\n\nOdržavamo blizak kontakt s neurolozima, terapeutima i porodicom, kako bi svi uključeni bili informisani, a njega ostala optimalno koordinirana."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Njega u različitim stambenim projektima",
+    "title": "Šta vas očekuje",
+    "text": "Naša služba kućne njege specijalizirana je za brigu o osobama s demencijom u različitim stambenim projektima. U zaštićenom kućnom okruženju omogućavamo dostojanstven život uz strukturu, sigurnost i individualnu pažnju.",
+    "groups": [
+      {
+        "title": "Stanovanje i oprema",
+        "items": [
+          "Vlastita soba koju možete urediti svojim namještajem",
+          "Sva potrebna medicinska oprema na raspolaganju",
+          "Prostran vrt za opuštanje i odmor",
+          "Biblioteka i udobne zajedničke prostorije"
+        ]
+      },
+      {
+        "title": "Njega i usluge",
+        "items": [
+          "Potpuna njega i nadzor 24 sata dnevno",
+          "Širok spektar medicinskih i njegovateljskih usluga",
+          "Dnevni raspored prilagođen individualnim potrebama",
+          "Validacija i aktivirajuća njega"
+        ]
+      }
+    ],
+    "alt": "Starija stanarka i njegovateljica sa tabletom u zimskom vrtu stambenog projekta"
+  },
+  "beratung": {
+    "eyebrow": "Savjetovanje",
+    "title": "Individualno savjetovanje o njezi",
+    "text": "Nudimo individualne savjete o njezi za osobe kojima je potrebna njega i njihovu rodbinu radi optimalne njege u kućnom okruženju.",
+    "items": [
+      {
+        "title": "Stepeni njege i usluge",
+        "text": "Savjeti o stepenima njege i beneficijama iz kase za njegu."
+      },
+      {
+        "title": "Upute za rodbinu",
+        "text": "Upute i obuka srodnika za kućnu njegu."
+      },
+      {
+        "title": "Organizacija pomagala",
+        "text": "Pomoć u organizaciji pomagala (medicinski kreveti, hodalice itd.)."
+      },
+      {
+        "title": "Demencija i ponašanje",
+        "text": "Savjetovanje o demenciji i suočavanju sa izazovnim ponašanjem."
+      },
+      {
+        "title": "Usluge olakšavanja",
+        "text": "Objašnjenje usluga podrške i olakšanja za rodbinu koja njeguje pacijenta."
+      },
+      {
+        "title": "Prilagođavanje prostora",
+        "text": "Savjeti o prilagođavanju životnog prostora i pristupačnosti bez barijera."
+      }
+    ],
+    "alt": "Savjetnica za njegu i starija klijentica zajedno pregledavaju dokumente na tabletu"
+  },
+  "kosten": {
+    "eyebrow": "POKRIĆE TROŠKOVA",
+    "title": "Ko snosi troškove",
+    "text": "Služba intenzivne njege KSK Farmos GmbH & Co. KG preuzima pregovore sa obveznicima plaćanja troškova nakon dobijanja punomoći.",
+    "items": [
+      {
+        "title": "Zdravstveno osiguranje (SGB V)",
+        "text": "Zdravstveno osiguranje plaća medicinsko liječenje, bez obzira na stepen njege:",
+        "list": [
+          "Posjete ljekaru i terapije (fizikalna, ergoterapija, logopedija)",
+          "Bolničko liječenje",
+          "Lijekovi, ljekovita i pomoćna sredstva (npr. invalidska kolica, medicinski krevet – uz odobrenje)",
+          "Kućna njega u slučaju akutne bolesti ili nakon bolnice"
+        ]
+      },
+      {
+        "title": "Osiguranje za njegu (SGB XI)",
+        "text": "Osiguranje za njegu plaća podršku njege u slučaju potrebe za njegom (potreban stepen njege):"
+      },
+      {
+        "title": "Socijalna služba",
+        "text": "Ako troškovi stvarne potrebe za njegom premašuju isplate gore navedenih nositelja troškova (osiguranje za njegu), preostali dio troškova mora se snositi privatno ili — ako su ispunjeni uslovi — preuzeti od strane različitih ureda (socijalna služba, pomoć, regionalno vijeće)."
+      },
+      {
+        "title": "Privatno osiguranje",
+        "text": "Dodatno zaključeno zdravstveno osiguranje ili osiguranje od nezgode može, zavisno od provjere, pokriti dio nastalih troškova."
+      }
+    ]
+  },
+  "moreCta": "Saznajte više"
+}

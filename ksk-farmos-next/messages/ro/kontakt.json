@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Contact",
+    "description": "Contactați KSK Farmos GmbH & Co. KG — gratuit, fără obligații, cu abordare umană. Telefon, e-mail sau formular de contact."
+  },
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Luați Legătura Cu Noi",
+    "lead": "Gratuit. Fără Obligații. Abordare Umană."
+  },
+  "form": {
+    "eyebrow": "Scrieți-ne un Mesaj",
+    "title": "Formular de Contact",
+    "text": "Completați formularul de mai jos și vă vom răspunde în decurs de 24 de ore.",
+    "callLabel": "Ne puteți contacta și direct la telefon:",
+    "fields": {
+      "vorname": "Prenume",
+      "nachname": "Nume de Familie",
+      "email": "Adresă E-Mail",
+      "telefon": "Telefon",
+      "betreff": "Subiect",
+      "betreffPlaceholder": "Vă rugăm să alegeți",
+      "nachricht": "Mesajul Dumneavoastră",
+      "consentPrefix": "Am citit cu atenție ",
+      "consentLink": "politica de confidențialitate",
+      "consentSuffix": " și sunt de acord cu ea.",
+      "submit": "Trimite Mesajul"
+    },
+    "betreffOptions": [
+      "Consultanță terapie intensivă",
+      "Proiecte rezidențiale",
+      "Carieră / Locuri de muncă",
+      "Altele"
+    ],
+    "success": {
+      "title": "Vă mulțumim!",
+      "text": "Mesajul dumneavoastră a fost trimis. Vă vom răspunde în decurs de 24 de ore."
+    },
+    "error": {
+      "title": "Ceva nu a funcționat.",
+      "text": "Vă rugăm să încercați din nou sau să ne sunați direct."
+    },
+    "validation": {
+      "vorname": "Vă rugăm să introduceți prenumele dumneavoastră.",
+      "nachname": "Vă rugăm să introduceți numele dumneavoastră de familie.",
+      "email": "Vă rugăm să introduceți o adresă de e-mail validă.",
+      "nachricht": "Vă rugăm să introduceți un mesaj.",
+      "consent": "Vă rugăm să fiți de acord cu politica de confidențialitate."
+    },
+    "honeypotLabel": "Companie"
+  },
+  "cards": {
+    "headquarters": "Sediu Central Volkmarsen",
+    "mobile": "Mobil / 24h",
+    "email": "E-Mail",
+    "fax": "Fax"
+  },
+  "standorte": {
+    "eyebrow": "Locațiile Noastre",
+    "title": "Unde Ne Puteți Găsi",
+    "headquartersRole": "Sediul Central - Volkmarsen",
+    "residenceRole": "Centrul Rezidențial de Îngrijire - Kassel"
+  },
+  "map": {
+    "consent": "Pentru a vizualiza harta interactivă Google, vă rugăm să consimțiți la transferul datelor dvs. (inclusiv adresa IP) către Google.",
+    "load": "Încărcați harta și consimțiți",
+    "loading": "Se încarcă harta…",
+    "revoke": "Retrage consimțământul"
+  }
+}

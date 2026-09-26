@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Leistungen",
+    "description": "Häusliche Intensivpflege, Aufenthaltskonzept Kassel und Fortbildungen. Alle Leistungen von KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "Leistungen",
+    "title": "Unsere medizinischen Leistungen",
+    "lead": "Häusliche Intensivpflege, ein einzigartiges Aufenthaltskonzept und kontinuierliche Fortbildungen — alles aus einer Hand.",
+    "beratung": "Kostenlose Beratung",
+    "all": "Alle Leistungen"
+  },
+  "beatmung": {
+    "statement": "Die Beatmungspflege ist unsere Kernkompetenz.",
+    "text": "Die erfahrenen Pflegefachkräfte für außerklinische Beatmung betreuen Klienten mit moderner Technik und in enger Zusammenarbeit mit Fachärzten für Pneumologie."
+  },
+  "haeuslich": {
+    "eyebrow": "Häusliche Intensivpflege",
+    "title": "Professionelle Pflege zu Hause",
+    "text": "Wir versorgen Patienten mit schweren Erkrankungen in ihren eigenen vier Wänden — 24 Stunden am Tag, 7 Tage die Woche, 365 Tage im Jahr.",
+    "groups": [
+      {
+        "title": "Grundversorgung",
+        "items": [
+          "Grund- und Behandlungspflege",
+          "Medikamentenmanagement",
+          "Vitalzeichenkontrolle und Monitoring"
+        ],
+        "detail": "Die Grundversorgung bildet das Fundament unserer häuslichen Intensivpflege. Grundpflege umfasst Unterstützung bei Körperpflege, Mobilität und Ernährung — angepasst an die individuellen Bedürfnisse und Ressourcen jedes Klienten. Behandlungspflege deckt die ärztlich verordneten medizinischen Maßnahmen ab, etwa Verbandswechsel, Injektionen oder das Anlegen von Kompressionsverbänden.\n\nBeim Medikamentenmanagement stellen wir Medikamente nach ärztlicher Verordnung, überwachen Wirkung und mögliche Nebenwirkungen und dokumentieren jede Gabe lückenlos. Bei Rückfragen stehen wir in direktem Kontakt mit dem behandelnden Arzt und der Apotheke.\n\nZur Vitalzeichenkontrolle gehören die regelmäßige Messung von Blutdruck, Puls, Sauerstoffsättigung und Temperatur sowie deren Dokumentation. So erkennen wir Veränderungen frühzeitig und können bei Bedarf schnell reagieren — in Absprache mit den behandelnden Ärzten."
+      },
+      {
+        "title": "Spezielle Therapien",
+        "items": [
+          "Invasive und nicht-invasive Beatmung",
+          "Trachealkanülenmanagement",
+          "Wundversorgung und Ernährungstherapie"
+        ],
+        "detail": "Spezielle Therapien richten sich an Klienten mit einem besonders hohen medizinischen Betreuungsbedarf. Bei invasiver und nicht-invasiver Beatmung übernehmen wir das vollständige Gerätemanagement — von Filterwechsel bis zur Reaktion auf Alarme — und stimmen die Einstellungen eng mit den behandelnden Ärzten ab. Ausfallsichere Prozesse und geschultes Fachpersonal sorgen für eine durchgehende Versorgung.\n\nDas Trachealkanülenmanagement umfasst den fachgerechten Kanülenwechsel, das Absaugen sowie die tägliche Pflege der Stomaregion, mit besonderem Augenmerk auf die Vorbeugung von Infektionen.\n\nIn der Wundversorgung behandeln wir chronische und komplexe Wunden nach aktuellen pflegewissenschaftlichen Standards. Bei Bedarf unterstützen wir zusätzlich bei der Ernährungstherapie, etwa über eine PEG-Sonde, und dokumentieren den Heilungsverlauf engmaschig."
+      },
+      {
+        "title": "Organisation",
+        "items": [
+          "Pflegeplanung und Dokumentation",
+          "Koordination mit Ärzten und Therapeuten"
+        ],
+        "detail": "Eine gute Organisation ist die Grundlage für verlässliche Pflege im Hintergrund. Für jeden Klienten erstellen wir einen individuellen Pflegeplan, der die persönliche Situation, medizinische Vorgaben und Wünsche berücksichtigt. Dieser Plan wird regelmäßig überprüft und bei Veränderungen angepasst. Die gesetzlich vorgeschriebene Pflegedokumentation führen wir lückenlos und nachvollziehbar.\n\nWir verstehen uns zudem als zentrale Anlaufstelle zwischen Ärzten, Therapeuten, Apotheken und Sanitätshäusern. So sind alle Beteiligten stets auf dem gleichen Stand, Absprachen werden koordiniert, und die Versorgung bleibt aus einer Hand — ohne dass Angehörige selbst zwischen verschiedenen Stellen vermitteln müssen."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Krankheitsbild",
+    "title": "Welche Patienten wir versorgen",
+    "items": [
+      {
+        "title": "Beatmungsklienten",
+        "text": "Spezialisierte Intensivpflege für Menschen, die auf invasive oder nicht-invasive Beatmung angewiesen sind. Wir sichern die lückenlose Überwachung und professionelles Gerätemanagement.",
+        "detail": "Wir betreuen Menschen, die auf eine invasive oder nicht-invasive Beatmung angewiesen sind — von der ersten Übernahme aus der Klinik bis zur dauerhaften Versorgung zu Hause. Jeder Klient erhält ein individuelles Beatmungskonzept, das gemeinsam mit den behandelnden Ärzten erstellt und regelmäßig überprüft wird.\n\nUnser Pflegeteam überwacht Beatmungsgeräte, Alarmgrenzen und Atemparameter rund um die Uhr und reagiert sofort bei Veränderungen. Dazu gehören auch die fachgerechte Handhabung von Trachealkanülen, das Absaugen der Atemwege und die enge Zusammenarbeit mit Medizintechnik-Partnern bei Wartung und Gerätewechsel.\n\nDie Versorgung erfolgt in enger Abstimmung mit behandelnden Pneumologen und Anästhesisten. Für Notfälle steht unser Team rund um die Uhr bereit, sodass sich Angehörige auf eine verlässliche, kontinuierliche Betreuung verlassen können."
+      },
+      {
+        "title": "Wachkoma (Apallisches Syndrom)",
+        "text": "Ganzheitliche Langzeitversorgung für Patienten mit schweren Bewusstseinsstörungen. Unser Fokus liegt auf basaler Stimulation und der Erhaltung von Körperfunktionen.",
+        "detail": "Menschen im Wachkoma benötigen eine besonders aufmerksame, ganzheitliche Langzeitversorgung. Wir arbeiten mit Konzepten der basalen Stimulation, um Wahrnehmung und Körperfunktionen zu erhalten und behutsam anzuregen — angepasst an den individuellen Zustand jedes Klienten.\n\nEin wichtiger Schwerpunkt liegt auf der Vorbeugung von Komplikationen wie Kontrakturen, Druckstellen oder Atemwegsinfekten durch regelmäßige Lagerung, gezielte Bewegungsübungen und sorgfältige Haut- und Körperpflege. Auch die Ernährung, häufig über eine Sonde, wird engmaschig begleitet.\n\nAngehörige werden eng in die Pflege eingebunden — durch Anleitung, offene Kommunikation und regelmäßigen Austausch mit dem Pflegeteam. So bleibt die Versorgung nicht nur medizinisch fundiert, sondern auch menschlich nah."
+      },
+      {
+        "title": "ALS / Neurologische Erkrankungen",
+        "text": "Individuelle Begleitung bei fortschreitenden neurologischen Veränderungen — empathisch, fachlich fundiert und auf die Erhaltung der Lebensqualität ausgerichtet.",
+        "detail": "ALS und andere fortschreitende neurologische Erkrankungen verändern die Anforderungen an die Pflege kontinuierlich. Wir passen Betreuung und Hilfsmittel laufend an den aktuellen Stand der Erkrankung an — von der Unterstützung im Alltag bis hin zu spezialisierter Beatmungspflege in fortgeschrittenen Stadien.\n\nMit fortschreitendem Krankheitsverlauf gewinnen Kommunikationshilfen und technische Unterstützung an Bedeutung. Wir arbeiten dabei eng mit Logopäden, Ergotherapeuten und Hilfsmittelanbietern zusammen, damit Klienten so lange wie möglich selbstbestimmt am Alltag teilhaben können.\n\nDie Begleitung erfolgt in enger Abstimmung mit den behandelnden Neurologen und berücksichtigt neben den medizinischen auch die emotionalen Bedürfnisse von Klienten und Angehörigen."
+      },
+      {
+        "title": "Querschnittslähmung",
+        "text": "Professionelle Unterstützung und Pflege für Menschen mit Rückenmarksverletzungen. Wir fördern die Selbstständigkeit und beugen gezielt Komplikationen vor.",
+        "detail": "Bei Querschnittslähmung steht die Förderung größtmöglicher Selbstständigkeit im Mittelpunkt unserer Pflege. Wir unterstützen bei Mobilität, Körperpflege und den täglichen Routinen — stets mit dem Ziel, vorhandene Fähigkeiten zu erhalten und auszubauen.\n\nEin zentraler Bestandteil ist die gezielte Vorbeugung typischer Komplikationen wie Druckstellen, Harnwegsinfekten oder Spastik durch regelmäßige Kontrollen, angepasste Lagerung und konsequente Hautpflege. Bei Bedarf unterstützen wir auch beim Darm- und Blasenmanagement.\n\nDie Versorgung wird eng mit Reha-Einrichtungen, Physiotherapeuten und behandelnden Ärzten abgestimmt, damit medizinische Behandlung und häusliche Pflege nahtlos ineinandergreifen."
+      },
+      {
+        "title": "Schädel-Hirn-Trauma",
+        "text": "Langfristige Versorgung nach schweren Hirnverletzungen. Zielgerichtet auf die Stabilisierung des Zustands und Unterstützung im Alltag.",
+        "detail": "Nach einem Schädel-Hirn-Trauma richtet sich unsere Pflege nach der jeweiligen Phase der Genesung — von der Stabilisierung direkt nach der Klinik bis zur langfristigen Unterstützung im Alltag. Wir arbeiten eng mit Neurorehabilitationseinrichtungen zusammen, um Behandlung und häusliche Versorgung sinnvoll zu verzahnen.\n\nZiel ist es, Körperfunktionen zu stabilisieren, den Alltag zu strukturieren und Fähigkeiten schrittweise zu fördern — etwa in den Bereichen Bewegung, Kommunikation oder Gedächtnis. Dabei berücksichtigen wir stets das individuelle Tempo der Genesung.\n\nWir stehen im engen Austausch mit Neurologen, Therapeuten und Angehörigen, damit alle Beteiligten auf demselben Stand sind und die Versorgung optimal aufeinander abgestimmt bleibt."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Pflege in verschiedenen Wohnprojekten",
+    "title": "Was Sie erwartet",
+    "text": "Unser ambulanter Pflegedienst ist auf die Betreuung von Menschen mit Demenz in verschiedenen Wohnprojekten spezialisiert. In einer geschützten, häuslichen Umgebung ermöglichen wir ein würdevolles Leben mit Struktur, Sicherheit und individueller Zuwendung.",
+    "groups": [
+      {
+        "title": "Wohnen & Ausstattung",
+        "items": [
+          "Zimmer mit eigenen Möbeln",
+          "Alle notwendigen medizinischen Geräte",
+          "Großzügigen Garten",
+          "Bibliothek und Gemeinschaftsräume"
+        ]
+      },
+      {
+        "title": "Betreuung & Service",
+        "items": [
+          "24h Betreuung und Überwachung",
+          "Umfassende pflegerische und medizinische Leistungen",
+          "Individuell gestalteter Tagesablauf",
+          "Validation und aktivierende Betreuung"
+        ]
+      }
+    ],
+    "alt": "Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
+  },
+  "beratung": {
+    "eyebrow": "Pflegeberatung",
+    "title": "Individuelle Pflegeberatung",
+    "text": "Wir bieten individuelle Pflegeberatungen für Pflegebedürftige und Angehörige zur optimalen Versorgung im häuslichen Umfeld.",
+    "items": [
+      {
+        "title": "Pflegegrade & Leistungen",
+        "text": "Beratung zu Pflegegraden und Leistungen der Pflegekasse."
+      },
+      {
+        "title": "Anleitung für Angehörige",
+        "text": "Anleitung von Angehörigen zur häuslichen Pflege."
+      },
+      {
+        "title": "Hilfsmittel-Organisation",
+        "text": "Hilfe bei der Organisation von Hilfsmitteln (Pflegebett, Rollatoren etc.)."
+      },
+      {
+        "title": "Demenz & Verhalten",
+        "text": "Beratung zu Demenz und Umgang mit herausforderndem Verhalten."
+      },
+      {
+        "title": "Entlastungsangebote",
+        "text": "Aufklärung und Erklärung über Entlastungsangebote für pflegende Angehörige."
+      },
+      {
+        "title": "Wohnraumanpassung",
+        "text": "Beratung zur Wohnraumanpassung und Barrierefreiheit."
+      }
+    ],
+    "alt": "Pflegeberaterin und Seniorin besprechen gemeinsam Unterlagen auf dem Tablet"
+  },
+  "kosten": {
+    "eyebrow": "KOSTENÜBERNAHME",
+    "title": "Wer die Kosten trägt",
+    "text": "Intensivpflegedienst KSK Farmos GmbH & Co. KG übernehmen nach Erhalt einer Vollmacht die Verhandlungen mit den Kostenträgern bezüglich Kostenübernahme.",
+    "items": [
+      {
+        "title": "Krankenkasse (SGB V)",
+        "text": "Die Krankenkasse zahlt medizinische Behandlung, unabhängig vom Pflegegrad:",
+        "list": [
+          "Arztbesuche und Therapien (Physio-, Ergo-, Logopädie)",
+          "Krankenhausbehandlung",
+          "Arznei-, Heil- und Hilfsmittel (z. B. Rollstuhl, Pflegebett – mit Genehmigung)",
+          "Häusliche Krankenpflege bei akuter Krankheit oder nach Krankenhaus"
+        ]
+      },
+      {
+        "title": "Pflegekasse (SGB XI)",
+        "text": "Die Pflegekasse zahlt pflegerische Unterstützung bei Pflegebedürftigkeit (Pflegegrad nötig):"
+      },
+      {
+        "title": "Sozialamt",
+        "text": "Bei übersteigenden Kosten des tatsächlichen Pflegebedarfs die Leistungen der oben genannten Kostenträger (Pflegekasse)  muss der verbleibende Kostenanteil entweder privat getragen werden oder — sofern die Voraussetzungen gegeben sind — von unterschiedlichen Ämtern (Übernehmen Sozialamt, Beihilfe, Regierungspräsidium) übernommen werden."
+      },
+      {
+        "title": "Private Versicherung",
+        "text": "Eine zusätzlich abgeschlossene Kranken- oder Unfallversicherung kann je nach Prüfung einen Anteil der anfallenden Kosten übernehmen."
+      }
+    ]
+  },
+  "moreCta": "Mehr erfahren"
+}

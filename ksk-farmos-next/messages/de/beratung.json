@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Beratung",
+    "description": "Kostenlose und unverbindliche Beratung zur Intensivpflege. Wir nehmen uns Zeit für Sie."
+  },
+  "hero": {
+    "eyebrow": "Beratung",
+    "title": "Kostenlose Erstberatung",
+    "lead": "Wir nehmen uns Zeit für Sie — persönlich, telefonisch oder per E-Mail."
+  },
+  "points": [
+    "Kostenlos und unverbindlich",
+    "Persönlich oder telefonisch",
+    "Rückmeldung innerhalb 24h"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "nachricht": "Nachricht (optional)",
+      "nachrichtPlaceholder": "Beschreiben Sie kurz Ihre Situation...",
+      "consentPrefix": "Ich habe die ",
+      "consentLink": "Datenschutzerklärung",
+      "consentSuffix": " gelesen und stimme zu.",
+      "submit": "Beratung anfragen"
+    },
+    "success": {
+      "title": "Vielen Dank!",
+      "text": "Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden."
+    },
+    "error": {
+      "title": "Etwas ist schiefgelaufen.",
+      "text": "Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+    },
+    "validation": {
+      "vorname": "Bitte geben Sie Ihren Vornamen an.",
+      "nachname": "Bitte geben Sie Ihren Nachnamen an.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+      "consent": "Bitte stimmen Sie der Datenschutzerklärung zu."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

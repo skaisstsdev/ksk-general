@@ -1,0 +1,15 @@
+{
+  "tag": "Rechtliches",
+  "impressum": {
+    "title": "Impressum",
+    "metaDescription": "Impressum: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen."
+  },
+  "datenschutz": {
+    "title": "Datenschutzerklärung",
+    "metaDescription": "Datenschutzerklärung der KSK Farmos GmbH & Co. KG. Informationen zum Datenschutz und zur Datenverarbeitung."
+  },
+  "cookieBanner": {
+    "text": "Diese Website verwendet ausschließlich technisch notwendige Cookies.",
+    "dismiss": "Verstanden"
+  }
+}

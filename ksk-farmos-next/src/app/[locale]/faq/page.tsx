@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { FaqList } from "@/components/page/FaqList";
 import { PageClosing } from "@/components/page/PageClosing";
 import { RuledGrid } from "@/components/page/RuledGrid";
 import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
-import { closing as familyClosing } from "@/content/home";
-import { categories, closing, hero, meta, questions, topCards } from "@/content/pages/faq";
-import { kontaktCta } from "@/content/pages/shared";
+import { questionsMeta } from "@/content/pages/faq";
 
-export const metadata: Metadata = {
-  title: meta.title,
-  description: meta.description,
-};
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/faq">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "faq" });
+  return { title: t("meta.title"), description: t("meta.description") };
+}
 
 /**
  * FAQ. Порядок блоков — как в старом `faq.html`, кроме первого:
@@ -36,6 +37,21 @@ export default async function FaqPage({
 }: PageProps<"/[locale]/faq">) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("faq");
+  const tHome = await getTranslations("home");
+  const tCommon = await getTranslations("common");
+
+  const hero = t.raw("hero");
+  const closing = t.raw("closing");
+  const categories = t.raw("categories");
+  const questions = t
+    .raw("questions")
+    .map((q: { q: string; a: string; action?: { label: string } }, i: number) => ({
+      ...q,
+      ...questionsMeta[i],
+      action: q.action ? { ...q.action, href: questionsMeta[i].actionHref } : undefined,
+    }));
+  const topCards = t.raw("topCards");
 
   return (
     <>
@@ -60,7 +76,7 @@ export default async function FaqPage({
 
       {/* Пункты — не новый текст: те же три (`ber.c1–3`), что уже
           стоят в закрывающем развороте Leistungen/Über uns/Kontakt
-          (`familyClosing.points` из `home.ts`, туда попали со страницы
+          (`home.closing.points` в словаре, туда попали со страницы
           «Beratung»). Аудитория та же — семья, которая обращается
           напрямую, — поэтому повторное приглашение написать не
           получило собственного текста, а переиспользует готовый. */}
@@ -68,8 +84,8 @@ export default async function FaqPage({
         eyebrow={hero.eyebrow}
         title={closing.title}
         text={closing.text}
-        points={familyClosing.points}
-        action={{ href: "/kontakt", label: kontaktCta }}
+        points={tHome.raw("closing.points")}
+        action={{ href: "/kontakt", label: tCommon("kontaktCta") }}
       />
     </>
   );

@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Intenzivna njega u Sjevernom Hessenu",
+    "title": "Profesionalna njega koja čini razliku.",
+    "lead": "Ambulantna intenzivna njega u vašem domu ili u našoj ustanovi u Kasselu — 24 sata dnevno, 7 dana u sedmici.",
+    "alt": "Njegovateljica KSK Farmosa sa hitnom torbom pored interventnog vozila"
+  },
+  "doors": {
+    "family": {
+      "audience": "Za pacijente i njihove porodice",
+      "title": "Zatražite besplatne konsultacije",
+      "text": "Konsultovat ćemo vas lično, besplatno i bez ikakvih obaveza.",
+      "cta": "Zatraži konsultaciju",
+      "callLabel": "Pozovite sada"
+    },
+    "professional": {
+      "audience": "Za medicinske stručnjake",
+      "title": "Postanite dio našeg tima",
+      "text": "Plata iznad tarife, kontinuirana edukacija i službeno vozilo.",
+      "cta": "Prijavite se sada",
+      "note": "Brzo i jednostavno — motivaciono pismo nije potrebno."
+    }
+  },
+  "stats": {
+    "years": "Godina iskustva",
+    "staffRatio": "Osoblja po pacijentu",
+    "roundTheClock": "Cjelodnevno",
+    "locations": "Lokacija u Hessenu",
+    "team": "Osoblja",
+    "weeksToStart": "sedmica do početka njege",
+    "responseTime": "Odgovor"
+  },
+  "intro": {
+    "text": "Od 2013. godine brinemo o osobama sa teškim bolestima. Sa timom kvalifikovanih stručnjaka garantujemo 24/7 njegu na najvišem nivou — u sopstvenom domu ili u partnerskim stambenim projektima na području Kassela i Waldeck-Frankenberga."
+  },
+  "moment": {
+    "eyebrow": "Intenzivna njega kod kuće",
+    "title": "Život ostaje tamo gdje mu je mjesto.",
+    "text": "Respirator, traheostoma, apalni sindrom — čak i teška stanja mogu se njegovati unutar vlastita četiri zida. Diplomirani stručnjak je uz vas 24 sata dnevno, a troškove obično preuzima zdravstveno osiguranje i osiguranje za njegu.",
+    "cta": "Kako izgleda početak",
+    "alt": "Porodica u šetnji vrtom sa njegovateljicom"
+  },
+  "services": {
+    "eyebrow": "Naše usluge",
+    "title": "Kako možemo pomoći",
+    "items": [
+      {
+        "title": "Intenzivna njega kod kuće",
+        "text": "Profesionalna medicinska podrška u udobnosti vašeg doma — 24/7."
+      },
+      {
+        "title": "Njega u različitim stambenim projektima",
+        "text": "Sigurno. Poznato. Sa srcem i stručnošću."
+      },
+      {
+        "title": "Kome pomažemo",
+        "text": "Od njege disanja do apaličkog sindroma — specijalizovana podrška za svako stanje."
+      },
+      {
+        "title": "Individualno savjetovanje o njezi prema § 37.3 SGB XI / § 7 SGB XI",
+        "text": "Nudimo individualne savjete o njezi za osobe kojima je potrebna njega i njihovu rodbinu radi optimalne njege u kućnom okruženju."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Dijagnoze",
+    "title": "O kome brinemo",
+    "items": [
+      {
+        "title": "Pacijenti na respiratoru",
+        "text": "Invazivna i neinvazivna ventilacija pluća"
+      },
+      {
+        "title": "Apalni sindrom (budna koma)",
+        "text": "Dugotrajna njega i stimulativna terapija"
+      },
+      {
+        "title": "ALS i neurološka oboljenja",
+        "text": "Podrška kod progresivnih stanja"
+      },
+      {
+        "title": "Povrede kičmene moždine",
+        "text": "Holistički i sveobuhvatan pristup njezi"
+      },
+      {
+        "title": "Traumatske povrede mozga",
+        "text": "Rehabilitacija i stabilizacija stanja"
+      },
+      {
+        "title": "Demencija / Alzheimer",
+        "text": "Strpljenje i komunikacija s poštovanjem"
+      }
+    ],
+    "quote": "Dobrobit pacijenta je naš najveći prioritet.",
+    "quoteCite": "Naša misija"
+  },
+  "steps": {
+    "eyebrow": "Kako ovo funkcioniše",
+    "title": "Tri koraka do početka njege",
+    "items": [
+      {
+        "title": "Inicijalne konsultacije",
+        "text": "Potpuno besplatno i bez obaveza — pažljivo ćemo vas saslušati i ponuditi individualno rješenje."
+      },
+      {
+        "title": "Individualno planiranje",
+        "text": "Izradit ćemo plan njege, usaglasiti ga s ljekarima i preuzeti brigu o finansiranju."
+      },
+      {
+        "title": "Početak njege",
+        "text": "Vaš lični tim stručnjaka počinje s radom — profesionalno i pouzdano."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "O nama",
+    "title": "Ko smo mi",
+    "text": "Služba za ambulantnu intenzivnu njegu KSK Farmos GmbH & Co. KG osnovana je 2013. godine od strane Viktora Beresneva u Volkmarsenu. Od tada pomažemo pacijentima širom Hessena — sa srcem, dubokim znanjem i modernom opremom.",
+    "highlight": "5,5 stručnjaka na svakog pacijenta — to je znatno iznad prosjeka u branši.",
+    "link": "Saznajte više o nama",
+    "alt": "{founder}, osnivač {legalName}, u razgovoru sa saradnicom"
+  },
+  "reviews": {
+    "eyebrow": "Iskustva",
+    "title": "Šta kažu naši pacijenti",
+    "cta": "Ostavite recenziju",
+    "starsAria": "5 od 5 zvjezdica",
+    "items": [
+      {
+        "text": "\"Veoma kompetentan i empatičan tim. 24-satna njega u Kasselu je ogromno olakšanje za našu porodicu. Osjećamo se u sigurnim rukama.\"",
+        "name": "Porodica M.",
+        "role": "Srodnici, Kassel"
+      },
+      {
+        "text": "\"Zahvaljujući kućnoj intenzivnoj njezi KSK Farmos GmbH & Co. KG, moj otac može ostati u svom poznatom okruženju. Pouzdano i uvijek ljubazno.\"",
+        "name": "Thomas W.",
+        "role": "Srodnik, Volkmarsen"
+      },
+      {
+        "text": "\"Od prvog razgovora do realizacije njege sve je teklo glatko. Medicinsko osoblje je visoko kvalifikovano i radi veoma profesionalno.\"",
+        "name": "Sabine K.",
+        "role": "Pacijent, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Razgovarajmo",
+    "text": "Potpuno besplatno i bez obaveza.",
+    "callCta": "Pozovite sada",
+    "beratungCta": "Besplatne konsultacije",
+    "points": [
+      "Potpuno besplatno i bez obaveza",
+      "Lični susret ili telefonski razgovor",
+      "Brz odgovor u roku od 24 sata"
+    ]
+  },
+  "map": {
+    "eyebrow": "Naše lokacije",
+    "title": "Gdje se nalazimo",
+    "coverage": "Pružamo usluge pacijentima na teritoriji cijelog Hessena — od Volkmarsena i Kassela do Frankfurta i šire.",
+    "headquartersRole": "Centrala u Volkmarsenu",
+    "residenceRole": "Koncept stanovanja u Kasselu"
+  },
+  "servicesLink": "Sve usluge",
+  "conditions": [
+    "Plata iznad tarife",
+    "Službeno vozilo za privatnu upotrebu",
+    "Plaćena edukacija",
+    "30 dana odmora",
+    "Tim i poštovanje"
+  ]
+}

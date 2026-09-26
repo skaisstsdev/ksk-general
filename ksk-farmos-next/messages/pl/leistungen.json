@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Nasze Usługi",
+    "description": "Intensywna opieka domowa, koncepcja pobytu w Kassel i szkolenia. Wszystkie usługi KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "Usługi",
+    "title": "Nasze usługi medyczne",
+    "lead": "Intensywna opieka domowa, unikalna koncepcja pobytu w ośrodku oraz ciągłe szkolenia personelu — wszystko z jednej ręki.",
+    "beratung": "Bezpłatna Konsultacja",
+    "all": "Wszystkie usługi"
+  },
+  "beatmung": {
+    "statement": "Opieka nad pacjentami wentylowanymi mechanicznie to nasza kluczowa kompetencja.",
+    "text": "Zapewniamy wsparcie przy wentylacji inwazyjnej i nieinwazyjnej — przy udziale doświadczonych specjalistów, nowoczesnego sprzętu i ścisłej współpracy z pulmonologami oraz anestezjologami."
+  },
+  "haeuslich": {
+    "eyebrow": "Intensywna Opieka Domowa",
+    "title": "Profesjonalna Opieka w Twoim Domu",
+    "text": "Opiekujemy się pacjentami z ciężkimi schorzeniami w ich własnych czterech kątach — 24 godziny na dobę, 7 dni w tygodniu, 365 dni w roku.",
+    "groups": [
+      {
+        "title": "Opieka Podstawowa",
+        "items": [
+          "Opieka pielęgniarska i terapeutyczna",
+          "Zarządzanie przyjmowaniem leków",
+          "Monitorowanie parametrów życiowych"
+        ],
+        "detail": "Opieka podstawowa stanowi fundament naszej domowej opieki intensywnej. Obejmuje wsparcie w higienie, mobilności i odżywianiu — dostosowane do indywidualnych potrzeb i możliwości każdego klienta. Opieka lecznicza obejmuje zlecone przez lekarza czynności medyczne, takie jak zmiana opatrunków, zastrzyki czy zakładanie bandaży uciskowych.\n\nW ramach zarządzania lekami przygotowujemy leki zgodnie z zaleceniem lekarza, monitorujemy ich działanie i możliwe skutki uboczne oraz dokumentujemy każde podanie bez luk. W razie pytań pozostajemy w bezpośrednim kontakcie z lekarzem i apteką.\n\nKontrola parametrów życiowych obejmuje regularny pomiar i dokumentowanie ciśnienia krwi, tętna, saturacji i temperatury. Dzięki temu wcześnie wychwytujemy zmiany i możemy szybko zareagować w razie potrzeby, w porozumieniu z prowadzącymi lekarzami."
+      },
+      {
+        "title": "Terapie Specjalistyczne",
+        "items": [
+          "Inwazyjna i nieinwazyjna wentylacja mechaniczna",
+          "Zarządzanie rurką tracheostomijną",
+          "Leczenie ran i terapia żywieniowa"
+        ],
+        "detail": "Terapie specjalistyczne są przeznaczone dla klientów o szczególnie wysokich potrzebach medycznych. Przy wentylacji inwazyjnej i nieinwazyjnej przejmujemy pełne zarządzanie sprzętem — od wymiany filtrów po reakcję na alarmy — i ściśle dostosowujemy ustawienia do zaleceń prowadzących lekarzy. Procesy odporne na awarie i przeszkolony personel zapewniają ciągłość opieki.\n\nZarządzanie tracheostomią obejmuje profesjonalną wymianę kaniuli, odsysanie oraz codzienną pielęgnację okolicy stomii, ze szczególną uwagą na zapobieganie zakażeniom.\n\nW pielęgnacji ran leczymy rany przewlekłe i złożone zgodnie z aktualnymi standardami pielęgniarskimi. W razie potrzeby wspieramy również terapię żywieniową, na przykład przez sondę PEG, i dokładnie dokumentujemy przebieg gojenia."
+      },
+      {
+        "title": "Organizacja",
+        "items": [
+          "Planowanie i dokumentacja procesu opieki",
+          "Koordynacja z lekarzami i fizjoterapeutami"
+        ],
+        "detail": "Dobra organizacja to podstawa niezawodnej opieki w tle. Dla każdego klienta tworzymy indywidualny plan opieki, uwzględniający jego sytuację osobistą, wymogi medyczne i życzenia. Plan ten jest regularnie przeglądany i aktualizowany w razie zmian. Wymaganą prawem dokumentację opieki prowadzimy w sposób pełny i przejrzysty.\n\nJesteśmy również centralnym punktem kontaktu między lekarzami, terapeutami, aptekami i sklepami medycznymi. Dzięki temu wszyscy zaangażowani mają te same informacje, ustalenia są koordynowane, a opieka pozostaje skoordynowana z jednej ręki — bez konieczności pośredniczenia przez bliskich między różnymi instytucjami."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Diagnozy",
+    "title": "Kogo Obejmujemy Opieką",
+    "items": [
+      {
+        "title": "Pacjenci wentylowani mechanicznie",
+        "text": "Specjalistyczna intensywna opieka dla osób wymagających inwazyjnej lub nieinwazyjnej wentylacji. Zapewniamy ciągłe monitorowanie i profesjonalne zarządzanie sprzętem.",
+        "detail": "Opiekujemy się osobami zależnymi od wentylacji inwazyjnej lub nieinwazyjnej — od pierwszego przejęcia ze szpitala po stałą opiekę w domu. Dla każdego klienta opracowywana jest indywidualna koncepcja wentylacji, tworzona wspólnie z prowadzącymi lekarzami i regularnie weryfikowana.\n\nNasz zespół pielęgniarski całodobowo monitoruje respiratory, progi alarmowe i parametry oddechowe oraz natychmiast reaguje na wszelkie zmiany. Obejmuje to również fachową obsługę rurek tracheostomijnych, odsysanie dróg oddechowych oraz ścisłą współpracę z partnerami zajmującymi się sprzętem medycznym przy konserwacji i wymianie urządzeń.\n\nOpieka jest ściśle koordynowana z prowadzącymi pulmonologami i anestezjologami. W sytuacjach awaryjnych nasz zespół jest dostępny całodobowo, dzięki czemu bliscy mogą liczyć na niezawodną, ciągłą opiekę."
+      },
+      {
+        "title": "Zespół apalliczny (śpiączka czuwająca)",
+        "text": "Holistyczna długoterminowa opieka nad pacjentami z ciężkimi zaburzeniami świadomości. Nasz cel to stymulacja bazalna i utrzymanie funkcji organizmu.",
+        "detail": "Osoby w zespole apalicznym potrzebują szczególnie uważnej, całościowej opieki długoterminowej. Stosujemy techniki stymulacji bazalnej, aby zachować i delikatnie pobudzać świadomość oraz funkcje organizmu — dostosowane do indywidualnego stanu każdego klienta.\n\nWażnym elementem jest zapobieganie powikłaniom, takim jak przykurcze, odleżyny czy infekcje dróg oddechowych, poprzez regularną zmianę pozycji, ukierunkowane ćwiczenia ruchowe oraz staranną pielęgnację skóry i ciała. Ściśle monitorowane jest również odżywianie, często za pomocą sondy.\n\nBliscy są ściśle włączani w opiekę poprzez instruktaż, otwartą komunikację i regularną wymianę informacji z zespołem opiekuńczym. Dzięki temu opieka pozostaje nie tylko rzetelna medycznie, ale i bliska ludzko."
+      },
+      {
+        "title": "ALS i choroby neurologiczne",
+        "text": "Indywidualne wsparcie w postępujących zmianach neurologicznych — z empatią, profesjonalizmem i naciskiem na zachowanie jakości życia.",
+        "detail": "SLA i inne postępujące choroby neurologiczne stale zmieniają wymagania wobec opieki. Nieustannie dostosowujemy wsparcie i sprzęt do aktualnego stadium choroby — od pomocy w codziennych czynnościach po specjalistyczną opiekę oddechową w zaawansowanych stadiach.\n\nW miarę postępu choroby coraz większego znaczenia nabierają pomoce komunikacyjne i wsparcie techniczne. Ściśle współpracujemy z logopedami, terapeutami zajęciowymi i dostawcami sprzętu pomocniczego, aby klienci mogli jak najdłużej samodzielnie uczestniczyć w codziennym życiu.\n\nOpieka jest ściśle koordynowana z prowadzącymi neurologami i uwzględnia, obok potrzeb medycznych, także emocjonalne potrzeby klientów i ich bliskich."
+      },
+      {
+        "title": "Uszkodzenia rdzenia kręgowego",
+        "text": "Profesjonalne wsparcie i opieka dla osób z urazami rdzenia kręgowego. Promujemy niezależność i aktywnie zapobiegamy powikłaniom.",
+        "detail": "W przypadku uszkodzenia rdzenia kręgowego w centrum naszej opieki znajduje się wspieranie jak największej samodzielności. Pomagamy w mobilności, higienie osobistej i codziennych czynnościach — zawsze z myślą o zachowaniu i rozwijaniu istniejących umiejętności.\n\nKluczowym elementem jest celowe zapobieganie typowym powikłaniom, takim jak odleżyny, infekcje dróg moczowych czy spastyczność, poprzez regularne kontrole, odpowiednie ułożenie ciała i konsekwentną pielęgnację skóry. W razie potrzeby wspieramy również w zarządzaniu jelitami i pęcherzem.\n\nOpieka jest ściśle koordynowana z ośrodkami rehabilitacyjnymi, fizjoterapeutami i prowadzącymi lekarzami, aby leczenie medyczne i opieka domowa płynnie się uzupełniały."
+      },
+      {
+        "title": "Urazy czaszkowo-mózgowe",
+        "text": "Długoterminowa opieka po ciężkich urazach mózgu. Ukierunkowana na stabilizację stanu i wsparcie w codziennym życiu.",
+        "detail": "Po urazowym uszkodzeniu mózgu nasza opieka jest dostosowana do danego etapu rekonwalescencji — od stabilizacji zaraz po wypisie ze szpitala po długoterminowe wsparcie w codziennym życiu. Ściśle współpracujemy z ośrodkami neurorehabilitacji, aby sensownie połączyć leczenie i opiekę domową.\n\nCelem jest stabilizacja funkcji organizmu, uporządkowanie codzienności oraz stopniowe rozwijanie umiejętności — na przykład w zakresie ruchu, komunikacji czy pamięci — zawsze w indywidualnym tempie rekonwalescencji.\n\nPozostajemy w ścisłym kontakcie z neurologami, terapeutami i bliskimi, aby wszyscy zaangażowani mieli te same informacje, a opieka pozostała optymalnie skoordynowana."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Opieka w różnych projektach mieszkaniowych",
+    "title": "Co Cię Czeka",
+    "text": "Nasza ambulatoryjna służba opiekuńcza specjalizuje się w opiece nad osobami z demencją w różnych projektach mieszkaniowych. W bezpiecznym, domowym środowisku umożliwiamy godne życie ze stałą strukturą dnia, bezpieczeństwem i indywidualnym podejściem.",
+    "groups": [
+      {
+        "title": "Mieszkanie i wyposażenie",
+        "items": [
+          "Własny pokój z możliwością wstawienia własnych mebli",
+          "Dostęp do wszystkich niezbędnych urządzeń medycznych",
+          "Przestronny ogród rekreacyjny",
+          "Biblioteka i przytulne przestrzenie wspólne"
+        ]
+      },
+      {
+        "title": "Opieka i usługi",
+        "items": [
+          "Całodobowa opieka i nadzór 24/7",
+          "Kompleksowe usługi pielęgniarskie i lekarskie",
+          "Indywidualnie dostosowany rozkład dnia",
+          "Walidacja i opieka aktywizująca"
+        ]
+      }
+    ],
+    "alt": "Starsza mieszkanka i opiekunka z tabletem w ogrodzie zimowym projektu mieszkaniowego"
+  },
+  "beratung": {
+    "eyebrow": "Doradztwo",
+    "title": "Indywidualne doradztwo pielęgnacyjne",
+    "text": "Oferujemy indywidualne konsultacje opiekuńcze dla osób potrzebujących opieki oraz ich bliskich w celu optymalizacji opieki domowej.",
+    "items": [
+      {
+        "title": "Stopnie opieki i świadczenia",
+        "text": "Porady dotyczące stopni opieki i świadczeń z kasy opiekuńczej."
+      },
+      {
+        "title": "Instruktaż dla bliskich",
+        "text": "Instruktaż dla członków rodziny w zakresie opieki domowej."
+      },
+      {
+        "title": "Organizacja sprzętu",
+        "text": "Pomoc w organizacji środków pomocniczych (łóżka rehabilitacyjne, balkoniki itp.)."
+      },
+      {
+        "title": "Demencja i zachowanie",
+        "text": "Konsultacje w zakresie demencji i radzenia sobie z trudnymi zachowaniami."
+      },
+      {
+        "title": "Oferty odciążające",
+        "text": "Wyjaśnienie ofert wsparcia i odciążenia dla opiekujących się członków rodziny."
+      },
+      {
+        "title": "Dostosowanie mieszkania",
+        "text": "Doradztwo w zakresie adaptacji mieszkania i likwidacji barier architektonicznych."
+      }
+    ],
+    "alt": "Doradczyni ds. opieki i starsza klientka wspólnie przeglądają dokumenty na tablecie"
+  },
+  "kosten": {
+    "eyebrow": "POKRYCIE KOSZTÓW",
+    "title": "Kto ponosi koszty",
+    "text": "Po otrzymaniu pełnomocnictwa, pogotowie opiekuńcze KSK Farmos GmbH & Co. KG przejmuje negocjacje z płatnikami w sprawie przejęcia kosztów.",
+    "items": [
+      {
+        "title": "Kasa chorych (SGB V)",
+        "text": "Kasa chorych opłaca leczenie medyczne, niezależnie od stopnia opieki:",
+        "list": [
+          "Wizyty u lekarza i terapie (fizjoterapia, ergoterapia, logopedia)",
+          "Leczenie szpitalne",
+          "Leki, środki pomocnicze i lecznicze (np. wózek inwalidzki, łóżko rehabilitacyjne – za zgodą)",
+          "Domowa opieka pielęgniarska w przypadku ostrej choroby lub po pobycie w szpitalu"
+        ]
+      },
+      {
+        "title": "Kasa opiekuńcza (SGB XI)",
+        "text": "Kasa opiekuńcza opłaca wsparcie pielęgnacyjne w przypadku potrzeby opieki (wymagany stopień opieki):"
+      },
+      {
+        "title": "Opieka społeczna",
+        "text": "W przypadku kosztów przekraczających rzeczywiste potrzeby opiekuńcze świadczenia wyżej wymienionych płatników (kasa opiekuńcza), pozostała część kosztów musi być pokryta prywatnie lub — jeśli są spełnione warunki — przejęta przez różne urzędy (np. opieka społeczna, zasiłek, prezydium rejencji)."
+      },
+      {
+        "title": "Prywatne ubezpieczenie",
+        "text": "Dodatko zawarte ubezpieczenie zdrowotne lub wypadkowe może, w zależności od weryfikacji, przejąć część poniesionych kosztów."
+      }
+    ]
+  },
+  "moreCta": "Dowiedz się więcej"
+}

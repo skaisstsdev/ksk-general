@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
+import { useTranslations } from "next-intl";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { mainNav, pagesWithHero, primaryCta } from "@/content/navigation";
@@ -36,6 +37,7 @@ import { MobileMenu } from "./MobileMenu";
  * на светлом фоне следующего блока.
  */
 export function Header() {
+  const t = useTranslations("common");
   const pathname = usePathname();
   const hasHero = pagesWithHero.includes(pathname);
 
@@ -49,7 +51,52 @@ export function Header() {
     setScrolled(y > 8);
   });
 
-  const transparent = hasHero && !scrolled;
+  // Состояние мобильного меню живёт здесь, а не внутри `MobileMenu`:
+  // пока панель раскрыта, прозрачная шапка должна стать сплошной, иначе
+  // под ней остаётся видна фотография хиро — обрывок кадра между верхним
+  // краем экрана и белой панелью меню, начинающейся ниже шапки.
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const transparent = hasHero && !scrolled && !menuOpen;
+
+  const navItems = mainNav.map((item) => ({
+    href: item.href,
+    label: t(`nav.${item.key}`),
+  }));
+  const ctaItem = { href: primaryCta.href, label: t("nav.primaryCta") };
+
+  // `lg` — фиксированный порог, а строка навигации — нет: её ширина
+  // зависит от длины переведённого текста (10 языков) и от того, как
+  // именно окно браузера сузили (разделённый экран, нестандартный зум).
+  // Один и тот же брейкпоинт где-то оставляет запас, а где-то кнопка
+  // переносится на вторую строку — сам перелом этого не видит, он знает
+  // только ширину окна, не ширину содержимого.
+  //
+  // Поэтому рядом с видимой строкой рендерится её точная копия — то же
+  // лого, тот же список, та же кнопка, но `absolute` и `invisible`, вне
+  // потока и без переноса (`whitespace-nowrap`): её естественная ширина
+  // и есть ответ на вопрос «поместится ли строка без переноса». Ниже
+  // `lg` копия не нужна — там уже мобильная раскладка по брейкпоинту,
+  // а `compact` в её разметку не подмешивается никак.
+  const [compact, setCompact] = useState(false);
+  const rowRef = useRef<HTMLDivElement>(null);
+  const measureRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const row = rowRef.current;
+    const measure = measureRef.current;
+    if (!row || !measure) return;
+
+    const check = () => {
+      setCompact(measure.scrollWidth > row.clientWidth);
+    };
+    check();
+
+    const ro = new ResizeObserver(check);
+    ro.observe(row);
+    ro.observe(measure);
+    return () => ro.disconnect();
+  }, [navItems.length, ctaItem.label]);
 
   return (
     <header
@@ -61,18 +108,46 @@ export function Header() {
       )}
     >
       <Container>
-        <div className="flex h-(--header-h) items-center justify-between gap-md">
+        <div
+          ref={rowRef}
+          className="relative flex h-(--header-h) items-center justify-between gap-md"
+        >
+          {/* Невидимая копия десктопной строки — то же лого, список
+              и кнопка, но `absolute`/`invisible`/`whitespace-nowrap`.
+              Её натуральная ширина (без переноса) и решает, включать
+              ли `compact` — см. комментарий у `useLayoutEffect` выше. */}
+          <div
+            ref={measureRef}
+            aria-hidden="true"
+            className="pointer-events-none invisible absolute start-0 top-0 flex items-center gap-md whitespace-nowrap"
+          >
+            <span className="flex items-center gap-xs">
+              <span className="size-9" />
+              <span className="text-ui">{company.legalName}</span>
+            </span>
+            <ul className="flex items-center gap-lg">
+              {mainNav.map((item) => (
+                <li key={item.href} className="pb-3xs text-ui">
+                  {t(`nav.${item.key}`)}
+                </li>
+              ))}
+            </ul>
+            <span className="inline-flex rounded-xs px-xs py-2xs text-meta font-medium">
+              {ctaItem.label}
+            </span>
+          </div>
+
           <Link
             href="/"
             className="flex items-center gap-xs"
-            aria-label={`${company.legalName} — Startseite`}
+            aria-label={`${company.legalName} — ${t("nav.start")}`}
           >
             <Image
               src="/logo-icon.png"
               alt=""
               width={36}
               height={36}
-              priority
+              preload
               className="size-9 w-auto"
             />
             <span className="flex flex-col leading-tight">
@@ -80,7 +155,7 @@ export function Header() {
                   Ниже lg показываем короткое имя бренда. */}
               <span
                 className={cn(
-                  "font-serif text-ui whitespace-nowrap lg:hidden",
+                  "text-ui whitespace-nowrap lg:hidden",
                   transparent ? "text-paper" : "text-ink",
                 )}
               >
@@ -88,7 +163,7 @@ export function Header() {
               </span>
               <span
                 className={cn(
-                  "hidden font-serif text-ui lg:inline",
+                  "hidden text-ui lg:inline",
                   transparent ? "text-paper" : "text-ink",
                 )}
               >
@@ -100,12 +175,15 @@ export function Header() {
                   transparent ? "text-paper/70" : "text-ink-muted",
                 )}
               >
-                {company.descriptor}
+                {t("brand.descriptor")}
               </span>
             </span>
           </Link>
 
-          <nav aria-label="Hauptnavigation" className="hidden lg:block">
+          <nav
+            aria-label={t("header.mainNavAria")}
+            className={cn("hidden", !compact && "lg:block")}
+          >
             <ul className="flex items-center gap-lg">
               {mainNav.map((item) => {
                 const active = item.href === pathname;
@@ -131,7 +209,7 @@ export function Header() {
                             : "border-transparent text-ink-soft hover:text-ink",
                       )}
                     >
-                      {item.label}
+                      {t(`nav.${item.key}`)}
                     </Link>
                   </li>
                 );
@@ -144,16 +222,30 @@ export function Header() {
                 Button задаёт себе `inline-flex`, и в таблице стилей
                 Tailwind оба относятся к display — побеждает не тот,
                 что записан последним в атрибуте, а тот, что идёт
-                последним в CSS. Обёртка снимает спор целиком. */}
-            <div className="hidden lg:block">
-              <Button href={primaryCta.href} size="sm">
-                {primaryCta.label}
+                последним в CSS. Обёртка снимает спор целиком.
+
+                На прозрачной шапке кнопки не видно и она не кликабельна
+                (`invisible`, не `hidden`) — место под неё остаётся, иначе
+                `justify-between` пересчитывает зазоры и логотип с меню
+                съезжают вправо при каждом появлении/исчезновении кнопки. */}
+            <div
+              className={cn(
+                "hidden",
+                !compact && "lg:block",
+                transparent && "invisible",
+              )}
+            >
+              <Button href={ctaItem.href} size="sm">
+                {ctaItem.label}
               </Button>
             </div>
             <MobileMenu
-              items={mainNav}
-              cta={primaryCta}
+              items={navItems}
+              cta={ctaItem}
               tone={transparent ? "paper" : "ink"}
+              open={menuOpen}
+              onOpenChange={setMenuOpen}
+              forceVisible={compact}
             />
           </div>
         </div>

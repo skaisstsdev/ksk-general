@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "Consultation",
+    "description": "Free, no-obligation consultation on intensive care. We take the time to listen."
+  },
+  "hero": {
+    "eyebrow": "Consultation",
+    "title": "Free Initial Consultation",
+    "lead": "We take the time to listen — in person, by phone, or via email."
+  },
+  "points": [
+    "Completely free and no-obligation",
+    "In person or by phone",
+    "Response within 24 hours"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "First Name",
+      "nachname": "Last Name",
+      "email": "Email",
+      "telefon": "Phone",
+      "nachricht": "Message (optional)",
+      "nachrichtPlaceholder": "Briefly describe your situation...",
+      "consentPrefix": "I have read and agree to the ",
+      "consentLink": "privacy policy",
+      "consentSuffix": ".",
+      "submit": "Request Consultation"
+    },
+    "success": {
+      "title": "Thank you!",
+      "text": "Your request has been sent successfully. We'll get back to you within 24 hours."
+    },
+    "error": {
+      "title": "Something went wrong.",
+      "text": "Please try again or call us directly."
+    },
+    "validation": {
+      "vorname": "Please enter your first name.",
+      "nachname": "Please enter your last name.",
+      "email": "Please enter a valid email address.",
+      "consent": "Please agree to the privacy policy."
+    },
+    "honeypotLabel": "Company"
+  }
+}

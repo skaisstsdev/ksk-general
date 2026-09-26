@@ -12,7 +12,9 @@ import { RuledList } from "./RuledList";
  * фиолетовый как заливка вместо акцента. Здесь — устройство
  * закрывающего разворота главной (`ClosingCta`), но для одной
  * аудитории: обращение слева, пункты и действие справа, телефон
- * рядом с кнопкой. Никакой подложки — конец страницы задаёт пауза.
+ * рядом с кнопкой. Телефон показан только от `sm`: на мобильном
+ * рядом с кнопкой ему негде встать в один ряд не перенося строку.
+ * Никакой подложки — конец страницы задаёт пауза.
  */
 export function PageClosing({
   eyebrow,
@@ -51,7 +53,7 @@ export function PageClosing({
             </Button>
             <a
               href={contact.phone.href}
-              className="text-ui tabular-nums text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-violet"
+              className="hidden text-ui tabular-nums text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-violet sm:inline"
             >
               {contact.phone.display}
             </a>

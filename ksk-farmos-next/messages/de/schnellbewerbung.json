@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Schnellbewerbung",
+    "description": "Bewerben Sie sich schnell und unkompliziert bei KSK Farmos GmbH & Co. KG — in nur 3 Schritten."
+  },
+  "hero": {
+    "eyebrow": "Schnellbewerbung",
+    "title": "Bewerben in 3 Schritten",
+    "lead": "Schnell und unkompliziert — kein Anschreiben nötig."
+  },
+  "points": [
+    "Übertarifliche Vergütung",
+    "Firmenwagen zur privaten Nutzung",
+    "Bezahlte Weiterbildungen",
+    "30 Tage Urlaub",
+    "Kollegiales Team und Wertschätzung"
+  ],
+  "steps": [
+    "Persönliche Daten",
+    "Qualifikation",
+    "Nachricht"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Vorname",
+      "nachname": "Nachname",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "qualifikationLabel": "Aktueller Beruf / Qualifikation",
+      "qualifikationPlaceholder": "Bitte wählen",
+      "erfahrungLabel": "Berufserfahrung in der Intensivpflege",
+      "fuehrerscheinLabel": "Führerschein Klasse B",
+      "nachrichtLabel": "Möchten Sie uns etwas mitteilen? (optional)",
+      "nachrichtPlaceholder": "Erzählen Sie kurz von sich...",
+      "cvLabel": "Lebenslauf anhängen (optional)",
+      "consentPrefix": "Ich habe die ",
+      "consentLink": "Datenschutzerklärung",
+      "consentSuffix": " gelesen und stimme zu.",
+      "weiter": "Weiter",
+      "zurueck": "Zurück",
+      "submit": "Bewerbung absenden"
+    },
+    "qualifikationOptions": [
+      "Examinierte Pflegefachkraft",
+      "Altenpfleger/in",
+      "Pflegehelfer/in",
+      "Medizinstudent/in",
+      "Sonstiges"
+    ],
+    "erfahrungOptions": [
+      "Keine Erfahrung",
+      "1–2 Jahre",
+      "3–5 Jahre",
+      "Über 5 Jahre"
+    ],
+    "fuehrerscheinOptions": [
+      "Ja",
+      "Nein"
+    ],
+    "success": {
+      "title": "Bewerbung eingegangen!",
+      "text": "Vielen Dank für Ihre Bewerbung. Wir melden uns innerhalb von 24 Stunden bei Ihnen."
+    },
+    "error": {
+      "title": "Etwas ist schiefgelaufen.",
+      "text": "Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+    },
+    "validation": {
+      "vorname": "Bitte geben Sie Ihren Vornamen an.",
+      "nachname": "Bitte geben Sie Ihren Nachnamen an.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+      "telefon": "Bitte geben Sie Ihre Telefonnummer an.",
+      "consent": "Bitte stimmen Sie der Datenschutzerklärung zu.",
+      "cv": "Die Datei ist zu groß (maximal 10 MB)."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

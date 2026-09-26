@@ -1,0 +1,15 @@
+{
+  "tag": "معلومات قانونية",
+  "impressum": {
+    "title": "البيانات القانونية للشركة",
+    "metaDescription": "البيانات القانونية: Intensivpflegedienst KSK Farmos GmbH & Co. KG، Ehringer Weg 2b، 34471 Volkmarsen، ألمانيا."
+  },
+  "datenschutz": {
+    "title": "سياسة الخصوصية",
+    "metaDescription": "سياسة الخصوصية لشركة KSK Farmos GmbH & Co. KG. معلومات حول حماية البيانات ومعالجتها."
+  },
+  "cookieBanner": {
+    "text": "يستخدم هذا الموقع ملفات تعريف الارتباط الضرورية تقنياً فقط.",
+    "dismiss": "فهمت"
+  }
+}

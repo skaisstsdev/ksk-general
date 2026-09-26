@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "title": "Servicii",
+    "description": "Îngrijire intensivă la domiciliu, conceptul de rezidență din Kassel și formare profesională. Toate serviciile KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "Servicii",
+    "title": "Serviciile noastre medicale",
+    "lead": "Terapie intensivă la domiciliu, un concept rezidențial unic și educație continuă a personalului — totul sub un singur acoperiș.",
+    "beratung": "Consultație Gratuită",
+    "all": "Toate serviciile"
+  },
+  "beatmung": {
+    "statement": "Îngrijirea pacienților ventilați mecanic este competența noastră principală.",
+    "text": "Oferim asistență completă pentru ventilația invazivă și non-invazivă — cu profesioniști de excepție, echipamente moderne și o strânsă colaborare cu pneumologi și anestezisti."
+  },
+  "haeuslich": {
+    "eyebrow": "Terapie Intensivă la Domiciliu",
+    "title": "Îngrijire Profesională în Confortul Casei Tale",
+    "text": "Îngrijim cu dăruire pacienți cu afecțiuni severe în mediul lor familial — 24 de ore pe zi, 7 zile pe săptămână, 365 de zile pe an.",
+    "groups": [
+      {
+        "title": "Îngrijire de Bază",
+        "items": [
+          "Asistență medicală de bază și terapeutică",
+          "Managementul și administrarea medicamentelor",
+          "Monitorizarea constantă a semnelor vitale"
+        ],
+        "detail": "Îngrijirea de bază reprezintă fundamentul îngrijirii noastre intensive la domiciliu. Include sprijin pentru igienă, mobilitate și alimentație — adaptat nevoilor și capacităților individuale ale fiecărui client. Îngrijirea medicală acoperă măsurile prescrise de medic, precum schimbarea pansamentelor, injecțiile sau aplicarea bandajelor compresive.\n\nÎn cadrul gestionării medicamentelor, pregătim medicamentele conform prescripției, monitorizăm efectele și eventualele reacții adverse și documentăm fiecare administrare fără lacune. Rămânem în contact direct cu medicul curant și farmacia pentru orice întrebare.\n\nMonitorizarea funcțiilor vitale include măsurarea și documentarea regulată a tensiunii arteriale, pulsului, saturației de oxigen și temperaturii. Astfel observăm din timp orice schimbare și putem reacționa rapid atunci când este necesar, în coordonare cu medicii curanți."
+      },
+      {
+        "title": "Terapii Specializate",
+        "items": [
+          "Ventilație mecanică invazivă și non-invazivă",
+          "Îngrijirea și managementul traheostomelor",
+          "Îngrijirea rănilor și terapie nutrițională avansată"
+        ],
+        "detail": "Terapiile speciale sunt destinate clienților cu nevoi medicale deosebit de ridicate. Pentru ventilația invazivă și non-invazivă, preluăm gestionarea completă a echipamentelor — de la schimbarea filtrelor până la reacția la alarme — și aliniem îndeaproape setările cu medicii curanți. Procesele sigure și personalul instruit asigură o îngrijire neîntreruptă.\n\nGestionarea traheostomei include schimbarea profesională a canulei, aspirarea și îngrijirea zilnică a zonei stomei, cu o atenție deosebită acordată prevenirii infecțiilor.\n\nÎn îngrijirea rănilor, tratăm rănile cronice și complexe conform standardelor actuale de îngrijire. La nevoie, sprijinim și terapia nutrițională, de exemplu printr-o sondă PEG, și documentăm riguros evoluția vindecării."
+      },
+      {
+        "title": "Organizare",
+        "items": [
+          "Planificarea și documentarea detaliată a procesului de îngrijire",
+          "Coordonarea strânsă cu medicii curanți și fizioterapeuții"
+        ],
+        "detail": "O bună organizare este fundamentul unei îngrijiri fiabile din culise. Pentru fiecare client, elaborăm un plan de îngrijire individual, care reflectă situația personală, cerințele medicale și dorințele acestuia. Acest plan este revizuit periodic și ajustat atunci când este necesar. Documentația de îngrijire impusă legal este ținută complet și transparent.\n\nSuntem, de asemenea, punctul central de contact între medici, terapeuți, farmacii și magazine de echipamente medicale. Astfel, toți cei implicați rămân la curent, înțelegerile sunt coordonate, iar îngrijirea rămâne coordonată dintr-un singur loc — fără ca familia să fie nevoită să medieze între diferite instituții."
+      }
+    ]
+  },
+  "diagnosen": {
+    "eyebrow": "Diagnostice",
+    "title": "Pe Cine Îngrijim",
+    "items": [
+      {
+        "title": "Pacienți pe Ventilator",
+        "text": "Îngrijire intensivă specializată pentru persoanele dependente de ventilație invazivă sau non-invazivă. Asigurăm monitorizare continuă și gestionarea profesională a echipamentelor.",
+        "detail": "Îngrijim persoane dependente de ventilație invazivă sau non-invazivă — de la preluarea inițială din spital până la îngrijirea continuă la domiciliu. Fiecare client primește un plan individual de ventilație, elaborat împreună cu medicii curanți și revizuit periodic.\n\nEchipa noastră de îngrijire monitorizează non-stop aparatele de ventilație, limitele de alarmă și parametrii respiratori și reacționează imediat la orice schimbare. Aceasta include și manipularea corectă a canulelor traheostomice, aspirarea căilor respiratorii și colaborarea strânsă cu partenerii de echipamente medicale pentru întreținere și înlocuirea dispozitivelor.\n\nÎngrijirea este coordonată strâns cu pneumologii și anesteziștii curanți. Echipa noastră este disponibilă non-stop pentru urgențe, astfel încât familiile se pot baza pe o îngrijire fiabilă și continuă."
+      },
+      {
+        "title": "Stare Vegetativă (Sindrom Apalic)",
+        "text": "Îngrijire holistică pe termen lung pentru pacienții cu tulburări grave de conștiență. Concentrarea noastră este pe stimularea bazală și menținerea funcțiilor corpului.",
+        "detail": "Persoanele aflate în sindrom apalic au nevoie de o îngrijire pe termen lung deosebit de atentă și holistică. Folosim tehnici de stimulare bazală pentru a menține și a stimula ușor percepția și funcțiile corpului — adaptate stării individuale a fiecărui client.\n\nUn accent important cade pe prevenirea complicațiilor precum contracturile, escarele sau infecțiile respiratorii, prin repoziționare regulată, exerciții de mișcare țintite și îngrijire atentă a pielii și corpului. Alimentația, adesea printr-o sondă, este de asemenea monitorizată îndeaproape.\n\nFamilia este implicată îndeaproape în îngrijire prin îndrumare, comunicare deschisă și schimb regulat de informații cu echipa de îngrijire. Astfel, îngrijirea rămâne nu doar solidă din punct de vedere medical, ci și apropiată din punct de vedere uman."
+      },
+      {
+        "title": "SLA și Boli Neurologice",
+        "text": "Acompaniament individual în modificările neurologice progresive — cu empatie, bază profesională și orientat spre menținerea calității vieții.",
+        "detail": "SLA și alte boli neurologice progresive schimbă constant cerințele privind îngrijirea. Adaptăm continuu sprijinul și echipamentele la stadiul actual al bolii — de la asistență în viața de zi cu zi până la îngrijire respiratorie specializată în stadiile avansate.\n\nPe măsură ce boala avansează, mijloacele de comunicare și sprijinul tehnic devin din ce în ce mai importante. Colaborăm strâns cu logopezi, terapeuți ocupaționali și furnizori de echipamente, astfel încât clienții să poată participa cât mai mult timp posibil, în mod autonom, la viața de zi cu zi.\n\nÎngrijirea este coordonată strâns cu neurologii curanți și ia în considerare, pe lângă nevoile medicale, și pe cele emoționale ale clienților și familiilor."
+      },
+      {
+        "title": "Leziuni ale Măduvei Spinării",
+        "text": "Sprijin și îngrijire profesională pentru persoanele cu leziuni ale măduvei spinării. Promovăm independența și prevenim complicațiile în mod țintit.",
+        "detail": "În cazul leziunilor măduvei spinării, îngrijirea noastră se concentrează pe susținerea celei mai mari independențe posibile. Oferim sprijin pentru mobilitate, igienă personală și rutinele zilnice — mereu cu scopul de a menține și dezvolta abilitățile existente.\n\nO parte centrală a activității noastre este prevenirea țintită a complicațiilor tipice, precum escarele, infecțiile urinare sau spasticitatea, prin controale regulate, poziționare adaptată și îngrijire constantă a pielii. La nevoie, oferim sprijin și pentru gestionarea intestinală și vezicală.\n\nÎngrijirea este coordonată strâns cu centrele de recuperare, fizioterapeuții și medicii curanți, astfel încât tratamentul medical și îngrijirea la domiciliu să se completeze fără probleme."
+      },
+      {
+        "title": "Traumatisme Cranio-Cerebrale",
+        "text": "Îngrijire pe termen lung după leziuni cerebrale severe. Orientat către stabilizarea stării și sprijin în viața de zi cu zi.",
+        "detail": "După un traumatism cranio-cerebral, îngrijirea noastră urmează etapa specifică de recuperare — de la stabilizarea imediat după externare până la sprijinul pe termen lung în viața de zi cu zi. Colaborăm strâns cu centrele de neuroreabilitare pentru a conecta în mod eficient tratamentul și îngrijirea la domiciliu.\n\nScopul este stabilizarea funcțiilor corpului, structurarea vieții de zi cu zi și dezvoltarea treptată a abilităților — de exemplu în mișcare, comunicare sau memorie — mereu în ritmul individual de recuperare.\n\nRămânem în contact strâns cu neurologii, terapeuții și familia, astfel încât toți cei implicați să fie la curent, iar îngrijirea să rămână bine coordonată."
+      }
+    ]
+  },
+  "wohnprojekte": {
+    "eyebrow": "Îngrijire în diverse proiecte rezidențiale",
+    "title": "La Ce Să Vă Așteptați",
+    "text": "Serviciul nostru de îngrijire la domiciliu este specializat în îngrijirea persoanelor cu demență în diverse proiecte rezidențiale. Într-un mediu protejat și familiar, asigurăm o viață demnă, cu structură, siguranță și atenție individuală.",
+    "groups": [
+      {
+        "title": "Locuință & dotări",
+        "items": [
+          "Cameră privată personalizabilă cu propria mobilă",
+          "Acces la toate echipamentele medicale necesare",
+          "O grădină vastă și liniștită pentru relaxare",
+          "Bibliotecă și spații comune confortabile"
+        ]
+      },
+      {
+        "title": "Îngrijire & servicii",
+        "items": [
+          "Monitorizare și asistență medicală permanentă 24/7",
+          "Un spectru larg de servicii medicale și de asistență",
+          "Program zilnic adaptat nevoilor individuale",
+          "Validare și îngrijire activă"
+        ]
+      }
+    ],
+    "alt": "Rezidentă vârstnică și îngrijitoare cu o tabletă în grădina de iarnă a unui proiect rezidențial"
+  },
+  "beratung": {
+    "eyebrow": "Consiliere",
+    "title": "Consiliere individuală de îngrijire",
+    "text": "Oferim consultanță individuală de îngrijire pentru persoanele dependente și rudele acestora pentru a asigura o îngrijire optimă la domiciliu.",
+    "items": [
+      {
+        "title": "Grade de îngrijire și servicii",
+        "text": "Consiliere privind gradele de îngrijire și prestațiile casei de asigurări de îngrijire."
+      },
+      {
+        "title": "Instruirea rudelor",
+        "text": "Instruirea și pregătirea rudelor pentru îngrijirea la domiciliu."
+      },
+      {
+        "title": "Organizarea dispozitivelor",
+        "text": "Asistență în obținerea de dispozitive medicale (pat medical, cadre de mers etc.)."
+      },
+      {
+        "title": "Demență și comportament",
+        "text": "Consiliere privind demența și gestionarea comportamentelor dificile."
+      },
+      {
+        "title": "Servicii de sprijin",
+        "text": "Explicarea serviciilor de sprijin și relaxare pentru rudele care îngrijesc pacienți."
+      },
+      {
+        "title": "Adaptarea locuinței",
+        "text": "Consiliere privind adaptarea spațiului de locuit și accesibilitatea."
+      }
+    ],
+    "alt": "Consilier de îngrijire și clientă în vârstă analizând împreună documente pe o tabletă"
+  },
+  "kosten": {
+    "eyebrow": "ACOPERIREA COSTURILOR",
+    "title": "Cine suportă costurile",
+    "text": "După primirea unei împuterniciri, serviciul de îngrijire intensivă KSK Farmos GmbH & Co. KG preia negocierile cu plătitorii de costuri privind asumarea costurilor.",
+    "items": [
+      {
+        "title": "Casa de asigurări de sănătate (SGB V)",
+        "text": "Casa de asigurări de sănătate plătește tratamentul medical, indiferent de gradul de îngrijire:",
+        "list": [
+          "Vizite la medic și terapii (fizioterapie, ergoterapie, logopedie)",
+          "Tratament spitalicesc",
+          "Medicamente, remedii și dispozitive medicale (de exemplu, scaun cu rotile, pat de spital – cu aprobare)",
+          "Îngrijire medicală la domiciliu în caz de boală acută sau după spitalizare"
+        ]
+      },
+      {
+        "title": "Casa de asigurări de îngrijire (SGB XI)",
+        "text": "Casa de asigurări de îngrijire plătește sprijinul de îngrijire în caz de nevoie de îngrijire (este necesar un grad de îngrijire):"
+      },
+      {
+        "title": "Asistență socială",
+        "text": "Dacă costurile pentru nevoia reală de îngrijire depășesc prestațiile plătitorilor menționați mai sus (casa de asigurări de îngrijire), partea de cost rămasă trebuie suportată fie privat, fie — dacă sunt îndeplinite condițiile — preluată de diverse birouri (asistență socială, ajutor, consiliul regional)."
+      },
+      {
+        "title": "Asigurare privată",
+        "text": "O asigurare suplimentară de sănătate sau de accident poate acoperi o parte din costurile suportate, în funcție de evaluare."
+      }
+    ]
+  },
+  "moreCta": "Află mai multe"
+}

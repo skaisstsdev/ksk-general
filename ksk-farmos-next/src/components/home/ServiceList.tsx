@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 import { Link } from "@/i18n/navigation";
 import { StepsGrid } from "@/components/page/StepsGrid";
 import { ArrowRight } from "@/components/ui/icons";
@@ -5,7 +7,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
-import { services, steps } from "@/content/home";
+import { serviceHrefs } from "@/content/home";
 
 /**
  * Услуги.
@@ -45,15 +47,24 @@ import { services, steps } from "@/content/home";
  * `text-h2` напрямую, а не `SectionHeading`, тем же приёмом, что уже
  * был здесь (см. эту же логику разобранной на Karriere).
  */
-export function ServiceList() {
+export async function ServiceList() {
+  const t = await getTranslations("home");
+  const items: { title: string; text: string; href: string }[] = t
+    .raw("services.items")
+    .map((item: { title: string; text: string }, i: number) => ({
+      ...item,
+      href: serviceHrefs[i],
+    }));
+  const stepItems = t.raw("steps.items");
+
   return (
     <section id="leistungen">
-      <div className="bg-violet">
+      <div data-tone="dark" className="bg-violet">
         <Grid className="pt-2xl lg:pt-3xl">
           <Col span="text">
             <StickyCol>
-              <Eyebrow className="text-white-pure/90">{services.eyebrow}</Eyebrow>
-              <h2 className="mt-2xs text-h1 text-white-pure">{services.title}</h2>
+              <Eyebrow className="text-white-pure/90">{t("services.eyebrow")}</Eyebrow>
+              <h2 className="mt-2xs text-h1 text-white-pure">{t("services.title")}</h2>
             </StickyCol>
           </Col>
 
@@ -61,7 +72,7 @@ export function ServiceList() {
             {/* Линейки выкатываются по очереди сверху вниз — этим список
                 и открывается, без появления самих строк */}
             <ul>
-              {services.items.map((item, i) => (
+              {items.map((item, i) => (
                 <li key={item.href}>
                   <Rule index={i} tone="paper" />
                   <Link
@@ -84,7 +95,7 @@ export function ServiceList() {
                 </li>
               ))}
               <li aria-hidden="true">
-                <Rule index={services.items.length} tone="paper" />
+                <Rule index={items.length} tone="paper" />
               </li>
             </ul>
           </Col>
@@ -93,9 +104,9 @@ export function ServiceList() {
         <div id="ablauf">
           <Grid className="mt-beat pb-2xl lg:pb-3xl">
             <Col>
-              <Eyebrow className="text-white-pure/90">{steps.eyebrow}</Eyebrow>
-              <h2 className="mt-2xs text-h2 text-white-pure">{steps.title}</h2>
-              <StepsGrid items={steps.items} tone="paper" />
+              <Eyebrow className="text-white-pure/90">{t("steps.eyebrow")}</Eyebrow>
+              <h2 className="mt-2xs text-h2 text-white-pure">{t("steps.title")}</h2>
+              <StepsGrid items={stepItems} tone="paper" />
             </Col>
           </Grid>
         </div>

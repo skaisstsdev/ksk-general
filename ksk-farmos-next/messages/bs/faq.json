@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "ČPP",
+    "description": "Često postavljana pitanja o intenzivnoj njezi, troškovima, procesu i karijeri u KSK Farmos GmbH & Co. KG."
+  },
+  "hero": {
+    "eyebrow": "ČPP",
+    "title": "Često postavljana pitanja",
+    "lead": "Ovdje ćete pronaći odgovore na najvažnija pitanja u vezi s našim uslugama."
+  },
+  "categories": [
+    {
+      "id": "alle",
+      "label": "Sve"
+    },
+    {
+      "id": "pat",
+      "label": "Za pacijente"
+    },
+    {
+      "id": "kost",
+      "label": "Troškovi"
+    },
+    {
+      "id": "abl",
+      "label": "Proces"
+    },
+    {
+      "id": "kar",
+      "label": "Karijera"
+    }
+  ],
+  "questions": [
+    {
+      "q": "Da li je intenzivna njega kod kuće zaista moguća?",
+      "a": "Da — u mnogim slučajevima je moguća potpuna intenzivna njega u vlastitom domu. Preduslov je ljekarski recept za kućnu njegu.",
+      "action": {
+        "label": "Dobijte savjet odmah"
+      }
+    },
+    {
+      "q": "U kojim regijama radite?",
+      "a": "Pružamo usluge pacijentima na teritoriji cijelog Hessena — od Volkmarsena i Kassela do Frankfurta i šire."
+    },
+    {
+      "q": "Ko snosi troškove intenzivne njege?",
+      "a": "Troškove po pravilu u potpunosti pokrivaju zdravstveno i socijalno osiguranje. Mi preuzimamo svu komunikaciju sa nosiocima troškova.",
+      "action": {
+        "label": "Dobijte savjet odmah"
+      }
+    },
+    {
+      "q": "Da li je stepen njege važan za 24-satnu njegu?",
+      "a": "Cjelodnevna intenzivna njega prvenstveno se finansira po osnovu §37 SGB V i nije direktno vezana za nivo Pflegegrad. Ipak, viši stepen njege otvara pristup dodatnim uslugama."
+    },
+    {
+      "q": "Koliko vremena prođe do početka njege?",
+      "a": "Od prvog savjetovanja do početka njege prođe po pravilu 4 do 6 sedmica."
+    },
+    {
+      "q": "Kakvu kvalifikaciju ima vaše osoblje?",
+      "a": "Sve ljekarski propisane mjere sprovode isključivo ispitani medicinski radnici koji se redovno obučavaju od strane ljekara specijalista."
+    },
+    {
+      "q": "Šta uključuje koncept smještaja?",
+      "a": "U našim stambenim projektima klijentima nudimo privatne sobe, vrt, biblioteku i 24-satnu njegu sa omjerom od 5,5 zaposlenih po klijentu."
+    },
+    {
+      "q": "Kako se mogu prijaviti za posao?",
+      "a": "Preko obrasca za brzu prijavu na našoj web stranici, telefonom ili e-mailom na pflege@ksk-farmos.de.",
+      "action": {
+        "label": "Prijavite se"
+      }
+    },
+    {
+      "q": "Kako funkcioniše prelazak iz bolnice kući?",
+      "a": "Mi preuzimamo cjelokupno upravljanje prelazom. Naš tim koordinira nesmetan prelaz u bliskoj saradnji sa osobljem bolnice i organizuje sve potrebne aparate."
+    },
+    {
+      "q": "Da li moramo sami kupovati medicinsku opremu?",
+      "a": "Ne. Svu medicinsku opremu kao što su respiratori ili monitori obezbjeđuje zdravstveno osiguranje. Usko sarađujemo sa specijalizovanim firmama za medicinsku tehniku."
+    },
+    {
+      "q": "Da li su medicinske sestre prisutne i noću?",
+      "a": "Da. Kod 24-satne intenzivne njege, obučena medicinska sestra je uvijek s vama — pa i noću — kako bi se osigurao neprekidan i siguran nadzor."
+    }
+  ],
+  "topCards": [
+    {
+      "title": "Plaćanje",
+      "text": "U većini slučajeva, intenzivnu njegu u potpunosti plaća zdravstveno osiguranje."
+    },
+    {
+      "title": "Vremenski okvir",
+      "text": "Od prvog kontakta do početka njege obično prođe oko 4-6 sedmica."
+    },
+    {
+      "title": "Kvalifikacije",
+      "text": "Sve medicinske usluge pružaju isključivo sertifikovani i diplomirani stručnjaci."
+    }
+  ],
+  "closing": {
+    "title": "Niste pronašli odgovor na svoje pitanje?",
+    "text": "Kontaktirajte nas direktno — sa zadovoljstvom ćemo vam pomoći."
+  }
+}

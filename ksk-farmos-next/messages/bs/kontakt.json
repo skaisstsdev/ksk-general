@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "Kontakt",
+    "description": "Kontaktirajte KSK Farmos GmbH & Co. KG — besplatno, bez obaveza, s ljudskim pristupom. Telefonom, e-mailom ili kontakt formom."
+  },
+  "hero": {
+    "eyebrow": "Kontakt",
+    "title": "Stupite u kontakt s nama",
+    "lead": "Besplatno. Bez obaveza. S ljudskim pristupom."
+  },
+  "form": {
+    "eyebrow": "Pišite nam",
+    "title": "Kontakt forma",
+    "text": "Ispunite ovu formu i mi ćemo vas sigurno kontaktirati u roku od 24 sata.",
+    "callLabel": "Ili nas pozovite direktno:",
+    "fields": {
+      "vorname": "Ime",
+      "nachname": "Prezime",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "betreff": "Tema upita",
+      "betreffPlaceholder": "Molimo izaberite",
+      "nachricht": "Vaša poruka",
+      "consentPrefix": "Pročitao/la sam ",
+      "consentLink": "politiku privatnosti",
+      "consentSuffix": " i slažem se sa njenim uslovima.",
+      "submit": "Pošaljite poruku"
+    },
+    "betreffOptions": [
+      "Konsultacije o intenzivnoj njezi",
+      "Stambeni projekti",
+      "Karijera i zapošljavanje",
+      "Ostalo"
+    ],
+    "success": {
+      "title": "Hvala vam!",
+      "text": "Vaša poruka je poslana. Javit ćemo vam se u roku od 24 sata."
+    },
+    "error": {
+      "title": "Nešto je pošlo po zlu.",
+      "text": "Molimo pokušajte ponovo ili nas direktno pozovite."
+    },
+    "validation": {
+      "vorname": "Molimo unesite svoje ime.",
+      "nachname": "Molimo unesite svoje prezime.",
+      "email": "Molimo unesite ispravnu e-mail adresu.",
+      "nachricht": "Molimo unesite poruku.",
+      "consent": "Molimo prihvatite politiku privatnosti."
+    },
+    "honeypotLabel": "Firma"
+  },
+  "cards": {
+    "headquarters": "Centrala Volkmarsen",
+    "mobile": "Mobilni / 24h",
+    "email": "Email",
+    "fax": "Faks"
+  },
+  "standorte": {
+    "eyebrow": "Naše lokacije",
+    "title": "Gdje se nalazimo",
+    "headquartersRole": "Centrala u Volkmarsenu",
+    "residenceRole": "Koncept stanovanja u Kasselu"
+  },
+  "map": {
+    "consent": "Da biste vidjeli interaktivnu Google mapu, molimo vas da pristanete na prijenos vaših podataka (uključujući IP adresu) Google-u.",
+    "load": "Učitaj mapu i pristani",
+    "loading": "Mapa se učitava…",
+    "revoke": "Povuci saglasnost"
+  }
+}

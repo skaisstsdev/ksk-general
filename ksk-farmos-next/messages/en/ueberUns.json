@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "About Us",
+    "description": "Get to know KSK Farmos GmbH & Co. KG — our story, our mission, our team, and our partners."
+  },
+  "hero": {
+    "eyebrow": "About Us",
+    "title": "Experience and care since 2013",
+    "lead": "Since 2013, we've been caring for people with serious illnesses — with professionalism, compassion, and reliability.",
+    "beratung": "Free Consultation",
+    "kontakt": "Get in Touch",
+    "alt": "The KSK Farmos team in the garden"
+  },
+  "leitbild": {
+    "eyebrow": "Our Mission",
+    "title": "What Guides Us",
+    "items": [
+      {
+        "title": "Supporting Life Processes",
+        "text": "Fostering independence and accompanying natural healing."
+      },
+      {
+        "title": "Promoting Physical Function",
+        "text": "Targeted care to preserve and restore bodily functions."
+      },
+      {
+        "title": "Managing Illness",
+        "text": "Monitoring progress and responding early when needed."
+      },
+      {
+        "title": "Enhancing Well-Being",
+        "text": "Emotional and physical well-being always in focus."
+      },
+      {
+        "title": "Preventing Complications",
+        "text": "Proactive prevention and continuous monitoring."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Our Story",
+    "title": "Founded from Conviction",
+    "paragraphs": [
+      "KSK Farmos GmbH & Co. KG was founded in 2013 by Viktor Beresnev in Volkmarsen — with one clear goal: to give people with serious medical conditions the chance to live with dignity and independence.",
+      "Since then, we've been caring for patients across Hesse — in their own homes or in our residential facility in Kassel."
+    ]
+  },
+  "team": {
+    "eyebrow": "Our Team",
+    "title": "The People Behind KSK Farmos GmbH & Co. KG",
+    "members": [
+      {
+        "name": "",
+        "role": "Managing Director",
+        "desc": "Management and organization of the company",
+        "desc2": "Financial and liquidity planning"
+      },
+      {
+        "name": "",
+        "role": "Director of Nursing (PDL)",
+        "desc": "Nursing expert for out-of-hospital ventilation, Direct contact person for relatives.",
+        "desc2": "Responsible for the professional management and quality assurance of all care measures."
+      },
+      {
+        "name": "",
+        "role": "Deputy Director of Nursing",
+        "desc": "Nursing expert for out-of-hospital ventilation, Hygiene officer.",
+        "desc2": "Coordination of care teams."
+      },
+      {
+        "name": "Our Care Team",
+        "role": "Nursing specialists for out-of-hospital ventilation",
+        "desc": "Around 30 employees — qualified, empathetic, and reliably in action.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "Partnerships",
+    "title": "We cooperate closely with:",
+    "text": "Good care doesn't end at your own front door. For seamless support, we work closely with experienced partners — coordinated, reliable, and always in the interest of our clients.",
+    "items": [
+      "Medical specialists of various disciplines",
+      "Physiotherapists",
+      "Speech therapists",
+      "Occupational therapists",
+      "Medical technology companies",
+      "Health, care and social insurance funds",
+      "Medical supply stores"
+    ],
+    "alt": "Caregiver and family member discussing care planning together with a senior client"
+  },
+  "social": {
+    "eyebrow": "Social Media",
+    "title": "Follow us",
+    "text": "Stay updated! On our social media channels, we share insights into our daily life, useful tips, and the latest news about care."
+  }
+}

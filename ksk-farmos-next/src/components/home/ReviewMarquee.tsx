@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/cn";
 
@@ -24,12 +25,13 @@ type Review = { text: string; name: string; role: string };
 const DURATION = 70;
 
 function Card({ review }: { review: Review }) {
+  const t = useTranslations("home.reviews");
   return (
     <li className="flex w-[24rem] shrink-0 flex-col gap-md">
       <span
         className="text-meta tracking-[0.2em] text-violet"
         role="img"
-        aria-label="5 von 5 Sternen"
+        aria-label={t("starsAria")}
       >
         ★★★★★
       </span>

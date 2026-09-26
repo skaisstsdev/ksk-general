@@ -10,6 +10,7 @@ export type HeroAction = {
   href: string;
   label: string;
   variant?: "primary" | "secondary";
+  className?: string;
 };
 
 export type PageHeroImage = {
@@ -31,7 +32,10 @@ export type PageHeroImage = {
  * до), но без сцены со скроллом: кадр здесь стоит на месте.
  */
 function HeroPicture({ image }: { image: PageHeroImage }) {
-  const common = { alt: image.alt, sizes: "100vw", priority: true };
+  // Как и на главной (`home/Hero.tsx`): `priority`/`preload` предзагрузил
+  // бы оба кадра `<picture>` разом, поэтому вместо него —
+  // `fetchPriority="high"` на самом `<img>`.
+  const common = { alt: image.alt, sizes: "100vw" };
   const {
     props: { srcSet: wide },
   } = getImageProps({
@@ -56,6 +60,7 @@ function HeroPicture({ image }: { image: PageHeroImage }) {
       <img
         {...img}
         alt={image.alt}
+        fetchPriority="high"
         className="size-full object-cover"
         style={{
           objectPosition: image.position ?? "center",
@@ -90,7 +95,7 @@ export function PageHero({
   image,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   lead?: string;
   actions?: HeroAction[];
   image?: PageHeroImage;
@@ -136,6 +141,7 @@ export function PageHero({
                       className={cn(
                         action.variant === "secondary" &&
                           "border-paper/60 text-paper hover:border-paper hover:bg-paper/10",
+                        action.className,
                       )}
                     >
                       {action.label}

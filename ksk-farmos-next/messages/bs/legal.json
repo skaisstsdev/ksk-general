@@ -1,0 +1,15 @@
+{
+  "tag": "Pravne informacije",
+  "impressum": {
+    "title": "Impresum (Podaci o firmi)",
+    "metaDescription": "Impresum: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen, Njemačka."
+  },
+  "datenschutz": {
+    "title": "Politika privatnosti",
+    "metaDescription": "Politika privatnosti KSK Farmos GmbH & Co. KG. Informacije o zaštiti i obradi podataka."
+  },
+  "cookieBanner": {
+    "text": "Ova web stranica koristi isključivo tehnički neophodne kolačiće.",
+    "dismiss": "Razumijem"
+  }
+}

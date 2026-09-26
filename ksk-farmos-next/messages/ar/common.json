@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "start": "الرئيسية",
+    "leistungen": "الخدمات",
+    "ueberUns": "من نحن",
+    "karriere": "الوظائف",
+    "faq": "الأسئلة الشائعة",
+    "kontakt": "اتصل بنا",
+    "primaryCta": "استشارة مجانية",
+    "applyCta": "قدم طلبك"
+  },
+  "legalNav": {
+    "datenschutz": "سياسة الخصوصية",
+    "impressum": "المعلومات القانونية"
+  },
+  "footer": {
+    "desc": "خدمة العناية المركزة المتخصصة في شمال هيسن — منذ عام {year}.",
+    "navTitle": "روابط سريعة",
+    "kontaktTitle": "اتصل بنا",
+    "legalTitle": "قانوني",
+    "standortenTitle": "مواقعنا",
+    "rights": "جميع الحقوق محفوظة.",
+    "navAria": "التنقل في التذييل"
+  },
+  "lang": {
+    "title": "اختر اللغة"
+  },
+  "header": {
+    "mainNavAria": "التنقل الرئيسي"
+  },
+  "mobileMenu": {
+    "openAria": "فتح القائمة",
+    "closeAria": "إغلاق القائمة"
+  },
+  "brand": {
+    "descriptor": "خدمة العناية المركزة"
+  },
+  "meta": {
+    "titleSuffix": "خدمة العناية المركزة في شمال هيسن"
+  },
+  "locations": {
+    "headquartersLabel": "المكتب الرئيسي في فولكمارزن",
+    "residenceLabel": "مفهوم الإقامة في كاسل"
+  },
+  "closingFamily": {
+    "eyebrow": "للمرضى وعائلاتهم",
+    "title": "استشارة مجانية",
+    "text": "سوف نقدم لك المشورة شخصياً — مجاناً وبدون أي التزامات.",
+    "cta": "دعنا نتحدث"
+  },
+  "kontaktCta": "تواصل معنا",
+  "dialog": {
+    "close": "إغلاق"
+  },
+  "chat": {
+    "openAria": "فتح المحادثة",
+    "status": "متصل الآن",
+    "welcome": "مرحباً! أنا المساعد الذكي لشركة KSK Farmos. يسعدني الإجابة على أسئلتكم.",
+    "quickReplies": ["من يدفع؟", "المواقع؟", "الوظائف؟", "طلب استشارة"],
+    "placeholder": "سؤالك…",
+    "sendAria": "إرسال",
+    "disclaimerPrefix": "مساعد ذكاء اصطناعي · يتم إنشاء الردود بواسطة OpenAI",
+    "errorFallback": "عذراً، حدث خطأ. يرجى الاتصال بنا: {phone}"
+  }
+}

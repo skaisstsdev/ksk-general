@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "title": "Karriere",
+    "description": "Karriere bei KSK Farmos GmbH & Co. KG — übertarifliche Bezahlung, Weiterbildung und ein starkes Team. Jetzt bewerben."
+  },
+  "hero": {
+    "eyebrow": "Karriere",
+    "title": "Arbeiten, wo es wirklich zählt.",
+    "lead": "Übertarifliche Bezahlung, kontinuierliche Weiterbildung und ein Team, das zusammenhält.",
+    "bewerben": "Jetzt bewerben",
+    "vakanzen": "Offene Stellen",
+    "alt": "Pflegekraft stellt eine Infusionspumpe am Infusionsständer ein"
+  },
+  "benefits": {
+    "eyebrow": "WAS WIR IHNEN BIETEN",
+    "title": "Ihre Vorteile bei KSK Farmos GmbH & Co. KG",
+    "items": [
+      {
+        "title": "Übertarifliche Bezahlung",
+        "text": "Wir zahlen deutlich über Tarif — weil uns Ihre Arbeit viel wert ist."
+      },
+      {
+        "title": "Starkes Team",
+        "text": "Freundliche Atmosphäre, gegenseitige Unterstützung und echte Wertschätzung."
+      },
+      {
+        "title": "Fort-Weiterbildungen",
+        "text": "Regelmäßige Fort-Weiterbildung Möglichkeiten durch Fort- und Weiterbildungsinstitute mit Zertifikatausstellung — voll finanziert vom Unternehmen."
+      },
+      {
+        "title": "Flexibilität",
+        "text": "Wir nehmen Rücksicht auf Ihr Privat und Berufsleben und gestalten unsere Einsatzplanung flexibel"
+      },
+      {
+        "title": "Sinnvolle Arbeit",
+        "text": "Sie machen täglich einen echten Unterschied im Leben schwerkranker Menschen."
+      },
+      {
+        "title": "Karrierechancen",
+        "text": "Aufstiegsmöglichkeiten und Unterstützung bei persönlicher Entwicklung. Ihre Leistung und Ihr Engagement können bei uns zu neuen Karrierechancen führen."
+      }
+    ]
+  },
+  "vakanzen": {
+    "eyebrow": "Stellenangebote",
+    "title": "Offene Stellen",
+    "bewerben": "Bewerben",
+    "items": [
+      {
+        "title": "Pflegefachkraft (w/m/d)",
+        "tags": [
+          "Vollzeit / Teilzeit",
+          "Intensivpflege",
+          "Führerschein B"
+        ]
+      },
+      {
+        "title": "Pflegehelfer (w/m/d)",
+        "tags": [
+          "Vollzeit / Teilzeit",
+          "Führerschein B"
+        ]
+      },
+      {
+        "title": "Pflegepraktikant (w/m/d)",
+        "tags": [
+          "Vollzeit"
+        ]
+      }
+    ]
+  },
+  "bewerbung": {
+    "eyebrow": "Bewerbung",
+    "title": "So bewerben Sie sich",
+    "steps": [
+      {
+        "title": "Bewerbung einreichen",
+        "text": "Per Formular, E-Mail oder Telefon."
+      },
+      {
+        "title": "Persönliches Gespräch",
+        "text": "Wir lernen Sie kennen — locker und auf Augenhöhe."
+      },
+      {
+        "title": "Willkommen im Team",
+        "text": "Einarbeitung, Fortbildungen und Unterstützung."
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Für Pflegekräfte",
+    "title": "Bereit für den nächsten Schritt?",
+    "text": "Bewerben Sie sich jetzt — unkompliziert und schnell.",
+    "cta": "Jetzt bewerben",
+    "points": [
+      "Rückmeldung innerhalb 48h",
+      "Per Formular, E-Mail oder Telefon",
+      "Kein Anschreiben nötig"
+    ]
+  }
+}

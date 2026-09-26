@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Hakkımızda",
+    "description": "KSK Farmos GmbH & Co. KG'yi tanıyın — hikayemiz, misyonumuz, ekibimiz ve iş ortaklarımız."
+  },
+  "hero": {
+    "eyebrow": "Hakkımızda",
+    "title": "Deneyim ve bakım 2013'ten beri",
+    "lead": "2013 yılından bu yana ağır hastalığı olan bireylere profesyonel, insani ve güvenilir bir şekilde bakım sağlıyoruz.",
+    "beratung": "Ücretsiz Danışmanlık",
+    "kontakt": "Bize Ulaşın",
+    "alt": "KSK Farmos ekibi bahçede"
+  },
+  "leitbild": {
+    "eyebrow": "Misyonumuz",
+    "title": "Bize Yol Gösteren İlkeler",
+    "items": [
+      {
+        "title": "Yaşam Süreçlerini Desteklemek",
+        "text": "Hastanın bağımsızlığını teşvik ediyor ve doğal süreçlere nazikçe eşlik ediyoruz."
+      },
+      {
+        "title": "Vücut Fonksiyonlarını Korumak",
+        "text": "Fiziksel fonksiyonları korumak ve sürdürmek için amaca yönelik bakım."
+      },
+      {
+        "title": "Hastalığı Kontrol Altında Tutmak",
+        "text": "Hastalığın seyrini titizlikle izliyor ve anında müdahale ediyoruz."
+      },
+      {
+        "title": "Refahı Artırmak",
+        "text": "Hastalarımızın duygusal ve fiziksel huzurunu her zaman merkezde tutuyoruz."
+      },
+      {
+        "title": "Komplikasyonları Önlemek",
+        "text": "Koruyucu önlemler ve kesintisiz gözetim ile riskleri en aza indiriyoruz."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Hikayemiz",
+    "title": "Güçlü Bir İnançla Kurulduk",
+    "paragraphs": [
+      "KSK Farmos GmbH & Co. KG ayakta yoğun bakım servisi, 2013 yılında Viktor Beresnev tarafından Volkmarsen'de net bir vizyonla kuruldu: Ağır hastalığı olan bireylerin onurlu ve kendi ayakları üzerinde durabildikleri bir yaşam sürmelerini sağlamak.",
+      "O günden bugüne, ister kendi evlerinde ister Kassel'deki tesisimizde olsun, tüm Hessen genelindeki hastalarımıza özenle bakıyoruz."
+    ]
+  },
+  "team": {
+    "eyebrow": "Ekibimiz",
+    "title": "KSK Farmos GmbH & Co. KG'un Arkasındaki İnsanlar",
+    "members": [
+      {
+        "name": "",
+        "role": "Genel Müdür",
+        "desc": "Şirket yönetimi ve organizasyonu",
+        "desc2": "Finansal ve likidite planlaması"
+      },
+      {
+        "name": "",
+        "role": "Bakım Hizmetleri Müdürü (PDL)",
+        "desc": "Klinik dışı solunum cihazı bakım uzmanı, Hasta yakınları için doğrudan muhatap.",
+        "desc2": "Tüm bakım önlemlerinin profesyonel yönetiminden ve kalite güvencesinden sorumlu."
+      },
+      {
+        "name": "",
+        "role": "Bakım Hizmetleri Müdür Yardımcısı",
+        "desc": "Klinik dışı solunum cihazı bakım uzmanı, Hijyen sorumlusu.",
+        "desc2": "Bakım ekiplerinin koordinasyonu."
+      },
+      {
+        "name": "Bakım Ekibimiz",
+        "role": "Klinik dışı solunum cihazı bakımı için uzman hemşireler",
+        "desc": "Yaklaşık 30 çalışan — nitelikli, empati sahibi ve sahada güvenilir.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "İş Birliklerimiz",
+    "title": "Yakından işbirliği yaptığımız kurumlar:",
+    "text": "İyi bakım, kendi kapınızın önünde bitmez. Kesintisiz bir destek için deneyimli ortaklarla yakın işbirliği içinde çalışıyoruz — uyum içinde, güvenilir ve her zaman müşterilerimizin çıkarları doğrultusunda.",
+    "items": [
+      "Çeşitli branşlardan uzman hekimler",
+      "Fizyoterapistler",
+      "Logopedistler (Konuşma Terapistleri)",
+      "Ergoterapistler",
+      "Tıbbi teknoloji şirketleri",
+      "Sağlık, bakım ve sosyal yardım kasaları",
+      "Medikaller ve medikal malzeme depoları"
+    ],
+    "alt": "Bir bakım uzmanı ve yakını, yaşlı bir danışanla birlikte bakım planlamasını görüşüyor"
+  },
+  "social": {
+    "eyebrow": "Sosyal Medya",
+    "title": "Bizi takip edin",
+    "text": "Güncel kalın! Sosyal medya kanallarımızda günlük yaşamımızdan kesitler, faydalı ipuçları ve bakımla ilgili en son haberleri paylaşıyoruz."
+  }
+}

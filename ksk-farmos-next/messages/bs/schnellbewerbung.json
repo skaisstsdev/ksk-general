@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Brza prijava",
+    "description": "Prijavite se brzo i jednostavno u KSK Farmos GmbH & Co. KG — u samo 3 koraka."
+  },
+  "hero": {
+    "eyebrow": "Brza prijava",
+    "title": "Prijavite se u 3 koraka",
+    "lead": "Brzo i jednostavno — motivaciono pismo nije potrebno."
+  },
+  "points": [
+    "Plata iznad tarife",
+    "Službeno vozilo za privatnu upotrebu",
+    "Plaćena edukacija",
+    "30 dana odmora",
+    "Tim i poštovanje"
+  ],
+  "steps": [
+    "Lični podaci",
+    "Kvalifikacije",
+    "Poruka"
+  ],
+  "form": {
+    "fields": {
+      "vorname": "Ime",
+      "nachname": "Prezime",
+      "email": "E-Mail",
+      "telefon": "Telefon",
+      "qualifikationLabel": "Trenutno zanimanje / kvalifikacija",
+      "qualifikationPlaceholder": "Molimo izaberite",
+      "erfahrungLabel": "Iskustvo u intenzivnoj njezi",
+      "fuehrerscheinLabel": "Vozačka dozvola kat. B",
+      "nachrichtLabel": "Želite li nam nešto reći? (opciono)",
+      "nachrichtPlaceholder": "Recite nam nešto o sebi...",
+      "cvLabel": "Priložite biografiju (opciono)",
+      "consentPrefix": "Pročitao/la sam ",
+      "consentLink": "politiku privatnosti",
+      "consentSuffix": " i slažem se sa njenim uslovima.",
+      "weiter": "Dalje",
+      "zurueck": "Nazad",
+      "submit": "Pošalji prijavu"
+    },
+    "qualifikationOptions": [
+      "Diplomirana medicinska sestra",
+      "Gerijatijska sestra",
+      "Pomoćnik u njezi",
+      "Student medicine",
+      "Ostalo"
+    ],
+    "erfahrungOptions": [
+      "Bez iskustva",
+      "1–2 godine",
+      "3–5 godina",
+      "Više od 5 godina"
+    ],
+    "fuehrerscheinOptions": [
+      "Da",
+      "Ne"
+    ],
+    "success": {
+      "title": "Prijava zaprimljena!",
+      "text": "Hvala vam na prijavi. Javit ćemo vam se u roku od 24 sata."
+    },
+    "error": {
+      "title": "Nešto je pošlo po zlu.",
+      "text": "Molimo pokušajte ponovo ili nas direktno pozovite."
+    },
+    "validation": {
+      "vorname": "Molimo unesite svoje ime.",
+      "nachname": "Molimo unesite svoje prezime.",
+      "email": "Molimo unesite ispravnu e-mail adresu.",
+      "telefon": "Molimo unesite svoj broj telefona.",
+      "consent": "Molimo prihvatite politiku privatnosti.",
+      "cv": "Datoteka je prevelika (maksimalno 10 MB)."
+    },
+    "honeypotLabel": "Firma"
+  }
+}

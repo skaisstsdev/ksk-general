@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Terapie Intensivă în Nordul Hessei",
+    "title": "Îngrijire profesională, care contează.",
+    "lead": "Îngrijire intensivă ambulatorie la domiciliu sau în unitatea noastră din Kassel — 24 de ore pe zi, 7 zile pe săptămână.",
+    "alt": "Specialist de îngrijire KSK Farmos cu trusa de urgență lângă autovehiculul de intervenție"
+  },
+  "doors": {
+    "family": {
+      "audience": "Pentru Pacienți și Familii",
+      "title": "Solicitați o Consultație Gratuită",
+      "text": "Vă oferim consultanță personală — complet gratuită și fără obligații.",
+      "cta": "Solicitați o Consultație",
+      "callLabel": "Sunați Acum"
+    },
+    "professional": {
+      "audience": "Pentru Profesioniștii Medicali",
+      "title": "Deveniți Parte Din Echipa Noastră",
+      "text": "Salariu peste medie, formare profesională continuă și mașină de serviciu.",
+      "cta": "Aplicați Acum",
+      "note": "Rapid și simplu — nu e nevoie de scrisoare de intenție."
+    }
+  },
+  "stats": {
+    "years": "Ani de Experiență",
+    "staffRatio": "Angajați per Pacient",
+    "roundTheClock": "Non-Stop 24/7",
+    "locations": "Locații în Hessa",
+    "team": "Angajați",
+    "weeksToStart": "săptămâni până la începerea îngrijirii",
+    "responseTime": "Răspuns"
+  },
+  "intro": {
+    "text": "Din 2013, oferim îngrijire persoanelor cu afecțiuni grave. Cu o echipă de specialiști calificați, garantăm asistență medicală 24/7 la cel mai înalt nivel — la domiciliu sau în proiecte rezidențiale partenere din regiunea Kassel și Waldeck-Frankenberg."
+  },
+  "moment": {
+    "eyebrow": "Terapie intensivă la domiciliu",
+    "title": "Viața rămâne acolo unde îi este locul.",
+    "text": "Ventilație, traheostomie, stare vegetativă — chiar și afecțiunile grave pot fi îngrijite între propriii patru pereți. Un asistent medical calificat este alături de dumneavoastră non-stop, iar costurile sunt de regulă acoperite de casa de asigurări de sănătate și de îngrijire.",
+    "cta": "Cum decurge începutul îngrijirii",
+    "alt": "Familie la o plimbare în grădină alături de un îngrijitor"
+  },
+  "services": {
+    "eyebrow": "Serviciile Noastre",
+    "title": "Cum Vă Putem Ajuta",
+    "items": [
+      {
+        "title": "Îngrijire Intensivă la Domiciliu",
+        "text": "Suport medical profesional în confortul propriei case — non-stop."
+      },
+      {
+        "title": "Îngrijire în diverse proiecte rezidențiale",
+        "text": "Sigur. Familiar. Cu suflet și competență profesională."
+      },
+      {
+        "title": "Pe Cine Îngrijim",
+        "text": "De la îngrijirea respiratorie până la sindromul apalic — sprijin specializat pentru fiecare afecțiune."
+      },
+      {
+        "title": "Consiliere individuală de îngrijire conform § 37.3 SGB XI / § 7 SGB XI",
+        "text": "Oferim consultanță individuală de îngrijire pentru persoanele dependente și rudele acestora pentru a asigura o îngrijire optimă la domiciliu."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Diagnostice",
+    "title": "De Cine Avem Grijă",
+    "items": [
+      {
+        "title": "Pacienți pe Ventilator",
+        "text": "Ventilație mecanică invazivă și non-invazivă"
+      },
+      {
+        "title": "Stare Vegetativă (Sindrom Apalic)",
+        "text": "Îngrijire pe termen lung și terapie de stimulare"
+      },
+      {
+        "title": "SLA și Boli Neurologice",
+        "text": "Asistență continuă în bolile progresive"
+      },
+      {
+        "title": "Leziuni ale Măduvei Spinării",
+        "text": "Abordare holistică și îngrijire completă"
+      },
+      {
+        "title": "Traumatisme Cranio-Cerebrale",
+        "text": "Recuperare, reabilitare și stabilizare"
+      },
+      {
+        "title": "Demență / Alzheimer",
+        "text": "Răbdare și comunicare apreciativă"
+      }
+    ],
+    "quote": "Bunăstarea pacientului este prioritatea noastră absolută.",
+    "quoteCite": "Misiunea Noastră"
+  },
+  "steps": {
+    "eyebrow": "Cum Funcționează",
+    "title": "Trei Pași Pentru a Începe",
+    "items": [
+      {
+        "title": "Prima Discuție",
+        "text": "Complet gratuită și fără nicio obligație — vă ascultăm situația și vă sfătuim personalizat."
+      },
+      {
+        "title": "Planificare Individualizată",
+        "text": "Creăm un plan de îngrijire, ne coordonăm cu medicii și clarificăm opțiunile de finanțare."
+      },
+      {
+        "title": "Începerea Îngrijirii",
+        "text": "Echipa dumneavoastră personală de îngrijire începe treaba — cu empatie, profesionalism și devotament."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Despre Noi",
+    "title": "Cine Suntem",
+    "text": "Serviciul de terapie intensivă ambulatorie KSK Farmos GmbH & Co. KG a fost fondat în 2013 de Viktor Beresnev în Volkmarsen. De atunci, îngrijim cu devotament pacienți în toată Hessa — cu suflet, expertiză și echipamente de ultimă generație.",
+    "highlight": "5,5 profesioniști per pacient — mult peste media din domeniu.",
+    "link": "Aflați Mai Multe Despre Noi",
+    "alt": "{founder}, fondatorul {legalName}, discutând cu o angajată"
+  },
+  "reviews": {
+    "eyebrow": "Experiențe",
+    "title": "Ce spun pacienții noștri",
+    "cta": "Lasă o recenzie",
+    "starsAria": "5 din 5 stele",
+    "items": [
+      {
+        "text": "\"O echipă foarte competentă și empatică. Îngrijirea 24/7 în Kassel este o ușurare enormă pentru familia noastră. Ne simțim pe mâini perfecte.\"",
+        "name": "Familia M.",
+        "role": "Rude, Kassel"
+      },
+      {
+        "text": "\"Datorită îngrijirii intensive la domiciliu de la KSK Farmos GmbH & Co. KG, tatăl meu poate rămâne în mediul său familiar. De încredere și mereu prietenoși.\"",
+        "name": "Thomas W.",
+        "role": "Rude, Volkmarsen"
+      },
+      {
+        "text": "\"De la prima discuție și până la implementarea îngrijirii, totul a decurs fără probleme. Asistentele sunt înalt calificate și lucrează foarte profesionist.\"",
+        "name": "Sabine K.",
+        "role": "Pacientă, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Să Discutăm",
+    "text": "Complet gratuit și fără angajamente.",
+    "callCta": "Sunați Acum",
+    "beratungCta": "Consultație Gratuită",
+    "points": [
+      "Complet gratuită și fără absolut nicio obligație",
+      "Întâlnire personală sau discuție telefonică",
+      "Răspuns garantat în maximum 24 de ore"
+    ]
+  },
+  "map": {
+    "eyebrow": "Locațiile Noastre",
+    "title": "Unde Ne Puteți Găsi",
+    "coverage": "Ne ocupăm de pacienți de pe tot teritoriul regiunii Hesse — începând din Volkmarsen și Kassel, până la Frankfurt și chiar mai departe.",
+    "headquartersRole": "Sediul Central - Volkmarsen",
+    "residenceRole": "Centrul Rezidențial de Îngrijire - Kassel"
+  },
+  "servicesLink": "Toate serviciile",
+  "conditions": [
+    "Salariu peste tarif",
+    "Mașină de serviciu pentru uz personal",
+    "Cursuri plătite",
+    "30 zile de concediu",
+    "Echipă și apreciere"
+  ]
+}

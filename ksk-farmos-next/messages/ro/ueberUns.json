@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "Despre Noi",
+    "description": "Cunoașteți KSK Farmos GmbH & Co. KG — povestea noastră, misiunea noastră, echipa noastră și partenerii noștri."
+  },
+  "hero": {
+    "eyebrow": "Despre Noi",
+    "title": "Experiență și îngrijire din 2013",
+    "lead": "Începând cu 2013, oferim îngrijire plină de empatie persoanelor cu boli grave — profesional, uman și cu maximă fiabilitate.",
+    "beratung": "Consultație Gratuită",
+    "kontakt": "Contactați-ne",
+    "alt": "Echipa KSK Farmos în grădină"
+  },
+  "leitbild": {
+    "eyebrow": "Principiile Noastre",
+    "title": "Valorile Care Ne Ghidează",
+    "items": [
+      {
+        "title": "Susținerea Proceselor Vitale",
+        "text": "Încurajăm independența pacientului și însoțim cu delicatețe procesele naturale de recuperare."
+      },
+      {
+        "title": "Menținerea Funcțiilor Fizice",
+        "text": "Intervenții medicale țintite, cu scopul clar de a păstra și sprijini capacitățile motrice ale corpului."
+      },
+      {
+        "title": "Controlul Evoluției Bolii",
+        "text": "Supraveghem cu cea mai mare atenție evoluția afecțiunii și intervenim prompt la orice schimbare."
+      },
+      {
+        "title": "Promovarea Bunăstării Generale",
+        "text": "Starea emoțională pozitivă și sănătatea fizică a pacientului se află permanent în centrul preocupărilor noastre."
+      },
+      {
+        "title": "Prevenirea Complicațiilor Medicale",
+        "text": "Sistem riguros de măsuri preventive și un flux continuu de monitorizare pentru reducerea oricăror riscuri."
+      }
+    ]
+  },
+  "geschichte": {
+    "eyebrow": "Istoria Noastră",
+    "title": "Fondați Pe Baza Unor Convingeri Puternice",
+    "paragraphs": [
+      "Serviciul de terapie intensivă ambulatorie KSK Farmos GmbH & Co. KG a luat naștere în anul 2013, fiind fondat de Viktor Beresnev în Volkmarsen, pornind de la un obiectiv foarte clar și nobil: de a oferi oamenilor cu afecțiuni severe șansa de a duce o viață demnă, independentă și respectată.",
+      "De la acel moment, am îngrijit nenumărați pacienți în întreaga regiune Hesse — direct în liniștea propriilor locuințe sau în cadrul centrului nostru specializat din Kassel."
+    ]
+  },
+  "team": {
+    "eyebrow": "Echipa Noastră",
+    "title": "Oamenii Care Dau Viață Echipei KSK Farmos GmbH & Co. KG",
+    "members": [
+      {
+        "name": "",
+        "role": "Director general",
+        "desc": "Conducerea și organizarea companiei",
+        "desc2": "Planificarea financiară și a lichidității"
+      },
+      {
+        "name": "",
+        "role": "Director de îngrijiri (PDL)",
+        "desc": "Expert în ventilație non-invazivă și invazivă la domiciliu, Persoană de contact directă pentru aparținători.",
+        "desc2": "Responsabilă de conducerea profesională și asigurarea calității tuturor măsurilor de îngrijire."
+      },
+      {
+        "name": "",
+        "role": "Director adjunct de îngrijiri",
+        "desc": "Expert în ventilație non-invazivă și invazivă la domiciliu, Responsabil cu igiena.",
+        "desc2": "Coordonarea echipelor de îngrijire."
+      },
+      {
+        "name": "Echipa Noastră de Asistenți",
+        "role": "Asistenți medicali specializați în ventilație la domiciliu",
+        "desc": "Aproximativ 30 de angajați — calificați, empatici și de încredere în activitate.",
+        "desc2": ""
+      }
+    ]
+  },
+  "kooperationen": {
+    "eyebrow": "Parteneriatele Noastre",
+    "title": "Colaborăm strâns cu:",
+    "text": "Îngrijirea de calitate nu se oprește la propriul prag. Pentru o îngrijire fără sincope, colaborăm îndeaproape cu parteneri experimentați — coordonat, de încredere și mereu în interesul clienților noștri.",
+    "items": [
+      "Medici specialiști din diverse discipline",
+      "Fizioterapeuți",
+      "Logopezi",
+      "Ergoterapeuți",
+      "Companii de tehnologie medicală",
+      "Case de asigurări de sănătate, de îngrijire și sociale",
+      "Magazine de tehnică medicală"
+    ],
+    "alt": "Un îngrijitor și o rudă discută împreună cu o clientă în vârstă planul de îngrijire"
+  },
+  "social": {
+    "eyebrow": "Rețele sociale",
+    "title": "Urmărește-ne",
+    "text": "Fii la curent! Pe canalele noastre de social media împărtășim detalii din viața noastră de zi cu zi, sfaturi utile și cele mai recente știri despre îngrijire."
+  }
+}

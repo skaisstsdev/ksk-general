@@ -1,0 +1,15 @@
+{
+  "tag": "Правовая информация",
+  "impressum": {
+    "title": "Выходные данные",
+    "metaDescription": "Выходные данные: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen, Германия."
+  },
+  "datenschutz": {
+    "title": "Политика конфиденциальности",
+    "metaDescription": "Политика конфиденциальности KSK Farmos GmbH & Co. KG. Информация о защите данных и их обработке."
+  },
+  "cookieBanner": {
+    "text": "Этот сайт использует только технически необходимые файлы cookie.",
+    "dismiss": "Понятно"
+  }
+}

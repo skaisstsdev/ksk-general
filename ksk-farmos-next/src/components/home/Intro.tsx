@@ -1,6 +1,7 @@
+import { getTranslations } from "next-intl/server";
+
 import { CountUp } from "@/components/ui/CountUp";
 import { Col, Grid } from "@/components/ui/Grid";
-import { intro, stats } from "@/content/home";
 import { company } from "@/content/site";
 
 /**
@@ -49,23 +50,24 @@ import { company } from "@/content/site";
  * при `2xl` они, наоборот, разъезжались уже слишком далеко друг от
  * друга для одной смысловой группы.
  */
-export function Intro() {
+export async function Intro() {
+  const t = await getTranslations("home");
   const items = [
     {
       value: String(new Date().getFullYear() - company.foundedYear),
-      label: stats.years,
+      label: t("stats.years"),
     },
     {
       value: `~${company.staffCount}`,
-      label: stats.team,
+      label: t("stats.team"),
     },
     {
       value: `${company.weeksToStart[0]}–${company.weeksToStart[1]}`,
-      label: stats.weeksToStart,
+      label: t("stats.weeksToStart"),
     },
     {
       value: "24h",
-      label: stats.responseTime,
+      label: t("stats.responseTime"),
     },
   ];
 
@@ -73,7 +75,7 @@ export function Intro() {
     <section className="pt-break">
       <Grid className="lg:items-center">
         <Col span="wide">
-          <p className="text-h3 leading-snug text-ink">{intro.text}</p>
+          <p className="text-h3 leading-snug text-ink">{t("intro.text")}</p>
         </Col>
 
         <Col span="aside" className="grid grid-cols-2 gap-x-lg gap-y-xl">

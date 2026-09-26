@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
 import { Link } from "@/i18n/navigation";
 import { legalNav, mainNav } from "@/content/navigation";
@@ -12,7 +13,8 @@ function ColumnTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations("common");
   const year = new Date().getFullYear();
 
   return (
@@ -28,18 +30,17 @@ export function Footer() {
                 height={32}
                 className="size-8 w-auto"
               />
-              <span className="font-serif text-ui text-paper">
+              <span className="text-ui text-paper">
                 {company.legalName}
               </span>
             </Link>
             <p className="mt-sm max-w-[34ch] text-meta text-paper/50">
-              Spezialisierter Intensivpflegedienst in Nordhessen — seit{" "}
-              {company.foundedYear}.
+              {t("footer.desc", { year: company.foundedYear })}
             </p>
           </div>
 
-          <nav aria-label="Footer-Navigation">
-            <ColumnTitle>Navigation</ColumnTitle>
+          <nav aria-label={t("footer.navAria")}>
+            <ColumnTitle>{t("footer.navTitle")}</ColumnTitle>
             <ul className="flex flex-col gap-xs">
               {mainNav.map((item) => (
                 <li key={item.href}>
@@ -47,7 +48,7 @@ export function Footer() {
                     href={item.href}
                     className="text-ui text-paper/70 transition-colors hover:text-paper"
                   >
-                    {item.label}
+                    {t(`nav.${item.key}`)}
                   </Link>
                 </li>
               ))}
@@ -55,7 +56,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <ColumnTitle>Kontakt</ColumnTitle>
+            <ColumnTitle>{t("footer.kontaktTitle")}</ColumnTitle>
             <ul className="flex flex-col gap-xs text-ui text-paper/70">
               <li>
                 <a
@@ -104,9 +105,12 @@ export function Footer() {
           </div>
 
           <div>
-            <ColumnTitle>Standorte</ColumnTitle>
+            <ColumnTitle>{t("footer.standortenTitle")}</ColumnTitle>
             <ul className="flex flex-col gap-sm text-ui text-paper/70">
-              {[locations.headquarters, locations.residence].map((loc) => (
+              {[
+                { ...locations.headquarters, label: t("locations.headquartersLabel") },
+                { ...locations.residence, label: t("locations.residenceLabel") },
+              ].map((loc) => (
                 <li key={loc.id}>
                   <span className="block text-meta text-paper/50">
                     {loc.label}
@@ -125,7 +129,7 @@ export function Footer() {
         <Rule tone="paper" />
         <div className="flex flex-col gap-sm py-md sm:flex-row sm:items-center sm:justify-between">
           <p className="text-meta text-paper/50">
-            © {year} {company.legalName} — Alle Rechte vorbehalten.
+            © {year} {company.legalName} — {t("footer.rights")}
           </p>
           <ul className="flex gap-md">
             {legalNav.map((item) => (
@@ -134,7 +138,7 @@ export function Footer() {
                   href={item.href}
                   className="text-meta text-paper/50 transition-colors hover:text-paper"
                 >
-                  {item.label}
+                  {t(`legalNav.${item.key}`)}
                 </Link>
               </li>
             ))}

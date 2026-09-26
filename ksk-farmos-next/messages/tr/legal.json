@@ -1,0 +1,15 @@
+{
+  "tag": "Yasal",
+  "impressum": {
+    "title": "Künye",
+    "metaDescription": "Yasal bilgiler: Intensivpflegedienst KSK Farmos GmbH & Co. KG, Ehringer Weg 2b, 34471 Volkmarsen, Almanya."
+  },
+  "datenschutz": {
+    "title": "Gizlilik Politikası",
+    "metaDescription": "KSK Farmos GmbH & Co. KG gizlilik politikası. Veri koruma ve veri işleme hakkında bilgiler."
+  },
+  "cookieBanner": {
+    "text": "Bu web sitesi yalnızca teknik olarak gerekli çerezleri kullanır.",
+    "dismiss": "Anladım"
+  }
+}

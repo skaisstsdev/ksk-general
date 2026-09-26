@@ -1,0 +1,172 @@
+{
+  "hero": {
+    "eyebrow": "Intensive Care in Northern Hesse",
+    "title": "Professional care that truly matters.",
+    "lead": "Outpatient intensive care at your home or in our facility in Kassel — 24 hours a day, 7 days a week.",
+    "alt": "KSK Farmos care professional with an emergency bag at the response vehicle"
+  },
+  "doors": {
+    "family": {
+      "audience": "For Patients & Families",
+      "title": "Request a Free Consultation",
+      "text": "We'll guide you personally — free of charge and with no strings attached.",
+      "cta": "Request Consultation",
+      "callLabel": "Call Now"
+    },
+    "professional": {
+      "audience": "For Care Professionals",
+      "title": "Join Our Team",
+      "text": "Above-average pay, continuous training, and a company car.",
+      "cta": "Apply Now",
+      "note": "Quick and easy — no cover letter needed."
+    }
+  },
+  "stats": {
+    "years": "Years of Experience",
+    "staffRatio": "Staff per Patient",
+    "roundTheClock": "Around the Clock",
+    "locations": "Locations in Hesse",
+    "team": "Staff",
+    "weeksToStart": "Weeks Until Care Begins",
+    "responseTime": "Response"
+  },
+  "intro": {
+    "text": "Since 2013, we have been caring for people with serious medical conditions. With a team of registered specialists, we guarantee 24/7 care at the highest level — in the patient's own home or in cooperating residential projects in the Kassel and Waldeck-Frankenberg area."
+  },
+  "moment": {
+    "eyebrow": "Intensive Care at Home",
+    "title": "Life stays where it belongs.",
+    "text": "Ventilation, tracheostomy, persistent vegetative state — even serious conditions can be cared for within your own four walls. A certified nurse is on hand around the clock, and the costs are usually covered by health and long-term care insurance.",
+    "cta": "How it gets started",
+    "alt": "Family with a caregiver on a walk in the garden"
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "title": "How We Help",
+    "items": [
+      {
+        "title": "Home Intensive Care",
+        "text": "Round-the-clock professional care delivered in the comfort of your own home."
+      },
+      {
+        "title": "Care in Various Residential Projects",
+        "text": "Safe. Familiar. With heart and expertise."
+      },
+      {
+        "title": "The Patients We Serve",
+        "text": "From ventilation care to persistent vegetative state — specialized support for every condition."
+      },
+      {
+        "title": "Individual Care Counseling acc. to § 37.3 SGB XI / § 7 SGB XI",
+        "text": "We offer individual care consultations for those in need of care and their relatives to ensure optimal care in the home environment."
+      }
+    ]
+  },
+  "diagnoses": {
+    "eyebrow": "Diagnoses",
+    "title": "Who We Care For",
+    "items": [
+      {
+        "title": "Ventilated Patients",
+        "text": "Invasive and non-invasive ventilation"
+      },
+      {
+        "title": "Persistent Vegetative State",
+        "text": "Long-term care and stimulation therapy"
+      },
+      {
+        "title": "ALS & Neurological Conditions",
+        "text": "Supportive progressive care"
+      },
+      {
+        "title": "Spinal Cord Injuries",
+        "text": "Holistic care approach"
+      },
+      {
+        "title": "Traumatic Brain Injury",
+        "text": "Rehabilitation and stabilization"
+      },
+      {
+        "title": "Dementia/Alzheimer's",
+        "text": "Patience and appreciative communication"
+      }
+    ],
+    "quote": "The well-being of the patient is our highest priority.",
+    "quoteCite": "Our Mission Statement"
+  },
+  "steps": {
+    "eyebrow": "How It Works",
+    "title": "Three Steps to Your Care",
+    "items": [
+      {
+        "title": "Initial Conversation",
+        "text": "Free and no-obligation — we take the time to understand your situation and advise you personally."
+      },
+      {
+        "title": "Personalized Planning",
+        "text": "We develop a tailored care plan, coordinate with your physicians, and handle insurance coverage."
+      },
+      {
+        "title": "Care Begins",
+        "text": "Your dedicated care team starts providing professional, reliable support."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "title": "Who We Are",
+    "text": "KSK Farmos GmbH & Co. KG was founded in 2013 by Viktor Beresnev in Volkmarsen. Since then, we have been caring for patients across Hesse — with heart, expertise, and state-of-the-art equipment.",
+    "highlight": "5.5 staff per patient — far above the industry average.",
+    "link": "Learn More About Us",
+    "alt": "{founder}, founder of {legalName}, in conversation with a staff member"
+  },
+  "reviews": {
+    "eyebrow": "Testimonials",
+    "title": "What Our Patients Say",
+    "cta": "Leave a Review",
+    "starsAria": "5 out of 5 stars",
+    "items": [
+      {
+        "text": "\"An incredibly competent and compassionate team. The 24-hour care in Kassel has been an enormous relief for our family. We feel perfectly cared for.\"",
+        "name": "Familie M.",
+        "role": "Family members, Kassel"
+      },
+      {
+        "text": "\"Thanks to KSK Farmos GmbH & Co. KG's home intensive care, my father can stay in his familiar surroundings. Reliable and always friendly.\"",
+        "name": "Thomas W.",
+        "role": "Family member, Volkmarsen"
+      },
+      {
+        "text": "\"From the initial consultation to the implementation of care, everything went smoothly. The nurses are highly qualified and work very professionally.\"",
+        "name": "Sabine K.",
+        "role": "Patient, Korbach"
+      }
+    ]
+  },
+  "closing": {
+    "title": "Let's Talk",
+    "text": "Free and no-obligation.",
+    "callCta": "Call Now",
+    "beratungCta": "Free Consultation",
+    "points": [
+      "Completely free and no-obligation",
+      "In person or by phone",
+      "Response within 24 hours"
+    ]
+  },
+  "map": {
+    "eyebrow": "Locations",
+    "title": "Where to Find Us",
+    "coverage": "We care for patients throughout Hesse — from Volkmarsen and Kassel to Frankfurt and beyond.",
+    "headquartersRole": "Headquarters — Volkmarsen",
+    "residenceRole": "Residential Care — Kassel"
+  },
+  "servicesLink": "All Services",
+  "conditions": [
+    "Above-average pay",
+    "Company car for private use",
+    "Paid continuing education",
+    "30 days of vacation",
+    "Supportive team and appreciation"
+  ]
+}
