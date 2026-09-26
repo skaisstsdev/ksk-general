@@ -82,20 +82,22 @@ export async function HeroCopy({
       />
 
       <div className="mt-lg flex flex-wrap items-center gap-x-md gap-y-sm">
-        <Button href={primaryCta.href} size="lg">
+        {/* На телефоне обе кнопки — `w-full`: они и так стоят одна под
+            другой (см. `flex-wrap`), а `w-full` делает ширину равной без
+            подгона под конкретный текст или язык. От `lg` кнопки в ряд,
+            и вторая держит ширину первой через измеренный `min-w`, —
+            там уже не одна колонка, точный размер узнать неоткуда,
+            кроме как измерить. */}
+        <Button href={primaryCta.href} size="lg" className="w-full lg:w-auto">
           {t("doors.family.cta")}
         </Button>
 
-        {/* Ширина зафиксирована по первой кнопке (`min-w`, не `w-full`
-            контейнера): вторая кнопка короче по тексту и без этого
-            заметно уже — на одну аудиторию должна приходиться дверь
-            того же размера, что и на другую. */}
         <Button
           href={karriereNav.href}
           variant="secondary"
           size="lg"
           className={cn(
-            "min-w-[198px] justify-center",
+            "w-full justify-center lg:w-auto lg:min-w-[198px]",
             onPhoto &&
               "border-paper/60 text-paper hover:border-paper hover:bg-paper/10",
           )}
