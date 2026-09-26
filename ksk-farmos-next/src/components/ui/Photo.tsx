@@ -20,19 +20,23 @@ import { useIsLg } from "@/lib/useIsLg";
  * поэтому умеет разделять блоки — вылетать в край, подниматься снизу —
  * и тем самым заменяет собой смену подложки.
  *
- * **Выезд — только на десктопе.** `x` считает JS на каждый тик скролла;
- * мощности десктопа для этого достаточно, а на телефоне въезд от края
- * пока не приживается (временно, до отдельного решения) — там кадр
- * сразу стоит в конечном положении, без вылета и без движения.
+ * **Выезд — только на десктопе**, параллакс — оба экрана. На телефоне
+ * въезд от края пока не приживается (временно, до отдельного решения) —
+ * там кадр сразу стоит в конечном положении, без вылета и без движения.
  *
- * **Параллакс — оба экрана, разными путями.** На десктопе `y` тоже
- * считает JS, как раньше. На телефоне тот же JS на главном потоке
- * отстаёт от пальца (мобильный браузер прокручивает страницу в отдельном
- * потоке), поэтому там `transform` привязан к невидимому датчику
- * (`parallaxSensorRef`), чьи размеры и отступы внутри кадра подобраны
- * так, что именованный пресет Motion (`All`) даёт те же моменты начала
- * и конца движения, что и старые ручные границы, — но браузер ведёт эту
- * анимацию сам, через `ViewTimeline`, в обход JS.
+ * **Механика — датчики, не JS на кадре напрямую.** Раньше `x`/`y` вели
+ * прямые `useScroll({ target: ref })` с ручными границами ("start
+ * center", "start end"/"end start") — они не попадают ни под один
+ * именованный пресет Motion, поэтому обновлялись JS-коллбэком на каждый
+ * тик скролла. В продакшен-сборке этот путь оказался ненадёжен: кадр,
+ * привязанный к своему `ref`, переставал реагировать на скролл вообще
+ * (значение застывало), хотя тот же приём без `target` — скролл шапки
+ * в `Header.tsx` — работал исправно. Вместо этого — невидимые «датчики»
+ * (`slideSensorRef`/`parallaxSensorRef`), чьи размеры и отступы внутри
+ * кадра подобраны так, что именованный пресет Motion (`Enter`/`All`)
+ * даёт те же моменты начала и конца движения, что и старые ручные
+ * границы, — но такую анимацию Motion способен отдать браузеру
+ * (`ViewTimeline`) и она не зависит от JS-коллбэка на каждый кадр.
  */
 
 const DURATION = 0.6;
@@ -102,6 +106,7 @@ export function Photo({
   className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const slideSensorRef = useRef<HTMLDivElement>(null);
   const parallaxSensorRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const isLg = useIsLg();
@@ -110,26 +115,28 @@ export function Photo({
   // Пока только десктоп: см. комментарий над компонентом.
   const sliding = slide && !reduced && isLg;
 
-  // Десктоп (старый механизм): те же границы, что были всегда — от
-  // самого кадра, JS считает x/y на каждый тик.
-  const { scrollYProgress: legacyParallaxP } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const legacyY = useTransform(legacyParallaxP, [0, 1], ["-4.5%", "4.5%"]);
-
-  const { scrollYProgress: legacySlideP } = useScroll({
-    target: ref,
-    offset: ["start center", "center center"],
+  // Датчик высотой в половину кадра, сдвинутый на 50svh вниз от его
+  // верха: пресет `Enter` («start end» → «end end») на нём срабатывает
+  // ровно там же, где раньше срабатывали ручные границы «верх кадра
+  // у середины экрана» → «центр кадра у середины экрана» (расстояние
+  // между ними — половина высоты кадра).
+  const { scrollYProgress: slideP } = useScroll({
+    target: slideSensorRef,
+    offset: ["start end", "end end"],
   });
   // Со стороны вылета: в RTL «start» — правый край, и кадр идёт справа.
   // Кадр с вылетом в конец строки въезжает с противоположной стороны.
   const fromStart = localeDir(useLocale()) === "ltr" ? -1 : 1;
   const fromBleed = bleed === "end" ? -fromStart : fromStart;
-  const legacyX = useTransform(legacySlideP, (v) => `${fromBleed * 33 * (1 - v)}%`);
+  const nativeX = useTransform(slideP, [0, 1], [
+    `translateX(${fromBleed * 33}%)`,
+    "translateX(0%)",
+  ]);
 
-  // Мобилка (новый механизм, только параллакс): тот же путь, что и
-  // растущее фото — датчик и `transform`, чтобы анимацию вёл браузер.
+  // Датчик, расширяющий кадр на 100svh в обе стороны: пресет `All`
+  // («start start» → «end end») на нём срабатывает там же, где раньше
+  // «верх кадра у низа экрана» → «низ кадра у верха экрана» — весь
+  // путь кадра через экран.
   const { scrollYProgress: parallaxP } = useScroll({
     target: parallaxSensorRef,
     offset: ["start start", "end end"],
@@ -158,6 +165,13 @@ export function Photo({
         } as React.CSSProperties
       }
     >
+      {sliding ? (
+        <div
+          ref={slideSensorRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-[50svh] h-1/2"
+        />
+      ) : null}
       {moving ? (
         <div
           ref={parallaxSensorRef}
@@ -169,9 +183,7 @@ export function Photo({
       <motion.div
         style={
           moving
-            ? isLg
-              ? { y: legacyY, position: "absolute", inset: "-5% 0", height: "110%" }
-              : { transform: nativeY, position: "absolute", inset: "-5% 0", height: "110%" }
+            ? { transform: nativeY, position: "absolute", inset: "-5% 0", height: "110%" }
             : { position: "absolute", inset: 0 }
         }
       >
@@ -196,7 +208,7 @@ export function Photo({
   );
 
   const body = sliding ? (
-    <motion.div style={{ x: legacyX }} className={fillLg ? "lg:h-full" : undefined}>
+    <motion.div style={{ transform: nativeX }} className={fillLg ? "lg:h-full" : undefined}>
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
