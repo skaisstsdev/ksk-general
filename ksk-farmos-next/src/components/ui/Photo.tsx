@@ -20,22 +20,9 @@ import { useIsLg } from "@/lib/useIsLg";
  * поэтому умеет разделять блоки — вылетать в край, подниматься снизу —
  * и тем самым заменяет собой смену подложки.
  *
- * **Выезд — только на десктопе**, параллакс — оба экрана. На телефоне
- * въезд от края пока не приживается (временно, до отдельного решения) —
- * там кадр сразу стоит в конечном положении, без вылета и без движения.
- *
- * **Выезд переключается туда-обратно по входу/выходу из экрана**
- * (`whileInView` без `once`, тот же датчик-механизм, что у `rise`
- * в этом же файле, только без `once: true`) — кадр выезжает при
- * скролле вниз и уезжает обратно за край при скролле вверх, а не
- * играет один раз и остаётся. Пробовали два варианта, привязанных
- * к точной доле прокрутки (`useScroll` прямо на `ref` кадра —
- * JS-коллбэк на каждый тик; датчик с именованным пресетом Motion —
- * `ViewTimeline`): первый на проде не реагировал на скролл вообще,
- * второй завершался не в той точке, что задумано (нативный диапазон
- * браузера для пресета не совпал с посчитанным вручную).
- * `whileInView` через `IntersectionObserver` — самый скучный из трёх
- * способов и поэтому самый надёжный.
+ * Выезд (`slide`) — только на десктопе (`isLg`): на телефоне пока
+ * не приживается, кадр там сразу стоит в конечном положении.
+ * Параллакс — на обоих экранах, как и было всегда.
  */
 
 const DURATION = 0.6;
@@ -69,9 +56,11 @@ type Props = {
   parallax?: boolean;
   rise?: boolean;
   /**
-   * Кадр въезжает со стороны своего вылета при входе в экран и уезжает
-   * обратно при выходе (`whileInView` без `once`; десктоп — на телефоне
-   * пока отключено, см. комментарий над компонентом).
+   * Кадр въезжает со стороны своего вылета, и движение привязано
+   * к прокрутке, а не ко времени: начинается, когда верх кадра доходит
+   * до середины экрана, и заканчивается, когда кадр стоит по центру.
+   * Пока кадр ниже середины, он ждёт сдвинутым на треть за край.
+   * Только на десктопе — см. комментарий над компонентом.
    */
   slide?: boolean;
   priority?: boolean;
@@ -104,31 +93,28 @@ export function Photo({
   className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const parallaxSensorRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const isLg = useIsLg();
 
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-4.5%", "4.5%"]);
   const moving = parallax && !reduced;
-  // Пока только десктоп: см. комментарий над компонентом.
-  const sliding = slide && !reduced && isLg;
 
+  // Въезд: отдельный отсчёт, потому что у него другие границы —
+  // от середины экрана до положения «кадр по центру».
+  const { scrollYProgress: slideProgress } = useScroll({
+    target: ref,
+    offset: ["start center", "center center"],
+  });
   // Со стороны вылета: в RTL «start» — правый край, и кадр идёт справа.
   // Кадр с вылетом в конец строки въезжает с противоположной стороны.
   const fromStart = localeDir(useLocale()) === "ltr" ? -1 : 1;
   const fromBleed = bleed === "end" ? -fromStart : fromStart;
-
-  // Датчик, расширяющий кадр на 100svh в обе стороны: пресет `All`
-  // («start start» → «end end») на нём срабатывает там же, где раньше
-  // «верх кадра у низа экрана» → «низ кадра у верха экрана» — весь
-  // путь кадра через экран.
-  const { scrollYProgress: parallaxP } = useScroll({
-    target: parallaxSensorRef,
-    offset: ["start start", "end end"],
-  });
-  const nativeY = useTransform(parallaxP, [0, 1], [
-    "translateY(-4.5%)",
-    "translateY(4.5%)",
-  ]);
+  const x = useTransform(slideProgress, (v) => `${fromBleed * 33 * (1 - v)}%`);
+  const sliding = slide && !reduced && isLg;
 
   const frame = (
     <div
@@ -149,28 +135,10 @@ export function Photo({
         } as React.CSSProperties
       }
     >
-      {/* Датчик рендерится по самому пропу (`parallax`), не по `moving`:
-          тот включает `isLg`/`reduced`, а на первом рендере `isLg`
-          всегда `false` (см. `useIsLg`) и обновляется чуть позже. Если
-          датчик на первом рендере не смонтирован, а `useScroll` его уже
-          ждёт, — `ref` не успевает «гидратироваться» к повторной
-          проверке, и Motion бросает рантайм-ошибку («Target ref is
-          defined but not hydrated»). Датчик сам по себе ничего не весит
-          и не виден, поэтому держать его смонтированным всегда —
-          не проблема; используется его результат только когда
-          `moving` истинно. */}
-      {parallax ? (
-        <div
-          ref={parallaxSensorRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 -top-[100svh] -bottom-[100svh]"
-        />
-      ) : null}
-
       <motion.div
         style={
           moving
-            ? { transform: nativeY, position: "absolute", inset: "-5% 0", height: "110%" }
+            ? { y, position: "absolute", inset: "-5% 0", height: "110%" }
             : { position: "absolute", inset: 0 }
         }
       >
@@ -195,13 +163,7 @@ export function Photo({
   );
 
   const body = sliding ? (
-    <motion.div
-      initial={{ x: `${fromBleed * 33}%` }}
-      whileInView={{ x: "0%" }}
-      viewport={{ margin: "-8% 0px -8% 0px" }}
-      transition={{ duration: DURATION, ease: EASE }}
-      className={fillLg ? "lg:h-full" : undefined}
-    >
+    <motion.div style={{ x }} className={fillLg ? "lg:h-full" : undefined}>
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
