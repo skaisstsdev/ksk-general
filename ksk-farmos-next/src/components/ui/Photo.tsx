@@ -20,15 +20,19 @@ import { useIsLg } from "@/lib/useIsLg";
  * поэтому умеет разделять блоки — вылетать в край, подниматься снизу —
  * и тем самым заменяет собой смену подложки.
  *
- * **Выезд и параллакс — два механизма.** На десктопе `x`/`y` считает
- * JS на каждый тик скролла — так было исходно, и мощности десктопа
- * хватает. На телефоне тот же JS на главном потоке отстаёт от пальца
- * (мобильный браузер прокручивает страницу в отдельном потоке), поэтому
- * там `transform` привязан к невидимым «датчикам» (`slideSensorRef`/
- * `parallaxSensorRef`), чьи размеры и отступы внутри кадра подобраны
- * так, что именованный пресет Motion (`Enter`/`All`) даёт те же моменты
- * начала и конца движения, что и старые ручные границы, — но браузер
- * ведёт эту анимацию сам, через `ViewTimeline`, в обход JS.
+ * **Выезд — только на десктопе.** `x` считает JS на каждый тик скролла;
+ * мощности десктопа для этого достаточно, а на телефоне въезд от края
+ * пока не приживается (временно, до отдельного решения) — там кадр
+ * сразу стоит в конечном положении, без вылета и без движения.
+ *
+ * **Параллакс — оба экрана, разными путями.** На десктопе `y` тоже
+ * считает JS, как раньше. На телефоне тот же JS на главном потоке
+ * отстаёт от пальца (мобильный браузер прокручивает страницу в отдельном
+ * потоке), поэтому там `transform` привязан к невидимому датчику
+ * (`parallaxSensorRef`), чьи размеры и отступы внутри кадра подобраны
+ * так, что именованный пресет Motion (`All`) даёт те же моменты начала
+ * и конца движения, что и старые ручные границы, — но браузер ведёт эту
+ * анимацию сам, через `ViewTimeline`, в обход JS.
  */
 
 const DURATION = 0.6;
@@ -98,13 +102,13 @@ export function Photo({
   className,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const slideSensorRef = useRef<HTMLDivElement>(null);
   const parallaxSensorRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const isLg = useIsLg();
 
   const moving = parallax && !reduced;
-  const sliding = slide && !reduced;
+  // Пока только десктоп: см. комментарий над компонентом.
+  const sliding = slide && !reduced && isLg;
 
   // Десктоп (старый механизм): те же границы, что были всегда — от
   // самого кадра, JS считает x/y на каждый тик.
@@ -124,17 +128,8 @@ export function Photo({
   const fromBleed = bleed === "end" ? -fromStart : fromStart;
   const legacyX = useTransform(legacySlideP, (v) => `${fromBleed * 33 * (1 - v)}%`);
 
-  // Мобилка (новый механизм): те же моменты начала и конца, но через
-  // датчики и `transform`, чтобы анимацию вёл браузер, а не JS.
-  const { scrollYProgress: slideP } = useScroll({
-    target: slideSensorRef,
-    offset: ["start end", "end end"],
-  });
-  const nativeX = useTransform(slideP, [0, 1], [
-    `translateX(${fromBleed * 33}%)`,
-    "translateX(0%)",
-  ]);
-
+  // Мобилка (новый механизм, только параллакс): тот же путь, что и
+  // растущее фото — датчик и `transform`, чтобы анимацию вёл браузер.
   const { scrollYProgress: parallaxP } = useScroll({
     target: parallaxSensorRef,
     offset: ["start start", "end end"],
@@ -163,13 +158,6 @@ export function Photo({
         } as React.CSSProperties
       }
     >
-      {sliding ? (
-        <div
-          ref={slideSensorRef}
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-[50svh] h-1/2"
-        />
-      ) : null}
       {moving ? (
         <div
           ref={parallaxSensorRef}
@@ -208,10 +196,7 @@ export function Photo({
   );
 
   const body = sliding ? (
-    <motion.div
-      style={isLg ? { x: legacyX } : { transform: nativeX }}
-      className={fillLg ? "lg:h-full" : undefined}
-    >
+    <motion.div style={{ x: legacyX }} className={fillLg ? "lg:h-full" : undefined}>
       {frame}
     </motion.div>
   ) : rise && !reduced ? (
