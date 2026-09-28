@@ -27,6 +27,13 @@ const REQUIRED_FIELDS: Record<string, string[]> = {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 /**
+ * Ни одно текстовое поле формы (имя, сообщение, что угодно) не имело
+ * верхнего предела длины вообще — только размер файла резюме был
+ * ограничен. Один запрос с полем на несколько мегабайт текста уходил
+ * бы в письмо как есть.
+ */
+const MAX_FIELD_LENGTH = 5000;
+/**
  * 4 МБ, не 10: Vercel ограничивает тело serverless-функции 4.5 МБ
  * целиком (тело запроса плюс служебные заголовки multipart) — прежний
  * предел 10 МБ пропускал файл через клиентскую проверку (`BewerbungForm.tsx`),
@@ -93,6 +100,12 @@ export async function POST(request: Request) {
   const required = REQUIRED_FIELDS[formName];
   if (!required) {
     return Response.json({ error: "Unknown form" }, { status: 400 });
+  }
+
+  for (const value of Object.values(payload)) {
+    if (typeof value === "string" && value.length > MAX_FIELD_LENGTH) {
+      return Response.json({ error: "Field too long" }, { status: 400 });
+    }
   }
 
   // Бот, который выполняет JS: клиент уже отсеял его сам и сюда не

@@ -70,10 +70,24 @@ function fields(formName: string, payload: Record<string, unknown>) {
     .filter((f): f is { key: string; value: string } => typeof f.value === "string" && f.value.trim() !== "");
 }
 
+/**
+ * Тема письма — единственное место, где значение из формы попадает
+ * в позицию, чувствительную к переносу строки: `\r\n` внутри `subject`
+ * теоретически открывает внедрение собственного заголовка письма
+ * (получатель, копия и т.п.), если сама библиотека Resend этого не
+ * фильтрует. `vorname`/`nachname` — свободный текст без такой проверки
+ * (в отличие от `email`, чей `EMAIL_RE` уже отсеивает пробельные символы,
+ * включая `\r`/`\n`, через `\s`) — здесь то же самое сделано явно,
+ * а не в расчёте на фильтр стороннего API.
+ */
+function sanitizeHeaderValue(value: string): string {
+  return value.replace(/[\r\n]+/g, " ").slice(0, 200);
+}
+
 export function buildEmailSubject(formName: string, payload: Record<string, unknown>) {
   const name = [payload.vorname, payload.nachname].filter(Boolean).join(" ");
   const title = FORM_TITLES[formName] ?? formName;
-  return name ? `${title} — ${name}` : title;
+  return sanitizeHeaderValue(name ? `${title} — ${name}` : title);
 }
 
 export function buildEmailText(formName: string, payload: Record<string, unknown>) {

@@ -142,7 +142,16 @@ export function MobileMenu({
                 </li>
               </ul>
 
-              <div className="mt-xl">
+              {/* `Button` с `href` не принимает `onClick` (см. её типы) —
+                  намеренно, чтобы вариант-ссылка не путали с вариантом-
+                  действием. Здесь оба нужны разом: переход по ссылке и
+                  закрытие панели, поэтому клик ловится на обёртке —
+                  событие поднимается от вложенной `<a>`, и `onOpenChange`
+                  не мешает переходу, раз не вызывает `preventDefault`.
+                  Без этого `Header` (он не пересоздаётся между страницами,
+                  живёт в layout) держал панель открытой поверх уже другой
+                  страницы после клика по этой самой кнопке. */}
+              <div className="mt-xl" onClick={() => onOpenChange(false)}>
                 <Button href={cta.href} size="lg" className="w-full">
                   {cta.label}
                 </Button>
