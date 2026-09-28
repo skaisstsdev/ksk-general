@@ -88,4 +88,12 @@ export const social = {
   googleReview: "https://g.page/r/Cd6hNIICJQRSEBM/review",
 } as const;
 
-export const siteUrl = "https://ksk-farmos.de";
+/**
+ * `www`, не голый домен: на Vercel настроен редирект
+ * `ksk-farmos.de` → `www.ksk-farmos.de` (проверено на проде — голый
+ * домен отдаёт 30x, финальный, реально отдающий 200, — с `www`).
+ * Canonical/hreflang/OG/JSON-LD должны указывать на страницу, которая
+ * действительно отвечает, а не на редирект перед ней — до этой правки
+ * `sitemap.xml` и все метатеги вели именно на редиректящий адрес.
+ */
+export const siteUrl = "https://www.ksk-farmos.de";
