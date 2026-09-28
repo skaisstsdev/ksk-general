@@ -11,6 +11,7 @@ import { company } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/cn";
+import { setMobileMenuOpen } from "@/lib/mobileMenuState";
 import { MobileMenu } from "./MobileMenu";
 
 /**
@@ -55,7 +56,16 @@ export function Header() {
   // пока панель раскрыта, прозрачная шапка должна стать сплошной, иначе
   // под ней остаётся видна фотография хиро — обрывок кадра между верхним
   // краем экрана и белой панелью меню, начинающейся ниже шапки.
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpenState] = useState(false);
+  // Переключатель языка и кнопка чата сидят в тех же нижних углах,
+  // что и открытая панель меню (`MobileMenu.tsx`) — без этого сигнала
+  // они торчали из-за её края, наполовину перекрывая кнопку внизу
+  // панели. `setMobileMenuOpen` — тот же стейт, что читают оба через
+  // `useSyncExternalStore` (см. `lib/mobileMenuState.ts`).
+  function setMenuOpen(next: boolean) {
+    setMenuOpenState(next);
+    setMobileMenuOpen(next);
+  }
 
   const transparent = hasHero && !scrolled && !menuOpen;
 
@@ -145,7 +155,11 @@ export function Header() {
             <Image
               src="/logo-icon.png"
               alt=""
-              width={36}
+              // Настоящий файл — 300×259, не квадрат: пропорция здесь
+              // ровно та же (42×36), чтобы Next резервировал место под
+              // картинку без сдвига раскладки после загрузки, а не квадрат
+              // по неверной подсказке (предупреждение в консоли билда).
+              width={42}
               height={36}
               preload
               className="size-9 w-auto"

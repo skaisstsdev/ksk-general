@@ -5,54 +5,69 @@ import { LegalH2, LegalMeta, LegalP, LegalUl } from "@/components/page/Legal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { company, dataProtectionOfficer, impressum, locations } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/datenschutz">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legal" });
-  return { title: t("datenschutz.title"), description: t("datenschutz.metaDescription") };
+  return buildPageMetadata({
+    locale,
+    path: "/datenschutz",
+    title: t("datenschutz.title"),
+    description: t("datenschutz.metaDescription"),
+  });
 }
 
 /**
  * Datenschutzerklärung. Тело страницы — на немецком на всех языках
  * сайта, тем же приёмом, что Impressum (см. `Legal.tsx`).
  *
- * Текст перенесён со старого сайта не дословно — в трёх местах он
- * расходился бы с тем, что реально происходит в этом проекте прямо
- * сейчас, а описывать несуществующую обработку данных в юридическом
- * документе нельзя, даже если она раньше стояла на старом сайте:
+ * Обновлено под фактическое состояние проекта на этапе 5 (формы,
+ * Resend, ИИ-чат-бот) — раньше разделы 8 и 11 либо были заглушками,
+ * либо отсутствовали, потому что самой обработки ещё не было:
  *
- *   1. Раздел про EmailJS снят — формы пока не отправляют почту
- *      никуда (`forms/submit.ts` — заглушка), настоящая отправка
- *      появится на этапе 5 через Resend или Postmark (см. BRIEF.md,
- *      раздел 5). Раздел 8 ниже написан обобщённо, без названия
- *      поставщика — его нужно дополнить названием и ссылкой на
- *      политику конфиденциальности, как только сервис подключат.
- *   2. Раздел про Supabase снят из раздела о заявках — по решению
- *      владельца это отдельный вопрос («мы к этому приступим позже»),
- *      бриф прямо помечал его «вынести на обсуждение». Как только
- *      решение будет принято, сюда возвращается либо абзац с
- *      реквизитами Supabase (если БД остаётся), либо ничего не меняется
- *      (если заявки идут только почтой).
- *   3. Раздел про ИИ-чат-бота (OpenAI) снят целиком — виджета нет
- *      в кодовой базе ни в каком виде. Бриф называет его в списке
- *      функциональности к переносу, но пока это не написано и не
- *      подключено, разговор о нём в Datenschutz был бы описанием
- *      несуществующей обработки. Добавить обратно (текст уже есть
- *      в `_source/` старого сайта) в тот момент, когда виджет
- *      действительно появится на сайте.
+ *   1. Раздел 8 (технический email-провайдер) теперь называет
+ *      конкретного поставщика — Resend (юрлицо Plus Five Five, Inc.) —
+ *      вместо обобщённой формулировки: `submit-form/route.ts` реально
+ *      отправляет письма через `resend.emails.send`. AVV у Resend
+ *      входит в Terms of Service автоматически, отдельно подписывать
+ *      не нужно (проверено на resend.com/legal/dpa) — поэтому здесь,
+ *      как и в разделе про Vercel, можно писать про AVV утвердительно.
+ *   2. Раздел 9 (Bewerbungen) больше не упоминает Supabase — базы
+ *      данных для заявок больше нет по решению владельца (было решено
+ *      после брифа), резюме идёт вложением в то же письмо через Resend.
+ *   3. Добавлен раздел 11 «KI-Chatbot (OpenAI)» — виджет подключён
+ *      (`ChatWidget.tsx`, `api/chat/route.ts`, модель `gpt-4o-mini`).
+ *      Текст адаптирован из `_source/content/datenschutz.md` (раздел
+ *      уже был написан для старого сайта, просто ждал появления
+ *      виджета в этой кодовой базе) и сверен с тем, что реально
+ *      происходит: истории чатов не сохраняются нигде, кроме состояния
+ *      React в браузере на время сессии; OpenAI не использует данные
+ *      API для обучения моделей по умолчанию.
  *
- * Google Maps, хостинг на Vercel, отсутствие трекинг-cookies —
- * перенесены как есть: это либо уже реализовано (`ConsentMap.tsx` —
- * карта не грузится без клика, с кнопкой отзыва согласия), либо
- * зафиксировано в BRIEF.md как решённый технический выбор.
+ * Что НЕ утверждается: подписан ли у владельца отдельный AVV с OpenAI
+ * в личном кабинете платформы — в отличие от Resend, он не входит
+ * в Terms of Service автоматически. Раздел 11 поэтому, как и в
+ * `_source/`, не заявляет о заключённом AVV, только называет
+ * правовые основания и гарантии при передаче в третьи страны — это
+ * стоит проверить и, если нужно, донастроить в кабинете OpenAI
+ * отдельно от правки этого текста.
  *
- * Это не юридическая консультация. Перед реальным запуском сайта —
- * особенно после подключения Resend/Postmark, решения по Supabase
- * и чат-бота — этот текст стоит ещё раз показать юристу: бизнес
- * работает с данными о здоровье, а это отдельная категория данных
- * по ст. 9 DSGVO.
+ * Раздел 6 (Cookies) не менялся: ни формы, ни чат-виджет не ставят
+ * собственных cookie или localStorage для трекинга — `ChatWidget.tsx`
+ * читает только уже существующий ключ баннера cookie, чтобы поднять
+ * кнопку над ним. Заявление «только технически необходимые cookie»
+ * остаётся верным.
+ *
+ * Google Maps, хостинг на Vercel — без изменений, зафиксированы как
+ * реализовано (`ConsentMap.tsx` — карта не грузится без клика).
+ *
+ * Это не юридическая консультация. Текст стоит показать юристу перед
+ * реальным запуском — особенно потому, что среди данных, которые
+ * посетители добровольно пишут в форме или чате, могут быть сведения
+ * о здоровье (ст. 9 DSGVO, уже учтено разделом 7).
  */
 export default async function DatenschutzPage({
   params,
@@ -237,9 +252,11 @@ export default async function DatenschutzPage({
           <LegalH2>8. Technische Zustellung von Formularnachrichten</LegalH2>
           <LegalP>
             Zur technischen Übermittlung von Nachrichten aus unseren Onlineformularen setzen
-            wir einen E-Mail-Versanddienstleister ein. Die eingegebenen Daten werden
-            verschlüsselt an dessen Systeme übertragen und dort ausschließlich zum Zweck der
-            technischen Zustellung Ihrer Nachricht verarbeitet.
+            wir den E-Mail-Versanddienst <strong className="text-ink">Resend</strong> ein.
+            Anbieter ist Plus Five Five, Inc. (Resend), 2261 Market Street #5039, San
+            Francisco, CA 94114, USA. Die eingegebenen Daten werden verschlüsselt an dessen
+            Systeme übertragen und dort ausschließlich zum Zweck der technischen Zustellung
+            Ihrer Nachricht verarbeitet.
           </LegalP>
           <LegalP>
             Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, soweit die
@@ -249,10 +266,23 @@ export default async function DatenschutzPage({
             technischen Bereitstellung der Formularfunktionen.
           </LegalP>
           <LegalP>
-            Soweit personenbezogene Daten in Drittländer übermittelt werden, erfolgt dies
-            ausschließlich unter Beachtung der Anforderungen der Art. 44 ff. DSGVO und auf
-            Grundlage geeigneter Garantien, insbesondere Standardvertragsklauseln der
-            Europäischen Kommission oder eines bestehenden Angemessenheitsbeschlusses.
+            Mit Resend besteht ein Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO, der
+            mit Nutzung des Dienstes Bestandteil der Vertragsbeziehung wird. Da die Verarbeitung
+            in den USA stattfindet, erfolgt die Übermittlung ausschließlich unter Beachtung der
+            Anforderungen der Art. 44 ff. DSGVO auf Grundlage von Standardvertragsklauseln der
+            Europäischen Kommission.
+          </LegalP>
+          <LegalP>
+            Weitere Informationen:{" "}
+            <a
+              href="https://resend.com/legal/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-violet underline decoration-violet/30 hover:decoration-violet"
+            >
+              resend.com/legal/privacy-policy
+            </a>
+            .
           </LegalP>
 
           <LegalH2>9. Bewerbungen</LegalH2>
@@ -262,6 +292,12 @@ export default async function DatenschutzPage({
             Kontaktdaten, Bewerbungsunterlagen, Zeugnisse und Qualifikationsnachweise.
           </LegalP>
           <LegalP>Rechtsgrundlage ist § 26 BDSG sowie Art. 6 Abs. 1 lit. b DSGVO.</LegalP>
+          <LegalP>
+            Die über unser Schnellbewerbungsformular übermittelten Angaben einschließlich
+            beigefügter Bewerbungsunterlagen (z. B. Lebenslauf) werden als Anhang derselben
+            E-Mail über den in Abschnitt 8 genannten Dienst Resend versendet. Eine gesonderte
+            Speicherung in einer Datenbank erfolgt nicht.
+          </LegalP>
           <LegalP>
             Kommt kein Beschäftigungsverhältnis zustande, werden Bewerbungsunterlagen
             grundsätzlich spätestens sechs Monate nach Abschluss des Bewerbungsverfahrens
@@ -308,7 +344,65 @@ export default async function DatenschutzPage({
             .
           </LegalP>
 
-          <LegalH2>11. Empfänger personenbezogener Daten</LegalH2>
+          <LegalH2>11. KI-Chatbot (OpenAI)</LegalH2>
+          <LegalP>
+            Zur Beantwortung allgemeiner Fragen zu unserem Unternehmen und unseren Leistungen
+            stellen wir auf unserer Website einen KI-gestützten Assistenten zur Verfügung. Zur
+            Erzeugung der Antworten nutzen wir die Schnittstelle von{" "}
+            <strong className="text-ink">OpenAI Ireland Ltd.</strong>, The Academy, 42 Pearse
+            Street, Dublin 2, Irland.
+          </LegalP>
+          <LegalP>
+            Eine Übermittlung von Daten an OpenAI erfolgt erst, wenn Sie eine Nachricht
+            absenden. Übermittelt werden dabei Ihre Chateingaben sowie technische
+            Verbindungsdaten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre
+            Anfrage der Anbahnung eines Vertragsverhältnisses dient, im Übrigen Art. 6 Abs. 1
+            lit. f DSGVO. Unser berechtigtes Interesse besteht in einer schnellen und
+            niedrigschwelligen Beantwortung allgemeiner Anfragen.
+          </LegalP>
+          <LegalP>
+            Schildern Sie im Chat freiwillig die Pflege- oder Gesundheitssituation einer
+            betroffenen Person, verarbeiten wir diese Angaben ausschließlich zur Beantwortung
+            Ihres Anliegens. Rechtsgrundlage ist insoweit Ihre ausdrückliche Einwilligung gemäß
+            Art. 9 Abs. 2 lit. a DSGVO, die Sie durch das bewusste Absenden dieser Angaben
+            erteilen. Der Assistent erhebt von sich aus keine medizinischen Angaben und fordert
+            Sie nicht zur Übermittlung solcher Daten auf.
+          </LegalP>
+          <LegalP>
+            Chatverläufe werden von uns nicht dauerhaft gespeichert; sie bestehen ausschließlich
+            für die Dauer Ihrer Sitzung im Browser. Über die von uns genutzte Programmierschnittstelle
+            (API) übermittelte Inhalte verwendet OpenAI nach dessen aktueller Datennutzungsrichtlinie
+            nicht zum Training seiner KI-Modelle. Zur Missbrauchserkennung kann OpenAI
+            Verbindungsdaten für einen begrenzten Zeitraum von in der Regel bis zu 30 Tagen
+            speichern.
+          </LegalP>
+          <LegalP>
+            Der KI-Assistent dient der Beantwortung allgemeiner Fragen zu unserem Unternehmen
+            und unseren Leistungen. Er ersetzt weder eine individuelle Pflegeberatung noch eine
+            ärztliche Auskunft und ist nicht für Notfälle vorgesehen. In dringenden Fällen
+            wenden Sie sich bitte unmittelbar telefonisch an uns oder an den ärztlichen
+            Notdienst.
+          </LegalP>
+          <LegalP>
+            Soweit personenbezogene Daten in die USA oder andere Drittländer übermittelt
+            werden, erfolgt dies ausschließlich unter Beachtung der Voraussetzungen der Art. 44
+            ff. DSGVO auf Grundlage geeigneter Garantien, insbesondere Standardvertragsklauseln
+            der Europäischen Kommission.
+          </LegalP>
+          <LegalP>
+            Weitere Informationen:{" "}
+            <a
+              href="https://openai.com/policies/privacy-policy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-violet underline decoration-violet/30 hover:decoration-violet"
+            >
+              openai.com/policies/privacy-policy
+            </a>
+            .
+          </LegalP>
+
+          <LegalH2>12. Empfänger personenbezogener Daten</LegalH2>
           <LegalP>
             Im Rahmen der Bereitstellung unserer Website und unserer Online-Dienste kann eine
             Übermittlung personenbezogener Daten an externe Empfänger oder
@@ -317,14 +411,15 @@ export default async function DatenschutzPage({
           <LegalUl
             items={[
               "Vercel Inc. (Hosting)",
-              "unser E-Mail-Versanddienstleister (technische Zustellung von Formularnachrichten)",
+              "Plus Five Five, Inc. (Resend) (technische Zustellung von Formularnachrichten)",
+              "OpenAI Ireland Ltd. (KI-Chatbot, nach Absenden einer Nachricht)",
               "Google Ireland Limited (Kartendarstellung nach Einwilligung)",
               "IT-Dienstleister und technische Serviceanbieter",
               "Behörden oder öffentliche Stellen aufgrund gesetzlicher Verpflichtungen",
             ]}
           />
 
-          <LegalH2>12. Speicherdauer</LegalH2>
+          <LegalH2>13. Speicherdauer</LegalH2>
           <LegalP>
             Personenbezogene Daten werden nur solange gespeichert, wie dies zur Erfüllung des
             jeweiligen Zwecks erforderlich ist oder gesetzliche Aufbewahrungspflichten
@@ -332,7 +427,7 @@ export default async function DatenschutzPage({
             Verarbeitungsvorgängen erläutert.
           </LegalP>
 
-          <LegalH2>13. Rechte der betroffenen Personen</LegalH2>
+          <LegalH2>14. Rechte der betroffenen Personen</LegalH2>
           <LegalP>Sie haben das Recht auf:</LegalP>
           <LegalUl
             items={[
@@ -376,7 +471,7 @@ export default async function DatenschutzPage({
             haben Sie das Recht, jederzeit Widerspruch gegen die Verarbeitung einzulegen.
           </LegalP>
 
-          <LegalH2>14. Beschwerderecht bei einer Aufsichtsbehörde</LegalH2>
+          <LegalH2>15. Beschwerderecht bei einer Aufsichtsbehörde</LegalH2>
           <LegalP>
             Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.
             Die für uns zuständige Aufsichtsbehörde ist:
@@ -401,13 +496,14 @@ export default async function DatenschutzPage({
             </a>
           </LegalP>
 
-          <LegalH2>15. Automatisierte Verarbeitung</LegalH2>
+          <LegalH2>16. Automatisierte Verarbeitung</LegalH2>
           <LegalP>
-            Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne des
-            Art. 22 DSGVO findet nicht statt.
+            Bei der Nutzung des KI-Assistenten erfolgt eine automatisierte Verarbeitung Ihrer
+            Eingaben zur Generierung von Antworten. Eine automatisierte Entscheidungsfindung
+            einschließlich Profiling im Sinne des Art. 22 DSGVO findet nicht statt.
           </LegalP>
 
-          <LegalH2>16. Datensicherheit</LegalH2>
+          <LegalH2>17. Datensicherheit</LegalH2>
           <LegalP>
             Wir treffen angemessene technische und organisatorische Maßnahmen (TOM) gemäß
             Art. 32 DSGVO, um Ihre personenbezogenen Daten gegen Verlust, Zerstörung,

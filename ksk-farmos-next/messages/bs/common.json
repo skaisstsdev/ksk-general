@@ -56,10 +56,21 @@
     "openAria": "Otvori chat",
     "status": "Na mreži",
     "welcome": "Dobar dan! Ja sam AI asistent kompanije KSK Farmos. Rado ću odgovoriti na vaša pitanja.",
-    "quickReplies": ["Ko plaća?", "Lokacije?", "Karijera?", "Zatraži konsultacije"],
+    "quickReplies": [
+      "Ko plaća?",
+      "Lokacije?",
+      "Karijera?",
+      "Zatraži konsultacije"
+    ],
     "placeholder": "Vaše pitanje…",
     "sendAria": "Pošalji",
     "disclaimerPrefix": "AI asistent · Odgovore generiše OpenAI",
     "errorFallback": "Nažalost, došlo je do greške. Molimo nazovite nas: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Stranica nije pronađena",
+    "text": "Ova stranica ne postoji ili je premještena.",
+    "cta": "Nazad na početnu"
   }
 }

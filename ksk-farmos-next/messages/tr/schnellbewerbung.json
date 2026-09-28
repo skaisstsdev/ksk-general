@@ -71,7 +71,7 @@
       "email": "Lütfen geçerli bir e-posta adresi girin.",
       "telefon": "Lütfen telefon numaranızı girin.",
       "consent": "Lütfen gizlilik politikasını kabul edin.",
-      "cv": "Dosya çok büyük (en fazla 10 MB)."
+      "cv": "Dosya çok büyük (en fazla 4 MB)."
     },
     "honeypotLabel": "Şirket"
   }

@@ -71,7 +71,7 @@
       "email": "Proszę podać prawidłowy adres e-mail.",
       "telefon": "Proszę podać swój numer telefonu.",
       "consent": "Proszę zaakceptować politykę prywatności.",
-      "cv": "Plik jest zbyt duży (maksymalnie 10 MB)."
+      "cv": "Plik jest zbyt duży (maksymalnie 4 MB)."
     },
     "honeypotLabel": "Firma"
   }

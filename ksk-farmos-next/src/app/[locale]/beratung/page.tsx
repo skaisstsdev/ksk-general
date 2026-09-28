@@ -6,13 +6,19 @@ import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
 import { BeratungForm } from "@/components/forms/BeratungForm";
 import { contact } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/beratung">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "beratung" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/beratung",
+    title: t("meta.title"),
+    description: t("meta.description"),
+  });
 }
 
 /**
@@ -35,7 +41,7 @@ export default async function BeratungPage({
     <section className="pt-[calc(var(--header-h)+var(--spacing-break))] pb-turn">
       <Grid>
         <Col span="text">
-          <StickyHeading eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead}>
+          <StickyHeading as="h1" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead}>
             <RuledList className="mt-lg" items={points} />
             <div className="mt-lg flex flex-col items-start gap-xs">
               <a

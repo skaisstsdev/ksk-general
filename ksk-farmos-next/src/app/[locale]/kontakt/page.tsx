@@ -10,13 +10,19 @@ import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { contact, impressum, locations } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/kontakt">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "kontakt" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/kontakt",
+    title: t("meta.title"),
+    description: t("meta.description"),
+  });
 }
 
 /**
@@ -89,7 +95,7 @@ export default async function KontaktPage({
       <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col span="text">
-            <StickyHeading eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
+            <StickyHeading as="h1" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
           </Col>
           <Col span="aside">
             <ContactForm />

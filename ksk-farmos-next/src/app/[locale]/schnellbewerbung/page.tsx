@@ -6,13 +6,20 @@ import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
 import { BewerbungForm } from "@/components/forms/BewerbungForm";
 import { contact } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/schnellbewerbung">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "schnellbewerbung" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/schnellbewerbung",
+    title: t("meta.title"),
+    description: t("meta.description"),
+    image: "/img/karriere/karriere-hero.webp",
+  });
 }
 
 /**
@@ -35,7 +42,7 @@ export default async function SchnellbewerbungPage({
     <section className="pt-[calc(var(--header-h)+var(--spacing-break))] pb-turn">
       <Grid>
         <Col span="text">
-          <StickyHeading eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead}>
+          <StickyHeading as="h1" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead}>
             <RuledList className="mt-lg" items={points} />
             <div className="mt-lg flex flex-col items-start gap-xs">
               <a

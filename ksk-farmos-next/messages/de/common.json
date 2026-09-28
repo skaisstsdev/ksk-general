@@ -56,10 +56,21 @@
     "openAria": "Chat öffnen",
     "status": "Online",
     "welcome": "Hallo! Ich bin der KI-Assistent von KSK Farmos. Gerne beantworte ich Ihre Fragen.",
-    "quickReplies": ["Kostenübernahme?", "Standorte?", "Karriere?", "Beratung anfragen"],
+    "quickReplies": [
+      "Kostenübernahme?",
+      "Standorte?",
+      "Karriere?",
+      "Beratung anfragen"
+    ],
     "placeholder": "Ihre Frage…",
     "sendAria": "Senden",
     "disclaimerPrefix": "KI-Assistent · Antworten werden mit OpenAI erstellt",
     "errorFallback": "Entschuldigung, es ist ein Fehler aufgetreten. Bitte rufen Sie uns an: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite existiert nicht oder wurde verschoben.",
+    "cta": "Zur Startseite"
   }
 }

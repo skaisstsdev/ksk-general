@@ -5,13 +5,19 @@ import { LegalH2, LegalH3, LegalP } from "@/components/page/Legal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { company, dataProtectionOfficer, impressum, locations } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/impressum">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "legal" });
-  return { title: t("impressum.title"), description: t("impressum.metaDescription") };
+  return buildPageMetadata({
+    locale,
+    path: "/impressum",
+    title: t("impressum.title"),
+    description: t("impressum.metaDescription"),
+  });
 }
 
 /**

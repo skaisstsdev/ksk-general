@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import ReactDOM from "react-dom";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 
 import "../globals.css";
 
@@ -14,6 +14,7 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { company, siteUrl } from "@/content/site";
 import { localeDir, routing, type Locale } from "@/i18n/routing";
 import { preloadedFonts } from "@/lib/fonts";
+import { MedicalBusinessJsonLd } from "@/components/seo/JsonLd";
 
 /**
  * Корневой layout живёт внутри сегмента `[locale]`: язык — часть адреса,
@@ -23,6 +24,16 @@ import { preloadedFonts } from "@/lib/fonts";
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
+
+/**
+ * `--color-paper` буквально — то же самое поле, что видно под шапкой
+ * на первом кадре, а не приблизительный тон: адресная строка Chrome
+ * на телефоне и панель задач на iOS красятся ровно в цвет страницы,
+ * а не в произвольный "фирменный" оттенок.
+ */
+export const viewport: Viewport = {
+  themeColor: "#f2f0eb",
+};
 
 export async function generateMetadata({
   params,
@@ -36,7 +47,11 @@ export async function generateMetadata({
       default: `${company.legalName} — ${t("meta.titleSuffix")}`,
       template: `%s — ${company.legalName}`,
     },
-    icons: { icon: "/logo-icon.png" },
+    // Тот же файл для обоих: логотип не квадратный (300×259), но это
+    // по-прежнему лучше, чем полное отсутствие apple-touch-icon —
+    // без него iOS подставляет скриншот страницы при «Добавить на экран».
+    icons: { icon: "/logo-icon.png", apple: "/logo-icon.png" },
+    manifest: "/manifest.webmanifest",
   };
 }
 
@@ -54,6 +69,28 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const dir = localeDir(locale);
+
+  /**
+   * Клиенту — не все десять словарей, а только те, что реально читает
+   * `useTranslations` в клиентских компонентах: `leistungen`, `karriere`,
+   * `faq`, `ueberUns` целиком серверные (`getTranslations` в самих
+   * страницах), их текст уже стоит в готовой разметке HTML — второй
+   * копией в RSC-пейлоаде на каждой странице он был не нужен вообще.
+   * Список — не догадка, а инвентаризация всех `useTranslations(...)`
+   * в файлах с `"use client"`.
+   */
+  const allMessages = await getMessages();
+  const CLIENT_NAMESPACES = [
+    "common",
+    "legal",
+    "home",
+    "kontakt",
+    "beratung",
+    "schnellbewerbung",
+  ] as const;
+  const clientMessages = Object.fromEntries(
+    CLIENT_NAMESPACES.map((ns) => [ns, allMessages[ns]]),
+  );
 
   /**
    * Предзагрузка шрифтов через ReactDOM, а не отрисовкой <link>.
@@ -74,7 +111,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={dir} className="h-full">
       <body className="flex min-h-full flex-col bg-paper font-sans text-ink antialiased">
-        <NextIntlClientProvider>
+        <MedicalBusinessJsonLd />
+        <NextIntlClientProvider messages={clientMessages}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

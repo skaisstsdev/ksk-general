@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 
+import { checkRateLimit, getClientIp } from "@/lib/rateLimit";
 import { buildEmailHtml, buildEmailSubject, buildEmailText } from "./email";
 
 /**
@@ -25,7 +26,17 @@ const REQUIRED_FIELDS: Record<string, string[]> = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_CV_SIZE = 10 * 1024 * 1024;
+/**
+ * 4 МБ, не 10: Vercel ограничивает тело serverless-функции 4.5 МБ
+ * целиком (тело запроса плюс служебные заголовки multipart) — прежний
+ * предел 10 МБ пропускал файл через клиентскую проверку (`BewerbungForm.tsx`),
+ * а сервер отвечал глухим `500`, до которого клиент вообще не добирался:
+ * платформа обрывала запрос раньше, чем он попадал в этот код.
+ */
+const MAX_CV_SIZE = 4 * 1024 * 1024;
+const ALLOWED_CV_EXTENSIONS = [".pdf", ".doc", ".docx"];
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60_000;
 
 function isBot(payload: Record<string, unknown>) {
   const honeypot = typeof payload.honeypot === "string" ? payload.honeypot : "";
@@ -33,7 +44,25 @@ function isBot(payload: Record<string, unknown>) {
   return honeypot.trim() !== "" || elapsed < 2000;
 }
 
+/** Имя вложения — только для письма (`Content-Disposition`), не путь
+ *  на диске, но береженого бог бережёт: убираем всё, кроме букв, цифр
+ *  и точки/дефиса/подчёркивания, и обрезаем длину. */
+function sanitizeFilename(name: string): string {
+  const cleaned = name.replace(/[^\p{L}\p{N}._-]/gu, "_").slice(-100);
+  return cleaned || "lebenslauf";
+}
+
+function hasAllowedExtension(name: string): boolean {
+  const lower = name.toLowerCase();
+  return ALLOWED_CV_EXTENSIONS.some((ext) => lower.endsWith(ext));
+}
+
 export async function POST(request: Request) {
+  const ip = getClientIp(request);
+  if (!checkRateLimit(`submit-form:${ip}`, RATE_LIMIT, RATE_WINDOW_MS)) {
+    return Response.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const to = process.env.RESEND_TO?.trim();
   if (!apiKey || !to) {
@@ -84,8 +113,13 @@ export async function POST(request: Request) {
   if (typeof email !== "string" || !EMAIL_RE.test(email)) {
     return Response.json({ error: "Invalid email" }, { status: 400 });
   }
-  if (cv && cv.size > MAX_CV_SIZE) {
-    return Response.json({ error: "CV too large" }, { status: 400 });
+  if (cv) {
+    if (cv.size > MAX_CV_SIZE) {
+      return Response.json({ error: "CV too large" }, { status: 400 });
+    }
+    if (!hasAllowedExtension(cv.name)) {
+      return Response.json({ error: "Invalid CV file type" }, { status: 400 });
+    }
   }
 
   const resend = new Resend(apiKey);
@@ -100,7 +134,7 @@ export async function POST(request: Request) {
       html: buildEmailHtml(formName, payload),
       text: buildEmailText(formName, payload),
       attachments: cv
-        ? [{ filename: cv.name, content: Buffer.from(await cv.arrayBuffer()) }]
+        ? [{ filename: sanitizeFilename(cv.name), content: Buffer.from(await cv.arrayBuffer()) }]
         : undefined,
     });
 

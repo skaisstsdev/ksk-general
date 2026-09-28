@@ -56,10 +56,21 @@
     "openAria": "Otwórz czat",
     "status": "Online",
     "welcome": "Dzień dobry! Jestem asystentem AI KSK Farmos. Chętnie odpowiem na Państwa pytania.",
-    "quickReplies": ["Kto płaci?", "Lokalizacje?", "Kariera?", "Umów konsultację"],
+    "quickReplies": [
+      "Kto płaci?",
+      "Lokalizacje?",
+      "Kariera?",
+      "Umów konsultację"
+    ],
     "placeholder": "Twoje pytanie…",
     "sendAria": "Wyślij",
     "disclaimerPrefix": "Asystent AI · Odpowiedzi generowane przez OpenAI",
     "errorFallback": "Przepraszamy, wystąpił błąd. Prosimy do nas zadzwonić: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Strona nie została znaleziona",
+    "text": "Ta strona nie istnieje lub została przeniesiona.",
+    "cta": "Wróć na stronę główną"
   }
 }

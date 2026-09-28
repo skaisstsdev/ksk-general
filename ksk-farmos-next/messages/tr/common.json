@@ -56,10 +56,21 @@
     "openAria": "Sohbeti aç",
     "status": "Çevrimiçi",
     "welcome": "Merhaba! KSK Farmos yapay zekâ asistanıyım. Sorularınızı yanıtlamaktan memnuniyet duyarım.",
-    "quickReplies": ["Ödeme kim yapar?", "Şubeler?", "Kariyer?", "Danışmanlık talebi"],
+    "quickReplies": [
+      "Ödeme kim yapar?",
+      "Şubeler?",
+      "Kariyer?",
+      "Danışmanlık talebi"
+    ],
     "placeholder": "Sorunuz…",
     "sendAria": "Gönder",
     "disclaimerPrefix": "Yapay zekâ asistanı · Yanıtlar OpenAI ile oluşturulur",
     "errorFallback": "Üzgünüz, bir hata oluştu. Lütfen bizi arayın: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Sayfa bulunamadı",
+    "text": "Bu sayfa mevcut değil veya taşınmış.",
+    "cta": "Ana sayfaya dön"
   }
 }

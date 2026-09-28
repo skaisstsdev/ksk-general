@@ -81,8 +81,10 @@ export const locations = {
 } as const;
 
 export const social = {
-  facebook: "https://www.facebook.com/share/1UM6QWWDnx/",
+  facebook: "https://www.facebook.com/share/19BqxGqfLy/?mibextid=wwXIfr",
   instagram: "https://www.instagram.com/ksk.farmos.intensivpflege/",
+  /** Карточка компании на Google Maps — профиль, а не форма отзыва. */
+  googleProfile: "https://maps.app.goo.gl/SZm7uaePevYGcMJaA?g_st=ic",
   googleReview: "https://g.page/r/Cd6hNIICJQRSEBM/review",
 } as const;
 

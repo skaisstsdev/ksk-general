@@ -71,7 +71,7 @@
       "email": "Vă rugăm să introduceți o adresă de e-mail validă.",
       "telefon": "Vă rugăm să introduceți numărul dumneavoastră de telefon.",
       "consent": "Vă rugăm să fiți de acord cu politica de confidențialitate.",
-      "cv": "Fișierul este prea mare (maximum 10 MB)."
+      "cv": "Fișierul este prea mare (maximum 4 MB)."
     },
     "honeypotLabel": "Companie"
   }

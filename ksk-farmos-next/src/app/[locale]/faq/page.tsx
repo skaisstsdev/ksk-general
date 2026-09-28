@@ -7,13 +7,20 @@ import { RuledGrid } from "@/components/page/RuledGrid";
 import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
 import { questionsMeta } from "@/content/pages/faq";
+import { buildPageMetadata } from "@/lib/metadata";
+import { FaqJsonLd } from "@/components/seo/JsonLd";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/faq">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "faq" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/faq",
+    title: t("meta.title"),
+    description: t("meta.description"),
+  });
 }
 
 /**
@@ -55,10 +62,11 @@ export default async function FaqPage({
 
   return (
     <>
+      <FaqJsonLd questions={questions} />
       <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col span="text">
-            <StickyHeading eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
+            <StickyHeading as="h1" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
           </Col>
           <Col span="aside">
             <FaqList categories={categories} questions={questions} />

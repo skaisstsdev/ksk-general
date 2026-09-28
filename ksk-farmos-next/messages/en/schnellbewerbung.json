@@ -71,7 +71,7 @@
       "email": "Please enter a valid email address.",
       "telefon": "Please enter your phone number.",
       "consent": "Please agree to the privacy policy.",
-      "cv": "The file is too large (maximum 10 MB)."
+      "cv": "The file is too large (maximum 4 MB)."
     },
     "honeypotLabel": "Company"
   }

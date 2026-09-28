@@ -71,7 +71,7 @@
       "email": "Molimo unesite ispravnu e-mail adresu.",
       "telefon": "Molimo unesite svoj broj telefona.",
       "consent": "Molimo prihvatite politiku privatnosti.",
-      "cv": "Datoteka je prevelika (maksimalno 10 MB)."
+      "cv": "Datoteka je prevelika (maksimalno 4 MB)."
     },
     "honeypotLabel": "Firma"
   }

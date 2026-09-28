@@ -5,8 +5,6 @@ import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
 
-/** Экспортированы, чтобы `ChatWidget` мог узнать, занят ли нижний угол баннером,
- *  и подняться над ним, пока тот не закрыт (см. комментарий там). */
 export const COOKIE_NOTICE_STORAGE_KEY = "ksk-cookie-notice-dismissed";
 export const COOKIE_NOTICE_DISMISS_EVENT = "ksk-cookie-notice-dismiss";
 
@@ -54,7 +52,7 @@ export function CookieBanner() {
       // Хранить негде — баннер просто появится снова в следующий визит.
     }
     // `storage` не срабатывает во вкладке, которая сама изменила значение —
-    // событие для тех, кто слушает именно этот клик в этой вкладке (`ChatWidget`).
+    // событие для тех, кто слушает именно этот клик в этой вкладке.
     window.dispatchEvent(new Event(COOKIE_NOTICE_DISMISS_EVENT));
   }
 
@@ -63,7 +61,7 @@ export function CookieBanner() {
   return (
     <div
       role="status"
-      className="fixed inset-x-md bottom-md z-50 rounded-xs border border-line-strong bg-paper p-sm sm:inset-x-auto sm:end-md sm:w-[22rem]"
+      className="fixed inset-x-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-50 rounded-xs border border-line-strong bg-paper p-sm sm:inset-x-auto sm:end-md sm:w-[22rem]"
     >
       <p className="text-meta text-ink-soft">
         {t("cookieBanner.text")}{" "}

@@ -14,13 +14,20 @@ import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { haeuslichGroupIds } from "@/content/pages/leistungen";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/leistungen">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "leistungen" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/leistungen",
+    title: t("meta.title"),
+    description: t("meta.description"),
+    image: "/img/leistungen/wohnprojekt.webp",
+  });
 }
 
 /**
@@ -84,6 +91,7 @@ export default async function LeistungenPage({
         <Grid>
           <Col span="text">
             <SectionHeading
+              as="h1"
               eyebrow={haeuslich.eyebrow}
               title={haeuslich.title}
               lead={haeuslich.text}

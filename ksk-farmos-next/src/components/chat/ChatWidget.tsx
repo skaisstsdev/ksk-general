@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -14,6 +14,11 @@ import { pagesWithHero } from "@/content/navigation";
 import { routing } from "@/i18n/routing";
 import { company, contact } from "@/content/site";
 import { cn } from "@/lib/cn";
+import {
+  getMobileMenuOpen,
+  getServerMobileMenuOpen,
+  subscribeMobileMenu,
+} from "@/lib/mobileMenuState";
 import { useOnDark } from "@/lib/useOnDark";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -132,11 +137,19 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [cookieNoticeVisible, setCookieNoticeVisible] = useState(false);
 
   const messagesRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const onDark = useOnDark(triggerRef);
+  const onDark = useOnDark(triggerRef, hasHero);
+  const [cookieNoticeVisible, setCookieNoticeVisible] = useState(false);
+  // Открытая панель мобильного меню занимает те же нижние углы экрана —
+  // без этого кнопка чата торчала из-за её края (см. тот же приём
+  // у `LanguageSwitcher.tsx`).
+  const mobileMenuOpen = useSyncExternalStore(
+    subscribeMobileMenu,
+    getMobileMenuOpen,
+    getServerMobileMenuOpen,
+  );
 
   // На страницах без хиро `visible` уже `true` (см. выше) — здесь только
   // догоняем случай `pagesWithHero`: кнопка ждёт первый скролл, чтобы не
@@ -222,15 +235,21 @@ export function ChatWidget() {
     }
   }
 
-  if (!visible) return null;
+  if (!visible || mobileMenuOpen) return null;
 
   const quickReplies = t.raw("chat.quickReplies") as string[];
 
   return (
+    // `env(safe-area-inset-bottom)` в довесок к обоим отступам — на телефоне
+    // компактная нижняя панель Safari плавает поверх страницы, не сдвигая
+    // её содержимое; без добавки кнопка и раскрытый диалог на часть своей
+    // высоты прятались под ней (см. тот же приём у `LanguageSwitcher.tsx`).
     <div
       className={cn(
         "fixed end-md z-40 flex flex-col items-end gap-sm",
-        cookieNoticeVisible ? "bottom-[9rem]" : "bottom-md",
+        cookieNoticeVisible
+          ? "bottom-[calc(9rem+env(safe-area-inset-bottom))]"
+          : "bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))]",
       )}
     >
       <AnimatePresence>
@@ -243,7 +262,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="flex h-[min(32rem,70vh)] w-[calc(100vw-2rem)] max-w-[23rem] flex-col overflow-hidden rounded-xs border border-white-pure bg-paper shadow-lifted"
+            className="flex h-[min(32rem,70svh)] w-[calc(100vw-2rem)] max-w-[23rem] flex-col overflow-hidden rounded-xs border border-white-pure bg-paper shadow-lifted"
           >
             <div className="flex shrink-0 items-center justify-between gap-sm bg-violet px-sm py-xs">
               <div className="flex items-center gap-xs">

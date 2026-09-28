@@ -56,10 +56,21 @@
     "openAria": "Open chat",
     "status": "Online",
     "welcome": "Hello! I'm the KSK Farmos AI assistant. I'm glad to answer your questions.",
-    "quickReplies": ["Who pays?", "Locations?", "Careers?", "Free consultation"],
+    "quickReplies": [
+      "Who pays?",
+      "Locations?",
+      "Careers?",
+      "Free consultation"
+    ],
     "placeholder": "Your question…",
     "sendAria": "Send",
     "disclaimerPrefix": "AI assistant · Responses generated with OpenAI",
     "errorFallback": "Sorry, something went wrong. Please call us: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page not found",
+    "text": "This page doesn’t exist or has been moved.",
+    "cta": "Back to homepage"
   }
 }

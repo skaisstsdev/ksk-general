@@ -21,7 +21,10 @@ type Step1Errors = Partial<Record<"vorname" | "nachname" | "email" | "telefon", 
 type Errors = Step1Errors & { consent?: string };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_CV_SIZE = 10 * 1024 * 1024;
+// 4 МБ, не 10: реальный предел тела запроса на Vercel — 4.5 МБ на всю
+// serverless-функцию (см. тот же комментарий в `api/submit-form/route.ts`).
+// Прежнее число пропускало файл здесь, а сервер тихо отвечал `500`.
+const MAX_CV_SIZE = 4 * 1024 * 1024;
 
 /**
  * Три шага вместо трёх обязательных решений сразу — приём один в один

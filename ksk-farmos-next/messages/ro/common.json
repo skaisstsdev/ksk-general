@@ -56,10 +56,21 @@
     "openAria": "Deschide chatul",
     "status": "Online",
     "welcome": "Bună ziua! Sunt asistentul AI al KSK Farmos. Vă răspund cu plăcere la întrebări.",
-    "quickReplies": ["Cine plătește?", "Locații?", "Cariere?", "Solicită consultație"],
+    "quickReplies": [
+      "Cine plătește?",
+      "Locații?",
+      "Cariere?",
+      "Solicită consultație"
+    ],
     "placeholder": "Întrebarea dvs.…",
     "sendAria": "Trimite",
     "disclaimerPrefix": "Asistent AI · Răspunsurile sunt generate cu OpenAI",
     "errorFallback": "Ne pare rău, a apărut o eroare. Vă rugăm să ne sunați: {phone}"
+  },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Pagina nu a fost găsită",
+    "text": "Această pagină nu există sau a fost mutată.",
+    "cta": "Înapoi la pagina principală"
   }
 }

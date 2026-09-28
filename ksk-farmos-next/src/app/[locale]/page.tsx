@@ -1,4 +1,5 @@
-import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ClosingCta } from "@/components/home/ClosingCta";
@@ -8,6 +9,24 @@ import { MapSection } from "@/components/home/MapSection";
 import { Moment } from "@/components/home/Moment";
 import { Reviews } from "@/components/home/Reviews";
 import { ServiceList } from "@/components/home/ServiceList";
+import { company } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return buildPageMetadata({
+    locale,
+    path: "/",
+    title: t("meta.title"),
+    description: t("meta.description"),
+    // `[locale]/page.tsx` лежит в том же сегменте, что `[locale]/layout.tsx`,
+    // и его `title.template` сюда не достаёт — см. комментарий в `lib/metadata.ts`.
+    titleSuffix: company.legalName,
+  });
+}
 
 /**
  * Главная страница.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 
 /**
@@ -11,10 +11,20 @@ import { useMotionValueEvent, useScroll } from "motion/react";
  * (`LanguageSwitcher`, `ChatWidget`), на каждой прокрутке спрашивают
  * `elementsFromPoint`, что лежит под их центром, — вместо порогов
  * по пикселям, которые пришлось бы подбирать заново для каждой страницы.
+ *
+ * `initialDark` — чем считать фон до первого измерения (SSR и самый
+ * первый рендер на клиенте, пока `elementsFromPoint` ещё не спросили).
+ * На страницах с хиро (`pagesWithHero`) под кнопкой в момент отрисовки
+ * уже точно тёмное фото, а не то, что даёт умолчание `false` — без этого
+ * кнопка на первом кадре рендерится светлым вариантом поверх фото и тут
+ * же перекрашивается, как только сработает `useEffect` ниже.
  */
-export function useOnDark(ref: React.RefObject<HTMLElement | null>) {
-  const [onDark, setOnDark] = useState(false);
+export function useOnDark(ref: React.RefObject<HTMLElement | null>, initialDark = false) {
+  const [onDark, setOnDark] = useState(initialDark);
   const { scrollY } = useScroll();
+  // Кадр, на который уже поставлен замер, — пока он не выполнился,
+  // новые запросы (следующее `change`/`resize`) не добавляют второй.
+  const pendingFrame = useRef<number | null>(null);
 
   function probe() {
     const el = ref.current;
@@ -33,7 +43,21 @@ export function useOnDark(ref: React.RefObject<HTMLElement | null>) {
     setOnDark(Boolean(under?.closest('[data-tone="dark"]')));
   }
 
-  useMotionValueEvent(scrollY, "change", probe);
+  // `scrollY` меняется на каждое native-событие скролла — на трекпаде
+  // или экране с высокой частотой обновления это заметно чаще, чем раз
+  // в кадр, а `elementsFromPoint` — не бесплатный запрос к layout.
+  // `requestAnimationFrame` схлопывает всю пачку `change` за один кадр
+  // в один настоящий замер: следующий `change` внутри уже запланированного
+  // кадра просто ничего не делает, а не ставит второй `rAF` в очередь.
+  function scheduleProbe() {
+    if (pendingFrame.current !== null) return;
+    pendingFrame.current = requestAnimationFrame(() => {
+      pendingFrame.current = null;
+      probe();
+    });
+  }
+
+  useMotionValueEvent(scrollY, "change", scheduleProbe);
 
   // Без зависимостей и без условия — срабатывает после каждого рендера.
   // `ChatWidget` не держит кнопку в DOM до первого скролла (`visible`),
@@ -41,15 +65,20 @@ export function useOnDark(ref: React.RefObject<HTMLElement | null>) {
   // разовая проверка на монтировании так и осталась бы с `onDark: false`
   // до следующего события скролла. `LanguageSwitcher` кнопку не прячет,
   // и для него это просто одно лишнее дешёвое измерение на рендер.
+  // Здесь — сразу, не через `scheduleProbe`: рендер уже прошёл, ждать
+  // кадр ради того же самого незачем.
   useEffect(() => {
     probe();
   });
 
   useEffect(() => {
-    window.addEventListener("resize", probe);
-    return () => window.removeEventListener("resize", probe);
-    // `probe` замыкает только `ref`, чей идентификатор стабилен между
-    // рендерами — переподписываться на каждый из них незачем.
+    window.addEventListener("resize", scheduleProbe);
+    return () => {
+      window.removeEventListener("resize", scheduleProbe);
+      if (pendingFrame.current !== null) cancelAnimationFrame(pendingFrame.current);
+    };
+    // `scheduleProbe`/`probe` замыкают только `ref`, чей идентификатор
+    // стабилен между рендерами — переподписываться на каждый из них незачем.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

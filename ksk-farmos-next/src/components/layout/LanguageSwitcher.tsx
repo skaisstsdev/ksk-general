@@ -1,14 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { localeMeta, type Locale } from "@/i18n/routing";
 import { Globe } from "@/components/ui/icons";
+import { pagesWithHero } from "@/content/navigation";
 import { cn } from "@/lib/cn";
+import {
+  getMobileMenuOpen,
+  getServerMobileMenuOpen,
+  subscribeMobileMenu,
+} from "@/lib/mobileMenuState";
 import { useOnDark } from "@/lib/useOnDark";
 
 /**
@@ -23,10 +29,11 @@ import { useOnDark } from "@/lib/useOnDark";
  * удобнее раскрывать снизу вверх, у большого пальца. Рендерится один
  * раз в корневом layout, поверх всех страниц.
  *
- * Прозрачная рамка в цвет текста, без заливки и тени. Чтобы она читалась и
- * на светлом поле, и на тёмном (фото хиро, раскрытый кадр, футер), она
- * смотрит, что под ней — см. `useOnDark`. Никаких порогов по пикселям —
- * поверхность сама говорит, какая она.
+ * Прозрачная рамка в цвет текста, без заливки и тени. Цвет — тот же приём,
+ * что у `ChatWidget`: фиолетовый на светлом поле, `paper` на тёмном (фото
+ * хиро, раскрытый кадр, футер) — она смотрит, что под ней, через
+ * `useOnDark`. Никаких порогов по пикселям — поверхность сама говорит,
+ * какая она.
  */
 export function LanguageSwitcher() {
   const t = useTranslations("common");
@@ -34,9 +41,13 @@ export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
   const params = useParams();
-  const router = useRouter();
   const ref = useRef<HTMLDivElement>(null);
-  const onDark = useOnDark(ref);
+  const onDark = useOnDark(ref, pagesWithHero.includes(pathname));
+  const mobileMenuOpen = useSyncExternalStore(
+    subscribeMobileMenu,
+    getMobileMenuOpen,
+    getServerMobileMenuOpen,
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -54,21 +65,21 @@ export function LanguageSwitcher() {
     };
   }, [open]);
 
-  function switchTo(next: Locale) {
-    setOpen(false);
-    // Тот же маршрут, другой язык: динамические сегменты переносятся как есть.
-    // `scroll: false` — смена языка не должна возвращать читателя в начало
-    // страницы: он остаётся на том же месте, где выбирал язык.
-    router.replace(
-      // @ts-expect-error — pathname здесь типизирован как конкретный маршрут,
-      // а мы переносим его без изменений вместе с параметрами.
-      { pathname, params },
-      { locale: next, scroll: false },
-    );
-  }
+  // Раскрытая панель мобильного меню занимает тот же нижний угол —
+  // кнопка выходит из потока незакрытой, а не просто гаснет визуально,
+  // чтобы не оставлять в разметке живой, но перекрытый интерактивный
+  // элемент.
+  if (mobileMenuOpen) return null;
 
   return (
-    <div ref={ref} className="fixed bottom-md start-md z-50">
+    // `env(safe-area-inset-bottom)` в довесок к отступу — на телефоне
+    // компактная нижняя панель Safari плавает поверх страницы, а не
+    // сдвигает её содержимое, и без этой добавки кнопка на часть своей
+    // высоты пряталась под ней.
+    <div
+      ref={ref}
+      className="fixed bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] start-md z-50"
+    >
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -79,7 +90,7 @@ export function LanguageSwitcher() {
           "inline-flex h-10 items-center gap-2xs rounded-xs border bg-transparent px-sm text-meta font-medium transition-colors duration-300",
           onDark
             ? "border-paper text-paper hover:bg-paper/10"
-            : "border-ink text-ink hover:bg-ink/5",
+            : "border-violet text-violet hover:bg-violet/5",
         )}
       >
         <Globe className="size-4" />
@@ -96,18 +107,28 @@ export function LanguageSwitcher() {
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className={cn(
               "absolute bottom-full start-0 z-50 mb-2xs min-w-48 rounded-xs border py-xs",
-              onDark ? "border-paper bg-night" : "border-ink bg-paper",
+              onDark ? "border-paper bg-night" : "border-violet bg-paper",
             )}
           >
             {(Object.keys(localeMeta) as Locale[]).map((code) => (
               <li key={code}>
-                <button
-                  type="button"
+                {/* Настоящая ссылка, не кнопка с `onClick`: с прошлым
+                    вариантом `router.replace` переключатель для краулера
+                    не существовал — в разметке не было ни одного `href`
+                    на другие девять языковых версий страницы, только
+                    JS-обработчик. Клик и вид не изменились, `scroll={false}`
+                    сохраняет прежнее поведение (не возвращать наверх). */}
+                <Link
+                  // @ts-expect-error — pathname здесь типизирован как конкретный
+                  // маршрут, а мы переносим его без изменений вместе с параметрами.
+                  href={{ pathname, params }}
+                  locale={code}
+                  scroll={false}
                   role="option"
                   aria-selected={code === locale}
                   lang={code}
                   dir={localeMeta[code].dir}
-                  onClick={() => switchTo(code)}
+                  onClick={() => setOpen(false)}
                   className={cn(
                     "flex w-full items-center justify-between gap-sm px-sm py-2xs text-start text-meta transition-colors",
                     onDark
@@ -116,8 +137,8 @@ export function LanguageSwitcher() {
                           code === locale ? "text-paper" : "text-paper/70",
                         )
                       : cn(
-                          "hover:bg-ink/5",
-                          code === locale ? "text-ink" : "text-ink-soft",
+                          "hover:bg-violet/5",
+                          code === locale ? "text-violet" : "text-ink-soft",
                         ),
                   )}
                 >
@@ -130,7 +151,7 @@ export function LanguageSwitcher() {
                   >
                     {code}
                   </span>
-                </button>
+                </Link>
               </li>
             ))}
           </motion.ul>

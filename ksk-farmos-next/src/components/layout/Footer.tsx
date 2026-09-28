@@ -26,7 +26,9 @@ export async function Footer() {
               <Image
                 src="/logo-icon.png"
                 alt=""
-                width={32}
+                // Тот же приём, что в Header.tsx: настоящий файл 300×259,
+                // пропорция здесь — 37×32, не квадрат.
+                width={37}
                 height={32}
                 className="size-8 w-auto"
               />

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { useRef, useState } from "react";
+import { motion, useInView } from "motion/react";
 
 import {
   HESSE_DISTRICTS,
@@ -98,7 +98,15 @@ type Props = {
 
 export function HesseMap({ ownLabels, className }: Props) {
   const [active, setActive] = useState<string | null>(null);
-  const reduced = useReducedMotion();
+  const mapRef = useRef<HTMLDivElement>(null);
+  /**
+   * `useInView` на обёртке, а не `whileInView` прямо на `motion.path`:
+   * `IntersectionObserver` на дочернем элементе SVG (не на самом `<svg>`)
+   * ненадёжен в Safari — триггер молчал именно там, хотя тот же код
+   * в Chrome/Edge отрабатывал. Здесь наблюдение идёт за обычным `div`,
+   * а сама обводка получает готовый булев результат через `animate`.
+   */
+  const inView = useInView(mapRef, { once: true, margin: "-10% 0px" });
 
   /**
    * Название карты идёт через `aria-label`, а не через <title> внутри SVG.
@@ -113,7 +121,7 @@ export function HesseMap({ ownLabels, className }: Props) {
       {/* Карта чуть шире колонки — на шаг шкалы в каждую сторону:
           ей нужна площадь, а колонке адресов — тот же край, что у всех
           остальных блоков. */}
-      <div className="w-full lg:-mx-2xl lg:w-[calc(100%+2*var(--spacing-2xl))]">
+      <div ref={mapRef} className="w-full lg:-mx-2xl lg:w-[calc(100%+2*var(--spacing-2xl))]">
         <svg
           viewBox={`-8 -8 ${HESSE_VIEWBOX.width + 16} ${HESSE_VIEWBOX.height + 16}`}
           role="img"
@@ -135,16 +143,19 @@ export function HesseMap({ ownLabels, className }: Props) {
             strokeLinecap="round"
           />
 
-          {/* Контур обводится один раз при появлении */}
+          {/* Контур обводится один раз при появлении. Без проверки
+              `useReducedMotion` — по решению владельца: это единственная
+              анимация на сайте, которая её не учитывает, потому что
+              пропадала не из-за настройки ОС, а из-за собственного
+              решения компонента отключаться при `prefers-reduced-motion`. */}
           <motion.path
             d={HESSE_PATH}
             fill="none"
             className="stroke-violet/50"
             strokeWidth="2.5"
             strokeLinejoin="round"
-            initial={reduced ? undefined : { pathLength: 0 }}
-            whileInView={reduced ? undefined : { pathLength: 1 }}
-            viewport={{ once: true, margin: "-10% 0px" }}
+            initial={{ pathLength: 0 }}
+            animate={inView ? { pathLength: 1 } : undefined}
             transition={{ duration: DURATION, ease: "easeInOut" }}
           />
 

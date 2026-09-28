@@ -22,6 +22,14 @@ export function SectionHeading({
   lead,
   children,
   tone = "ink",
+  /**
+   * Тег заголовка. По умолчанию `h2` — раздел внутри страницы, у которой
+   * `h1` уже стоит в другом месте (хиро). Первый заголовок страницы,
+   * у которой нет хиро (Leistungen, Beratung, Kontakt, FAQ, Über uns,
+   * Schnellbewerbung), обязан быть ровно одним `h1` на документ —
+   * вызывающая страница передаёт `as="h1"` именно туда и только туда.
+   */
+  as: Tag = "h2",
   className,
 }: {
   eyebrow: string;
@@ -29,6 +37,7 @@ export function SectionHeading({
   lead?: string;
   children?: React.ReactNode;
   tone?: "ink" | "paper";
+  as?: "h1" | "h2";
   className?: string;
 }) {
   const onPaper = tone === "paper";
@@ -38,14 +47,14 @@ export function SectionHeading({
       <Eyebrow className={onPaper ? "text-white-pure/90" : "text-ink-muted"}>
         {eyebrow}
       </Eyebrow>
-      <h2
+      <Tag
         className={cn(
           "mt-2xs max-w-[18ch] text-h1 hyphens-auto",
           onPaper ? "text-white-pure" : "text-ink",
         )}
       >
         {title}
-      </h2>
+      </Tag>
       {lead ? (
         <p
           className={cn(

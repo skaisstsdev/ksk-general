@@ -10,13 +10,20 @@ import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/karriere">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "karriere" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/karriere",
+    title: t("meta.title"),
+    description: t("meta.description"),
+    image: "/img/karriere/karriere-hero.webp",
+  });
 }
 
 /**

@@ -12,13 +12,20 @@ import { Photo } from "@/components/ui/Photo";
 import { Rule } from "@/components/ui/Rule";
 import { teamMemberNames } from "@/content/pages/ueber-uns";
 import { social as socialLinks } from "@/content/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/ueber-uns">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ueberUns" });
-  return { title: t("meta.title"), description: t("meta.description") };
+  return buildPageMetadata({
+    locale,
+    path: "/ueber-uns",
+    title: t("meta.title"),
+    description: t("meta.description"),
+    image: "/img/ueber-uns/team-garten.webp",
+  });
 }
 
 /**
@@ -61,7 +68,7 @@ export default async function UeberUnsPage({
       <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
         <Grid>
           <Col>
-            <SectionHeading eyebrow={team.eyebrow} title={team.title} />
+            <SectionHeading as="h1" eyebrow={team.eyebrow} title={team.title} />
 
             <ul className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
               {teamMembers.map((member, i) => (
@@ -192,13 +199,12 @@ export default async function UeberUnsPage({
               Facebook
               <ArrowRight className="size-5 text-violet transition-transform duration-200 ease-out-soft group-hover:translate-x-1 rtl:-scale-x-100" />
             </a>
-            {/* Не сеть — ссылка на профиль компании в Google (отзывы
-                и карточка на Google Maps). Тот же адрес, что уже
-                используется на главной кнопкой «Bewertung abgeben»
-                под отзывами (`social.googleReview` в `site.ts`) —
-                не новый реквизит, а повтор существующего. */}
+            {/* Не сеть — ссылка на карточку компании в Google Maps
+                (`social.googleProfile`), не на форму отзыва: та
+                (`social.googleReview`) отдельно используется на главной
+                кнопкой «Bewertung abgeben» под отзывами. */}
             <a
-              href={socialLinks.googleReview}
+              href={socialLinks.googleProfile}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between border-b border-line py-sm text-h4 text-ink transition-colors hover:text-violet"
