@@ -84,21 +84,21 @@
     "text": "Serviciul nostru de îngrijire la domiciliu este specializat în îngrijirea persoanelor cu demență în diverse proiecte rezidențiale. Într-un mediu protejat și familiar, asigurăm o viață demnă, cu structură, siguranță și atenție individuală.",
     "groups": [
       {
-        "title": "Locuință & dotări",
-        "items": [
-          "Cameră privată personalizabilă cu propria mobilă",
-          "Acces la toate echipamentele medicale necesare",
-          "O grădină vastă și liniștită pentru relaxare",
-          "Bibliotecă și spații comune confortabile"
-        ]
-      },
-      {
         "title": "Îngrijire & servicii",
         "items": [
           "Monitorizare și asistență medicală permanentă 24/7",
           "Un spectru larg de servicii medicale și de asistență",
           "Program zilnic adaptat nevoilor individuale",
           "Validare și îngrijire activă"
+        ]
+      },
+      {
+        "title": "Locuință & dotări",
+        "items": [
+          "Cameră privată personalizabilă cu propria mobilă",
+          "Acces la toate echipamentele medicale necesare",
+          "O grădină vastă și liniștită pentru relaxare",
+          "Bibliotecă și spații comune confortabile"
         ]
       }
     ],

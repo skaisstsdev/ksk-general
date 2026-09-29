@@ -84,21 +84,21 @@
     "text": "Nasza ambulatoryjna służba opiekuńcza specjalizuje się w opiece nad osobami z demencją w różnych projektach mieszkaniowych. W bezpiecznym, domowym środowisku umożliwiamy godne życie ze stałą strukturą dnia, bezpieczeństwem i indywidualnym podejściem.",
     "groups": [
       {
+        "title": "Opieka i\nusługi",
+        "items": [
+          "Całodobowa opieka i nadzór 24/7",
+          "Kompleksowe usługi pielęgniarskie i lekarskie",
+          "Indywidualnie dostosowany rozkład dnia",
+          "Walidacja i opieka aktywizująca"
+        ]
+      },
+      {
         "title": "Mieszkanie i wyposażenie",
         "items": [
           "Własny pokój z możliwością wstawienia własnych mebli",
           "Dostęp do wszystkich niezbędnych urządzeń medycznych",
           "Przestronny ogród rekreacyjny",
           "Biblioteka i przytulne przestrzenie wspólne"
-        ]
-      },
-      {
-        "title": "Opieka i usługi",
-        "items": [
-          "Całodobowa opieka i nadzór 24/7",
-          "Kompleksowe usługi pielęgniarskie i lekarskie",
-          "Indywidualnie dostosowany rozkład dnia",
-          "Walidacja i opieka aktywizująca"
         ]
       }
     ],

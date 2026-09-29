@@ -8,7 +8,7 @@ import {
   COOKIE_NOTICE_DISMISS_EVENT,
   COOKIE_NOTICE_STORAGE_KEY,
 } from "@/components/layout/CookieBanner";
-import { ChatBubble, Close, Send } from "@/components/ui/icons";
+import { ChatBubble, Close, Send, iconStrokeAt, ICON_STROKE_ACCENT } from "@/components/ui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { pagesWithHero } from "@/content/navigation";
 import { routing } from "@/i18n/routing";
@@ -380,7 +380,7 @@ export function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("dialog.close") : t("chat.openAria")}
         className={cn(
-          "flex size-12 shrink-0 items-center justify-center transition-colors",
+          "flex size-14 shrink-0 items-center justify-center transition-colors",
           onDark ? "text-paper hover:text-paper/70" : "text-violet hover:text-violet-mid",
         )}
       >
@@ -393,7 +393,17 @@ export function ChatWidget() {
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center justify-center"
           >
-            {open ? <Close className="size-9" /> : <ChatBubble className="size-9" />}
+            {/* `size-10` = 40px — крупнее обычной иконки сайта, поэтому
+                толщина линии выравнивается под общий `iconStrokeAt`
+                (см. `LanguageSwitcher`, тот же приём для рамки). */}
+            {open ? (
+              <Close className="size-10" strokeWidth={iconStrokeAt(40, ICON_STROKE_ACCENT)} />
+            ) : (
+              <ChatBubble
+                className="size-10"
+                strokeWidth={iconStrokeAt(40, ICON_STROKE_ACCENT)}
+              />
+            )}
           </motion.span>
         </AnimatePresence>
       </button>

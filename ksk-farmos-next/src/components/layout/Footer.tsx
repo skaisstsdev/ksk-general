@@ -30,7 +30,10 @@ export async function Footer() {
                 // пропорция здесь — 37×32, не квадрат.
                 width={37}
                 height={32}
-                className="size-8 w-auto"
+                // На тёмном поле футера — сплошным белым, без фирменного
+                // градиента: `brightness-0` гасит цвет в чёрный по силуэту
+                // (альфа-канал PNG остаётся), `invert` переворачивает в белый.
+                className="size-8 w-auto brightness-0 invert"
               />
               <span className="text-ui text-paper">
                 {company.legalName}

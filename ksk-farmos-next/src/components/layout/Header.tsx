@@ -169,7 +169,7 @@ export function Header() {
                   Ниже lg показываем короткое имя бренда. */}
               <span
                 className={cn(
-                  "text-ui whitespace-nowrap lg:hidden",
+                  "text-ui font-semibold whitespace-nowrap lg:hidden",
                   transparent ? "text-paper" : "text-ink",
                 )}
               >
@@ -177,7 +177,7 @@ export function Header() {
               </span>
               <span
                 className={cn(
-                  "hidden text-ui lg:inline",
+                  "hidden text-ui font-semibold lg:inline",
                   transparent ? "text-paper" : "text-ink",
                 )}
               >

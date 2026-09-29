@@ -12,6 +12,7 @@ import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading"
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Photo } from "@/components/ui/Photo";
+import { Rule } from "@/components/ui/Rule";
 import { StickyCol } from "@/components/ui/StickyCol";
 import { haeuslichGroupIds } from "@/content/pages/leistungen";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -259,27 +260,33 @@ export default async function LeistungenPage({
             </Col>
 
             <Col span="aside">
-              <ul className="flex flex-col gap-lg">
+              <ul>
                 {kosten.items.map((item, i) => (
-                  <li key={item.title} className="flex items-baseline gap-md">
-                    <span className="w-[2ch] shrink-0 text-meta tabular-nums text-white-pure/80">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <div className="flex flex-col gap-2xs">
-                      <h3 className="text-h3 text-white-pure">{item.title}</h3>
-                      <div className="text-ui text-white-pure/90">
-                        <p>{item.text}</p>
-                        {item.list ? (
-                          <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
-                            {item.list.map((entry) => (
-                              <li key={entry}>{entry}</li>
-                            ))}
-                          </ul>
-                        ) : null}
+                  <li key={item.title}>
+                    <Rule index={i} tone="paper" />
+                    <div className="flex items-baseline gap-md py-lg">
+                      <span className="w-[2ch] shrink-0 text-meta tabular-nums text-white-pure/80">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="flex flex-col gap-2xs">
+                        <h3 className="text-h3 text-white-pure">{item.title}</h3>
+                        <div className="text-ui text-white-pure/90">
+                          <p>{item.text}</p>
+                          {item.list ? (
+                            <ul className="mt-2xs flex list-disc flex-col gap-3xs ps-md">
+                              {item.list.map((entry) => (
+                                <li key={entry}>{entry}</li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   </li>
                 ))}
+                <li aria-hidden="true">
+                  <Rule index={kosten.items.length} tone="paper" />
+                </li>
               </ul>
             </Col>
           </Grid>

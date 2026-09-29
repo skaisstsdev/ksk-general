@@ -84,21 +84,21 @@
     "text": "Ayakta bakım hizmetimiz, çeşitli konut projelerinde demanslı kişilerin bakımı konusunda uzmanlaşmıştır. Korumalı, ev sıcaklığındaki bir ortamda yapılandırılmış, güvenli ve kişiye özel ilgiyle onurlu bir yaşam sunuyoruz.",
     "groups": [
       {
+        "title": "Bakım ve\nHizmetler",
+        "items": [
+          "Günün her saati kesintisiz bakım ve gözetim",
+          "Kapsamlı hemşirelik ve tıbbi hizmetler",
+          "Bireysel ihtiyaçlara göre şekillendirilmiş günlük rutin",
+          "Validasyon ve aktive edici bakım"
+        ]
+      },
+      {
         "title": "Konaklama ve Donanım",
         "items": [
           "Kendi eşyalarınızla döşeyebileceğiniz özel oda",
           "Tüm gerekli tıbbi cihaz ve donanımlar",
           "Ferah ve dinlendirici bir bahçe",
           "Kütüphane ve ortak sosyal alanlar"
-        ]
-      },
-      {
-        "title": "Bakım ve Hizmetler",
-        "items": [
-          "Günün her saati kesintisiz bakım ve gözetim",
-          "Kapsamlı hemşirelik ve tıbbi hizmetler",
-          "Bireysel ihtiyaçlara göre şekillendirilmiş günlük rutin",
-          "Validasyon ve aktive edici bakım"
         ]
       }
     ],

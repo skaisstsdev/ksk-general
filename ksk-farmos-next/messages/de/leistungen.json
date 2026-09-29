@@ -84,21 +84,21 @@
     "text": "Unser ambulanter Pflegedienst ist auf die Betreuung von Menschen mit Demenz in verschiedenen Wohnprojekten spezialisiert. In einer geschützten, häuslichen Umgebung ermöglichen wir ein würdevolles Leben mit Struktur, Sicherheit und individueller Zuwendung.",
     "groups": [
       {
+        "title": "Betreuung &\nService",
+        "items": [
+          "24h Betreuung und Überwachung",
+          "Umfassende pflegerische und medizinische Leistungen",
+          "Individuell gestalteter Tagesablauf",
+          "Validation und aktivierende Betreuung"
+        ]
+      },
+      {
         "title": "Wohnen & Ausstattung",
         "items": [
           "Zimmer mit eigenen Möbeln",
           "Alle notwendigen medizinischen Geräte",
           "Großzügigen Garten",
           "Bibliothek und Gemeinschaftsräume"
-        ]
-      },
-      {
-        "title": "Betreuung & Service",
-        "items": [
-          "24h Betreuung und Überwachung",
-          "Umfassende pflegerische und medizinische Leistungen",
-          "Individuell gestalteter Tagesablauf",
-          "Validation und aktivierende Betreuung"
         ]
       }
     ],

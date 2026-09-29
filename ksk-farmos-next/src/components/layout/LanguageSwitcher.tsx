@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { localeMeta, type Locale } from "@/i18n/routing";
-import { Globe } from "@/components/ui/icons";
+import { Globe, ICON_STROKE_ACCENT } from "@/components/ui/icons";
 import { pagesWithHero } from "@/content/navigation";
 import { cn } from "@/lib/cn";
 import {
@@ -86,13 +86,17 @@ export function LanguageSwitcher() {
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={t("lang.title")}
+        style={{ borderWidth: ICON_STROKE_ACCENT }}
         className={cn(
-          "inline-flex h-10 items-center gap-2xs rounded-xs border bg-transparent px-sm text-meta font-medium transition-colors duration-300",
+          "inline-flex h-10 items-center gap-2xs rounded-xs bg-transparent px-sm text-meta font-medium transition-colors duration-300",
           onDark
             ? "border-paper text-paper hover:bg-paper/10"
             : "border-violet text-violet hover:bg-violet/5",
         )}
       >
+        {/* Контур, который сравнивают с чат-кнопкой, — border пилюли выше
+            (общая переменная `ICON_STROKE_ACCENT`), не эта иконка: она
+            рядом с текстом и мельче обычной `size-4…6` не читается. */}
         <Globe className="size-4" />
         <span className="uppercase tracking-[0.06em]">{locale}</span>
       </button>

@@ -84,21 +84,21 @@
     "text": "Our outpatient care service specializes in caring for people with dementia in various residential projects. In a protected, home-like environment, we enable a dignified life with structure, safety, and individual attention.",
     "groups": [
       {
-        "title": "Living & Facilities",
-        "items": [
-          "Room with personal furniture",
-          "All necessary medical equipment",
-          "Spacious garden",
-          "Library and communal rooms"
-        ]
-      },
-      {
         "title": "Care & Service",
         "items": [
           "24h care and monitoring",
           "Comprehensive nursing and medical services",
           "Individually tailored daily routine",
           "Validation and activating care"
+        ]
+      },
+      {
+        "title": "Living & Facilities",
+        "items": [
+          "Room with personal furniture",
+          "All necessary medical equipment",
+          "Spacious garden",
+          "Library and communal rooms"
         ]
       }
     ],

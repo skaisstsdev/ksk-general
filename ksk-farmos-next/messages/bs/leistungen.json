@@ -84,21 +84,21 @@
     "text": "Naša služba kućne njege specijalizirana je za brigu o osobama s demencijom u različitim stambenim projektima. U zaštićenom kućnom okruženju omogućavamo dostojanstven život uz strukturu, sigurnost i individualnu pažnju.",
     "groups": [
       {
+        "title": "Njega i\nusluge",
+        "items": [
+          "Potpuna njega i nadzor 24 sata dnevno",
+          "Širok spektar medicinskih i njegovateljskih usluga",
+          "Dnevni raspored prilagođen individualnim potrebama",
+          "Validacija i aktivirajuća njega"
+        ]
+      },
+      {
         "title": "Stanovanje i oprema",
         "items": [
           "Vlastita soba koju možete urediti svojim namještajem",
           "Sva potrebna medicinska oprema na raspolaganju",
           "Prostran vrt za opuštanje i odmor",
           "Biblioteka i udobne zajedničke prostorije"
-        ]
-      },
-      {
-        "title": "Njega i usluge",
-        "items": [
-          "Potpuna njega i nadzor 24 sata dnevno",
-          "Širok spektar medicinskih i njegovateljskih usluga",
-          "Dnevni raspored prilagođen individualnim potrebama",
-          "Validacija i aktivirajuća njega"
         ]
       }
     ],

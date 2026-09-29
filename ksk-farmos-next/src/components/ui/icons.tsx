@@ -7,13 +7,38 @@
  */
 type IconProps = React.SVGProps<SVGSVGElement>;
 
+/** Толщина линии по умолчанию — та, под которую нарисован набор
+ *  (см. комментарий выше). Живёт здесь одной переменной: если где-то
+ *  иконка рендерится крупнее или мельче обычного `size-4…6` и на глаз
+ *  выходит из общей толщины (см. `ChatWidget`/`LanguageSwitcher`),
+ *  масштаб держит `iconStrokeAt`, а не отдельная цифра на месте. */
+const ICON_STROKE = 1.5;
+const ICON_VIEWBOX = 24;
+
+/** Общий контур пары «кнопка чата / свитчер языка» — px. У чата это
+ *  обводка иконки (border у кнопки нет), у свитчера — border самой
+ *  пилюли (её узкий по стороне глобус — не тот контур, с которым её
+ *  сравнивают на глаз). Значение общее для обоих: border ставится
+ *  в него напрямую, обводка иконки — через `iconStrokeAt`. */
+const ICON_STROKE_ACCENT = 1.75;
+
+/** `strokeWidth` для иконки, отрендеренной в `renderPx` (px), которая
+ *  должна читаться толщиной линии `target` (px) физически на экране —
+ *  обводка масштабируется вместе с иконкой, поэтому крупной иконке
+ *  нужно пропорционально меньшее значение атрибута. */
+export function iconStrokeAt(renderPx: number, target: number = ICON_STROKE) {
+  return (target * ICON_VIEWBOX) / renderPx;
+}
+
+export { ICON_STROKE_ACCENT };
+
 function Icon({ children, ...props }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth={ICON_STROKE}
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
