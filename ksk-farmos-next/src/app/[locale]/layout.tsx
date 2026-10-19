@@ -45,7 +45,7 @@ export async function generateMetadata({
     metadataBase: new URL(siteUrl),
     title: {
       default: `${company.legalName} — ${t("meta.titleSuffix")}`,
-      template: `%s — ${company.legalName}`,
+      template: `%s — ${company.shortName}`,
     },
     // Тот же файл для обоих: логотип не квадратный (300×259), но это
     // по-прежнему лучше, чем полное отсутствие apple-touch-icon —

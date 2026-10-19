@@ -24,7 +24,7 @@ export async function generateMetadata({
     description: t("meta.description"),
     // `[locale]/page.tsx` лежит в том же сегменте, что `[locale]/layout.tsx`,
     // и его `title.template` сюда не достаёт — см. комментарий в `lib/metadata.ts`.
-    titleSuffix: company.legalName,
+    titleSuffix: company.shortName,
   });
 }
 

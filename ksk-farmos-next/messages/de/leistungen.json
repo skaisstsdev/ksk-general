@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Leistungen",
-    "description": "Häusliche Intensivpflege, Aufenthaltskonzept Kassel und Fortbildungen. Alle Leistungen von KSK Farmos GmbH & Co. KG."
+    "title": "Häusliche Intensivpflege & Beatmung Kassel",
+    "description": "Häusliche Intensivpflege in Kassel und Nordhessen, Beatmungspflege und Aufenthaltskonzept Kassel. Alle Leistungen von KSK Farmos GmbH & Co. KG."
   },
   "hero": {
     "eyebrow": "Leistungen",
@@ -16,7 +16,7 @@
   },
   "haeuslich": {
     "eyebrow": "Häusliche Intensivpflege",
-    "title": "Professionelle Pflege zu Hause",
+    "title": "Intensivpflege bei Ihnen zu Hause",
     "text": "Wir versorgen Patienten mit schweren Erkrankungen in ihren eigenen vier Wänden — 24 Stunden am Tag, 7 Tage die Woche, 365 Tage im Jahr.",
     "groups": [
       {
