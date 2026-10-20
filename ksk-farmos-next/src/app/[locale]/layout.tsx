@@ -47,10 +47,6 @@ export async function generateMetadata({
       default: `${company.legalName} — ${t("meta.titleSuffix")}`,
       template: `%s — ${company.shortName}`,
     },
-    // Тот же файл для обоих: логотип не квадратный (300×259), но это
-    // по-прежнему лучше, чем полное отсутствие apple-touch-icon —
-    // без него iOS подставляет скриншот страницы при «Добавить на экран».
-    icons: { icon: "/logo-icon.png", apple: "/logo-icon.png" },
     manifest: "/manifest.webmanifest",
   };
 }
