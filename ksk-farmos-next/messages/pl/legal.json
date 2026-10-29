@@ -9,7 +9,9 @@
     "metaDescription": "Polityka prywatności KSK Farmos GmbH & Co. KG. Informacje o ochronie i przetwarzaniu danych."
   },
   "cookieBanner": {
-    "text": "Ta strona wykorzystuje wyłącznie technicznie niezbędne pliki cookie.",
-    "dismiss": "Rozumiem"
+    "text": "Za Twoją zgodą używamy Google Analytics i Google Ads do pomiaru skuteczności naszych reklam. Niezbędne technicznie pliki cookie stosujemy zawsze.",
+    "accept": "Akceptuję",
+    "decline": "Odrzucam",
+    "settings": "Ustawienia plików cookie"
   }
 }

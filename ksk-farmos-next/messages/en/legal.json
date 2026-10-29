@@ -9,7 +9,9 @@
     "metaDescription": "Privacy policy of KSK Farmos GmbH & Co. KG. Information on data protection and data processing."
   },
   "cookieBanner": {
-    "text": "This website uses only technically necessary cookies.",
-    "dismiss": "Got it"
+    "text": "With your consent we use Google Analytics and Google Ads to measure how well our advertising works. Technically necessary cookies are always set.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "settings": "Cookie settings"
   }
 }

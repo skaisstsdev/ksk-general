@@ -1,4 +1,4 @@
-import { company, contact, locations, siteUrl, social } from "@/content/site";
+import { company, contact, locations, officeHours, siteUrl, social } from "@/content/site";
 
 /**
  * Структурированные данные. Один компонент, а не JSON-строка в каждом
@@ -12,25 +12,16 @@ function JsonLdScript({ data }: { data: object }) {
 }
 
 /**
- * Круглосуточная служба — часы работы одни на оба адреса: `hero.eyebrow`
- * и `moment.text` на каждом языке сайта прямо говорят «24 часа в сутки,
- * 7 дней в неделю» (см. словари `home.json` для каждого языка), это
- * не предположение.
+ * Часы связи, а не часы ухода: уход круглосуточный, но Google показывает
+ * «открыто сейчас» и ставит звонки по этому расписанию — поэтому здесь
+ * часы, когда в офисе отвечают на телефон (`officeHours`).
  */
-const ALWAYS_OPEN = [
+const OFFICE_HOURS = [
   {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
-    opens: "00:00",
-    closes: "23:59",
+    dayOfWeek: [...officeHours.days],
+    opens: officeHours.opens,
+    closes: officeHours.closes,
   },
 ];
 
@@ -68,7 +59,7 @@ export function MedicalBusinessJsonLd() {
         latitude: locations.headquarters.geo.lat,
         longitude: locations.headquarters.geo.lng,
       },
-      openingHoursSpecification: ALWAYS_OPEN,
+      openingHoursSpecification: OFFICE_HOURS,
       sameAs,
       email: contact.email,
       foundingDate: String(company.foundedYear),
@@ -87,7 +78,7 @@ export function MedicalBusinessJsonLd() {
         addressLocality: locations.residence.city,
         addressCountry: locations.residence.country,
       },
-      openingHoursSpecification: ALWAYS_OPEN,
+      openingHoursSpecification: OFFICE_HOURS,
       sameAs,
       email: contact.email,
       parentOrganization: { "@id": `${siteUrl}/#${locations.headquarters.id}` },

@@ -9,7 +9,9 @@
     "metaDescription": "KSK Farmos GmbH & Co. KG gizlilik politikası. Veri koruma ve veri işleme hakkında bilgiler."
   },
   "cookieBanner": {
-    "text": "Bu web sitesi yalnızca teknik olarak gerekli çerezleri kullanır.",
-    "dismiss": "Anladım"
+    "text": "Onayınızla, reklamlarımızın etkisini ölçmek için Google Analytics ve Google Ads kullanıyoruz. Teknik olarak gerekli çerezler her zaman kullanılır.",
+    "accept": "Kabul et",
+    "decline": "Reddet",
+    "settings": "Çerez ayarları"
   }
 }

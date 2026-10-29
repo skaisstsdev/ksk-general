@@ -6,6 +6,7 @@ import { legalNav, mainNav } from "@/content/navigation";
 import { company, contact, locations, social } from "@/content/site";
 import { Container } from "@/components/ui/Container";
 import { Rule } from "@/components/ui/Rule";
+import { CookieSettingsButton } from "@/components/layout/CookieSettingsButton";
 
 function ColumnTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -87,6 +88,7 @@ export async function Footer() {
                   {contact.email}
                 </a>
               </li>
+              <li className="text-meta text-paper/50">{t("footer.hours")}</li>
             </ul>
 
             <div className="mt-md flex gap-sm">
@@ -147,6 +149,9 @@ export async function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <CookieSettingsButton className="text-meta text-paper/50 transition-colors hover:text-paper" />
+            </li>
           </ul>
         </div>
       </Container>

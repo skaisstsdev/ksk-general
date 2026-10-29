@@ -55,11 +55,12 @@ export async function generateMetadata({
  * стоит проверить и, если нужно, донастроить в кабинете OpenAI
  * отдельно от правки этого текста.
  *
- * Раздел 6 (Cookies) не менялся: ни формы, ни чат-виджет не ставят
- * собственных cookie или localStorage для трекинга — `ChatWidget.tsx`
- * читает только уже существующий ключ баннера cookie, чтобы поднять
- * кнопку над ним. Заявление «только технически необходимые cookie»
- * остаётся верным.
+ * Раздел 6 (Cookies) переписан под Google Analytics 4 и Google Ads:
+ * они грузятся только после согласия в баннере (`CookieBanner.tsx`,
+ * `GoogleTag.tsx`), `ad_personalization` всегда выключен. Список
+ * получателей (раздел 12) дополнен тем же. Формы и чат-виджет по-
+ * прежнему не ставят собственных cookie — `ChatWidget.tsx` читает
+ * только ключ решения о согласии, чтобы поднять кнопку над баннером.
  *
  * Google Maps, хостинг на Vercel — без изменений, зафиксированы как
  * реализовано (`ConsentMap.tsx` — карта не грузится без клика).
@@ -208,12 +209,49 @@ export default async function DatenschutzPage({
             Aufbewahrung erforderlich machen.
           </LegalP>
 
-          <LegalH2>6. Cookies</LegalH2>
+          <LegalH2>6. Cookies, Google Analytics und Google Ads</LegalH2>
           <LegalP>
-            Unsere Website verwendet ausschließlich technisch notwendige Cookies. Diese
-            Cookies sind für den technischen Betrieb der Website erforderlich. Rechtsgrundlage
-            hierfür ist Art. 6 Abs. 1 lit. f DSGVO in Verbindung mit § 25 Abs. 2 TDDDG.
-            Tracking-, Analyse- oder Marketing-Cookies werden nicht eingesetzt.
+            Unsere Website verwendet technisch notwendige Cookies und vergleichbare
+            Technologien (z. B. den Eintrag Ihrer Cookie-Entscheidung im lokalen Speicher
+            Ihres Browsers). Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. f DSGVO in
+            Verbindung mit § 25 Abs. 2 TDDDG.
+          </LegalP>
+          <LegalP>
+            Darüber hinaus setzen wir, ausschließlich nach Ihrer Einwilligung über unser
+            Cookie-Banner, Google Analytics 4 und Google Ads (Conversion-Messung) ein.
+            Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4,
+            Irland. Ohne Ihre Einwilligung wird kein Skript von Google geladen und es werden
+            keine Daten an Google übermittelt.
+          </LegalP>
+          <LegalP>
+            Zweck ist die Messung, wie viele Besucherinnen und Besucher über unsere
+            Google-Anzeigen auf die Website gelangen und ob daraus eine Kontaktaufnahme
+            entsteht (Absenden des Kontakt- oder Beratungsformulars, Klick auf eine
+            Telefonnummer oder E-Mail-Adresse). Dabei können Ihre IP-Adresse, Geräte- und
+            Browserinformationen, die aufgerufenen Seiten sowie die genannten Interaktionen
+            verarbeitet werden. Die Personalisierung von Werbung auf Grundlage Ihres
+            Besuchs (Remarketing) ist deaktiviert. Eine Übermittlung an Server von Google
+            in den USA kann nicht ausgeschlossen werden; sie erfolgt auf Grundlage
+            geeigneter Garantien nach Art. 44 ff. DSGVO.
+          </LegalP>
+          <LegalP>
+            Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in
+            Verbindung mit § 25 Abs. 1 TDDDG. Sie können sie jederzeit mit Wirkung für die
+            Zukunft widerrufen: über den Link „Cookie-Einstellungen“ am Ende jeder Seite
+            erscheint das Cookie-Banner erneut. Die Rechtmäßigkeit der bis zum Widerruf
+            erfolgten Verarbeitung bleibt unberührt.
+          </LegalP>
+          <LegalP>
+            Weitere Informationen:{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-violet underline decoration-violet/30 hover:decoration-violet"
+            >
+              policies.google.com/privacy
+            </a>
+            .
           </LegalP>
 
           <LegalH2>7. Kontaktaufnahme per E-Mail oder Kontaktformular</LegalH2>
@@ -413,7 +451,7 @@ export default async function DatenschutzPage({
               "Vercel Inc. (Hosting)",
               "Plus Five Five, Inc. (Resend) (technische Zustellung von Formularnachrichten)",
               "OpenAI Ireland Ltd. (KI-Chatbot, nach Absenden einer Nachricht)",
-              "Google Ireland Limited (Kartendarstellung nach Einwilligung)",
+              "Google Ireland Limited (Kartendarstellung sowie Google Analytics und Google Ads, jeweils nach Einwilligung)",
               "IT-Dienstleister und technische Serviceanbieter",
               "Behörden oder öffentliche Stellen aufgrund gesetzlicher Verpflichtungen",
             ]}

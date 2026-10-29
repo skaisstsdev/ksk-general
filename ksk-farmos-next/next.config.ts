@@ -27,6 +27,11 @@ const legacyPages = [
  * встраивание на этом самом перенаправлении, уже после разрешённого
  * первого адреса).
  *
+ * Второе исключение — Google Analytics/Ads (`GoogleTag.tsx`): скрипт
+ * запрашивается только после согласия в баннере, до него ни один из
+ * этих адресов не открывается. Домены — те, что gtag.js использует
+ * для самого скрипта, отправки измерений и пикселя конверсий.
+ *
  * `'unsafe-inline'` у `script-src`/`style-src` — не ослабление
  * специально для этого сайта: React/Next вставляет данные гидратации
  * инлайн-скриптом, а Motion меняет анимируемые свойства через
@@ -43,11 +48,11 @@ const legacyPages = [
  */
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  "img-src 'self' data: https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.googletagmanager.com https://*.google-analytics.com https://*.doubleclick.net https://www.google.com https://www.google.de https://www.google.at https://www.google.ch",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://www.googleadservices.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.doubleclick.net https://www.google.com https://www.google.de https://www.google.at https://www.google.ch",
   "frame-src https://maps.google.com https://www.google.com",
   "object-src 'none'",
   "base-uri 'self'",

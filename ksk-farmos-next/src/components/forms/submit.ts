@@ -1,3 +1,5 @@
+import { trackFormSubmit } from "@/lib/analytics";
+
 export type SubmitResult = { ok: true } | { ok: false; error: string };
 
 /**
@@ -34,6 +36,8 @@ export async function submitForm(
     }
 
     if (!response.ok) return { ok: false, error: `HTTP ${response.status}` };
+    // Конверсия — только по ответу сервера: ловушка-honeypot и ошибки сюда не попадают.
+    trackFormSubmit(formName);
     return { ok: true };
   } catch {
     return { ok: false, error: "network" };

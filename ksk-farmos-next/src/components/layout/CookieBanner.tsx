@@ -4,64 +4,54 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
+import {
+  CONSENT_CHANGE_EVENT,
+  CONSENT_STORAGE_KEY,
+  readConsent,
+  writeConsent,
+} from "@/lib/consent";
 
-export const COOKIE_NOTICE_STORAGE_KEY = "ksk-cookie-notice-dismissed";
-export const COOKIE_NOTICE_DISMISS_EVENT = "ksk-cookie-notice-dismiss";
+/** Ключ и событие, по которым `ChatWidget.tsx` узнаёт, что баннер ещё на экране. */
+export const COOKIE_NOTICE_STORAGE_KEY = CONSENT_STORAGE_KEY;
+export const COOKIE_NOTICE_DISMISS_EVENT = CONSENT_CHANGE_EVENT;
 
 /**
- * Уведомление о cookie, не запрос согласия. Datenschutzerklärung
- * прямо говорит: сайт использует только технически необходимые
- * cookie, для которых согласие по закону не требуется (§ 25 Abs. 2
- * TDDDG) — поэтому одна кнопка «Понятно», а не Accept/Reject, который
- * подразумевал бы выбор там, где его нет. Если позже на сайте
- * появятся cookie, требующие согласия (аналитика, чат-виджет),
- * баннер и раздел 6 Datenschutz нужно менять вместе.
+ * Запрос согласия на Google Analytics и Google Ads (§ 25 Abs. 1 TDDDG,
+ * Art. 6 Abs. 1 lit. a DSGVO). Две кнопки одного веса — «Принять» и
+ * «Отклонить»: отказ не должен быть заметно труднее согласия. Пока
+ * решения нет, тег Google не загружается (`GoogleTag.tsx`).
  *
  * Правый нижний угол — переключатель языка уже занимает левый
- * (`LanguageSwitcher.tsx`, `bottom-md start-md`), после клика запись
- * остаётся в `localStorage` — тем же приёмом, что и остальной клиентский
- * стейт сайта, без cookie ради баннера про cookie.
+ * (`LanguageSwitcher.tsx`, `bottom-md start-md`). Передумать можно через
+ * «Cookie-Einstellungen» в футере (`CookieSettingsButton.tsx`).
  */
 export function CookieBanner() {
   const t = useTranslations("legal");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Синхронизация с `localStorage` — внешним хранилищем: значение
-    // читается при монтировании и при событии `storage` (запись из
-    // другой вкладки), тем же приёмом, что `probe`/`resize`
-    // в `LanguageSwitcher.tsx`.
     function sync() {
-      try {
-        setVisible(localStorage.getItem(COOKIE_NOTICE_STORAGE_KEY) === null);
-      } catch {
-        // Приватный режим/запрет доступа к хранилищу — показываем баннер каждый раз.
-        setVisible(true);
-      }
+      setVisible(readConsent() === null);
     }
     sync();
     window.addEventListener("storage", sync);
-    return () => window.removeEventListener("storage", sync);
+    window.addEventListener(CONSENT_CHANGE_EVENT, sync);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener(CONSENT_CHANGE_EVENT, sync);
+    };
   }, []);
-
-  function dismiss() {
-    setVisible(false);
-    try {
-      localStorage.setItem(COOKIE_NOTICE_STORAGE_KEY, "1");
-    } catch {
-      // Хранить негде — баннер просто появится снова в следующий визит.
-    }
-    // `storage` не срабатывает во вкладке, которая сама изменила значение —
-    // событие для тех, кто слушает именно этот клик в этой вкладке.
-    window.dispatchEvent(new Event(COOKIE_NOTICE_DISMISS_EVENT));
-  }
 
   if (!visible) return null;
 
+  const button =
+    "inline-flex h-9 items-center rounded-xs border border-ink px-sm text-meta font-medium text-ink transition-colors hover:bg-ink/5";
+
   return (
     <div
-      role="status"
-      className="fixed inset-x-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-50 rounded-xs border border-line-strong bg-paper p-sm sm:inset-x-auto sm:end-md sm:w-[22rem]"
+      role="dialog"
+      aria-label={t("cookieBanner.settings")}
+      className="fixed inset-x-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-50 rounded-xs border border-line-strong bg-paper p-sm sm:inset-x-auto sm:end-md sm:w-[24rem]"
     >
       <p className="text-meta text-ink-soft">
         {t("cookieBanner.text")}{" "}
@@ -72,13 +62,14 @@ export function CookieBanner() {
           {t("datenschutz.title")}
         </Link>
       </p>
-      <button
-        type="button"
-        onClick={dismiss}
-        className="mt-xs inline-flex h-9 items-center rounded-xs border border-ink px-sm text-meta font-medium text-ink transition-colors hover:bg-ink/5"
-      >
-        {t("cookieBanner.dismiss")}
-      </button>
+      <div className="mt-xs flex gap-xs">
+        <button type="button" onClick={() => writeConsent("granted")} className={button}>
+          {t("cookieBanner.accept")}
+        </button>
+        <button type="button" onClick={() => writeConsent("denied")} className={button}>
+          {t("cookieBanner.decline")}
+        </button>
+      </div>
     </div>
   );
 }

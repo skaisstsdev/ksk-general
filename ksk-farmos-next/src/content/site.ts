@@ -33,6 +33,16 @@ export const contact = {
   email: "pflege@ksk-farmos.de",
 } as const;
 
+/**
+ * Часы, когда в офисе берут трубку: пн–пт 9:00–17:00. Сам уход
+ * круглосуточный — это часы связи, не часы работы службы.
+ */
+export const officeHours = {
+  days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] as const,
+  opens: "09:00",
+  closes: "17:00",
+} as const;
+
 /** Реквизиты для Impressum. Юридический документ — трогать только по указанию владельца. */
 export const impressum = {
   phone: { display: "05693 / 9915666", href: "tel:+4956939915666" },

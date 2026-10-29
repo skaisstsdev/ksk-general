@@ -9,7 +9,9 @@
     "metaDescription": "Politica de confidențialitate a KSK Farmos GmbH & Co. KG. Informații despre protecția și prelucrarea datelor."
   },
   "cookieBanner": {
-    "text": "Acest site utilizează exclusiv cookie-uri strict necesare din punct de vedere tehnic.",
-    "dismiss": "Am înțeles"
+    "text": "Cu acordul dvs. folosim Google Analytics și Google Ads pentru a măsura eficiența reclamelor noastre. Cookie-urile necesare tehnic sunt folosite întotdeauna.",
+    "accept": "Accept",
+    "decline": "Refuz",
+    "settings": "Setări cookie"
   }
 }

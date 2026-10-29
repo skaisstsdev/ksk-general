@@ -33,6 +33,13 @@ export const routing = defineRouting({
   localePrefix: "as-needed",
   /** Язык выбирается ссылкой, а не заголовком браузера: адрес должен быть предсказуем. */
   localeDetection: false,
+  /**
+   * Заголовок `Link: rel="alternate"` next-intl строил по ключам локалей,
+   * то есть с кодом `ua`, которого нет в BCP 47 (украинский — `uk`).
+   * Те же альтернативы стоят в разметке страниц (`lib/metadata.ts`) —
+   * с правильным кодом, дубль в заголовке не нужен.
+   */
+  alternateLinks: false,
 });
 
 export function localeDir(locale: string): "ltr" | "rtl" {

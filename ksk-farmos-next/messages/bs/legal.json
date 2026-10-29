@@ -9,7 +9,9 @@
     "metaDescription": "Politika privatnosti KSK Farmos GmbH & Co. KG. Informacije o zaštiti i obradi podataka."
   },
   "cookieBanner": {
-    "text": "Ova web stranica koristi isključivo tehnički neophodne kolačiće.",
-    "dismiss": "Razumijem"
+    "text": "Uz vaš pristanak koristimo Google Analytics i Google Ads za mjerenje učinka naših oglasa. Tehnički neophodni kolačići koriste se uvijek.",
+    "accept": "Prihvatam",
+    "decline": "Odbijam",
+    "settings": "Postavke kolačića"
   }
 }

@@ -6,6 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 
 import "../globals.css";
 
+import { GoogleTag } from "@/components/analytics/GoogleTag";
 import { ChatWidget } from "@/components/chat/ChatWidget";
 import { CookieBanner } from "@/components/layout/CookieBanner";
 import { Header } from "@/components/layout/Header";
@@ -114,6 +115,7 @@ export default async function LocaleLayout({
           <Footer />
           <LanguageSwitcher />
           <CookieBanner />
+          <GoogleTag />
           <ChatWidget />
         </NextIntlClientProvider>
       </body>

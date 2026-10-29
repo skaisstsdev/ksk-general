@@ -21,7 +21,8 @@ export function localizedAlternates(
 ): NonNullable<Metadata["alternates"]> {
   const languages: Record<string, string> = {};
   for (const l of locales) {
-    languages[l] = getPathname({ locale: l, href });
+    // Маршрут сайта — `/ua`, но код языка в hreflang — `uk` (BCP 47).
+    languages[l === "ua" ? "uk" : l] = getPathname({ locale: l, href });
   }
   languages["x-default"] = getPathname({ locale: routing.defaultLocale, href });
 
