@@ -1,0 +1,203 @@
+{
+  "shared": {
+    "eyebrow": "Job opening",
+    "back": "All open positions",
+    "apply": "Apply now",
+    "factsTitle": "At a glance",
+    "phoneLabel": "Questions in advance?",
+    "closingEyebrow": "Application",
+    "closingPoints": [
+      "No cover letter needed",
+      "By form, email or phone",
+      "A personal conversation on equal terms"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Nursing Specialist Intensive Care (m/f/d) Kassel",
+        "description": "Nursing specialist (m/f/d) for out-of-hospital intensive care in Volkmarsen and Kassel: €28/hour, individual shift planning and a strong team."
+      },
+      "title": "Nursing Specialist – Out-of-Hospital Intensive Care (m/f/d)",
+      "claim": "Care with time. With responsibility. With appreciation.",
+      "intro": [
+        "Do you want to support people at a high professional level while working in an environment where your performance is truly seen? Then KSK Farmos is the right place for you.",
+        "With us you care for people in their own home or in an intensive care shared flat. You work in a calm atmosphere, without the hectic routine of a hospital ward, and with the freedom to deliver care the way it should be: professional, attentive and humane."
+      ],
+      "facts": [
+        { "label": "Pay", "value": "€28/hour" },
+        { "label": "Working hours", "value": "Full-time / Part-time" },
+        { "label": "Field", "value": "Out-of-hospital intensive care" },
+        { "label": "Location", "value": "Volkmarsen, Kassel and surrounding area" }
+      ],
+      "benefitsEyebrow": "Your benefits",
+      "benefitsTitle": "What you can look forward to",
+      "benefits": [
+        {
+          "title": "Above-tariff pay",
+          "text": "Good care deserves more than recognition. That is why we offer an above-average salary that reflects your responsibility, commitment and qualifications."
+        },
+        {
+          "title": "Working hours that fit your life",
+          "text": "Your life is more than work. That is why we rely on individual shift planning instead of rigid standard models. Together we find working hours that fit your everyday life."
+        },
+        {
+          "title": "Support with your commute",
+          "text": "We want you to arrive at work relaxed. Depending on the place of work, we offer a shuttle service and help you get to your workplace reliably."
+        },
+        {
+          "title": "Company car, depending on your role",
+          "text": "For certain tasks we provide a company car. This keeps you flexible and mobile, including during your working day."
+        },
+        {
+          "title": "A team that sticks together",
+          "text": "We believe good care is only possible in a strong team. Mutual support, honest communication and respectful treatment are not empty phrases for us but everyday practice."
+        },
+        {
+          "title": "Meaningful and demanding care",
+          "text": "You work with people who depend on intensive, specialised care. You take on responsible tasks in treatment and basic care and often accompany clients over a longer period."
+        },
+        {
+          "title": "Further training with real value",
+          "text": "We invest in your knowledge. Regular internal training and further education help you stay professionally confident and keep developing."
+        },
+        {
+          "title": "An employer with a future",
+          "text": "KSK Farmos is growing steadily. For you that means security, development opportunities and a long-term perspective in a modern care company."
+        }
+      ],
+      "profileEyebrow": "Your profile",
+      "profileTitle": "What you bring",
+      "requirementsTitle": "What matters to us",
+      "requirements": [
+        "Completed training as a nursing specialist, geriatric nurse or healthcare and nursing professional",
+        "Empathy, a sense of responsibility and joy in working with people",
+        "A structured and reliable way of working",
+        "Team spirit and professionalism"
+      ],
+      "niceTitle": "Nice if you already bring this",
+      "nice": [
+        "Experience in out-of-hospital intensive care",
+        "Knowledge of ventilation care",
+        "Further training in intensive care, hygiene or respiratory therapy"
+      ],
+      "niceNote": "If not: no problem. We will support you along the way.",
+      "closingTitle": "Become part of our team",
+      "closingText": "Do you want to have the time that good care needs again? Are you looking for a team that sticks together, fair working conditions and an employer with a future? Then we look forward to getting to know you."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Nursing Assistant (m/f/d) Intensive Care Kassel",
+        "description": "Nursing assistant (m/f/d) in Volkmarsen and Kassel: support our team in out-of-hospital intensive care, with individual shift planning and good onboarding."
+      },
+      "title": "Nursing Assistant (m/f/d)",
+      "claim": "Close to people. Firm in the team.",
+      "intro": [
+        "Do you like to pitch in, are you there for others and do you want to make a real difference in care? Then you fit well with KSK Farmos.",
+        "As a nursing assistant you support our nursing specialists in caring for seriously ill people, in their own home or in a shared flat. You work in a calm atmosphere and have time for the people you accompany."
+      ],
+      "facts": [
+        { "label": "Working hours", "value": "Full-time / Part-time" },
+        { "label": "Field", "value": "Basic care and everyday support" },
+        { "label": "Location", "value": "Volkmarsen, Kassel and surrounding area" }
+      ],
+      "benefitsEyebrow": "Your benefits",
+      "benefitsTitle": "What you can look forward to",
+      "benefits": [
+        {
+          "title": "Above-tariff pay",
+          "text": "Your work is worth a lot to us. This is also reflected in pay that matches your responsibility and commitment."
+        },
+        {
+          "title": "Working hours that fit your life",
+          "text": "Instead of rigid standard models we rely on individual shift planning. Together we find working hours that fit your everyday life."
+        },
+        {
+          "title": "Support with your commute",
+          "text": "Depending on the place of work, we offer a shuttle service and help you get to your workplace reliably."
+        },
+        {
+          "title": "A team that sticks together",
+          "text": "You work closely with experienced nursing specialists. Mutual support and respectful treatment are part of everyday life with us."
+        },
+        {
+          "title": "Onboarding and further training",
+          "text": "We guide you through your start. Regular internal training and further education help you gain confidence and keep developing."
+        },
+        {
+          "title": "An employer with a future",
+          "text": "KSK Farmos is growing steadily. For you that means security and a long-term perspective."
+        }
+      ],
+      "profileEyebrow": "Your profile",
+      "profileTitle": "What you bring",
+      "requirementsTitle": "What matters to us",
+      "requirements": [
+        "Empathy, a sense of responsibility and joy in working with people",
+        "A structured and reliable way of working",
+        "Team spirit and a willingness to learn new things"
+      ],
+      "niceTitle": "Nice if you already bring this",
+      "nice": [
+        "Training or experience as a nursing assistant",
+        "Experience in outpatient care or intensive care"
+      ],
+      "niceNote": "If not: no problem. We will support you along the way.",
+      "closingTitle": "Become part of our team",
+      "closingText": "Are you looking for work that makes sense and a team that sticks together? Then we look forward to getting to know you."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Nursing Internship (m/f/d) Intensive Care Kassel",
+        "description": "Nursing internship (m/f/d) at KSK Farmos in Volkmarsen and Kassel: get to know out-of-hospital intensive care in everyday practice, guided by experienced specialists."
+      },
+      "title": "Nursing Intern (m/f/d)",
+      "claim": "Get to know intensive care from the inside.",
+      "intro": [
+        "Are you interested in nursing or medicine and want to know what the work is really like? At KSK Farmos you gain insights that you cannot learn from books.",
+        "You accompany our nursing specialists in caring for seriously ill people in their own home or in a shared flat and get to know the everyday life of out-of-hospital intensive care."
+      ],
+      "facts": [
+        { "label": "Working hours", "value": "Full-time" },
+        { "label": "Start and duration", "value": "By arrangement" },
+        { "label": "Location", "value": "Volkmarsen, Kassel and surrounding area" }
+      ],
+      "benefitsEyebrow": "Your benefits",
+      "benefitsTitle": "What you take away",
+      "benefits": [
+        {
+          "title": "Real insights",
+          "text": "You experience how people with ventilation, persistent vegetative state or neurological conditions are cared for at home."
+        },
+        {
+          "title": "Guidance from specialists",
+          "text": "Experienced colleagues take time for you, explain their work and answer your questions."
+        },
+        {
+          "title": "A team that sticks together",
+          "text": "You are included from day one. Honest communication and respectful treatment are part of everyday life with us."
+        },
+        {
+          "title": "Support with your commute",
+          "text": "Depending on the place of work, we offer a shuttle service and help you reliably get to your place of assignment."
+        }
+      ],
+      "profileEyebrow": "Your profile",
+      "profileTitle": "What you bring",
+      "requirementsTitle": "What matters to us",
+      "requirements": [
+        "Interest in nursing and medicine",
+        "Empathy and enjoyment of dealing with people",
+        "Reliability and team spirit"
+      ],
+      "niceTitle": "Nice if you already bring this",
+      "nice": [
+        "Medical or nursing studies, or a nursing training programme already begun",
+        "First practical experience in nursing"
+      ],
+      "niceNote": "If not: no problem. We will support you along the way.",
+      "closingTitle": "Get to know us",
+      "closingText": "Do you want to find out whether intensive care is right for you? Then we look forward to your application."
+    }
+  }
+}

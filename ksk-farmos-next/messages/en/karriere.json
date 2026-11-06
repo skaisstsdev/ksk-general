@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "Job Openings",
     "title": "Open Positions",
-    "bewerben": "Apply",
+    "mehr": "Learn more",
     "items": [
       {
         "title": "Nursing Specialist (m/f/d)",
         "tags": [
+          "€28/hour",
           "Full-time / Part-time",
-          "Intensive Care",
-          "Driving License B"
+          "Intensive Care"
         ]
       },
       {
         "title": "Nursing Assistant (m/f/d)",
         "tags": [
-          "Full-time / Part-time",
-          "Driving License B"
+          "Full-time / Part-time"
         ]
       },
       {

@@ -26,6 +26,7 @@
       "nachname": "Nachname",
       "email": "E-Mail",
       "telefon": "Telefon",
+      "stelleLabel": "Stelle",
       "qualifikationLabel": "Aktueller Beruf / Qualifikation",
       "qualifikationPlaceholder": "Bitte wählen",
       "erfahrungLabel": "Berufserfahrung in der Intensivpflege",

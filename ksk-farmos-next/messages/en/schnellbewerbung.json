@@ -26,6 +26,7 @@
       "nachname": "Last Name",
       "email": "Email",
       "telefon": "Phone",
+      "stelleLabel": "Position",
       "qualifikationLabel": "Current Profession / Qualification",
       "qualifikationPlaceholder": "Please select",
       "erfahrungLabel": "Experience in Intensive Care",

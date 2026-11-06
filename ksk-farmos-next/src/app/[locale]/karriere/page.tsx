@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Col, Grid } from "@/components/ui/Grid";
 import { Rule } from "@/components/ui/Rule";
+import { stellen } from "@/content/pages/stellen";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
@@ -46,7 +47,7 @@ export default async function KarrierePage({
   const vakanzen: {
     eyebrow: string;
     title: string;
-    bewerben: string;
+    mehr: string;
     items: { title: string; tags: string[] }[];
   } = t.raw("vakanzen");
   const bewerbung = t.raw("bewerbung");
@@ -164,12 +165,12 @@ export default async function KarrierePage({
                         </div>
                       </div>
                       <Button
-                        href="/schnellbewerbung"
+                        href={`/karriere/${stellen[i].slug}`}
                         variant="secondary"
                         size="sm"
                         className="border-white-pure/60 text-white-pure hover:border-white-pure hover:bg-white-pure/10"
                       >
-                        {vakanzen.bewerben}
+                        {vakanzen.mehr}
                       </Button>
                     </div>
                   </li>

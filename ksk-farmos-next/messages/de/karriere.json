@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "Stellenangebote",
     "title": "Offene Stellen",
-    "bewerben": "Bewerben",
+    "mehr": "Mehr erfahren",
     "items": [
       {
         "title": "Pflegefachkraft (w/m/d)",
         "tags": [
+          "28 €/Stunde",
           "Vollzeit / Teilzeit",
-          "Intensivpflege",
-          "Führerschein B"
+          "Intensivpflege"
         ]
       },
       {
         "title": "Pflegehelfer (w/m/d)",
         "tags": [
-          "Vollzeit / Teilzeit",
-          "Führerschein B"
+          "Vollzeit / Teilzeit"
         ]
       },
       {

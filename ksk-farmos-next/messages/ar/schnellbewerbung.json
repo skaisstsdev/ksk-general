@@ -26,6 +26,7 @@
       "nachname": "اسم العائلة",
       "email": "البريد الإلكتروني",
       "telefon": "رقم الهاتف",
+      "stelleLabel": "الوظيفة",
       "qualifikationLabel": "المهنة الحالية / المؤهل",
       "qualifikationPlaceholder": "يرجى الاختيار",
       "erfahrungLabel": "الخبرة في العناية المركزة",

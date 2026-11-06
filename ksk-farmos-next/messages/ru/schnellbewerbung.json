@@ -26,6 +26,7 @@
       "nachname": "Фамилия",
       "email": "E-Mail",
       "telefon": "Телефон",
+      "stelleLabel": "Вакансия",
       "qualifikationLabel": "Текущая профессия / квалификация",
       "qualifikationPlaceholder": "Пожалуйста, выберите",
       "erfahrungLabel": "Опыт работы в интенсивной терапии",

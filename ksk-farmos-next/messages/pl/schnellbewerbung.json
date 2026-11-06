@@ -26,6 +26,7 @@
       "nachname": "Nazwisko",
       "email": "E-Mail",
       "telefon": "Telefon",
+      "stelleLabel": "Stanowisko",
       "qualifikationLabel": "Aktualny zawód / kwalifikacje",
       "qualifikationPlaceholder": "Wybierz opcję",
       "erfahrungLabel": "Doświadczenie w intensywnej opiece",

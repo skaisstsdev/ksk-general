@@ -26,6 +26,7 @@
       "nachname": "Прізвище",
       "email": "E-Mail",
       "telefon": "Телефон",
+      "stelleLabel": "Вакансія",
       "qualifikationLabel": "Поточна професія / кваліфікація",
       "qualifikationPlaceholder": "Будь ласка, оберіть",
       "erfahrungLabel": "Досвід роботи в інтенсивній терапії",

@@ -1,0 +1,263 @@
+{
+  "shared": {
+    "eyebrow": "Stellenangebot",
+    "back": "Alle offenen Stellen",
+    "apply": "Jetzt bewerben",
+    "factsTitle": "Auf einen Blick",
+    "phoneLabel": "Fragen vorab?",
+    "closingEyebrow": "Bewerbung",
+    "closingPoints": [
+      "Kein Anschreiben nötig",
+      "Per Formular, E-Mail oder Telefon",
+      "Persönliches Gespräch auf Augenhöhe"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Pflegefachkraft Intensivpflege (m/w/d) Kassel",
+        "description": "Pflegefachkraft (m/w/d) für außerklinische Intensivpflege in Volkmarsen und Kassel: 28 €/Stunde, individuelle Dienstpläne und ein starkes Team."
+      },
+      "title": "Pflegefachkraft außerklinische Intensivpflege (m/w/d)",
+      "claim": "Pflege mit Zeit. Mit Verantwortung. Mit Wertschätzung.",
+      "intro": [
+        "Du möchtest Menschen auf hohem fachlichem Niveau begleiten und gleichzeitig in einem Umfeld arbeiten, in dem deine Leistung wirklich gesehen wird? Dann bist du bei KSK Farmos genau richtig.",
+        "Bei uns versorgst du Menschen in ihrem Zuhause oder in einer Intensivpflege-Wohngemeinschaft. Du arbeitest in ruhiger Atmosphäre, ohne den hektischen Stationsalltag und mit dem Freiraum, Pflege so umzusetzen, wie sie sein sollte: professionell, aufmerksam und menschlich."
+      ],
+      "facts": [
+        {
+          "label": "Vergütung",
+          "value": "28 €/Stunde"
+        },
+        {
+          "label": "Arbeitszeit",
+          "value": "Vollzeit / Teilzeit"
+        },
+        {
+          "label": "Bereich",
+          "value": "Außerklinische Intensivpflege"
+        },
+        {
+          "label": "Einsatzort",
+          "value": "Volkmarsen, Kassel und Umgebung"
+        }
+      ],
+      "benefitsEyebrow": "Deine Vorteile",
+      "benefitsTitle": "Darauf kannst du dich freuen",
+      "benefits": [
+        {
+          "title": "Übertarifliche Bezahlung",
+          "text": "Gute Pflege verdient mehr als Anerkennung. Deshalb bieten wir dir eine überdurchschnittliche Vergütung, die deiner Verantwortung, deinem Engagement und deiner Qualifikation gerecht wird."
+        },
+        {
+          "title": "Dienstzeiten, die zu deinem Leben passen",
+          "text": "Dein Leben besteht aus mehr als Arbeit. Deshalb setzen wir auf individuelle Dienstplanung statt starrer Standardmodelle. Gemeinsam finden wir Arbeitszeiten, die zu deinem Alltag passen."
+        },
+        {
+          "title": "Unterstützung bei deiner Mobilität",
+          "text": "Wir möchten, dass du entspannt zur Arbeit kommst. Je nach Einsatzort bieten wir einen Fahrdienst an und unterstützen dich dabei, zuverlässig an deinen Arbeitsplatz zu gelangen."
+        },
+        {
+          "title": "Dienstwagen je nach Aufgabenbereich",
+          "text": "Für bestimmte Tätigkeiten stellen wir dir einen Firmenwagen zur Verfügung. So bleibst du flexibel und mobil, auch während deines Arbeitsalltags."
+        },
+        {
+          "title": "Ein Team, das zusammenhält",
+          "text": "Wir glauben daran, dass gute Pflege nur in einem starken Team möglich ist. Gegenseitige Unterstützung, ehrliche Kommunikation und respektvoller Umgang sind für uns keine Floskeln, sondern gelebter Alltag."
+        },
+        {
+          "title": "Sinnvolle und anspruchsvolle Pflege",
+          "text": "Du arbeitest mit Menschen, die auf eine intensive und spezialisierte Versorgung angewiesen sind. Dabei übernimmst du verantwortungsvolle Aufgaben in der Behandlungs- und Grundpflege und begleitest Klient:innen oft über einen längeren Zeitraum."
+        },
+        {
+          "title": "Weiterbildung mit echtem Mehrwert",
+          "text": "Wir investieren in dein Wissen. Regelmäßige interne Schulungen und Fortbildungen helfen dir dabei, fachlich sicher zu bleiben und dich kontinuierlich weiterzuentwickeln."
+        },
+        {
+          "title": "Ein Arbeitgeber mit Zukunft",
+          "text": "KSK Farmos wächst stetig. Für dich bedeutet das Sicherheit, Entwicklungsmöglichkeiten und eine langfristige Perspektive in einem modernen Pflegeunternehmen."
+        }
+      ],
+      "tasksEyebrow": "Dein Alltag",
+      "tasksTitle": "Deine Aufgaben",
+      "tasksLead": "Du übernimmst Pflege, die fachlich anspruchsvoll ist und gleichzeitig nah am Menschen bleibt. Je nach Einsatz versorgst du Klient:innen in ihrer Häuslichkeit oder in einer Wohngemeinschaft mit Ruhe, Struktur und hoher Professionalität.",
+      "tasks": [
+        "Durchführung der Grund- und Behandlungspflege",
+        "Fachgerechte und nachvollziehbare Pflegedokumentation",
+        "Betreuung von Klient:innen mit komplexen Krankheitsbildern, beispielsweise bei Beatmung, respiratorischer Insuffizienz, ALS oder Querschnittlähmung",
+        "Sicherstellung einer individuellen und qualitativ hochwertigen Versorgung",
+        "Enge Zusammenarbeit mit Kolleg:innen, Angehörigen und anderen Beteiligten",
+        "Verantwortung für sichere Abläufe und professionelle Übergaben"
+      ],
+      "profileEyebrow": "Dein Profil",
+      "profileTitle": "Das bringst du mit",
+      "requirementsTitle": "Das ist uns wichtig",
+      "requirements": [
+        "Abgeschlossene Ausbildung als Pflegefachkraft, Altenpfleger:in oder Gesundheits- und Krankenpfleger:in",
+        "Empathie, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen",
+        "Eine strukturierte und zuverlässige Arbeitsweise",
+        "Teamgeist und Professionalität"
+      ],
+      "niceTitle": "Schön, wenn du das bereits mitbringst",
+      "nice": [
+        "Erfahrung in der außerklinischen Intensivpflege",
+        "Kenntnisse in der Beatmungspflege",
+        "Fort- und Weiterbildungen im Bereich Intensivpflege, Hygiene oder Atemtherapie"
+      ],
+      "niceNote": "Falls nicht: Kein Problem. Wir unterstützen dich auf deinem Weg.",
+      "closingTitle": "Werde Teil unseres Teams",
+      "closingText": "Du möchtest wieder die Zeit haben, die gute Pflege braucht? Du suchst ein Team, das zusammenhält, faire Arbeitsbedingungen und einen Arbeitgeber mit Zukunft? Dann freuen wir uns darauf, dich kennenzulernen."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Pflegehelfer (m/w/d) Intensivpflege Kassel",
+        "description": "Pflegehelfer (m/w/d) in Volkmarsen und Kassel: Unterstütze unser Team in der außerklinischen Intensivpflege, mit individueller Dienstplanung und guter Einarbeitung."
+      },
+      "title": "Pflegehelfer (m/w/d)",
+      "claim": "Nah am Menschen. Fest im Team.",
+      "intro": [
+        "Du packst gerne mit an, bist für andere da und möchtest in der Pflege wirklich etwas bewirken? Dann passt du gut zu KSK Farmos.",
+        "Als Pflegehelfer:in unterstützt du unsere Pflegefachkräfte bei der Versorgung schwerkranker Menschen, in ihrem Zuhause oder in einer Wohngemeinschaft. Du arbeitest in ruhiger Atmosphäre und hast Zeit für die Menschen, die du begleitest."
+      ],
+      "facts": [
+        {
+          "label": "Arbeitszeit",
+          "value": "Vollzeit / Teilzeit"
+        },
+        {
+          "label": "Bereich",
+          "value": "Grundpflege und Unterstützung im Alltag"
+        },
+        {
+          "label": "Einsatzort",
+          "value": "Volkmarsen, Kassel und Umgebung"
+        }
+      ],
+      "benefitsEyebrow": "Deine Vorteile",
+      "benefitsTitle": "Darauf kannst du dich freuen",
+      "benefits": [
+        {
+          "title": "Übertarifliche Bezahlung",
+          "text": "Deine Arbeit ist uns viel wert. Das zeigt sich auch in einer Vergütung, die deiner Verantwortung und deinem Engagement gerecht wird."
+        },
+        {
+          "title": "Dienstzeiten, die zu deinem Leben passen",
+          "text": "Statt starrer Standardmodelle setzen wir auf individuelle Dienstplanung. Gemeinsam finden wir Arbeitszeiten, die zu deinem Alltag passen."
+        },
+        {
+          "title": "Unterstützung bei deiner Mobilität",
+          "text": "Je nach Einsatzort bieten wir einen Fahrdienst an und unterstützen dich dabei, zuverlässig an deinen Arbeitsplatz zu gelangen."
+        },
+        {
+          "title": "Ein Team, das zusammenhält",
+          "text": "Du arbeitest eng mit erfahrenen Pflegefachkräften zusammen. Gegenseitige Unterstützung und ein respektvoller Umgang gehören bei uns zum Alltag."
+        },
+        {
+          "title": "Einarbeitung und Weiterbildung",
+          "text": "Wir begleiten dich beim Einstieg. Regelmäßige interne Schulungen und Fortbildungen helfen dir, sicher zu werden und dich weiterzuentwickeln."
+        },
+        {
+          "title": "Ein Arbeitgeber mit Zukunft",
+          "text": "KSK Farmos wächst stetig. Für dich bedeutet das Sicherheit und eine langfristige Perspektive."
+        }
+      ],
+      "tasksEyebrow": "Dein Alltag",
+      "tasksTitle": "Deine Aufgaben",
+      "tasksLead": "Du bist nah an den Klient:innen und sorgst gemeinsam mit den Pflegefachkräften dafür, dass sie sich gut versorgt fühlen.",
+      "tasks": [
+        "Unterstützung bei der Grundpflege, zum Beispiel bei Körperpflege, Mobilität und Ernährung",
+        "Begleitung der Klient:innen im Alltag",
+        "Beobachten von Veränderungen und Weitergabe an die Pflegefachkraft",
+        "Mithilfe bei der Pflegedokumentation",
+        "Enge Zusammenarbeit mit Kolleg:innen und Angehörigen"
+      ],
+      "profileEyebrow": "Dein Profil",
+      "profileTitle": "Das bringst du mit",
+      "requirementsTitle": "Das ist uns wichtig",
+      "requirements": [
+        "Empathie, Verantwortungsbewusstsein und Freude an der Arbeit mit Menschen",
+        "Eine strukturierte und zuverlässige Arbeitsweise",
+        "Teamgeist und die Bereitschaft, Neues zu lernen"
+      ],
+      "niceTitle": "Schön, wenn du das bereits mitbringst",
+      "nice": [
+        "Eine Ausbildung oder Erfahrung als Pflegehelfer:in",
+        "Erfahrung in der ambulanten Pflege oder der Intensivpflege"
+      ],
+      "niceNote": "Falls nicht: Kein Problem. Wir unterstützen dich auf deinem Weg.",
+      "closingTitle": "Werde Teil unseres Teams",
+      "closingText": "Du suchst eine Arbeit, die Sinn ergibt, und ein Team, das zusammenhält? Dann freuen wir uns darauf, dich kennenzulernen."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Pflegepraktikum (m/w/d) Intensivpflege Kassel",
+        "description": "Pflegepraktikum (m/w/d) bei KSK Farmos in Volkmarsen und Kassel: Lerne die außerklinische Intensivpflege im Alltag kennen, begleitet von erfahrenen Fachkräften."
+      },
+      "title": "Pflegepraktikant (m/w/d)",
+      "claim": "Die Intensivpflege von innen kennenlernen.",
+      "intro": [
+        "Du interessierst dich für Pflege oder Medizin und möchtest wissen, wie die Arbeit wirklich aussieht? Bei KSK Farmos bekommst du Einblicke, die du aus Büchern nicht lernen kannst.",
+        "Du begleitest unsere Pflegefachkräfte bei der Versorgung schwerkranker Menschen in ihrem Zuhause oder in einer Wohngemeinschaft und lernst den Alltag der außerklinischen Intensivpflege kennen."
+      ],
+      "facts": [
+        {
+          "label": "Arbeitszeit",
+          "value": "Vollzeit"
+        },
+        {
+          "label": "Beginn und Dauer",
+          "value": "Nach Absprache"
+        },
+        {
+          "label": "Einsatzort",
+          "value": "Volkmarsen, Kassel und Umgebung"
+        }
+      ],
+      "benefitsEyebrow": "Deine Vorteile",
+      "benefitsTitle": "Das nimmst du mit",
+      "benefits": [
+        {
+          "title": "Echte Einblicke",
+          "text": "Du erlebst, wie Menschen mit Beatmung, Wachkoma oder neurologischen Erkrankungen zu Hause versorgt werden."
+        },
+        {
+          "title": "Begleitung durch Fachkräfte",
+          "text": "Erfahrene Kolleg:innen nehmen sich Zeit für dich, erklären ihre Arbeit und beantworten deine Fragen."
+        },
+        {
+          "title": "Ein Team, das zusammenhält",
+          "text": "Du wirst vom ersten Tag an einbezogen. Ehrliche Kommunikation und ein respektvoller Umgang gehören bei uns zum Alltag."
+        },
+        {
+          "title": "Unterstützung bei deiner Mobilität",
+          "text": "Je nach Einsatzort bieten wir einen Fahrdienst an und unterstützen dich dabei, zuverlässig an deinen Einsatzort zu gelangen."
+        }
+      ],
+      "tasksEyebrow": "Dein Alltag",
+      "tasksTitle": "Das erwartet dich",
+      "tasksLead": "Du arbeitest immer gemeinsam mit erfahrenen Kolleg:innen und übernimmst Aufgaben passend zu deinem Wissensstand.",
+      "tasks": [
+        "Begleitung der Pflegefachkräfte im Arbeitsalltag",
+        "Mithilfe bei der Grundpflege unter Anleitung",
+        "Einblicke in die Beatmungspflege und das Trachealkanülenmanagement",
+        "Kennenlernen von Pflegedokumentation und Übergaben"
+      ],
+      "profileEyebrow": "Dein Profil",
+      "profileTitle": "Das bringst du mit",
+      "requirementsTitle": "Das ist uns wichtig",
+      "requirements": [
+        "Interesse an Pflege und Medizin",
+        "Empathie und Freude am Umgang mit Menschen",
+        "Zuverlässigkeit und Teamgeist"
+      ],
+      "niceTitle": "Schön, wenn du das bereits mitbringst",
+      "nice": [
+        "Ein Medizin- oder Pflegestudium oder eine begonnene Pflegeausbildung",
+        "Erste praktische Erfahrung in der Pflege"
+      ],
+      "niceNote": "Falls nicht: Kein Problem. Wir unterstützen dich auf deinem Weg.",
+      "closingTitle": "Lerne uns kennen",
+      "closingText": "Du möchtest herausfinden, ob die Intensivpflege zu dir passt? Dann freuen wir uns auf deine Bewerbung."
+    }
+  }
+}

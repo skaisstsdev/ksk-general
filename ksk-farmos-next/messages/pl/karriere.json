@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "Oferty Pracy",
     "title": "Otwarte Stanowiska",
-    "bewerben": "Aplikuj",
+    "mehr": "Dowiedz się więcej",
     "items": [
       {
         "title": "Pielęgniarz/Pielęgniarka (m/k/d)",
         "tags": [
+          "28 €/godz.",
           "Pełny / Częściowy Etat",
-          "Intensywna Opieka",
-          "Prawo Jazdy Kat. B"
+          "Intensywna Opieka"
         ]
       },
       {
         "title": "Asystent opieki (m/k/d)",
         "tags": [
-          "Pełny / Częściowy Etat",
-          "Prawo Jazdy Kat. B"
+          "Pełny / Częściowy Etat"
         ]
       },
       {

@@ -88,6 +88,112 @@ export function MedicalBusinessJsonLd() {
   return <JsonLdScript data={{ "@context": "https://schema.org", "@graph": graph }} />;
 }
 
+function escapeHtml(value: string) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+/**
+ * Описание вакансии для Google: абзацы и маркированные списки — только
+ * теги, которые разрешены в `description` (`p`, `h3`, `ul`, `li`). Текст
+ * тот же, что на странице, иначе разметка расходится с видимым содержанием.
+ */
+function jobDescriptionHtml(
+  intro: readonly string[],
+  sections: readonly { title: string; items: readonly string[] }[],
+) {
+  const paragraphs = intro.map((line) => `<p>${escapeHtml(line)}</p>`).join("");
+  const lists = sections
+    .map(
+      ({ title, items }) =>
+        `<h3>${escapeHtml(title)}</h3><ul>${items
+          .map((item) => `<li>${escapeHtml(item)}</li>`)
+          .join("")}</ul>`,
+    )
+    .join("");
+  return paragraphs + lists;
+}
+
+/**
+ * Вакансия для Google Jobs. Только на странице одной вакансии: на списке
+ * (`/karriere`) такая разметка запрещена правилами Google. Страница каждого
+ * языка описывает ту же вакансию на своём языке, `identifier` у всех общий.
+ * Оба места работы — отдельными `jobLocation`; адреса берутся из `site.ts`.
+ */
+export function JobPostingJsonLd({
+  slug,
+  title,
+  intro,
+  sections,
+  datePosted,
+  employmentType,
+  baseSalaryPerHour,
+}: {
+  slug: string;
+  title: string;
+  intro: readonly string[];
+  sections: readonly { title: string; items: readonly string[] }[];
+  datePosted: string;
+  employmentType: readonly string[];
+  baseSalaryPerHour?: number;
+}) {
+  const place = ({
+    street,
+    postalCode,
+    city,
+    country,
+  }: {
+    street: string;
+    postalCode: string;
+    city: string;
+    country: string;
+  }) => ({
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: street,
+      postalCode,
+      addressLocality: city,
+      addressRegion: "Hessen",
+      addressCountry: country,
+    },
+  });
+
+  return (
+    <JsonLdScript
+      data={{
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        title,
+        description: jobDescriptionHtml(intro, sections),
+        identifier: { "@type": "PropertyValue", name: company.legalName, value: slug },
+        datePosted,
+        employmentType,
+        directApply: true,
+        hiringOrganization: {
+          "@type": "Organization",
+          name: company.fullLegalName,
+          sameAs: siteUrl,
+          logo: new URL("/logo-icon.png", siteUrl).toString(),
+        },
+        jobLocation: [place(locations.headquarters), place(locations.residence)],
+        ...(baseSalaryPerHour
+          ? {
+              baseSalary: {
+                "@type": "MonetaryAmount",
+                currency: "EUR",
+                value: {
+                  "@type": "QuantitativeValue",
+                  value: baseSalaryPerHour,
+                  unitText: "HOUR",
+                },
+              },
+            }
+          : {}),
+      }}
+    />
+  );
+}
+
 /**
  * Вопросы-ответы FAQ-страницы. Принимает уже переведённые пары —
  * текст не удваивается словарём, он приходит из того же `t.raw("questions")`,

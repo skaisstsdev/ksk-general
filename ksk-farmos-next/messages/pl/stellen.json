@@ -1,0 +1,203 @@
+{
+  "shared": {
+    "eyebrow": "Oferta pracy",
+    "back": "Wszystkie otwarte stanowiska",
+    "apply": "Aplikuj teraz",
+    "factsTitle": "W skrócie",
+    "phoneLabel": "Pytania przed aplikacją?",
+    "closingEyebrow": "Aplikacja",
+    "closingPoints": [
+      "List motywacyjny niepotrzebny",
+      "Przez formularz, e-mail lub telefon",
+      "Osobista rozmowa na równych zasadach"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Pielęgniarz/Pielęgniarka intensywnej opieki (m/k/d) Kassel",
+        "description": "Pielęgniarz/Pielęgniarka (m/k/d) w pozaszpitalnej intensywnej opiece w Volkmarsen i Kassel: 28 €/godz., indywidualny grafik i silny zespół."
+      },
+      "title": "Pielęgniarz/Pielęgniarka – pozaszpitalna intensywna opieka (m/k/d)",
+      "claim": "Opieka z czasem. Z odpowiedzialnością. Z docenieniem.",
+      "intro": [
+        "Chcesz towarzyszyć ludziom na wysokim poziomie zawodowym i pracować tam, gdzie Twoja praca jest naprawdę dostrzegana? W takim razie KSK Farmos to dobre miejsce dla Ciebie.",
+        "U nas opiekujesz się ludźmi w ich domach lub we wspólnocie mieszkaniowej z intensywną opieką. Pracujesz w spokojnej atmosferze, bez pośpiechu typowego dla oddziału szpitalnego, i z wolnością, by świadczyć opiekę tak, jak powinna wyglądać: profesjonalnie, uważnie i po ludzku."
+      ],
+      "facts": [
+        { "label": "Wynagrodzenie", "value": "28 €/godz." },
+        { "label": "Wymiar czasu pracy", "value": "Pełny / częściowy etat" },
+        { "label": "Obszar", "value": "Pozaszpitalna intensywna opieka" },
+        { "label": "Miejsce pracy", "value": "Volkmarsen, Kassel i okolice" }
+      ],
+      "benefitsEyebrow": "Twoje korzyści",
+      "benefitsTitle": "Na co możesz się cieszyć",
+      "benefits": [
+        {
+          "title": "Wynagrodzenie powyżej taryfy",
+          "text": "Dobra opieka zasługuje na więcej niż uznanie. Dlatego oferujemy ponadprzeciętne wynagrodzenie, które odpowiada Twojej odpowiedzialności, zaangażowaniu i kwalifikacjom."
+        },
+        {
+          "title": "Godziny pracy dopasowane do Twojego życia",
+          "text": "Twoje życie to coś więcej niż praca. Dlatego stawiamy na indywidualne planowanie dyżurów zamiast sztywnych standardowych modeli. Wspólnie znajdziemy godziny pracy, które pasują do Twojej codzienności."
+        },
+        {
+          "title": "Wsparcie w dojazdach",
+          "text": "Chcemy, żebyś docierał(a) do pracy bez stresu. W zależności od miejsca pracy oferujemy dowóz i pomagamy Ci niezawodnie dotrzeć na miejsce."
+        },
+        {
+          "title": "Samochód służbowy, zależnie od zakresu zadań",
+          "text": "Do niektórych zadań udostępniamy samochód służbowy. Dzięki temu zachowujesz elastyczność i mobilność także w trakcie dnia pracy."
+        },
+        {
+          "title": "Zespół, który trzyma się razem",
+          "text": "Wierzymy, że dobra opieka jest możliwa tylko w silnym zespole. Wzajemne wsparcie, szczera komunikacja i pełen szacunku stosunek to dla nas nie puste hasła, lecz codzienność."
+        },
+        {
+          "title": "Sensowna i wymagająca opieka",
+          "text": "Pracujesz z ludźmi, którzy potrzebują intensywnej i specjalistycznej opieki. Przejmujesz odpowiedzialne zadania w pielęgnacji leczniczej i podstawowej i często towarzyszysz podopiecznym przez dłuższy czas."
+        },
+        {
+          "title": "Szkolenia z prawdziwą wartością",
+          "text": "Inwestujemy w Twoją wiedzę. Regularne szkolenia wewnętrzne i kursy doszkalające pomagają Ci zachować pewność zawodową i stale się rozwijać."
+        },
+        {
+          "title": "Pracodawca z przyszłością",
+          "text": "KSK Farmos stale się rozwija. Dla Ciebie oznacza to bezpieczeństwo, możliwości rozwoju i długoterminową perspektywę w nowoczesnej firmie opiekuńczej."
+        }
+      ],
+      "profileEyebrow": "Twój profil",
+      "profileTitle": "Co wnosisz",
+      "requirementsTitle": "Co jest dla nas ważne",
+      "requirements": [
+        "Ukończone wykształcenie jako pielęgniarz/pielęgniarka, opiekun/opiekunka osób starszych lub pracownik ochrony zdrowia i opieki nad chorymi",
+        "Empatia, poczucie odpowiedzialności i radość z pracy z ludźmi",
+        "Uporządkowany i rzetelny sposób pracy",
+        "Duch zespołowy i profesjonalizm"
+      ],
+      "niceTitle": "Dobrze, jeśli już to masz",
+      "nice": [
+        "Doświadczenie w pozaszpitalnej intensywnej opiece",
+        "Wiedza z zakresu opieki nad pacjentami wentylowanymi",
+        "Kursy i szkolenia z zakresu intensywnej opieki, higieny lub terapii oddechowej"
+      ],
+      "niceNote": "Jeśli nie: żaden problem. Wesprzemy Cię na tej drodze.",
+      "closingTitle": "Dołącz do naszego zespołu",
+      "closingText": "Chcesz znów mieć czas, którego wymaga dobra opieka? Szukasz zespołu, który trzyma się razem, uczciwych warunków pracy i pracodawcy z przyszłością? W takim razie z radością Cię poznamy."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Asystent opieki (m/k/d) intensywna opieka Kassel",
+        "description": "Asystent opieki (m/k/d) w Volkmarsen i Kassel: wspieraj nasz zespół w pozaszpitalnej intensywnej opiece, z indywidualnym grafikiem i dobrym wdrożeniem."
+      },
+      "title": "Asystent opieki (m/k/d)",
+      "claim": "Blisko ludzi. Mocno w zespole.",
+      "intro": [
+        "Lubisz pomagać, jesteś dla innych i chcesz naprawdę coś zmieniać w opiece? W takim razie pasujesz do KSK Farmos.",
+        "Jako asystent opieki wspierasz nasze pielęgniarki i pielęgniarzy w opiece nad ciężko chorymi osobami w ich domach lub we wspólnocie mieszkaniowej. Pracujesz w spokojnej atmosferze i masz czas dla ludzi, którym towarzyszysz."
+      ],
+      "facts": [
+        { "label": "Wymiar czasu pracy", "value": "Pełny / częściowy etat" },
+        { "label": "Obszar", "value": "Opieka podstawowa i wsparcie w codzienności" },
+        { "label": "Miejsce pracy", "value": "Volkmarsen, Kassel i okolice" }
+      ],
+      "benefitsEyebrow": "Twoje korzyści",
+      "benefitsTitle": "Na co możesz się cieszyć",
+      "benefits": [
+        {
+          "title": "Wynagrodzenie powyżej taryfy",
+          "text": "Twoja praca jest dla nas bardzo cenna. Widać to także w wynagrodzeniu, które odpowiada Twojej odpowiedzialności i zaangażowaniu."
+        },
+        {
+          "title": "Godziny pracy dopasowane do Twojego życia",
+          "text": "Zamiast sztywnych standardowych modeli stawiamy na indywidualne planowanie dyżurów. Wspólnie znajdziemy godziny pracy, które pasują do Twojej codzienności."
+        },
+        {
+          "title": "Wsparcie w dojazdach",
+          "text": "W zależności od miejsca pracy oferujemy dowóz i pomagamy Ci niezawodnie dotrzeć na miejsce."
+        },
+        {
+          "title": "Zespół, który trzyma się razem",
+          "text": "Pracujesz blisko z doświadczonymi pielęgniarkami i pielęgniarzami. Wzajemne wsparcie i pełen szacunku stosunek to u nas codzienność."
+        },
+        {
+          "title": "Wdrożenie i szkolenia",
+          "text": "Towarzyszymy Ci na starcie. Regularne szkolenia wewnętrzne i kursy doszkalające pomagają zyskać pewność i rozwijać się dalej."
+        },
+        {
+          "title": "Pracodawca z przyszłością",
+          "text": "KSK Farmos stale się rozwija. Dla Ciebie oznacza to bezpieczeństwo i długoterminową perspektywę."
+        }
+      ],
+      "profileEyebrow": "Twój profil",
+      "profileTitle": "Co wnosisz",
+      "requirementsTitle": "Co jest dla nas ważne",
+      "requirements": [
+        "Empatia, poczucie odpowiedzialności i radość z pracy z ludźmi",
+        "Uporządkowany i rzetelny sposób pracy",
+        "Duch zespołowy i gotowość do nauki nowych rzeczy"
+      ],
+      "niceTitle": "Dobrze, jeśli już to masz",
+      "nice": [
+        "Wykształcenie lub doświadczenie jako asystent opieki",
+        "Doświadczenie w opiece ambulatoryjnej lub intensywnej opiece"
+      ],
+      "niceNote": "Jeśli nie: żaden problem. Wesprzemy Cię na tej drodze.",
+      "closingTitle": "Dołącz do naszego zespołu",
+      "closingText": "Szukasz pracy, która ma sens, i zespołu, który trzyma się razem? W takim razie z radością Cię poznamy."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Praktyka w opiece (m/k/d) intensywna opieka Kassel",
+        "description": "Praktyka w opiece (m/k/d) w KSK Farmos w Volkmarsen i Kassel: poznaj pozaszpitalną intensywną opiekę w codziennej praktyce, pod okiem doświadczonych specjalistów."
+      },
+      "title": "Praktykant opieki (m/k/d)",
+      "claim": "Poznaj intensywną opiekę od środka.",
+      "intro": [
+        "Interesuje Cię opieka lub medycyna i chcesz wiedzieć, jak naprawdę wygląda ta praca? W KSK Farmos zdobędziesz doświadczenia, których nie da się wyczytać w książkach.",
+        "Towarzyszysz naszym pielęgniarkom i pielęgniarzom w opiece nad ciężko chorymi osobami w ich domach lub we wspólnocie mieszkaniowej i poznajesz codzienność pozaszpitalnej intensywnej opieki."
+      ],
+      "facts": [
+        { "label": "Wymiar czasu pracy", "value": "Pełny etat" },
+        { "label": "Początek i czas trwania", "value": "Do ustalenia" },
+        { "label": "Miejsce pracy", "value": "Volkmarsen, Kassel i okolice" }
+      ],
+      "benefitsEyebrow": "Twoje korzyści",
+      "benefitsTitle": "Co z sobą zabierzesz",
+      "benefits": [
+        {
+          "title": "Prawdziwy wgląd",
+          "text": "Zobaczysz, jak w domu opiekuje się osobami wentylowanymi, w śpiączce czuwającej lub z chorobami neurologicznymi."
+        },
+        {
+          "title": "Opieka doświadczonych specjalistów",
+          "text": "Doświadczeni współpracownicy poświęcą Ci czas, wyjaśnią swoją pracę i odpowiedzą na Twoje pytania."
+        },
+        {
+          "title": "Zespół, który trzyma się razem",
+          "text": "Jesteś włączany(a) od pierwszego dnia. Szczera komunikacja i pełen szacunku stosunek to u nas codzienność."
+        },
+        {
+          "title": "Wsparcie w dojazdach",
+          "text": "W zależności od miejsca pracy oferujemy dowóz i pomagamy Ci niezawodnie dotrzeć na miejsce praktyki."
+        }
+      ],
+      "profileEyebrow": "Twój profil",
+      "profileTitle": "Co wnosisz",
+      "requirementsTitle": "Co jest dla nas ważne",
+      "requirements": [
+        "Zainteresowanie opieką i medycyną",
+        "Empatia i radość z kontaktu z ludźmi",
+        "Rzetelność i duch zespołowy"
+      ],
+      "niceTitle": "Dobrze, jeśli już to masz",
+      "nice": [
+        "Studia medyczne lub pielęgniarskie albo rozpoczęta nauka zawodu w opiece",
+        "Pierwsze doświadczenia praktyczne w opiece"
+      ],
+      "niceNote": "Jeśli nie: żaden problem. Wesprzemy Cię na tej drodze.",
+      "closingTitle": "Poznaj nas",
+      "closingText": "Chcesz sprawdzić, czy intensywna opieka jest dla Ciebie? W takim razie czekamy na Twoją aplikację."
+    }
+  }
+}

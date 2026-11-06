@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "Slobodna radna mjesta",
     "title": "Otvorene pozicije",
-    "bewerben": "Prijavi se",
+    "mehr": "Saznajte više",
     "items": [
       {
         "title": "Medicinski tehničar / sestra (m/ž/d)",
         "tags": [
+          "28 €/sat",
           "Puno / Nepuno radno vrijeme",
-          "Intenzivna njega",
-          "Vozačka dozvola B"
+          "Intenzivna njega"
         ]
       },
       {
         "title": "Njegovatelj (m/ž/d)",
         "tags": [
-          "Puno / Nepuno radno vrijeme",
-          "Vozačka dozvola B"
+          "Puno / Nepuno radno vrijeme"
         ]
       },
       {

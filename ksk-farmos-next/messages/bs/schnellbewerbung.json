@@ -26,6 +26,7 @@
       "nachname": "Prezime",
       "email": "E-Mail",
       "telefon": "Telefon",
+      "stelleLabel": "Pozicija",
       "qualifikationLabel": "Trenutno zanimanje / kvalifikacija",
       "qualifikationPlaceholder": "Molimo izaberite",
       "erfahrungLabel": "Iskustvo u intenzivnoj njezi",

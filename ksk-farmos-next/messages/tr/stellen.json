@@ -1,0 +1,203 @@
+{
+  "shared": {
+    "eyebrow": "İş ilanı",
+    "back": "Tüm açık pozisyonlar",
+    "apply": "Hemen başvurun",
+    "factsTitle": "Bir bakışta",
+    "phoneLabel": "Önceden sorularınız mı var?",
+    "closingEyebrow": "Başvuru",
+    "closingPoints": [
+      "Ön yazıya gerek yok",
+      "Form, e-posta veya telefonla",
+      "Eşit düzeyde kişisel bir görüşme"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Uzman Hemşire Yoğun Bakım (e/k/d) Kassel",
+        "description": "Volkmarsen ve Kassel'de hastane dışı yoğun bakım için uzman hemşire (e/k/d): saatlik 28 €, bireysel vardiya planı ve güçlü bir ekip."
+      },
+      "title": "Uzman Hemşire – Hastane Dışı Yoğun Bakım (e/k/d)",
+      "claim": "Zamanı olan bakım. Sorumluluk ve takdirle.",
+      "intro": [
+        "İnsanlara yüksek bir mesleki düzeyde eşlik etmek ve performansınızın gerçekten görüldüğü bir ortamda çalışmak istiyor musunuz? O zaman KSK Farmos tam size göre.",
+        "Bizde insanlara kendi evlerinde veya yoğun bakım ortak yaşam alanında bakım verirsiniz. Hastane servisinin telaşı olmadan, sakin bir ortamda çalışırsınız ve bakımı olması gerektiği gibi yapma özgürlüğüne sahip olursunuz: profesyonel, dikkatli ve insani."
+      ],
+      "facts": [
+        { "label": "Ücret", "value": "Saatlik 28 €" },
+        { "label": "Çalışma süresi", "value": "Tam zamanlı / yarı zamanlı" },
+        { "label": "Alan", "value": "Hastane dışı yoğun bakım" },
+        { "label": "Çalışma yeri", "value": "Volkmarsen, Kassel ve çevresi" }
+      ],
+      "benefitsEyebrow": "Avantajlarınız",
+      "benefitsTitle": "Sizi neler bekliyor",
+      "benefits": [
+        {
+          "title": "Toplu sözleşmenin üzerinde ücret",
+          "text": "İyi bakım takdirden fazlasını hak eder. Bu yüzden sorumluluğunuza, emeğinize ve niteliğinize uygun, ortalamanın üzerinde bir ücret sunuyoruz."
+        },
+        {
+          "title": "Hayatınıza uyan çalışma saatleri",
+          "text": "Hayatınız yalnızca çalışmadan ibaret değil. Bu yüzden katı standart modeller yerine bireysel vardiya planlaması yapıyoruz. Günlük yaşamınıza uyan çalışma saatlerini birlikte buluruz."
+        },
+        {
+          "title": "Ulaşımınızda destek",
+          "text": "İşe rahat gelmenizi istiyoruz. Çalışma yerine bağlı olarak servis imkânı sunuyor ve iş yerinize güvenle ulaşmanız için destek oluyoruz."
+        },
+        {
+          "title": "Göreve göre şirket aracı",
+          "text": "Bazı görevler için size şirket aracı sağlıyoruz. Böylece iş gününüz boyunca da esnek ve hareketli kalırsınız."
+        },
+        {
+          "title": "Birbirine sahip çıkan bir ekip",
+          "text": "İyi bakımın ancak güçlü bir ekiple mümkün olduğuna inanıyoruz. Karşılıklı destek, dürüst iletişim ve saygılı davranış bizim için boş sözler değil, gündelik pratiktir."
+        },
+        {
+          "title": "Anlamlı ve zorlu bakım",
+          "text": "Yoğun ve özel bakıma ihtiyaç duyan insanlarla çalışırsınız. Tedavi ve temel bakımda sorumluluk gerektiren görevler üstlenir, danışanlara çoğu zaman uzun süre eşlik edersiniz."
+        },
+        {
+          "title": "Gerçek katkı sağlayan eğitim",
+          "text": "Bilginize yatırım yapıyoruz. Düzenli iç eğitimler ve ileri eğitimler, mesleki olarak kendinizden emin kalmanıza ve sürekli gelişmenize yardımcı olur."
+        },
+        {
+          "title": "Geleceği olan bir işveren",
+          "text": "KSK Farmos istikrarlı bir şekilde büyüyor. Sizin için bu; güvenlik, gelişim olanakları ve modern bir bakım şirketinde uzun vadeli bir perspektif demektir."
+        }
+      ],
+      "profileEyebrow": "Profiliniz",
+      "profileTitle": "Getirdikleriniz",
+      "requirementsTitle": "Bizim için önemli olanlar",
+      "requirements": [
+        "Uzman hemşire, yaşlı bakım uzmanı veya sağlık ve hasta bakımı alanında tamamlanmış eğitim",
+        "Empati, sorumluluk bilinci ve insanlarla çalışmaktan keyif alma",
+        "Düzenli ve güvenilir bir çalışma tarzı",
+        "Ekip ruhu ve profesyonellik"
+      ],
+      "niceTitle": "Şimdiden sahipseniz çok iyi olur",
+      "nice": [
+        "Hastane dışı yoğun bakımda deneyim",
+        "Solunum cihazı bakımı konusunda bilgi",
+        "Yoğun bakım, hijyen veya solunum terapisi alanında ileri eğitimler"
+      ],
+      "niceNote": "Yoksa sorun değil. Yolunuzda size destek oluruz.",
+      "closingTitle": "Ekibimizin bir parçası olun",
+      "closingText": "İyi bakımın gerektirdiği zamana yeniden sahip olmak istiyor musunuz? Birbirine sahip çıkan bir ekip, adil çalışma koşulları ve geleceği olan bir işveren mi arıyorsunuz? O zaman sizinle tanışmayı sabırsızlıkla bekliyoruz."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Bakım Elemanı (e/k/d) Yoğun Bakım Kassel",
+        "description": "Volkmarsen ve Kassel'de bakım elemanı (e/k/d): hastane dışı yoğun bakımda ekibimize destek olun; bireysel vardiya planı ve iyi bir uyum süreci sizi bekliyor."
+      },
+      "title": "Bakım Elemanı (e/k/d)",
+      "claim": "İnsanlara yakın. Ekipte sağlam.",
+      "intro": [
+        "Elinizi taşın altına koymayı seviyor, başkaları için yanında olmak ve bakımda gerçekten bir şeyler değiştirmek istiyor musunuz? O zaman KSK Farmos'a çok yakışırsınız.",
+        "Bakım elemanı olarak ağır hasta insanların bakımında, kendi evlerinde veya ortak yaşam alanında uzman hemşirelerimize destek olursunuz. Sakin bir ortamda çalışırsınız ve eşlik ettiğiniz insanlara ayıracak zamanınız olur."
+      ],
+      "facts": [
+        { "label": "Çalışma süresi", "value": "Tam zamanlı / yarı zamanlı" },
+        { "label": "Alan", "value": "Temel bakım ve günlük yaşam desteği" },
+        { "label": "Çalışma yeri", "value": "Volkmarsen, Kassel ve çevresi" }
+      ],
+      "benefitsEyebrow": "Avantajlarınız",
+      "benefitsTitle": "Sizi neler bekliyor",
+      "benefits": [
+        {
+          "title": "Toplu sözleşmenin üzerinde ücret",
+          "text": "Çalışmanız bizim için çok değerli. Bu, sorumluluğunuza ve emeğinize uygun bir ücrette de kendini gösterir."
+        },
+        {
+          "title": "Hayatınıza uyan çalışma saatleri",
+          "text": "Katı standart modeller yerine bireysel vardiya planlaması yapıyoruz. Günlük yaşamınıza uyan çalışma saatlerini birlikte buluruz."
+        },
+        {
+          "title": "Ulaşımınızda destek",
+          "text": "Çalışma yerine bağlı olarak servis imkânı sunuyor ve iş yerinize güvenle ulaşmanız için destek oluyoruz."
+        },
+        {
+          "title": "Birbirine sahip çıkan bir ekip",
+          "text": "Deneyimli uzman hemşirelerle yakın çalışırsınız. Karşılıklı destek ve saygılı davranış bizde günlük yaşamın parçasıdır."
+        },
+        {
+          "title": "Uyum süreci ve eğitim",
+          "text": "Başlangıçta yanınızdayız. Düzenli iç eğitimler ve ileri eğitimler, kendinizden emin olmanıza ve gelişmenize yardımcı olur."
+        },
+        {
+          "title": "Geleceği olan bir işveren",
+          "text": "KSK Farmos istikrarlı bir şekilde büyüyor. Sizin için bu; güvenlik ve uzun vadeli bir perspektif demektir."
+        }
+      ],
+      "profileEyebrow": "Profiliniz",
+      "profileTitle": "Getirdikleriniz",
+      "requirementsTitle": "Bizim için önemli olanlar",
+      "requirements": [
+        "Empati, sorumluluk bilinci ve insanlarla çalışmaktan keyif alma",
+        "Düzenli ve güvenilir bir çalışma tarzı",
+        "Ekip ruhu ve yeni şeyler öğrenmeye istek"
+      ],
+      "niceTitle": "Şimdiden sahipseniz çok iyi olur",
+      "nice": [
+        "Bakım elemanı olarak eğitim veya deneyim",
+        "Ayakta bakım veya yoğun bakım alanında deneyim"
+      ],
+      "niceNote": "Yoksa sorun değil. Yolunuzda size destek oluruz.",
+      "closingTitle": "Ekibimizin bir parçası olun",
+      "closingText": "Anlamlı bir iş ve birbirine sahip çıkan bir ekip mi arıyorsunuz? O zaman sizinle tanışmayı sabırsızlıkla bekliyoruz."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Bakım Stajı (e/k/d) Yoğun Bakım Kassel",
+        "description": "Volkmarsen ve Kassel'de KSK Farmos'ta bakım stajı (e/k/d): deneyimli uzmanların eşliğinde hastane dışı yoğun bakımı günlük pratikte tanıyın."
+      },
+      "title": "Bakım Stajyeri (e/k/d)",
+      "claim": "Yoğun bakımı içeriden tanıyın.",
+      "intro": [
+        "Bakım veya tıpla ilgileniyor ve bu işin gerçekte nasıl olduğunu merak ediyor musunuz? KSK Farmos'ta kitaplardan öğrenemeyeceğiniz izlenimler edinirsiniz.",
+        "Ağır hasta insanların bakımında, kendi evlerinde veya ortak yaşam alanında uzman hemşirelerimize eşlik eder ve hastane dışı yoğun bakımın günlük yaşamını tanırsınız."
+      ],
+      "facts": [
+        { "label": "Çalışma süresi", "value": "Tam zamanlı" },
+        { "label": "Başlangıç ve süre", "value": "Görüşmeye göre" },
+        { "label": "Çalışma yeri", "value": "Volkmarsen, Kassel ve çevresi" }
+      ],
+      "benefitsEyebrow": "Avantajlarınız",
+      "benefitsTitle": "Yanınızda götürecekleriniz",
+      "benefits": [
+        {
+          "title": "Gerçek izlenimler",
+          "text": "Solunum cihazına bağlı, bitkisel hayattaki veya nörolojik hastalığı olan insanların evde nasıl bakıldığını yakından görürsünüz."
+        },
+        {
+          "title": "Uzmanlardan eşlik",
+          "text": "Deneyimli çalışma arkadaşları size zaman ayırır, işlerini anlatır ve sorularınızı yanıtlar."
+        },
+        {
+          "title": "Birbirine sahip çıkan bir ekip",
+          "text": "İlk günden itibaren sürece dahil edilirsiniz. Dürüst iletişim ve saygılı davranış bizde günlük yaşamın parçasıdır."
+        },
+        {
+          "title": "Ulaşımınızda destek",
+          "text": "Çalışma yerine bağlı olarak servis imkânı sunuyor ve staj yerinize güvenle ulaşmanız için destek oluyoruz."
+        }
+      ],
+      "profileEyebrow": "Profiliniz",
+      "profileTitle": "Getirdikleriniz",
+      "requirementsTitle": "Bizim için önemli olanlar",
+      "requirements": [
+        "Bakım ve tıpla ilgilenme",
+        "Empati ve insanlarla ilişkiden keyif alma",
+        "Güvenilirlik ve ekip ruhu"
+      ],
+      "niceTitle": "Şimdiden sahipseniz çok iyi olur",
+      "nice": [
+        "Tıp veya hemşirelik öğrenimi ya da başlamış bir bakım eğitimi",
+        "Bakım alanında ilk pratik deneyim"
+      ],
+      "niceNote": "Yoksa sorun değil. Yolunuzda size destek oluruz.",
+      "closingTitle": "Bizi tanıyın",
+      "closingText": "Yoğun bakımın size uygun olup olmadığını öğrenmek mi istiyorsunuz? O zaman başvurunuzu sabırsızlıkla bekliyoruz."
+    }
+  }
+}

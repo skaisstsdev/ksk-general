@@ -26,6 +26,7 @@
       "nachname": "Фамилия",
       "email": "Имейл",
       "telefon": "Телефон",
+      "stelleLabel": "Позиция",
       "qualifikationLabel": "Настояща професия / квалификация",
       "qualifikationPlaceholder": "Моля, изберете",
       "erfahrungLabel": "Опит в интензивните грижи",

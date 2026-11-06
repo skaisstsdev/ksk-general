@@ -1,0 +1,203 @@
+{
+  "shared": {
+    "eyebrow": "Oglas za posao",
+    "back": "Sve otvorene pozicije",
+    "apply": "Prijavite se",
+    "factsTitle": "Ukratko",
+    "phoneLabel": "Pitanja unaprijed?",
+    "closingEyebrow": "Prijava",
+    "closingPoints": [
+      "Propratno pismo nije potrebno",
+      "Putem obrasca, e-maila ili telefona",
+      "Lični razgovor na ravnoj nozi"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Medicinski tehničar / sestra intenzivne njege (m/ž/d) Kassel",
+        "description": "Medicinski tehničar / sestra (m/ž/d) za vanbolničku intenzivnu njegu u Volkmarsenu i Kasselu: 28 €/sat, individualni raspored i snažan tim."
+      },
+      "title": "Medicinski tehničar / sestra – vanbolnička intenzivna njega (m/ž/d)",
+      "claim": "Njega s vremenom. S odgovornošću. S uvažavanjem.",
+      "intro": [
+        "Želite li pratiti ljude na visokom stručnom nivou i raditi u okruženju u kojem se vaš doprinos zaista primjećuje? Onda ste kod KSK Farmos na pravom mjestu.",
+        "Kod nas njegujete ljude u njihovom domu ili u zajednici stanovanja s intenzivnom njegom. Radite u mirnoj atmosferi, bez užurbanosti bolničkog odjela, i sa slobodom da njegu provodite onako kako treba: stručno, pažljivo i ljudski."
+      ],
+      "facts": [
+        { "label": "Plata", "value": "28 €/sat" },
+        { "label": "Radno vrijeme", "value": "Puno / nepuno radno vrijeme" },
+        { "label": "Područje", "value": "Vanbolnička intenzivna njega" },
+        { "label": "Mjesto rada", "value": "Volkmarsen, Kassel i okolina" }
+      ],
+      "benefitsEyebrow": "Vaše prednosti",
+      "benefitsTitle": "Čemu se možete radovati",
+      "benefits": [
+        {
+          "title": "Plata iznad tarife",
+          "text": "Dobra njega zaslužuje više od priznanja. Zato nudimo iznadprosječnu platu koja odgovara vašoj odgovornosti, angažmanu i kvalifikaciji."
+        },
+        {
+          "title": "Radno vrijeme koje odgovara vašem životu",
+          "text": "Vaš život je više od posla. Zato se oslanjamo na individualno planiranje smjena umjesto krutih standardnih modela. Zajedno pronalazimo radno vrijeme koje odgovara vašoj svakodnevici."
+        },
+        {
+          "title": "Podrška pri dolasku na posao",
+          "text": "Želimo da na posao dolazite opušteno. Ovisno o mjestu rada nudimo prijevoz i pomažemo vam da pouzdano stignete na radno mjesto."
+        },
+        {
+          "title": "Službeno vozilo, ovisno o zadacima",
+          "text": "Za određene zadatke osiguravamo službeno vozilo. Tako ostajete fleksibilni i mobilni i tokom radnog dana."
+        },
+        {
+          "title": "Tim koji se drži zajedno",
+          "text": "Vjerujemo da je dobra njega moguća samo u snažnom timu. Uzajamna podrška, iskrena komunikacija i uvažavanje za nas nisu prazne fraze, nego svakodnevica."
+        },
+        {
+          "title": "Smislena i zahtjevna njega",
+          "text": "Radite s ljudima kojima je potrebna intenzivna i specijalizirana njega. Preuzimate odgovorne zadatke u liječenju i osnovnoj njezi i često pratite klijente duže vrijeme."
+        },
+        {
+          "title": "Usavršavanje sa stvarnom vrijednošću",
+          "text": "Ulažemo u vaše znanje. Redovne interne obuke i dodatna usavršavanja pomažu vam da ostanete stručno sigurni i da se stalno razvijate."
+        },
+        {
+          "title": "Poslodavac s budućnošću",
+          "text": "KSK Farmos stalno raste. Za vas to znači sigurnost, mogućnosti razvoja i dugoročnu perspektivu u modernoj kompaniji za njegu."
+        }
+      ],
+      "profileEyebrow": "Vaš profil",
+      "profileTitle": "Šta donosite sa sobom",
+      "requirementsTitle": "Šta nam je važno",
+      "requirements": [
+        "Završeno obrazovanje za medicinskog tehničara / sestru, njegovatelja starijih osoba ili zdravstvenog radnika u njezi bolesnika",
+        "Empatija, osjećaj odgovornosti i radost rada s ljudima",
+        "Strukturiran i pouzdan način rada",
+        "Timski duh i profesionalnost"
+      ],
+      "niceTitle": "Plus je ako već imate",
+      "nice": [
+        "Iskustvo u vanbolničkoj intenzivnoj njezi",
+        "Znanje iz njege ventiliranih pacijenata",
+        "Dodatna usavršavanja iz intenzivne njege, higijene ili respiratorne terapije"
+      ],
+      "niceNote": "Ako nemate: nije problem. Podržat ćemo vas na tom putu.",
+      "closingTitle": "Postanite dio našeg tima",
+      "closingText": "Želite li ponovo imati vremena koje dobra njega traži? Tražite tim koji se drži zajedno, poštene uslove rada i poslodavca s budućnošću? Onda se radujemo upoznavanju s vama."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Njegovatelj (m/ž/d) intenzivna njega Kassel",
+        "description": "Njegovatelj (m/ž/d) u Volkmarsenu i Kasselu: podržite naš tim u vanbolničkoj intenzivnoj njezi, uz individualni raspored i dobro uvođenje u posao."
+      },
+      "title": "Njegovatelj (m/ž/d)",
+      "claim": "Blizu ljudi. Čvrsto u timu.",
+      "intro": [
+        "Volite pomagati, tu ste za druge i želite zaista nešto promijeniti u njezi? Onda se dobro uklapate u KSK Farmos.",
+        "Kao njegovatelj podržavate naše medicinske sestre i tehničare u njezi teško bolesnih osoba, u njihovom domu ili u zajednici stanovanja. Radite u mirnoj atmosferi i imate vremena za ljude koje pratite."
+      ],
+      "facts": [
+        { "label": "Radno vrijeme", "value": "Puno / nepuno radno vrijeme" },
+        { "label": "Područje", "value": "Osnovna njega i podrška u svakodnevici" },
+        { "label": "Mjesto rada", "value": "Volkmarsen, Kassel i okolina" }
+      ],
+      "benefitsEyebrow": "Vaše prednosti",
+      "benefitsTitle": "Čemu se možete radovati",
+      "benefits": [
+        {
+          "title": "Plata iznad tarife",
+          "text": "Vaš rad nam mnogo znači. To se vidi i u plati koja odgovara vašoj odgovornosti i angažmanu."
+        },
+        {
+          "title": "Radno vrijeme koje odgovara vašem životu",
+          "text": "Umjesto krutih standardnih modela oslanjamo se na individualno planiranje smjena. Zajedno pronalazimo radno vrijeme koje odgovara vašoj svakodnevici."
+        },
+        {
+          "title": "Podrška pri dolasku na posao",
+          "text": "Ovisno o mjestu rada nudimo prijevoz i pomažemo vam da pouzdano stignete na radno mjesto."
+        },
+        {
+          "title": "Tim koji se drži zajedno",
+          "text": "Blisko sarađujete s iskusnim medicinskim sestrama i tehničarima. Uzajamna podrška i uvažavanje kod nas su svakodnevica."
+        },
+        {
+          "title": "Uvođenje u posao i usavršavanje",
+          "text": "Pratimo vas na početku. Redovne interne obuke i dodatna usavršavanja pomažu vam da steknete sigurnost i da se dalje razvijate."
+        },
+        {
+          "title": "Poslodavac s budućnošću",
+          "text": "KSK Farmos stalno raste. Za vas to znači sigurnost i dugoročnu perspektivu."
+        }
+      ],
+      "profileEyebrow": "Vaš profil",
+      "profileTitle": "Šta donosite sa sobom",
+      "requirementsTitle": "Šta nam je važno",
+      "requirements": [
+        "Empatija, osjećaj odgovornosti i radost rada s ljudima",
+        "Strukturiran i pouzdan način rada",
+        "Timski duh i spremnost da učite nove stvari"
+      ],
+      "niceTitle": "Plus je ako već imate",
+      "nice": [
+        "Obrazovanje ili iskustvo kao njegovatelj",
+        "Iskustvo u ambulantnoj njezi ili intenzivnoj njezi"
+      ],
+      "niceNote": "Ako nemate: nije problem. Podržat ćemo vas na tom putu.",
+      "closingTitle": "Postanite dio našeg tima",
+      "closingText": "Tražite posao koji ima smisla i tim koji se drži zajedno? Onda se radujemo upoznavanju s vama."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Praksa u njezi (m/ž/d) intenzivna njega Kassel",
+        "description": "Praksa u njezi (m/ž/d) u KSK Farmos u Volkmarsenu i Kasselu: upoznajte vanbolničku intenzivnu njegu u svakodnevnoj praksi, uz pratnju iskusnih stručnjaka."
+      },
+      "title": "Praktikant u njezi (m/ž/d)",
+      "claim": "Upoznajte intenzivnu njegu iznutra.",
+      "intro": [
+        "Zanimaju vas njega ili medicina i želite znati kako taj posao zaista izgleda? Kod KSK Farmos stječete uvid koji se ne može naučiti iz knjiga.",
+        "Pratite naše medicinske sestre i tehničare u njezi teško bolesnih osoba u njihovom domu ili u zajednici stanovanja i upoznajete svakodnevicu vanbolničke intenzivne njege."
+      ],
+      "facts": [
+        { "label": "Radno vrijeme", "value": "Puno radno vrijeme" },
+        { "label": "Početak i trajanje", "value": "Prema dogovoru" },
+        { "label": "Mjesto rada", "value": "Volkmarsen, Kassel i okolina" }
+      ],
+      "benefitsEyebrow": "Vaše prednosti",
+      "benefitsTitle": "Šta nosite sa sobom",
+      "benefits": [
+        {
+          "title": "Pravi uvid",
+          "text": "Vidite kako se kod kuće njeguju ljudi na ventilaciji, u apalnom sindromu ili s neurološkim oboljenjima."
+        },
+        {
+          "title": "Pratnja stručnjaka",
+          "text": "Iskusni kolege odvajaju vrijeme za vas, objašnjavaju svoj rad i odgovaraju na vaša pitanja."
+        },
+        {
+          "title": "Tim koji se drži zajedno",
+          "text": "Uključeni ste od prvog dana. Iskrena komunikacija i uvažavanje kod nas su svakodnevica."
+        },
+        {
+          "title": "Podrška pri dolasku na posao",
+          "text": "Ovisno o mjestu rada nudimo prijevoz i pomažemo vam da pouzdano stignete na mjesto prakse."
+        }
+      ],
+      "profileEyebrow": "Vaš profil",
+      "profileTitle": "Šta donosite sa sobom",
+      "requirementsTitle": "Šta nam je važno",
+      "requirements": [
+        "Interes za njegu i medicinu",
+        "Empatija i uživanje u radu s ljudima",
+        "Pouzdanost i timski duh"
+      ],
+      "niceTitle": "Plus je ako već imate",
+      "nice": [
+        "Studij medicine ili zdravstvene njege ili započeto obrazovanje u njezi",
+        "Prvo praktično iskustvo u njezi"
+      ],
+      "niceNote": "Ako nemate: nije problem. Podržat ćemo vas na tom putu.",
+      "closingTitle": "Upoznajte nas",
+      "closingText": "Želite li saznati odgovara li vam intenzivna njega? Onda se radujemo vašoj prijavi."
+    }
+  }
+}

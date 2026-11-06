@@ -26,6 +26,7 @@
       "nachname": "Nume de Familie",
       "email": "Adresă E-Mail",
       "telefon": "Telefon",
+      "stelleLabel": "Post",
       "qualifikationLabel": "Profesie actuală / calificare",
       "qualifikationPlaceholder": "Vă rugăm să alegeți",
       "erfahrungLabel": "Experiență în terapia intensivă",

@@ -26,6 +26,7 @@
       "nachname": "Soyadınız",
       "email": "E-Posta",
       "telefon": "Telefon",
+      "stelleLabel": "Pozisyon",
       "qualifikationLabel": "Mevcut Meslek / Nitelik",
       "qualifikationPlaceholder": "Lütfen seçin",
       "erfahrungLabel": "Yoğun Bakım Deneyimi",

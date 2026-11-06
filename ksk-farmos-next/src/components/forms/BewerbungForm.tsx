@@ -70,7 +70,17 @@ function WizardSteps({ current, labels }: { current: number; labels: string[] })
   );
 }
 
-export function BewerbungForm() {
+export function BewerbungForm({
+  stelleOptions,
+  initialStelle = "",
+}: {
+  /**
+   * Вакансии приходят с сервера: словарь `karriere` не передаётся в браузер
+   * (см. `[locale]/layout.tsx`), а подписи те же, что в списке на Karriere.
+   */
+  stelleOptions: readonly { value: string; label: string }[];
+  initialStelle?: string;
+}) {
   const t = useTranslations("schnellbewerbung.form");
   const stepLabels = useTranslations("schnellbewerbung").raw("steps") as string[];
 
@@ -80,6 +90,7 @@ export function BewerbungForm() {
   const [nachname, setNachname] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
+  const [stelle, setStelle] = useState(initialStelle);
   const [qualifikation, setQualifikation] = useState("");
   const [erfahrung, setErfahrung] = useState("");
   const [fuehrerschein, setFuehrerschein] = useState<string>(fuehrerscheinValues[0]);
@@ -165,7 +176,7 @@ export function BewerbungForm() {
     }
 
     setStatus("sending");
-    const findLabel = (options: { value: string; label: string }[], value: string) =>
+    const findLabel = (options: readonly { value: string; label: string }[], value: string) =>
       options.find((o) => o.value === value)?.label ?? value;
     const qualifikationLabel = findLabel(qualifikationOptions, qualifikation);
     const erfahrungLabel = findLabel(erfahrungOptions, erfahrung);
@@ -177,6 +188,7 @@ export function BewerbungForm() {
         nachname,
         email,
         telefon,
+        stelle: stelle ? findLabel(stelleOptions, stelle) : "",
         qualifikation: qualifikationLabel,
         erfahrung: erfahrungLabel,
         fuehrerschein: fuehrerscheinLabel,
@@ -246,6 +258,14 @@ export function BewerbungForm() {
 
       {step === 2 ? (
         <div className="flex flex-col gap-md">
+          <Select
+            id="stelle"
+            label={t("fields.stelleLabel")}
+            value={stelle}
+            onChange={setStelle}
+            options={stelleOptions}
+            placeholder={t("fields.qualifikationPlaceholder")}
+          />
           <Select
             id="qualifikation"
             label={t("fields.qualifikationLabel")}

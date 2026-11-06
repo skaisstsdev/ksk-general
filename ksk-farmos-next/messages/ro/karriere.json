@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "Locuri de Muncă",
     "title": "Poziții Disponibile",
-    "bewerben": "Aplică",
+    "mehr": "Află mai multe",
     "items": [
       {
         "title": "Asistent medical (m/f/d)",
         "tags": [
+          "28 €/oră",
           "Normă Întreagă / Normă Parțială",
-          "Terapie Intensivă",
-          "Permis de Conducere Cat. B"
+          "Terapie Intensivă"
         ]
       },
       {
         "title": "Asistent de îngrijire (m/f/d)",
         "tags": [
-          "Normă Întreagă / Normă Parțială",
-          "Permis de Conducere Cat. B"
+          "Normă Întreagă / Normă Parțială"
         ]
       },
       {

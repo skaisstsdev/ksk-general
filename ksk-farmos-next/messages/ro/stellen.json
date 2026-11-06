@@ -1,0 +1,203 @@
+{
+  "shared": {
+    "eyebrow": "Ofertă de muncă",
+    "back": "Toate posturile deschise",
+    "apply": "Aplică acum",
+    "factsTitle": "Pe scurt",
+    "phoneLabel": "Întrebări înainte de aplicare?",
+    "closingEyebrow": "Aplicație",
+    "closingPoints": [
+      "Nu este nevoie de scrisoare de intenție",
+      "Prin formular, e-mail sau telefon",
+      "O discuție personală, de la egal la egal"
+    ]
+  },
+  "items": {
+    "pflegefachkraft-intensivpflege": {
+      "meta": {
+        "title": "Asistent medical terapie intensivă (m/f/d) Kassel",
+        "description": "Asistent medical (m/f/d) pentru îngrijire intensivă în afara spitalului, în Volkmarsen și Kassel: 28 €/oră, program individual și o echipă puternică."
+      },
+      "title": "Asistent medical – îngrijire intensivă în afara spitalului (m/f/d)",
+      "claim": "Îngrijire cu timp. Cu responsabilitate. Cu apreciere.",
+      "intro": [
+        "Vrei să însoțești oamenii la un nivel profesional ridicat și să lucrezi într-un mediu în care munca ta este cu adevărat văzută? Atunci ești exact la locul potrivit la KSK Farmos.",
+        "La noi îngrijești oameni la domiciliul lor sau într-o locuință comună cu îngrijire intensivă. Lucrezi într-o atmosferă calmă, fără agitația unui salon de spital, și cu libertatea de a oferi îngrijirea așa cum ar trebui să fie: profesionistă, atentă și umană."
+      ],
+      "facts": [
+        { "label": "Salariu", "value": "28 €/oră" },
+        { "label": "Program", "value": "Normă întreagă / parțială" },
+        { "label": "Domeniu", "value": "Îngrijire intensivă în afara spitalului" },
+        { "label": "Loc de muncă", "value": "Volkmarsen, Kassel și împrejurimi" }
+      ],
+      "benefitsEyebrow": "Avantajele tale",
+      "benefitsTitle": "La ce te poți aștepta",
+      "benefits": [
+        {
+          "title": "Salariu peste tarif",
+          "text": "Îngrijirea bună merită mai mult decât recunoaștere. De aceea oferim un salariu peste medie, care reflectă responsabilitatea, implicarea și calificarea ta."
+        },
+        {
+          "title": "Program care se potrivește vieții tale",
+          "text": "Viața ta înseamnă mai mult decât muncă. De aceea punem accent pe planificarea individuală a turelor, nu pe modele standard rigide. Împreună găsim un program care se potrivește rutinei tale."
+        },
+        {
+          "title": "Sprijin pentru deplasare",
+          "text": "Vrem să ajungi relaxat(ă) la serviciu. În funcție de locul de muncă, oferim transport și te ajutăm să ajungi sigur la locul de muncă."
+        },
+        {
+          "title": "Mașină de serviciu, în funcție de sarcini",
+          "text": "Pentru anumite activități punem la dispoziție o mașină de serviciu. Astfel rămâi flexibil(ă) și mobil(ă) și în timpul zilei de lucru."
+        },
+        {
+          "title": "O echipă unită",
+          "text": "Credem că îngrijirea bună este posibilă doar într-o echipă puternică. Sprijinul reciproc, comunicarea sinceră și respectul nu sunt pentru noi simple cuvinte, ci practică de zi cu zi."
+        },
+        {
+          "title": "Îngrijire cu sens și exigentă",
+          "text": "Lucrezi cu oameni care au nevoie de îngrijire intensivă și specializată. Preiei sarcini cu responsabilitate în îngrijirea medicală și de bază și îi însoțești adesea pe clienți o perioadă mai lungă."
+        },
+        {
+          "title": "Formare cu valoare reală",
+          "text": "Investim în cunoștințele tale. Instruirile interne regulate și cursurile de perfecționare te ajută să rămâi sigur(ă) pe tine profesional și să te dezvolți continuu."
+        },
+        {
+          "title": "Un angajator cu viitor",
+          "text": "KSK Farmos crește constant. Pentru tine, asta înseamnă siguranță, oportunități de dezvoltare și o perspectivă pe termen lung într-o companie modernă de îngrijire."
+        }
+      ],
+      "profileEyebrow": "Profilul tău",
+      "profileTitle": "Ce aduci cu tine",
+      "requirementsTitle": "Ce contează pentru noi",
+      "requirements": [
+        "Formare încheiată ca asistent medical, îngrijitor de persoane vârstnice sau în domeniul sănătății și îngrijirii bolnavilor",
+        "Empatie, simțul responsabilității și bucuria de a lucra cu oamenii",
+        "Un mod de lucru structurat și de încredere",
+        "Spirit de echipă și profesionalism"
+      ],
+      "niceTitle": "Este un plus dacă ai deja",
+      "nice": [
+        "Experiență în îngrijirea intensivă în afara spitalului",
+        "Cunoștințe în îngrijirea pacienților ventilați",
+        "Cursuri de perfecționare în terapie intensivă, igienă sau terapie respiratorie"
+      ],
+      "niceNote": "Dacă nu: nicio problemă. Te sprijinim pe drumul tău.",
+      "closingTitle": "Devino parte din echipa noastră",
+      "closingText": "Vrei să ai din nou timpul de care are nevoie o îngrijire bună? Cauți o echipă unită, condiții de muncă corecte și un angajator cu viitor? Atunci abia așteptăm să te cunoaștem."
+    },
+    "pflegehelfer": {
+      "meta": {
+        "title": "Asistent de îngrijire (m/f/d) terapie intensivă Kassel",
+        "description": "Asistent de îngrijire (m/f/d) în Volkmarsen și Kassel: sprijină echipa noastră în îngrijirea intensivă în afara spitalului, cu program individual și o integrare bună."
+      },
+      "title": "Asistent de îngrijire (m/f/d)",
+      "claim": "Aproape de oameni. Ferm în echipă.",
+      "intro": [
+        "Îți place să dai o mână de ajutor, ești alături de ceilalți și vrei să schimbi cu adevărat ceva în îngrijire? Atunci te potrivești bine la KSK Farmos.",
+        "Ca asistent de îngrijire îți sprijini asistenții medicali în îngrijirea persoanelor grav bolnave, la domiciliul lor sau într-o locuință comună. Lucrezi într-o atmosferă calmă și ai timp pentru oamenii pe care îi însoțești."
+      ],
+      "facts": [
+        { "label": "Program", "value": "Normă întreagă / parțială" },
+        { "label": "Domeniu", "value": "Îngrijire de bază și sprijin în viața de zi cu zi" },
+        { "label": "Loc de muncă", "value": "Volkmarsen, Kassel și împrejurimi" }
+      ],
+      "benefitsEyebrow": "Avantajele tale",
+      "benefitsTitle": "La ce te poți aștepta",
+      "benefits": [
+        {
+          "title": "Salariu peste tarif",
+          "text": "Munca ta valorează mult pentru noi. Acest lucru se vede și într-un salariu care corespunde responsabilității și implicării tale."
+        },
+        {
+          "title": "Program care se potrivește vieții tale",
+          "text": "În loc de modele standard rigide, punem accent pe planificarea individuală a turelor. Împreună găsim un program care se potrivește rutinei tale."
+        },
+        {
+          "title": "Sprijin pentru deplasare",
+          "text": "În funcție de locul de muncă, oferim transport și te ajutăm să ajungi sigur la locul de muncă."
+        },
+        {
+          "title": "O echipă unită",
+          "text": "Lucrezi îndeaproape cu asistenți medicali experimentați. Sprijinul reciproc și respectul fac parte din viața de zi cu zi la noi."
+        },
+        {
+          "title": "Integrare și formare",
+          "text": "Te însoțim la început. Instruirile interne regulate și cursurile de perfecționare te ajută să câștigi încredere și să te dezvolți mai departe."
+        },
+        {
+          "title": "Un angajator cu viitor",
+          "text": "KSK Farmos crește constant. Pentru tine, asta înseamnă siguranță și o perspectivă pe termen lung."
+        }
+      ],
+      "profileEyebrow": "Profilul tău",
+      "profileTitle": "Ce aduci cu tine",
+      "requirementsTitle": "Ce contează pentru noi",
+      "requirements": [
+        "Empatie, simțul responsabilității și bucuria de a lucra cu oamenii",
+        "Un mod de lucru structurat și de încredere",
+        "Spirit de echipă și disponibilitatea de a învăța lucruri noi"
+      ],
+      "niceTitle": "Este un plus dacă ai deja",
+      "nice": [
+        "Pregătire sau experiență ca asistent de îngrijire",
+        "Experiență în îngrijirea ambulatorie sau în terapie intensivă"
+      ],
+      "niceNote": "Dacă nu: nicio problemă. Te sprijinim pe drumul tău.",
+      "closingTitle": "Devino parte din echipa noastră",
+      "closingText": "Cauți o muncă cu sens și o echipă unită? Atunci abia așteptăm să te cunoaștem."
+    },
+    "pflegepraktikum": {
+      "meta": {
+        "title": "Practică în îngrijire (m/f/d) terapie intensivă Kassel",
+        "description": "Practică în îngrijire (m/f/d) la KSK Farmos în Volkmarsen și Kassel: descoperă îngrijirea intensivă în afara spitalului în practica de zi cu zi, alături de specialiști experimentați."
+      },
+      "title": "Practicant în îngrijire (m/f/d)",
+      "claim": "Descoperă îngrijirea intensivă din interior.",
+      "intro": [
+        "Te interesează îngrijirea sau medicina și vrei să știi cum arată cu adevărat această muncă? La KSK Farmos primești o perspectivă pe care nu o poți învăța din cărți.",
+        "Îți însoțești asistenții medicali în îngrijirea persoanelor grav bolnave, la domiciliul lor sau într-o locuință comună, și descoperi viața de zi cu zi a îngrijirii intensive în afara spitalului."
+      ],
+      "facts": [
+        { "label": "Program", "value": "Normă întreagă" },
+        { "label": "Început și durată", "value": "Conform înțelegerii" },
+        { "label": "Loc de muncă", "value": "Volkmarsen, Kassel și împrejurimi" }
+      ],
+      "benefitsEyebrow": "Avantajele tale",
+      "benefitsTitle": "Ce iei cu tine",
+      "benefits": [
+        {
+          "title": "Perspectivă reală",
+          "text": "Vezi cum sunt îngrijite acasă persoanele ventilate, aflate în stare vegetativă sau cu afecțiuni neurologice."
+        },
+        {
+          "title": "Îndrumare din partea specialiștilor",
+          "text": "Colegii cu experiență își fac timp pentru tine, își explică munca și îți răspund la întrebări."
+        },
+        {
+          "title": "O echipă unită",
+          "text": "Ești inclus(ă) din prima zi. Comunicarea sinceră și respectul fac parte din viața de zi cu zi la noi."
+        },
+        {
+          "title": "Sprijin pentru deplasare",
+          "text": "În funcție de locul de muncă, oferim transport și te ajutăm să ajungi sigur la locul practicii."
+        }
+      ],
+      "profileEyebrow": "Profilul tău",
+      "profileTitle": "Ce aduci cu tine",
+      "requirementsTitle": "Ce contează pentru noi",
+      "requirements": [
+        "Interes pentru îngrijire și medicină",
+        "Empatie și plăcerea de a lucra cu oamenii",
+        "Seriozitate și spirit de echipă"
+      ],
+      "niceTitle": "Este un plus dacă ai deja",
+      "nice": [
+        "Studii de medicină sau asistență medicală ori o formare în îngrijire început",
+        "Prime experiențe practice în îngrijire"
+      ],
+      "niceNote": "Dacă nu: nicio problemă. Te sprijinim pe drumul tău.",
+      "closingTitle": "Descoperă-ne",
+      "closingText": "Vrei să afli dacă îngrijirea intensivă ți se potrivește? Atunci așteptăm cu drag aplicația ta."
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { RuledList } from "@/components/page/RuledList";
 import { StickyHeading } from "@/components/page/SectionHeading";
 import { Col, Grid } from "@/components/ui/Grid";
 import { BewerbungForm } from "@/components/forms/BewerbungForm";
+import { isStelleSlug, stellen } from "@/content/pages/stellen";
 import { contact } from "@/content/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -31,12 +32,20 @@ export async function generateMetadata({
  */
 export default async function SchnellbewerbungPage({
   params,
+  searchParams,
 }: PageProps<"/[locale]/schnellbewerbung">) {
   const { locale } = await params;
+  const { stelle } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations("schnellbewerbung");
   const hero = t.raw("hero");
   const points: string[] = t.raw("points");
+  const karriere = await getTranslations("karriere");
+  const stelleTitles: { title: string }[] = karriere.raw("vakanzen.items");
+  const stelleOptions = stellen.map(({ slug }, i) => ({
+    value: slug,
+    label: stelleTitles[i].title,
+  }));
 
   return (
     <section className="pt-[calc(var(--header-h)+var(--spacing-break))] pb-turn">
@@ -62,7 +71,10 @@ export default async function SchnellbewerbungPage({
         </Col>
 
         <Col span="aside">
-          <BewerbungForm />
+          <BewerbungForm
+            stelleOptions={stelleOptions}
+            initialStelle={isStelleSlug(stelle) ? stelle : ""}
+          />
         </Col>
       </Grid>
     </section>

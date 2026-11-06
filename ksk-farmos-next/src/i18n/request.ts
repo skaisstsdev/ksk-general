@@ -13,6 +13,7 @@ const NAMESPACES = [
   "beratung",
   "schnellbewerbung",
   "legal",
+  "stellen",
 ] as const;
 
 export default getRequestConfig(async ({ requestLocale }) => {

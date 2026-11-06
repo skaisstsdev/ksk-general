@@ -44,21 +44,20 @@
   "vakanzen": {
     "eyebrow": "İş İlanları",
     "title": "Açık Pozisyonlar",
-    "bewerben": "Başvur",
+    "mehr": "Daha fazla bilgi",
     "items": [
       {
         "title": "Uzman Hemşire (e/k/d)",
         "tags": [
+          "28 €/saat",
           "Tam / Yarı Zamanlı",
-          "Yoğun Bakım",
-          "B Sınıfı Ehliyet"
+          "Yoğun Bakım"
         ]
       },
       {
         "title": "Bakım Elemanı (e/k/d)",
         "tags": [
-          "Tam / Yarı Zamanlı",
-          "B Sınıfı Ehliyet"
+          "Tam / Yarı Zamanlı"
         ]
       },
       {
