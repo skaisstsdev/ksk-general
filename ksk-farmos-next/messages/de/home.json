@@ -20,7 +20,7 @@
     "professional": {
       "audience": "Für Pflegekräfte",
       "title": "Werden Sie Teil unseres Teams",
-      "text": "Übertarifliche Bezahlung, Weiterbildung und Firmenwagen.",
+      "text": "Übertarifliche Bezahlung und Weiterbildung.",
       "cta": "Jetzt bewerben",
       "note": "Schnell und unkompliziert — kein Anschreiben nötig."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "Alle Leistungen",
   "conditions": [
     "Übertarifliche Vergütung",
-    "Firmenwagen zur privaten Nutzung",
     "Bezahlte Weiterbildungen",
     "30 Tage Urlaub",
     "Kollegiales Team und Wertschätzung"

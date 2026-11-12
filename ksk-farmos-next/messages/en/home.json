@@ -20,7 +20,7 @@
     "professional": {
       "audience": "For Care Professionals",
       "title": "Join Our Team",
-      "text": "Above-average pay, continuous training, and a company car.",
+      "text": "Above-average pay and continuous training.",
       "cta": "Apply Now",
       "note": "Quick and easy — no cover letter needed."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "All Services",
   "conditions": [
     "Above-average pay",
-    "Company car for private use",
     "Paid continuing education",
     "30 days of vacation",
     "Supportive team and appreciation"

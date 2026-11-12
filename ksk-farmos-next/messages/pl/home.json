@@ -20,7 +20,7 @@
     "professional": {
       "audience": "Dla Pielęgniarzy",
       "title": "Dołącz Do Naszego Zespołu",
-      "text": "Ponadstandardowe wynagrodzenie, ciągłe szkolenia i samochód służbowy.",
+      "text": "Ponadstandardowe wynagrodzenie i ciągłe szkolenia.",
       "cta": "Aplikuj Teraz",
       "note": "Szybko i prosto — list motywacyjny nie jest wymagany."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "Wszystkie usługi",
   "conditions": [
     "Wynagrodzenie powyżej stawki",
-    "Samochód służbowy do użytku prywatnego",
     "Płatne szkolenia",
     "30 dni urlopu",
     "Zespół i szacunek"

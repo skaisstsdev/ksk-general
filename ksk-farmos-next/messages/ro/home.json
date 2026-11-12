@@ -20,7 +20,7 @@
     "professional": {
       "audience": "Pentru Profesioniștii Medicali",
       "title": "Deveniți Parte Din Echipa Noastră",
-      "text": "Salariu peste medie, formare profesională continuă și mașină de serviciu.",
+      "text": "Salariu peste medie și formare profesională continuă.",
       "cta": "Aplicați Acum",
       "note": "Rapid și simplu — nu e nevoie de scrisoare de intenție."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "Toate serviciile",
   "conditions": [
     "Salariu peste tarif",
-    "Mașină de serviciu pentru uz personal",
     "Cursuri plătite",
     "30 zile de concediu",
     "Echipă și apreciere"

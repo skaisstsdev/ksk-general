@@ -20,7 +20,7 @@
     "professional": {
       "audience": "Sağlık Personelleri İçin",
       "title": "Ekibimizin Bir Parçası Olun",
-      "text": "Ortalamanın üzerinde maaş, sürekli eğitim fırsatları ve şirket aracı imkanı.",
+      "text": "Ortalamanın üzerinde maaş ve sürekli eğitim fırsatları.",
       "cta": "Hemen Başvur",
       "note": "Hızlı ve kolay — ön yazıya gerek yok."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "Tüm Hizmetler",
   "conditions": [
     "Tarifenin üstünde maaş",
-    "Özel kullanım için şirket aracı",
     "Ücretli ileri eğitim",
     "30 gün izin",
     "Ekip ruhu ve değer görme"

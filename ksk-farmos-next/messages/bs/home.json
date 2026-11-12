@@ -20,7 +20,7 @@
     "professional": {
       "audience": "Za medicinske stručnjake",
       "title": "Postanite dio našeg tima",
-      "text": "Plata iznad tarife, kontinuirana edukacija i službeno vozilo.",
+      "text": "Plata iznad tarife i kontinuirana edukacija.",
       "cta": "Prijavite se sada",
       "note": "Brzo i jednostavno — motivaciono pismo nije potrebno."
     }
@@ -168,7 +168,6 @@
   "servicesLink": "Sve usluge",
   "conditions": [
     "Plata iznad tarife",
-    "Službeno vozilo za privatnu upotrebu",
     "Plaćena edukacija",
     "30 dana odmora",
     "Tim i poštovanje"
