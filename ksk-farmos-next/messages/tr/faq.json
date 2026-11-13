@@ -6,7 +6,8 @@
   "hero": {
     "eyebrow": "SSS",
     "title": "Sıkça Sorulan Sorular",
-    "lead": "Yoğun bakım hizmetlerimizle ilgili en önemli soruların yanıtlarını burada bulabilirsiniz."
+    "lead": "Yoğun bakım hizmetlerimizle ilgili en önemli soruların yanıtlarını burada bulabilirsiniz.",
+    "bannerAlt": "Cam masada ahşap kalemlik ve KSK Farmos broşürleri"
   },
   "categories": [
     {

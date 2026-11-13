@@ -8,7 +8,8 @@
     "title": "Nasze usługi medyczne",
     "lead": "Intensywna opieka domowa, unikalna koncepcja pobytu w ośrodku oraz ciągłe szkolenia personelu — wszystko z jednej ręki.",
     "beratung": "Bezpłatna Konsultacja",
-    "all": "Wszystkie usługi"
+    "all": "Wszystkie usługi",
+    "alt": "Ssak i akcesoria do domowej opieki intensywnej"
   },
   "beatmung": {
     "statement": "Opieka nad pacjentami wentylowanymi mechanicznie to nasza kluczowa kompetencja.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Diagnozy",
     "title": "Kogo Obejmujemy Opieką",
+    "text": "Opiekujemy się osobami, które potrzebują całodobowej specjalistycznej opieki pielęgniarskiej — w domu lub w naszym projekcie mieszkalnym. Każdy plan opieki układamy indywidualnie, razem z Państwem i Państwa bliskimi.",
     "items": [
       {
         "title": "Pacjenci wentylowani mechanicznie",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Starsza mieszkanka i opiekunka z tabletem w ogrodzie zimowym projektu mieszkaniowego"
+    "alt": "Starsza mieszkanka i opiekunka z tabletem w ogrodzie zimowym projektu mieszkaniowego",
+    "gallery": {
+      "region": "Zdjęcia z projektu mieszkalnego",
+      "prev": "Poprzednie zdjęcie",
+      "next": "Następne zdjęcie",
+      "goTo": "Pokaż zdjęcie {n}",
+      "alts": [
+        "Jasny salon na poddaszu z dwiema sofami i telewizorem",
+        "Wspólna kuchnia z wózkiem elektrycznym na pierwszym planie",
+        "Platforma schodowa w jasnej klatce schodowej z roślinami",
+        "Korytarz z dużym obrazem, przez otwarte drzwi widać pokój",
+        "Część mieszkalna ze stołem, telewizorem i mieszkanką w fotelu"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Doradztwo",
@@ -134,7 +149,7 @@
         "text": "Doradztwo w zakresie adaptacji mieszkania i likwidacji barier architektonicznych."
       }
     ],
-    "alt": "Doradczyni ds. opieki i starsza klientka wspólnie przeglądają dokumenty na tablecie"
+    "alt": "Pracownik opieki ustawia pompę infuzyjną na stojaku infuzyjnym"
   },
   "kosten": {
     "eyebrow": "POKRYCIE KOSZTÓW",

@@ -8,7 +8,8 @@
     "title": "Unsere medizinischen Leistungen",
     "lead": "Häusliche Intensivpflege, ein einzigartiges Aufenthaltskonzept und kontinuierliche Fortbildungen — alles aus einer Hand.",
     "beratung": "Kostenlose Beratung",
-    "all": "Alle Leistungen"
+    "all": "Alle Leistungen",
+    "alt": "Absauggerät und Zubehör für die häusliche Intensivpflege"
   },
   "beatmung": {
     "statement": "Die Beatmungspflege ist unsere Kernkompetenz.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Krankheitsbild",
     "title": "Welche Patienten wir versorgen",
+    "text": "Wir betreuen Menschen, die rund um die Uhr medizinische Fachpflege brauchen — zu Hause oder in unserem Wohnprojekt. Jede Versorgung planen wir individuell mit Ihnen und Ihren Angehörigen.",
     "items": [
       {
         "title": "Beatmungsklienten",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts"
+    "alt": "Seniorin und Betreuerin mit Tablet im Wintergarten eines Wohnprojekts",
+    "gallery": {
+      "region": "Fotos aus dem Wohnprojekt",
+      "prev": "Vorheriges Foto",
+      "next": "Nächstes Foto",
+      "goTo": "Foto {n} anzeigen",
+      "alts": [
+        "Helles Dachgeschoss-Wohnzimmer mit zwei Sofas und Fernseher",
+        "Gemeinschaftsküche mit Elektrorollstuhl im Vordergrund",
+        "Treppenlift im hellen Treppenhaus mit Pflanzen",
+        "Flur mit großem Gemälde, durch die offene Tür ist ein Zimmer zu sehen",
+        "Wohnbereich mit Esstisch, Fernseher und einer Bewohnerin im Sessel"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Pflegeberatung",
@@ -134,7 +149,7 @@
         "text": "Beratung zur Wohnraumanpassung und Barrierefreiheit."
       }
     ],
-    "alt": "Pflegeberaterin und Seniorin besprechen gemeinsam Unterlagen auf dem Tablet"
+    "alt": "Pflegekraft stellt eine Infusionspumpe am Infusionsständer ein"
   },
   "kosten": {
     "eyebrow": "KOSTENÜBERNAHME",

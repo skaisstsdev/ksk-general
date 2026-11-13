@@ -9,11 +9,13 @@
     "lead": "Since 2013, we've been caring for people with serious illnesses — with professionalism, compassion, and reliability.",
     "beratung": "Free Consultation",
     "kontakt": "Get in Touch",
-    "alt": "The KSK Farmos team in the garden"
+    "alt": "The KSK Farmos team in the garden",
+    "bannerAlt": "Fleece jackets with the KSK Farmos logo on hangers"
   },
   "leitbild": {
     "eyebrow": "Our Mission",
     "title": "What Guides Us",
+    "text": "Five principles guide our daily care — from preserving independence to preventing complications.",
     "items": [
       {
         "title": "Supporting Life Processes",
@@ -88,7 +90,7 @@
       "Health, care and social insurance funds",
       "Medical supply stores"
     ],
-    "alt": "Caregiver and family member discussing care planning together with a senior client"
+    "alt": "Nurse taking notes next to a laptop by the window"
   },
   "social": {
     "eyebrow": "Social Media",

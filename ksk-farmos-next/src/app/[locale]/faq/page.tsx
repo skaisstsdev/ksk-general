@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { FaqList } from "@/components/page/FaqList";
+import { PageBanner } from "@/components/page/PageBanner";
 import { PageClosing } from "@/components/page/PageClosing";
 import { RuledGrid } from "@/components/page/RuledGrid";
 import { StickyHeading } from "@/components/page/SectionHeading";
@@ -35,9 +36,9 @@ export async function generateMetadata({
  * (`aside`), тем же приёмом, что у Leitbild на Über uns и диагнозов
  * на Leistungen.
  *
- * Раз хиро больше нет, страница убрана из `pagesWithHero` — шапка
- * здесь всегда непрозрачная, а первому блоку нужен свой отступ
- * под неё (`--header-h`) вместо отступа хиро.
+ * Сверху — мини-хиро (`PageBanner`) с названием раздела, как на
+ * Leistungen и Über uns. Шапка здесь всегда непрозрачная, полоса
+ * начинается прямо под ней.
  */
 export default async function FaqPage({
   params,
@@ -63,10 +64,19 @@ export default async function FaqPage({
   return (
     <>
       <FaqJsonLd questions={questions} />
-      <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
+      <PageBanner
+        title={tCommon("nav.faq")}
+        image={{
+          src: "/img/faq/banner.webp",
+          alt: hero.bannerAlt,
+          position: "center 68%",
+        }}
+      />
+
+      <section className="pt-break">
         <Grid>
           <Col span="text">
-            <StickyHeading as="h1" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
+            <StickyHeading as="h2" eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} />
           </Col>
           <Col span="aside">
             <FaqList categories={categories} questions={questions} />

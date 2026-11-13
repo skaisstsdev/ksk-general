@@ -8,7 +8,8 @@
     "title": "Serviciile noastre medicale",
     "lead": "Terapie intensivă la domiciliu, un concept rezidențial unic și educație continuă a personalului — totul sub un singur acoperiș.",
     "beratung": "Consultație Gratuită",
-    "all": "Toate serviciile"
+    "all": "Toate serviciile",
+    "alt": "Aspirator și accesorii pentru îngrijirea intensivă la domiciliu"
   },
   "beatmung": {
     "statement": "Îngrijirea pacienților ventilați mecanic este competența noastră principală.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Diagnostice",
     "title": "Pe Cine Îngrijim",
+    "text": "Îngrijim persoane care au nevoie de îngrijire specializată non-stop — acasă sau în proiectul nostru de locuit. Fiecare plan de îngrijire îl stabilim individual, împreună cu dumneavoastră și cu apropiații.",
     "items": [
       {
         "title": "Pacienți pe Ventilator",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Rezidentă vârstnică și îngrijitoare cu o tabletă în grădina de iarnă a unui proiect rezidențial"
+    "alt": "Rezidentă vârstnică și îngrijitoare cu o tabletă în grădina de iarnă a unui proiect rezidențial",
+    "gallery": {
+      "region": "Fotografii din proiectul de locuit",
+      "prev": "Fotografia anterioară",
+      "next": "Fotografia următoare",
+      "goTo": "Afișează fotografia {n}",
+      "alts": [
+        "Living luminos în mansardă cu două canapele și televizor",
+        "Bucătărie comună cu scaun rulant electric în prim-plan",
+        "Lift pentru scări într-un hol luminos cu plante",
+        "Hol cu un tablou mare, prin ușa deschisă se vede o cameră",
+        "Zonă de zi cu masă, televizor și o locatară în fotoliu"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Consiliere",
@@ -134,7 +149,7 @@
         "text": "Consiliere privind adaptarea spațiului de locuit și accesibilitatea."
       }
     ],
-    "alt": "Consilier de îngrijire și clientă în vârstă analizând împreună documente pe o tabletă"
+    "alt": "Un îngrijitor reglează o pompă de perfuzie pe un stativ de perfuzie"
   },
   "kosten": {
     "eyebrow": "ACOPERIREA COSTURILOR",

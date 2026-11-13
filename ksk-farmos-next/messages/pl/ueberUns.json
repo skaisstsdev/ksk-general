@@ -9,11 +9,13 @@
     "lead": "Od 2013 roku z wielkim sercem opiekujemy się osobami z ciężkimi schorzeniami — profesjonalnie, po ludzku i rzetelnie.",
     "beratung": "Bezpłatna Konsultacja",
     "kontakt": "Skontaktuj Się",
-    "alt": "Zespół KSK Farmos w ogrodzie"
+    "alt": "Zespół KSK Farmos w ogrodzie",
+    "bannerAlt": "Polarowe kurtki z logo KSK Farmos na wieszakach"
   },
   "leitbild": {
     "eyebrow": "Nasze Wartości",
     "title": "Czym Się Kierujemy",
+    "text": "Pięć zasad wyznacza naszą codzienną opiekę — od zachowania samodzielności po zapobieganie powikłaniom.",
     "items": [
       {
         "title": "Wspieranie Procesów Życiowych",
@@ -88,7 +90,7 @@
       "Kasami chorych, opiekuńczymi i społecznymi",
       "Sklepami medycznymi"
     ],
-    "alt": "Opiekun i bliska osoba omawiają wspólnie ze starszą klientką plan opieki"
+    "alt": "Pielęgniarka robi notatki obok laptopa przy oknie"
   },
   "social": {
     "eyebrow": "Media społecznościowe",

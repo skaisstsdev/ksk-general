@@ -8,7 +8,8 @@
     "title": "Naše medicinske usluge",
     "lead": "Intenzivna njega kod kuće, jedinstven koncept stanovanja i kontinuirana edukacija osoblja — sve na jednom mjestu.",
     "beratung": "Besplatne konsultacije",
-    "all": "Sve usluge"
+    "all": "Sve usluge",
+    "alt": "Aspirator i oprema za kućnu intenzivnu njegu"
   },
   "beatmung": {
     "statement": "Njega pacijenata na umjetnoj ventilaciji pluća je naša ključna kompetencija.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Dijagnoze",
     "title": "Kome pomažemo",
+    "text": "Brinemo o ljudima kojima je potrebna specijalizirana njega u svako doba dana — kod kuće ili u našem stambenom projektu. Svaki plan njege izrađujemo individualno, zajedno s vama i vašom porodicom.",
     "items": [
       {
         "title": "Pacijenti na respiratoru",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Starija stanarka i njegovateljica sa tabletom u zimskom vrtu stambenog projekta"
+    "alt": "Starija stanarka i njegovateljica sa tabletom u zimskom vrtu stambenog projekta",
+    "gallery": {
+      "region": "Fotografije iz stambenog projekta",
+      "prev": "Prethodna fotografija",
+      "next": "Sljedeća fotografija",
+      "goTo": "Prikaži fotografiju {n}",
+      "alts": [
+        "Svijetla potkrovna dnevna soba s dvije sofe i televizorom",
+        "Zajednička kuhinja s električnim invalidskim kolicima u prvom planu",
+        "Stepenišna platforma u svijetlom stepeništu s biljkama",
+        "Hodnik s velikom slikom, kroz otvorena vrata vidi se soba",
+        "Dnevni boravak sa stolom, televizorom i stanarkom u fotelji"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Savjetovanje",
@@ -134,7 +149,7 @@
         "text": "Savjeti o prilagođavanju životnog prostora i pristupačnosti bez barijera."
       }
     ],
-    "alt": "Savjetnica za njegu i starija klijentica zajedno pregledavaju dokumente na tabletu"
+    "alt": "Njegovatelj podešava infuzionu pumpu na infuzionom stalku"
   },
   "kosten": {
     "eyebrow": "POKRIĆE TROŠKOVA",

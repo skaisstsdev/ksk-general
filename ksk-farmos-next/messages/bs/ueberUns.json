@@ -9,11 +9,13 @@
     "lead": "Od 2013. godine brinemo o ljudima sa teškim bolestima — profesionalno, pouzdano i s iskrenom brigom.",
     "beratung": "Besplatne konsultacije",
     "kontakt": "Kontaktirajte nas",
-    "alt": "Tim KSK Farmosa u vrtu"
+    "alt": "Tim KSK Farmosa u vrtu",
+    "bannerAlt": "Flis jakne s logom KSK Farmos na vješalicama"
   },
   "leitbild": {
     "eyebrow": "Naši principi",
     "title": "Ono što nas vodi",
+    "text": "Pet načela vode našu svakodnevnu njegu — od očuvanja samostalnosti do sprječavanja komplikacija.",
     "items": [
       {
         "title": "Podrška životnim procesima",
@@ -88,7 +90,7 @@
       "Zdravstvenim, penzionim i socijalnim kasama",
       "Ortopedskim kućama"
     ],
-    "alt": "Njegovatelj i član porodice zajedno sa starijom klijenticom razgovaraju o planu njege"
+    "alt": "Medicinska sestra bilježi pored laptopa kraj prozora"
   },
   "social": {
     "eyebrow": "Društvene mreže",

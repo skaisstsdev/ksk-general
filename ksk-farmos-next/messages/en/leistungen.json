@@ -8,7 +8,8 @@
     "title": "Our medical services",
     "lead": "Home intensive care, a unique residential concept, and ongoing professional training — all under one roof.",
     "beratung": "Free Consultation",
-    "all": "All Services"
+    "all": "All Services",
+    "alt": "Suction unit and accessories for home intensive care"
   },
   "beatmung": {
     "statement": "Ventilation care is our core expertise.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Diagnoses",
     "title": "The Patients We Serve",
+    "text": "We care for people who need round-the-clock specialist nursing — at home or in our residential project. Every care plan is made individually, together with you and your family.",
     "items": [
       {
         "title": "Ventilated Patients",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Senior resident and caregiver with a tablet in a residential project's conservatory"
+    "alt": "Senior resident and caregiver with a tablet in a residential project's conservatory",
+    "gallery": {
+      "region": "Photos from the residential project",
+      "prev": "Previous photo",
+      "next": "Next photo",
+      "goTo": "Show photo {n}",
+      "alts": [
+        "Bright attic lounge with two sofas and a TV",
+        "Shared kitchen with a power wheelchair in the foreground",
+        "Stair lift in a bright stairwell with plants",
+        "Hallway with a large painting and a room visible through the open door",
+        "Living area with a dining table, a TV and a resident in an armchair"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Care Counseling",
@@ -134,7 +149,7 @@
         "text": "Advice on home adaptations and accessibility."
       }
     ],
-    "alt": "Care counselor and senior client reviewing documents together on a tablet"
+    "alt": "Caregiver adjusting an infusion pump on an IV stand"
   },
   "kosten": {
     "eyebrow": "COST COVERAGE",

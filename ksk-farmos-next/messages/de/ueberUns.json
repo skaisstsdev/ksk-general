@@ -9,11 +9,13 @@
     "lead": "Seit 2013 versorgen wir Menschen mit schweren Erkrankungen — professionell, menschlich und zuverlässig.",
     "beratung": "Kostenlose Beratung",
     "kontakt": "Kontakt aufnehmen",
-    "alt": "Das Team von KSK Farmos GmbH & Co. KG im Garten"
+    "alt": "Das Team von KSK Farmos GmbH & Co. KG im Garten",
+    "bannerAlt": "Fleecejacken mit dem KSK-Farmos-Logo auf Kleiderbügeln"
   },
   "leitbild": {
     "eyebrow": "Unser Leitbild",
     "title": "Woran wir uns orientieren",
+    "text": "Fünf Grundsätze leiten unsere tägliche Pflege — vom Erhalt der Selbstständigkeit bis zur Vorbeugung von Komplikationen.",
     "items": [
       {
         "title": "Lebensprozesse unterstützen",
@@ -88,7 +90,7 @@
       "Kranken-, Pflege- und Sozialkassen",
       "Sanitätshäuser"
     ],
-    "alt": "Pflegekraft und Angehörige besprechen gemeinsam mit einer Seniorin die Pflegeplanung"
+    "alt": "Pflegefachkraft macht sich neben einem Laptop am Fenster Notizen"
   },
   "social": {
     "eyebrow": "Social Media",

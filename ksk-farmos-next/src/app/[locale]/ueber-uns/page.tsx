@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { NumberedList } from "@/components/page/NumberedList";
+import { PageBanner } from "@/components/page/PageBanner";
 import { RuledList } from "@/components/page/RuledList";
 import { SectionHeading, StickyHeading } from "@/components/page/SectionHeading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
@@ -24,7 +25,7 @@ export async function generateMetadata({
     path: "/ueber-uns",
     title: t("meta.title"),
     description: t("meta.description"),
-    image: "/img/ueber-uns/team-garten.webp",
+    image: "/img/ueber-uns/team-sofa-2.webp",
   });
 }
 
@@ -40,8 +41,8 @@ export async function generateMetadata({
  *   4. Kooperationen — с кем работаем
  *   5. Social Media
  *
- * Хиро (полноэкранное фото) на этой странице временно убрано по
- * просьбе владельца — страница начинается сразу с первого блока.
+ * Сверху — мини-хиро (`PageBanner`) с названием раздела, как на
+ * Leistungen. Полноэкранного хиро на этой странице нет.
  */
 export default async function UeberUnsPage({
   params,
@@ -49,6 +50,7 @@ export default async function UeberUnsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("ueberUns");
+  const tCommon = await getTranslations("common");
   const leitbild = t.raw("leitbild");
   const geschichte: { eyebrow: string; title: string; paragraphs: string[] } = t.raw("geschichte");
   const team: {
@@ -65,10 +67,19 @@ export default async function UeberUnsPage({
 
   return (
     <>
-      <section className="pt-[calc(var(--header-h)+var(--spacing-break))]">
+      <PageBanner
+        title={tCommon("nav.ueberUns")}
+        image={{
+          src: "/img/ueber-uns/banner.webp",
+          alt: t("hero.bannerAlt"),
+          position: "center 68%",
+        }}
+      />
+
+      <section className="pt-break">
         <Grid>
           <Col>
-            <SectionHeading as="h1" eyebrow={team.eyebrow} title={team.title} />
+            <SectionHeading as="h2" eyebrow={team.eyebrow} title={team.title} />
 
             <ul className="mt-xl grid gap-x-lg gap-y-xl sm:grid-cols-2 lg:grid-cols-4">
               {teamMembers.map((member, i) => (
@@ -94,12 +105,13 @@ export default async function UeberUnsPage({
           и там: пауза заложена в самой сцене. */}
       <section>
         <ExpandingPhoto
-          src="/img/ueber-uns/team-garten.webp"
-          width={2000}
-          height={1125}
-          srcNarrow="/img/ueber-uns/team-garten-hoch.webp"
-          widthNarrow={1000}
-          heightNarrow={1502}
+          src="/img/ueber-uns/team-sofa-2.webp"
+          width={1348}
+          height={1004}
+          srcNarrow="/img/ueber-uns/team-sofa-2-hoch.webp"
+          widthNarrow={1122}
+          heightNarrow={1402}
+          position="center 60%"
           alt={t("hero.alt")}
         >
           <div className="flex max-w-[34rem] flex-col gap-xs">
@@ -114,52 +126,57 @@ export default async function UeberUnsPage({
         </ExpandingPhoto>
       </section>
 
-      <section className="pt-turn">
-        <Grid>
-          <Col span="text">
-            <StickyHeading eyebrow={leitbild.eyebrow} title={leitbild.title} />
-          </Col>
-          <Col span="aside">
-            <NumberedList items={leitbild.items} />
-          </Col>
-        </Grid>
+      {/* Leitbild — фиолетовый разворот на всю ширину (заливка общая
+          на оба столбца, закреплённый заголовок слева не оставляет под
+          собой белой полосы). Стоит вплотную к кадру Geschichte выше —
+          без белой паузы. Следом идёт белый разворот с фото. */}
+      <section>
+        <div data-tone="dark" className="bg-violet">
+          <Grid className="py-2xl lg:py-3xl">
+            <Col span="text">
+              <StickyHeading
+                tone="paper"
+                eyebrow={leitbild.eyebrow}
+                title={leitbild.title}
+                lead={leitbild.text}
+              />
+            </Col>
+            <Col span="aside">
+              <NumberedList tone="paper" items={leitbild.items} />
+            </Col>
+          </Grid>
+        </div>
       </section>
 
-      {/* Тот же приём, что у Wohnprojekte на Leistungen: фиолетовый
-          на весь разворот, включая полосу за фото, но по высоте
-          не выходит за пределы самой фотографии — высота фиолетового
-          ничем не назначена, она берётся из высоты строки сетки,
-          а строку задаёт более высокий из двух элементов. Ниже `lg`
-          колонки складываются в столбец и последней идёт не фото,
-          а текст — `pb-2xl` даёт ей отступ снизу тем же значением,
-          что у остальных фиолетовых разворотов сайта. */}
+      {/* Kooperationen — белый разворот: кадр уходит в левый край
+          экрана, верх кадра на одной линии с верхом текстового блока
+          (метка над заголовком) и закреплён под шапкой, пока справа
+          проезжает список. На телефоне кадр идёт первым, текст под ним. */}
       <section className="overflow-x-clip pt-turn">
-        <div data-tone="dark" className="bg-violet">
-          <Grid className="pb-2xl lg:items-center lg:pb-0">
-            <Col span="text">
+        <Grid>
+          <Col span="text">
+            <div className="lg:sticky lg:top-[calc(var(--header-h)+var(--spacing-lg))]">
               <Photo
-                src="/img/ueber-uns/kooperation-team.webp"
+                src="/img/ueber-uns/kooperation-arbeit.webp"
                 alt={kooperationen.alt}
-                ratio="4 / 5"
+                ratio="3 / 2"
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 bleed="start"
                 slide
                 parallax
               />
-            </Col>
+            </div>
+          </Col>
 
-            <Col span="aside">
-              <Eyebrow className="text-white-pure/90">{kooperationen.eyebrow}</Eyebrow>
-              <h2 className="mt-2xs max-w-[18ch] text-h1 text-white-pure hyphens-auto">
-                {kooperationen.title}
-              </h2>
-              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
-                {kooperationen.text}
-              </p>
-              <RuledList className="mt-md" items={kooperationen.items} tone="paper" />
-            </Col>
-          </Grid>
-        </div>
+          <Col span="aside">
+            <Eyebrow className="text-ink-muted">{kooperationen.eyebrow}</Eyebrow>
+            <h2 className="mt-2xs text-h1 text-ink">{kooperationen.title}</h2>
+            <p className="mt-md max-w-[40ch] text-body text-ink-soft">
+              {kooperationen.text}
+            </p>
+            <RuledList className="mt-md" items={kooperationen.items} />
+          </Col>
+        </Grid>
       </section>
 
       {/* Закрывающий разворот (`PageClosing`) убран с этой страницы

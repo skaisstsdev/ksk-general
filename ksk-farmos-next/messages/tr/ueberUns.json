@@ -9,11 +9,13 @@
     "lead": "2013 yılından bu yana ağır hastalığı olan bireylere profesyonel, insani ve güvenilir bir şekilde bakım sağlıyoruz.",
     "beratung": "Ücretsiz Danışmanlık",
     "kontakt": "Bize Ulaşın",
-    "alt": "KSK Farmos ekibi bahçede"
+    "alt": "KSK Farmos ekibi bahçede",
+    "bannerAlt": "Askıda KSK Farmos logolu polar ceketler"
   },
   "leitbild": {
     "eyebrow": "Misyonumuz",
     "title": "Bize Yol Gösteren İlkeler",
+    "text": "Günlük bakımımıza beş ilke yön verir — bağımsızlığın korunmasından komplikasyonların önlenmesine kadar.",
     "items": [
       {
         "title": "Yaşam Süreçlerini Desteklemek",
@@ -88,7 +90,7 @@
       "Sağlık, bakım ve sosyal yardım kasaları",
       "Medikaller ve medikal malzeme depoları"
     ],
-    "alt": "Bir bakım uzmanı ve yakını, yaşlı bir danışanla birlikte bakım planlamasını görüşüyor"
+    "alt": "Pencere kenarında dizüstü bilgisayarın yanında not alan hemşire"
   },
   "social": {
     "eyebrow": "Sosyal Medya",

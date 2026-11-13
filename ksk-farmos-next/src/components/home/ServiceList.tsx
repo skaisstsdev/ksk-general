@@ -65,6 +65,9 @@ export async function ServiceList() {
             <StickyCol>
               <Eyebrow className="text-white-pure/90">{t("services.eyebrow")}</Eyebrow>
               <h2 className="mt-2xs text-h1 text-white-pure">{t("services.title")}</h2>
+              <p className="mt-md max-w-[40ch] text-body text-white-pure/90">
+                {t("services.text")}
+              </p>
             </StickyCol>
           </Col>
 

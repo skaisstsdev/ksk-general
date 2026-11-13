@@ -98,10 +98,24 @@ export async function Hero() {
     >
       <div className="absolute inset-0">
         <HeroPicture alt={t("hero.alt")} />
-        <div aria-hidden="true" className="absolute inset-0 bg-ink/50" />
+        {/* Телефон: затемнение снизу вверх, верх кадра с лицом чистый. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-ink/90 from-30% via-ink/70 via-60% to-ink/0 to-90% lg:hidden"
+        />
+        {/* Десктоп: затемнение только под текстом, правая часть чистая. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 hidden bg-gradient-to-r from-ink/65 via-ink/45 via-40% to-ink/0 to-80% lg:block rtl:bg-gradient-to-l"
+        />
+        {/* Короткая полоса под шапкой, чтобы светлая навигация читалась. */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-[calc(var(--header-h)*2)] bg-gradient-to-b from-ink/50 to-ink/0"
+        />
       </div>
 
-      <div className="relative flex flex-1 flex-col justify-center pt-[var(--header-h)] pb-[var(--hero-bias)]">
+      <div className="relative flex flex-1 flex-col justify-center pt-[calc(var(--header-h)+var(--spacing-3xl))] lg:pt-[var(--header-h)]">
         <Grid>
           <Col span="wide">
             <HeroCopy tone="paper" />

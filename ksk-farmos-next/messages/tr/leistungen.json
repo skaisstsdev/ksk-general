@@ -8,7 +8,8 @@
     "title": "Tıbbi hizmetlerimiz",
     "lead": "Evde yoğun bakım, benzersiz bir konaklama konsepti ve personellerimiz için sürekli eğitim — hepsi tek çatı altında.",
     "beratung": "Ücretsiz Danışmanlık",
-    "all": "Tüm Hizmetler"
+    "all": "Tüm Hizmetler",
+    "alt": "Evde yoğun bakım için aspiratör ve aksesuarlar"
   },
   "beatmung": {
     "statement": "Solunum (ventilatör) bakımı bizim en temel uzmanlık alanımızdır.",
@@ -50,6 +51,7 @@
   "diagnosen": {
     "eyebrow": "Tanılar",
     "title": "Kimlere Bakım Sağlıyoruz?",
+    "text": "Günün 24 saati uzman bakım gerektiren insanlara evde veya konut projemizde bakım veriyoruz. Her bakım planını sizinle ve yakınlarınızla birlikte bireysel olarak hazırlıyoruz.",
     "items": [
       {
         "title": "Solunum Cihazına Bağlı Hastalar",
@@ -102,7 +104,20 @@
         ]
       }
     ],
-    "alt": "Bir konut projesinin kış bahçesinde tablet ile yaşlı sakin ve bakıcısı"
+    "alt": "Bir konut projesinin kış bahçesinde tablet ile yaşlı sakin ve bakıcısı",
+    "gallery": {
+      "region": "Yaşam projesinden fotoğraflar",
+      "prev": "Önceki fotoğraf",
+      "next": "Sonraki fotoğraf",
+      "goTo": "{n}. fotoğrafı göster",
+      "alts": [
+        "İki kanepe ve televizyonlu aydınlık çatı katı oturma odası",
+        "Ön planda akülü tekerlekli sandalye olan ortak mutfak",
+        "Bitkilerle süslü aydınlık bir merdiven boşluğunda merdiven asansörü",
+        "Büyük bir tablonun asılı olduğu koridor, açık kapıdan bir oda görünüyor",
+        "Yemek masası, televizyon ve koltukta oturan bir sakinin bulunduğu yaşam alanı"
+      ]
+    }
   },
   "beratung": {
     "eyebrow": "Bakım Danışmanlığı",
@@ -134,7 +149,7 @@
         "text": "Ev ortamının engelsiz hale getirilmesi ve uyarlanması konusunda danışmanlık."
       }
     ],
-    "alt": "Bakım danışmanı ve yaşlı danışan tablette belgeleri birlikte inceliyor"
+    "alt": "Bir bakım uzmanı, infüzyon standındaki infüzyon pompasını ayarlıyor"
   },
   "kosten": {
     "eyebrow": "MASRAFLARIN KARŞILANMASI",

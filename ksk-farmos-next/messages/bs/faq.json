@@ -6,7 +6,8 @@
   "hero": {
     "eyebrow": "ČPP",
     "title": "Često postavljana pitanja",
-    "lead": "Ovdje ćete pronaći odgovore na najvažnija pitanja u vezi s našim uslugama."
+    "lead": "Ovdje ćete pronaći odgovore na najvažnija pitanja u vezi s našim uslugama.",
+    "bannerAlt": "Drvena kutija za olovke i leci KSK Farmos na staklenom stolu"
   },
   "categories": [
     {

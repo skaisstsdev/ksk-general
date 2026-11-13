@@ -9,11 +9,13 @@
     "lead": "Începând cu 2013, oferim îngrijire plină de empatie persoanelor cu boli grave — profesional, uman și cu maximă fiabilitate.",
     "beratung": "Consultație Gratuită",
     "kontakt": "Contactați-ne",
-    "alt": "Echipa KSK Farmos în grădină"
+    "alt": "Echipa KSK Farmos în grădină",
+    "bannerAlt": "Jachete din fleece cu sigla KSK Farmos pe umerase"
   },
   "leitbild": {
     "eyebrow": "Principiile Noastre",
     "title": "Valorile Care Ne Ghidează",
+    "text": "Cinci principii ne ghidează îngrijirea zilnică — de la păstrarea independenței până la prevenirea complicațiilor.",
     "items": [
       {
         "title": "Susținerea Proceselor Vitale",
@@ -88,7 +90,7 @@
       "Case de asigurări de sănătate, de îngrijire și sociale",
       "Magazine de tehnică medicală"
     ],
-    "alt": "Un îngrijitor și o rudă discută împreună cu o clientă în vârstă planul de îngrijire"
+    "alt": "Asistentă care face notițe lângă un laptop, la fereastră"
   },
   "social": {
     "eyebrow": "Rețele sociale",
