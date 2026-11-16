@@ -10,21 +10,10 @@ type IconProps = React.SVGProps<SVGSVGElement>;
 /** Толщина линии по умолчанию — та, под которую нарисован набор
  *  (см. комментарий выше). Живёт здесь одной переменной: если где-то
  *  иконка рендерится крупнее или мельче обычного `size-4…6` и на глаз
- *  выходит из общей толщины (см. `ChatWidget`/`LanguageSwitcher`),
+ *  выходит из общей толщины (см. `ChatWidget`),
  *  масштаб держит `iconStrokeAt`, а не отдельная цифра на месте. */
 const ICON_STROKE = 1.5;
 const ICON_VIEWBOX = 24;
-
-/** Общий контур пары «кнопка чата / свитчер языка» — px. У чата это
- *  обводка иконки (border у кнопки нет), у свитчера — border самой
- *  пилюли (её узкий по стороне глобус — не тот контур, с которым её
- *  сравнивают на глаз). Значение общее для обоих: border ставится
- *  в него напрямую, обводка иконки — через `iconStrokeAt`. */
-const ICON_STROKE_ACCENT = 1.75;
-
-/** Тот же общий контур на телефоне — толще: на маленьком экране
- *  поверх фото и текста 1.75px терялся. */
-const ICON_STROKE_ACCENT_MOBILE = 3;
 
 /** `strokeWidth` для иконки, отрендеренной в `renderPx` (px), которая
  *  должна читаться толщиной линии `target` (px) физически на экране —
@@ -33,8 +22,6 @@ const ICON_STROKE_ACCENT_MOBILE = 3;
 export function iconStrokeAt(renderPx: number, target: number = ICON_STROKE) {
   return (target * ICON_VIEWBOX) / renderPx;
 }
-
-export { ICON_STROKE_ACCENT, ICON_STROKE_ACCENT_MOBILE };
 
 function Icon({ children, ...props }: IconProps) {
   return (

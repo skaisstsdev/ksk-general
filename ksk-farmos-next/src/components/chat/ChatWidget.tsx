@@ -13,8 +13,6 @@ import {
   Close,
   Send,
   iconStrokeAt,
-  ICON_STROKE_ACCENT,
-  ICON_STROKE_ACCENT_MOBILE,
 } from "@/components/ui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { pagesWithHero } from "@/content/navigation";
@@ -26,6 +24,7 @@ import {
   getServerMobileMenuOpen,
   subscribeMobileMenu,
 } from "@/lib/mobileMenuState";
+import { useScrolledOnce } from "@/lib/useScrolledOnce";
 import { useSurface } from "@/lib/useSurface";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -138,8 +137,11 @@ export function ChatWidget() {
   // На остальных высоты для конфликта нет — кнопка нужна сразу.
   const hasHero = pagesWithHero.includes(pathname);
 
-  const [hasScrolledOnce, setHasScrolledOnce] = useState(false);
-  const visible = !hasHero || hasScrolledOnce;
+  // На страницах с хиро кнопка ждёт первый скролл на любом экране,
+  // на остальных — только на телефоне (`hidden lg:flex` ниже), как
+  // и `LanguageSwitcher`. Флаг общий на вкладку (`useScrolledOnce`).
+  const scrolled = useScrolledOnce();
+  const visible = !hasHero || scrolled;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -157,25 +159,6 @@ export function ChatWidget() {
     getMobileMenuOpen,
     getServerMobileMenuOpen,
   );
-
-  // На страницах без хиро `visible` уже `true` (см. выше) — здесь только
-  // догоняем случай `pagesWithHero`: кнопка ждёт первый скролл, чтобы не
-  // спорить с кадром, так же, как на старом сайте. Once-флаг: если
-  // прокрутили хоть раз за сессию, на следующей хиро-странице кнопка
-  // не прячется заново — `ChatWidget` один на весь сайт, переживает
-  // переходы между страницами, и повторное ожидание читалось бы как сбой.
-  useEffect(() => {
-    if (hasScrolledOnce) return;
-    function onScroll() {
-      if (window.scrollY > 20) {
-        setHasScrolledOnce(true);
-        window.removeEventListener("scroll", onScroll);
-      }
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [hasScrolledOnce]);
 
   useEffect(() => {
     if (!open) return;
@@ -256,7 +239,10 @@ export function ChatWidget() {
     // её содержимое; без добавки кнопка и раскрытый диалог на часть своей
     // высоты прятались под ней (см. тот же приём у `LanguageSwitcher.tsx`).
     <div
-      className="fixed end-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-40 flex flex-col items-end gap-sm"
+      className={cn(
+        "fixed end-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-40 flex flex-col items-end gap-sm",
+        !scrolled && "hidden lg:flex",
+      )}
     >
       <AnimatePresence>
         {open ? (
@@ -385,12 +371,6 @@ export function ChatWidget() {
         ref={triggerRef}
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("dialog.close") : t("chat.openAria")}
-        style={
-          {
-            "--sw-m": iconStrokeAt(40, ICON_STROKE_ACCENT_MOBILE),
-            "--sw": iconStrokeAt(40, ICON_STROKE_ACCENT),
-          } as React.CSSProperties
-        }
         className={cn(
           "flex size-14 shrink-0 items-center justify-center transition-colors",
           surface === "photo" && "fill-none text-paper hover:text-paper/70",
@@ -409,14 +389,13 @@ export function ChatWidget() {
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center justify-center"
           >
-            {/* Толщина линии: на телефоне толще (`ICON_STROKE_ACCENT_MOBILE`),
-                от `lg` — общий контур пары с кнопкой языка. `fill: inherit`
-                перебивает `fill="none"` из набора иконок, и облачко берёт
-                заливку от кнопки (`fill-violet`/`fill-white-pure`). */}
+            {/* Значок 40px: толщина линии через `iconStrokeAt` — та же,
+                что у остальных иконок сайта. `fill: inherit` перебивает
+                `fill="none"` из набора, и облачко берёт заливку от кнопки. */}
             {open ? (
-              <Close className="size-10 [stroke-width:var(--sw-m)] lg:[stroke-width:var(--sw)]" />
+              <Close className="size-10" strokeWidth={iconStrokeAt(40)} />
             ) : (
-              <ChatBubble className="size-10 [fill:inherit] [stroke-width:var(--sw-m)] lg:[stroke-width:var(--sw)]" />
+              <ChatBubble className="size-10 [fill:inherit]" strokeWidth={iconStrokeAt(40)} />
             )}
           </motion.span>
         </AnimatePresence>
