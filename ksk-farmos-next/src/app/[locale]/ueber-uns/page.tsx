@@ -105,9 +105,9 @@ export default async function UeberUnsPage({
           и там: пауза заложена в самой сцене. */}
       <section>
         <ExpandingPhoto
-          src="/img/ueber-uns/team-sofa-3-orig.webp"
-          width={1348}
-          height={1004}
+          src="/img/ueber-uns/team-sofa-3-hd.webp"
+          width={2696}
+          height={2008}
           srcNarrow="/img/ueber-uns/team-sofa-2-hoch-hd2.webp"
           widthNarrow={2244}
           heightNarrow={2804}
