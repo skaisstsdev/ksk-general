@@ -100,7 +100,7 @@ export async function Hero() {
         {/* Телефон: затемнение снизу вверх, верх кадра с лицом чистый. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-ink/90 from-30% via-ink/70 via-60% to-ink/0 to-90% lg:hidden"
+          className="absolute inset-0 bg-gradient-to-t from-ink/80 from-20% via-ink/50 via-50% to-ink/0 to-80% lg:hidden"
         />
         {/* Десктоп: затемнение только под текстом; к 58% ширины сходит на нет, на девушке (от ~65%) кадр совсем чистый. */}
         <div
