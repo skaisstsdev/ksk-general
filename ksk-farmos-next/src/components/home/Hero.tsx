@@ -24,17 +24,17 @@ function HeroPicture({ alt }: { alt: string }) {
     props: { srcSet: wide },
   } = getImageProps({
     ...common,
-    src: "/img/home/pflege-zu-hause.webp",
+    src: "/img/home/hero-auto-2000.webp",
     width: 2000,
-    height: 1332,
+    height: 1331,
   });
   const {
     props: { srcSet: narrow, ...img },
   } = getImageProps({
     ...common,
-    src: "/img/home/pflege-zu-hause-hoch.webp",
-    width: 1095,
-    height: 1827,
+    src: "/img/home/hero-auto-hoch-le.webp",
+    width: 1032,
+    height: 1938,
   });
 
   return (
@@ -75,12 +75,11 @@ function HeroPicture({ alt }: { alt: string }) {
  * страницы (194px при 1440); правый останавливается немного дальше
  * середины экрана, а не тянется во весь экран.
  *
- * Горизонтальный кадр (`pflege-zu-hause.jpg`) обрезан прямо в файле
- * (~15% высоты — небо и часть крыши убраны). Вертикальный кадр
- * (`pflege-zu-hause-hoch.jpg`) — отдельное фото под узкий экран, а не
- * тот же кадр, сжатый по центру. Никаких CSS-якорей и трансформаций
+ * Горизонтальный кадр (`hero-auto-2000.webp`) и вертикальный
+ * (`hero-auto-hoch-le.webp`) — отдельные фото под широкий и узкий экран,
+ * а не один кадр, сжатый по центру. Никаких CSS-якорей и трансформаций
  * (`scale`, `objectPosition`, `filter`) поверх — только `object-cover`
- * и одна плоская заливка `bg-ink/50` для контраста текста.
+ * и направленное затемнение под текстом (см. разметку ниже).
  *
  * Числа доверия («13 Jahre Erfahrung» и так далее) в хиро больше нет —
  * по решению владельца они переехали в инфографику блока `Intro.tsx`
@@ -92,7 +91,7 @@ export async function Hero() {
 
   return (
     <section
-      data-tone="dark"
+      data-tone="photo"
       data-hero
       className="relative flex min-h-svh flex-col overflow-hidden bg-stand-in"
     >
@@ -103,10 +102,10 @@ export async function Hero() {
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-t from-ink/90 from-30% via-ink/70 via-60% to-ink/0 to-90% lg:hidden"
         />
-        {/* Десктоп: затемнение только под текстом, правая часть чистая. */}
+        {/* Десктоп: затемнение только под текстом; к 58% ширины сходит на нет, на девушке (от ~65%) кадр совсем чистый. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 hidden bg-gradient-to-r from-ink/65 via-ink/45 via-40% to-ink/0 to-80% lg:block rtl:bg-gradient-to-l"
+          className="absolute inset-0 hidden bg-gradient-to-r from-ink/65 via-ink/50 via-25% to-ink/0 to-58% lg:block rtl:bg-gradient-to-l"
         />
         {/* Короткая полоса под шапкой, чтобы светлая навигация читалась. */}
         <div
@@ -115,7 +114,7 @@ export async function Hero() {
         />
       </div>
 
-      <div className="relative flex flex-1 flex-col justify-center pt-[calc(var(--header-h)+var(--spacing-3xl))] lg:pt-[var(--header-h)]">
+      <div className="relative flex flex-1 flex-col justify-center pt-[calc(var(--header-h)+var(--spacing-3xl)+20svh)] lg:pt-[var(--header-h)]">
         <Grid>
           <Col span="wide">
             <HeroCopy tone="paper" />

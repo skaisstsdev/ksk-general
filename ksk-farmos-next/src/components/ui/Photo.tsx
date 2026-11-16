@@ -119,7 +119,7 @@ export function Photo({
   const frame = (
     <div
       ref={ref}
-      data-tone="dark"
+      data-tone="photo"
       className={cn(
         "relative overflow-hidden bg-sunken",
         (bleed === "end" || bleed === "both") && "bleed-end",

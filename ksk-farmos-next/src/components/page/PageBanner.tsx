@@ -22,7 +22,7 @@ export function PageBanner({
 }) {
   return (
     <section
-      data-tone="dark"
+      data-tone="photo"
       className="relative mt-(--header-h) flex h-60 items-center justify-center overflow-hidden bg-stand-in lg:h-80"
     >
       <Image
@@ -30,7 +30,6 @@ export function PageBanner({
         alt={image.alt}
         fill
         priority
-        quality={80}
         sizes="100vw"
         className="object-cover"
         style={{ objectPosition: image.position ?? "center" }}

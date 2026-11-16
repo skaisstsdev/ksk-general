@@ -22,6 +22,10 @@ const ICON_VIEWBOX = 24;
  *  в него напрямую, обводка иконки — через `iconStrokeAt`. */
 const ICON_STROKE_ACCENT = 1.75;
 
+/** Тот же общий контур на телефоне — толще: на маленьком экране
+ *  поверх фото и текста 1.75px терялся. */
+const ICON_STROKE_ACCENT_MOBILE = 3;
+
 /** `strokeWidth` для иконки, отрендеренной в `renderPx` (px), которая
  *  должна читаться толщиной линии `target` (px) физически на экране —
  *  обводка масштабируется вместе с иконкой, поэтому крупной иконке
@@ -30,7 +34,7 @@ export function iconStrokeAt(renderPx: number, target: number = ICON_STROKE) {
   return (target * ICON_VIEWBOX) / renderPx;
 }
 
-export { ICON_STROKE_ACCENT };
+export { ICON_STROKE_ACCENT, ICON_STROKE_ACCENT_MOBILE };
 
 function Icon({ children, ...props }: IconProps) {
   return (

@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Diagnoses",
-    "title": "Who We Care For",
-    "items": [
-      {
-        "title": "Ventilated Patients",
-        "text": "Invasive and non-invasive ventilation"
-      },
-      {
-        "title": "Persistent Vegetative State",
-        "text": "Long-term care and stimulation therapy"
-      },
-      {
-        "title": "ALS & Neurological Conditions",
-        "text": "Supportive progressive care"
-      },
-      {
-        "title": "Spinal Cord Injuries",
-        "text": "Holistic care approach"
-      },
-      {
-        "title": "Traumatic Brain Injury",
-        "text": "Rehabilitation and stabilization"
-      },
-      {
-        "title": "Dementia/Alzheimer's",
-        "text": "Patience and appreciative communication"
-      }
-    ],
-    "quote": "The well-being of the patient is our highest priority.",
-    "quoteCite": "Our Mission Statement"
-  },
   "steps": {
     "eyebrow": "How It Works",
     "title": "Three Steps to Your Care",

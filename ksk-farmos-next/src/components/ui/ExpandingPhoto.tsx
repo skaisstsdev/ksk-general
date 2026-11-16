@@ -243,7 +243,7 @@ export function ExpandingPhoto({
           className="sticky top-(--header-h) flex h-[calc(100svh-var(--header-h))] items-center justify-center [--w0:44%] [--h0:54%]"
         >
           <div
-            data-tone="dark"
+            data-tone="photo"
             className="relative overflow-hidden bg-sunken"
             style={
               {
@@ -268,7 +268,7 @@ export function ExpandingPhoto({
         className="sticky top-(--header-h) h-[calc(100svh-var(--header-h))]"
       >
         <motion.div
-          data-tone="dark"
+          data-tone="photo"
           style={{ clipPath: clipPathMV }}
           className="absolute inset-0 overflow-hidden bg-sunken"
         >

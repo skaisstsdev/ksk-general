@@ -60,7 +60,7 @@ function WizardSteps({ current, labels }: { current: number; labels: string[] })
             {n < labels.length ? (
               <span
                 aria-hidden="true"
-                className={cn("mx-sm h-px flex-1 transition-colors", done ? "bg-violet" : "bg-line")}
+                className={cn("mx-xs h-px flex-1 transition-colors", done ? "bg-violet" : "bg-line")}
               />
             ) : null}
           </li>

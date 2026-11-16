@@ -19,7 +19,7 @@ export async function generateMetadata({
     path: "/schnellbewerbung",
     title: t("meta.title"),
     description: t("meta.description"),
-    image: "/img/karriere/karriere-hero.webp",
+    image: "/img/karriere/karriere-hero-hd.webp",
   });
 }
 

@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Tanılar",
-    "title": "Kimlere Bakım Sağlıyoruz",
-    "items": [
-      {
-        "title": "Solunum Cihazına Bağlı Hastalar",
-        "text": "İnvaziv ve non-invaziv solunum desteği"
-      },
-      {
-        "title": "Bitkisel Hayat (Apallik Sendrom)",
-        "text": "Uzun süreli bakım ve stimülasyon tedavisi"
-      },
-      {
-        "title": "ALS ve Nörolojik Hastalıklar",
-        "text": "İlerleyici hastalıklarda destekleyici bakım"
-      },
-      {
-        "title": "Omurilik Yaralanmaları",
-        "text": "Bütüncül ve kapsamlı bakım yaklaşımı"
-      },
-      {
-        "title": "Travmatik Beyin Hasarı",
-        "text": "Rehabilitasyon ve durum stabilizasyonu"
-      },
-      {
-        "title": "Demans / Alzheimer",
-        "text": "Sabır ve saygılı iletişim"
-      }
-    ],
-    "quote": "Hastamızın refahı ve sağlığı, bizim en temel önceliğimizdir.",
-    "quoteCite": "Misyonumuz"
-  },
   "steps": {
     "eyebrow": "Süreç Nasıl İşler",
     "title": "3 Adımda Bakıma Başlangıç",

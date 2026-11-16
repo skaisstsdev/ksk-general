@@ -25,7 +25,7 @@ export async function generateMetadata({
     path: "/ueber-uns",
     title: t("meta.title"),
     description: t("meta.description"),
-    image: "/img/ueber-uns/team-sofa-2.webp",
+    image: "/img/ueber-uns/team-sofa-3-orig.webp",
   });
 }
 
@@ -70,7 +70,7 @@ export default async function UeberUnsPage({
       <PageBanner
         title={tCommon("nav.ueberUns")}
         image={{
-          src: "/img/ueber-uns/banner.webp",
+          src: "/img/ueber-uns/banner-hd.webp",
           alt: t("hero.bannerAlt"),
           position: "center 68%",
         }}
@@ -105,12 +105,12 @@ export default async function UeberUnsPage({
           и там: пауза заложена в самой сцене. */}
       <section>
         <ExpandingPhoto
-          src="/img/ueber-uns/team-sofa-2.webp"
+          src="/img/ueber-uns/team-sofa-3-orig.webp"
           width={1348}
           height={1004}
-          srcNarrow="/img/ueber-uns/team-sofa-2-hoch.webp"
-          widthNarrow={1122}
-          heightNarrow={1402}
+          srcNarrow="/img/ueber-uns/team-sofa-2-hoch-hd2.webp"
+          widthNarrow={2244}
+          heightNarrow={2804}
           position="center 60%"
           alt={t("hero.alt")}
         >
@@ -157,7 +157,7 @@ export default async function UeberUnsPage({
           <Col span="text">
             <div className="lg:sticky lg:top-[calc(var(--header-h)+var(--spacing-lg))]">
               <Photo
-                src="/img/ueber-uns/kooperation-arbeit.webp"
+                src="/img/ueber-uns/kooperation-arbeit-orig.webp"
                 alt={kooperationen.alt}
                 ratio="3 / 2"
                 sizes="(min-width: 1024px) 55vw, 100vw"

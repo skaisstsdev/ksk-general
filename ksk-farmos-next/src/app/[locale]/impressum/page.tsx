@@ -43,6 +43,9 @@ export default async function ImpressumPage({
         <Col span="full" className="max-w-prose">
           <Eyebrow className="text-ink-muted">{t("tag")}</Eyebrow>
           <h1 className="mt-2xs text-h1 text-ink">{t("impressum.title")}</h1>
+          {locale !== "de" ? (
+            <p className="mt-sm text-meta text-ink-muted">{t("binding")}</p>
+          ) : null}
 
           <LegalH2>Angaben gemäß § 5 DDG</LegalH2>
           <LegalP>
@@ -59,6 +62,8 @@ export default async function ImpressumPage({
             </strong>
             <br />
             {impressum.generalPartner}
+            <br />
+            Sitz: {impressum.generalPartnerSeat}
             <br />
             Registergericht: {impressum.registerCourt}
             <br />
@@ -90,17 +95,9 @@ export default async function ImpressumPage({
           </LegalP>
 
           <LegalP>
-            <strong className="text-ink">Steuernummer:</strong> {impressum.taxNumber}
-            <br />
             <strong className="text-ink">Betriebsnummer:</strong> {impressum.operatingNumber}
             <br />
             <strong className="text-ink">IK-Nummer:</strong> {impressum.ikNumber}
-          </LegalP>
-
-          <LegalP>
-            <strong className="text-ink">Zuständige Aufsichtsbehörden:</strong>
-            <br />
-            Gesundheitsamt, Heimaufsicht, Medizinischer Dienst der Krankenversicherung (MDK)
           </LegalP>
 
           <LegalP>
@@ -139,13 +136,17 @@ export default async function ImpressumPage({
 
           <LegalH3>4. Datenschutz</LegalH3>
           <LegalP>
-            Durch den Besuch der Website des Anbieters können Informationen über den Zugriff
-            gespeichert werden. Diese Daten (Server-Logfiles) stellen keine personenbezogenen
-            Daten dar. Ausführliche Informationen zur Verarbeitung personenbezogener Daten
-            finden Sie in unserer Datenschutzerklärung.
+            Informationen zur Verarbeitung personenbezogener Daten, auch beim Besuch dieser
+            Website, finden Sie in unserer Datenschutzerklärung.
           </LegalP>
 
-          <LegalH3>5. Besondere Nutzungsbedingungen</LegalH3>
+          <LegalH3>5. Verbraucherstreitbeilegung</LegalH3>
+          <LegalP>
+            Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor
+            einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
+          </LegalP>
+
+          <LegalH3>6. Besondere Nutzungsbedingungen</LegalH3>
           <LegalP>
             Soweit besondere Bedingungen für einzelne Nutzungen dieser Website von den
             vorgenannten Paragraphen abweichen, wird an entsprechender Stelle ausdrücklich

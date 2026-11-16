@@ -67,7 +67,7 @@ export default async function FaqPage({
       <PageBanner
         title={tCommon("nav.faq")}
         image={{
-          src: "/img/faq/banner.webp",
+          src: "/img/faq/banner-hd.webp",
           alt: hero.bannerAlt,
           position: "center 68%",
         }}

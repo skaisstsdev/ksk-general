@@ -125,26 +125,34 @@ export function Header() {
           {/* Невидимая копия десктопной строки — то же лого, список
               и кнопка, но `absolute`/`invisible`/`whitespace-nowrap`.
               Её натуральная ширина (без переноса) и решает, включать
-              ли `compact` — см. комментарий у `useLayoutEffect` выше. */}
+              ли `compact` — см. комментарий у `useLayoutEffect` выше.
+              Обёртка с `overflow-hidden` обрезает копию по краю строки:
+              без неё копия шире узкого экрана (320px) растягивала
+              страницу вбок, и появлялась горизонтальная прокрутка.
+              На замер это не влияет — `scrollWidth` копии тот же. */}
           <div
-            ref={measureRef}
             aria-hidden="true"
-            className="pointer-events-none invisible absolute start-0 top-0 flex items-center gap-md whitespace-nowrap"
+            className="pointer-events-none invisible absolute inset-0 overflow-hidden"
           >
-            <span className="flex items-center gap-xs">
-              <span className="size-9" />
-              <span className="text-ui">{company.legalName}</span>
-            </span>
-            <ul className="flex items-center gap-lg">
-              {mainNav.map((item) => (
-                <li key={item.href} className="pb-3xs text-ui">
-                  {t(`nav.${item.key}`)}
-                </li>
-              ))}
-            </ul>
-            <span className="inline-flex rounded-xs px-xs py-2xs text-meta font-medium">
-              {ctaItem.label}
-            </span>
+            <div
+              ref={measureRef}
+              className="absolute start-0 top-0 flex items-center gap-md whitespace-nowrap"
+            >
+              <span className="flex items-center gap-xs">
+                <span className="size-9" />
+                <span className="text-ui">{company.legalName}</span>
+              </span>
+              <ul className="flex items-center gap-lg">
+                {mainNav.map((item) => (
+                  <li key={item.href} className="pb-3xs text-ui">
+                    {t(`nav.${item.key}`)}
+                  </li>
+                ))}
+              </ul>
+              <span className="inline-flex rounded-xs px-xs py-2xs text-meta font-medium">
+                {ctaItem.label}
+              </span>
+            </div>
           </div>
 
           <Link

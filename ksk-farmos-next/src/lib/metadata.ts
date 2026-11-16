@@ -58,7 +58,7 @@ export function buildPageMetadata({
   path,
   title,
   description,
-  image = "/img/home/pflege-zu-hause.webp",
+  image = "/img/home/hero-auto-2000.webp",
   titleSuffix,
 }: {
   /**

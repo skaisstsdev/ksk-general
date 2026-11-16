@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Dijagnoze",
-    "title": "O kome brinemo",
-    "items": [
-      {
-        "title": "Pacijenti na respiratoru",
-        "text": "Invazivna i neinvazivna ventilacija pluća"
-      },
-      {
-        "title": "Apalni sindrom (budna koma)",
-        "text": "Dugotrajna njega i stimulativna terapija"
-      },
-      {
-        "title": "ALS i neurološka oboljenja",
-        "text": "Podrška kod progresivnih stanja"
-      },
-      {
-        "title": "Povrede kičmene moždine",
-        "text": "Holistički i sveobuhvatan pristup njezi"
-      },
-      {
-        "title": "Traumatske povrede mozga",
-        "text": "Rehabilitacija i stabilizacija stanja"
-      },
-      {
-        "title": "Demencija / Alzheimer",
-        "text": "Strpljenje i komunikacija s poštovanjem"
-      }
-    ],
-    "quote": "Dobrobit pacijenta je naš najveći prioritet.",
-    "quoteCite": "Naša misija"
-  },
   "steps": {
     "eyebrow": "Kako ovo funkcioniše",
     "title": "Tri koraka do početka njege",

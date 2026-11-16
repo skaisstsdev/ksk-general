@@ -8,7 +8,14 @@ import {
   COOKIE_NOTICE_DISMISS_EVENT,
   COOKIE_NOTICE_STORAGE_KEY,
 } from "@/components/layout/CookieBanner";
-import { ChatBubble, Close, Send, iconStrokeAt, ICON_STROKE_ACCENT } from "@/components/ui/icons";
+import {
+  ChatBubble,
+  Close,
+  Send,
+  iconStrokeAt,
+  ICON_STROKE_ACCENT,
+  ICON_STROKE_ACCENT_MOBILE,
+} from "@/components/ui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { pagesWithHero } from "@/content/navigation";
 import { routing } from "@/i18n/routing";
@@ -19,7 +26,7 @@ import {
   getServerMobileMenuOpen,
   subscribeMobileMenu,
 } from "@/lib/mobileMenuState";
-import { useOnDark } from "@/lib/useOnDark";
+import { useSurface } from "@/lib/useSurface";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -140,7 +147,7 @@ export function ChatWidget() {
 
   const messagesRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const onDark = useOnDark(triggerRef, hasHero);
+  const surface = useSurface(triggerRef, hasHero ? "photo" : "light");
   const [cookieNoticeVisible, setCookieNoticeVisible] = useState(false);
   // Открытая панель мобильного меню занимает те же нижние углы экрана —
   // без этого кнопка чата торчала из-за её края (см. тот же приём
@@ -180,7 +187,7 @@ export function ChatWidget() {
   }, [open]);
 
   // Пока баннер cookie не закрыт, он занимает тот же нижний угол
-  // (`CookieBanner.tsx`) — кнопка чата поднимается над ним, чтобы не наложиться.
+  // (`CookieBanner.tsx`) — кнопка чата ждёт, пока выбор не сделан (см. ниже).
   useEffect(() => {
     function sync() {
       try {
@@ -235,7 +242,11 @@ export function ChatWidget() {
     }
   }
 
-  if (!visible || mobileMenuOpen) return null;
+  // Баннер cookie занимает нижний край экрана: на телефоне всю ширину,
+  // на десктопе правый угол, где живёт чат. Раньше кнопка поднималась
+  // над ним на фиксированные 9rem, но баннер выше (на телефоне ~12rem),
+  // и кнопка ложилась на его текст. Пока выбор не сделан, кнопки нет.
+  if (!visible || mobileMenuOpen || (cookieNoticeVisible && !open)) return null;
 
   const quickReplies = t.raw("chat.quickReplies") as string[];
 
@@ -245,12 +256,7 @@ export function ChatWidget() {
     // её содержимое; без добавки кнопка и раскрытый диалог на часть своей
     // высоты прятались под ней (см. тот же приём у `LanguageSwitcher.tsx`).
     <div
-      className={cn(
-        "fixed end-md z-40 flex flex-col items-end gap-sm",
-        cookieNoticeVisible
-          ? "bottom-[calc(9rem+env(safe-area-inset-bottom))]"
-          : "bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))]",
-      )}
+      className="fixed end-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-40 flex flex-col items-end gap-sm"
     >
       <AnimatePresence>
         {open ? (
@@ -367,21 +373,31 @@ export function ChatWidget() {
         ) : null}
       </AnimatePresence>
 
-      {/* Только контур значка, без плашки под ним: круглая заливка была
+      {/* Только сам значок, без плашки под ним: круглая заливка была
           единственным круглым элементом на сайте (см. комментарий
-          у `Button` про радиус 2px — крупное скругление и тень читаются
-          как шаблон конструктора). Значок сам говорит, что это чат;
-          цвет — как у `LanguageSwitcher`, через `useOnDark`: фиолетовый
-          на светлом поле, `paper` на фото и футере, где фиолетовый
-          потерялся бы. */}
+          у `Button` про радиус 2px). Размер везде один (40px — высота
+          кнопки языка). Цвет — по фону под кнопкой (`useSurface`, как
+          у `LanguageSwitcher`): на фото — только контур `paper`;
+          на телефоне вне фото облачко ещё и залито — белым на тёмной
+          заливке, фиолетовым на светлом поле; от `lg` — всегда контур. */}
       <button
         type="button"
         ref={triggerRef}
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("dialog.close") : t("chat.openAria")}
+        style={
+          {
+            "--sw-m": iconStrokeAt(40, ICON_STROKE_ACCENT_MOBILE),
+            "--sw": iconStrokeAt(40, ICON_STROKE_ACCENT),
+          } as React.CSSProperties
+        }
         className={cn(
           "flex size-14 shrink-0 items-center justify-center transition-colors",
-          onDark ? "text-paper hover:text-paper/70" : "text-violet hover:text-violet-mid",
+          surface === "photo" && "fill-none text-paper hover:text-paper/70",
+          surface === "dark" &&
+            "fill-white-pure text-white-pure lg:fill-none lg:text-paper lg:hover:text-paper/70",
+          surface === "light" &&
+            "fill-violet text-violet hover:text-violet-mid lg:fill-none",
         )}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -393,16 +409,14 @@ export function ChatWidget() {
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center justify-center"
           >
-            {/* `size-10` = 40px — крупнее обычной иконки сайта, поэтому
-                толщина линии выравнивается под общий `iconStrokeAt`
-                (см. `LanguageSwitcher`, тот же приём для рамки). */}
+            {/* Толщина линии: на телефоне толще (`ICON_STROKE_ACCENT_MOBILE`),
+                от `lg` — общий контур пары с кнопкой языка. `fill: inherit`
+                перебивает `fill="none"` из набора иконок, и облачко берёт
+                заливку от кнопки (`fill-violet`/`fill-white-pure`). */}
             {open ? (
-              <Close className="size-10" strokeWidth={iconStrokeAt(40, ICON_STROKE_ACCENT)} />
+              <Close className="size-10 [stroke-width:var(--sw-m)] lg:[stroke-width:var(--sw)]" />
             ) : (
-              <ChatBubble
-                className="size-10"
-                strokeWidth={iconStrokeAt(40, ICON_STROKE_ACCENT)}
-              />
+              <ChatBubble className="size-10 [fill:inherit] [stroke-width:var(--sw-m)] lg:[stroke-width:var(--sw)]" />
             )}
           </motion.span>
         </AnimatePresence>

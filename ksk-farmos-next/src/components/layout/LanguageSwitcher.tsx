@@ -7,7 +7,12 @@ import { useParams } from "next/navigation";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { localeMeta, type Locale } from "@/i18n/routing";
-import { Globe, ICON_STROKE_ACCENT } from "@/components/ui/icons";
+import {
+  Globe,
+  ICON_STROKE_ACCENT,
+  ICON_STROKE_ACCENT_MOBILE,
+  iconStrokeAt,
+} from "@/components/ui/icons";
 import { pagesWithHero } from "@/content/navigation";
 import { cn } from "@/lib/cn";
 import {
@@ -15,7 +20,7 @@ import {
   getServerMobileMenuOpen,
   subscribeMobileMenu,
 } from "@/lib/mobileMenuState";
-import { useOnDark } from "@/lib/useOnDark";
+import { useSurface } from "@/lib/useSurface";
 
 /**
  * Переключатель языков.
@@ -29,11 +34,11 @@ import { useOnDark } from "@/lib/useOnDark";
  * удобнее раскрывать снизу вверх, у большого пальца. Рендерится один
  * раз в корневом layout, поверх всех страниц.
  *
- * Прозрачная рамка в цвет текста, без заливки и тени. Цвет — тот же приём,
- * что у `ChatWidget`: фиолетовый на светлом поле, `paper` на тёмном (фото
- * хиро, раскрытый кадр, футер) — она смотрит, что под ней, через
- * `useOnDark`. Никаких порогов по пикселям — поверхность сама говорит,
- * какая она.
+ * Рамка без тени. Цвет — тот же приём, что у `ChatWidget`: кнопка
+ * смотрит, что под ней, через `useSurface` (фото, тёмная заливка или
+ * светлое поле). На фото — прозрачная рамка `paper`; на телефоне вне
+ * фото — сплошная подложка, от `lg` — всегда прозрачная рамка.
+ * Никаких порогов по пикселям — поверхность сама говорит, какая она.
  */
 export function LanguageSwitcher() {
   const t = useTranslations("common");
@@ -42,7 +47,8 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
   const params = useParams();
   const ref = useRef<HTMLDivElement>(null);
-  const onDark = useOnDark(ref, pagesWithHero.includes(pathname));
+  const surface = useSurface(ref, pagesWithHero.includes(pathname) ? "photo" : "light");
+  const onDark = surface !== "light";
   const mobileMenuOpen = useSyncExternalStore(
     subscribeMobileMenu,
     getMobileMenuOpen,
@@ -86,18 +92,35 @@ export function LanguageSwitcher() {
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={t("lang.title")}
-        style={{ borderWidth: ICON_STROKE_ACCENT }}
+        // Толщина рамки и линии глобуса: на телефоне толще, от `lg` —
+        // общий контур пары с кнопкой чата. Через переменные, потому что
+        // число одно на весь сайт и живёт в `icons.tsx`.
+        style={
+          {
+            "--bw-m": `${ICON_STROKE_ACCENT_MOBILE}px`,
+            "--bw": `${ICON_STROKE_ACCENT}px`,
+            // Глобус мелкий (16px): на телефоне линия 1.75px, от `lg` —
+            // прежняя толщина атрибута по умолчанию из набора иконок.
+            "--sw-m": iconStrokeAt(16, ICON_STROKE_ACCENT),
+            "--sw": iconStrokeAt(24),
+          } as React.CSSProperties
+        }
         className={cn(
-          "inline-flex h-10 items-center gap-2xs rounded-xs bg-transparent px-sm text-meta font-medium transition-colors duration-300",
-          onDark
-            ? "border-paper text-paper hover:bg-paper/10"
-            : "border-violet text-violet hover:bg-violet/5",
+          "inline-flex h-10 items-center gap-2xs rounded-xs border-(length:--bw-m) px-sm text-meta font-semibold transition-colors duration-300 lg:border-(length:--bw) lg:bg-transparent lg:font-medium",
+          // Телефон: на фото — прозрачная рамка (фото видно сквозь),
+          // на сплошной тёмной заливке — белая подложка, на светлом
+          // поле — фиолетовая. От `lg` — всегда прозрачная рамка.
+          surface === "photo" && "border-paper bg-transparent text-paper hover:bg-paper/10",
+          surface === "dark" &&
+            "border-white-pure bg-white-pure text-violet lg:border-paper lg:text-paper lg:hover:bg-paper/10",
+          surface === "light" &&
+            "border-violet bg-violet text-white-pure lg:text-violet lg:hover:bg-violet/5",
         )}
       >
         {/* Контур, который сравнивают с чат-кнопкой, — border пилюли выше
             (общая переменная `ICON_STROKE_ACCENT`), не эта иконка: она
             рядом с текстом и мельче обычной `size-4…6` не читается. */}
-        <Globe className="size-4" />
+        <Globe className="size-4 [stroke-width:var(--sw-m)] lg:[stroke-width:var(--sw)]" />
         <span className="uppercase tracking-[0.06em]">{locale}</span>
       </button>
 

@@ -61,7 +61,7 @@ export async function generateMetadata({
     path: `/karriere/${slug}`,
     title: content.meta.title,
     description: content.meta.description,
-    image: "/img/karriere/karriere-hero.webp",
+    image: "/img/karriere/karriere-hero-hd.webp",
   });
 }
 

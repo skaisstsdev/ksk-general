@@ -102,7 +102,7 @@ export function PageHero({
 }) {
   return (
     <section
-      data-tone="dark"
+      data-tone="photo"
       data-hero
       className="relative flex min-h-svh flex-col overflow-hidden bg-stand-in"
     >
@@ -127,7 +127,7 @@ export function PageHero({
         </div>
       ) : null}
 
-      <div className="relative flex flex-1 flex-col justify-center pt-[calc(var(--header-h)+var(--spacing-3xl))] lg:pt-[var(--header-h)]">
+      <div className="relative flex flex-1 flex-col justify-center pt-[calc(var(--header-h)+var(--spacing-3xl)+20svh)] lg:pt-[var(--header-h)]">
         <Grid>
           <Col span="wide">
             <div className="flex flex-col">

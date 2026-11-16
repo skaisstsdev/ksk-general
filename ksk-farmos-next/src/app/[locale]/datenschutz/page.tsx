@@ -83,6 +83,9 @@ export default async function DatenschutzPage({
         <Col span="full" className="max-w-prose">
           <Eyebrow className="text-ink-muted">{t("tag")}</Eyebrow>
           <h1 className="mt-2xs text-h1 text-ink">{t("datenschutz.title")}</h1>
+          {locale !== "de" ? (
+            <p className="mt-sm text-meta text-ink-muted">{t("binding")}</p>
+          ) : null}
 
           <LegalH2>1. Verantwortlicher</LegalH2>
           <LegalP>
@@ -104,6 +107,8 @@ export default async function DatenschutzPage({
           <LegalP>Die Gesellschaft wird vertreten durch ihre persönlich haftende Gesellschafterin:</LegalP>
           <LegalP>
             <strong className="text-ink">{impressum.generalPartner}</strong>
+            <br />
+            Sitz: {impressum.generalPartnerSeat}
             <br />
             Registergericht: {impressum.registerCourt}
             <br />
@@ -215,6 +220,14 @@ export default async function DatenschutzPage({
             Technologien (z. B. den Eintrag Ihrer Cookie-Entscheidung im lokalen Speicher
             Ihres Browsers). Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. f DSGVO in
             Verbindung mit § 25 Abs. 2 TDDDG.
+          </LegalP>
+          <LegalP>
+            Zu diesen technisch notwendigen Cookies gehört das Cookie „NEXT_LOCALE“. Es
+            speichert die von Ihnen gewählte Sprache der Website, damit Sie beim nächsten
+            Aufruf wieder in dieser Sprache ankommen. Es enthält keine Informationen, die
+            Sie persönlich identifizieren, und wird als Sitzungscookie gesetzt, das beim
+            Schließen des Browsers gelöscht wird. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f
+            DSGVO in Verbindung mit § 25 Abs. 2 TDDDG.
           </LegalP>
           <LegalP>
             Darüber hinaus setzen wir, ausschließlich nach Ihrer Einwilligung über unser
@@ -564,7 +577,7 @@ export default async function DatenschutzPage({
             betrieblichen Datenschutzbeauftragten wenden.
           </LegalP>
 
-          <LegalMeta>Stand: September 2026</LegalMeta>
+          <LegalMeta>Stand: November 2026</LegalMeta>
         </Col>
       </Grid>
     </section>

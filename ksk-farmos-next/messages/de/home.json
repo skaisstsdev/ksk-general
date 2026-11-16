@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Krankheitsbild",
-    "title": "Wen versorgen wir",
-    "items": [
-      {
-        "title": "Beatmungsklienten",
-        "text": "Invasive und nicht-invasive Beatmung"
-      },
-      {
-        "title": "Wachkoma (Apallisches Syndrom)",
-        "text": "Langzeitversorgung und Stimulation"
-      },
-      {
-        "title": "ALS / Neurologische Erkrankungen",
-        "text": "Progressive Begleitung"
-      },
-      {
-        "title": "Querschnittslähmung",
-        "text": "Ganzheitliche Pflege"
-      },
-      {
-        "title": "Schädel-Hirn-Trauma",
-        "text": "Rehabilitation und Stabilisierung"
-      },
-      {
-        "title": "Demenz/Alzheimer",
-        "text": "Geduld und wertschätzende Kommunikation"
-      }
-    ],
-    "quote": "Das Wohl des Patienten ist oberstes Gesetz.",
-    "quoteCite": "Unser Leitbild"
-  },
   "steps": {
     "eyebrow": "So funktioniert es",
     "title": "In 3 Schritten zur Versorgung",

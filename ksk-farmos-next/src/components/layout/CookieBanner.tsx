@@ -51,6 +51,7 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label={t("cookieBanner.settings")}
+      data-floating
       className="fixed inset-x-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-50 rounded-xs border border-line-strong bg-paper p-sm sm:inset-x-auto sm:end-md sm:w-[24rem]"
     >
       <p className="text-meta text-ink-soft">

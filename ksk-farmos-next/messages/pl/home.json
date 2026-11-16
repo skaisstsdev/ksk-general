@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Diagnozy",
-    "title": "Kim Się Opiekujemy",
-    "items": [
-      {
-        "title": "Pacjenci wentylowani mechanicznie",
-        "text": "Inwazyjna i nieinwazyjna wentylacja (respirator)"
-      },
-      {
-        "title": "Zespół apalliczny (śpiączka czuwająca)",
-        "text": "Długoterminowa opieka i terapia stymulująca"
-      },
-      {
-        "title": "ALS i choroby neurologiczne",
-        "text": "Wsparcie w chorobach postępujących"
-      },
-      {
-        "title": "Uszkodzenia rdzenia kręgowego",
-        "text": "Holistyczne podejście do opieki"
-      },
-      {
-        "title": "Urazy czaszkowo-mózgowe",
-        "text": "Rehabilitacja i stabilizacja stanu zdrowia"
-      },
-      {
-        "title": "Demencja / Alzheimer",
-        "text": "Cierpliwość i komunikacja pełna szacunku"
-      }
-    ],
-    "quote": "Dobro pacjenta jest dla nas najwyższym prawem.",
-    "quoteCite": "Nasza Misja"
-  },
   "steps": {
     "eyebrow": "Jak To Działa",
     "title": "Trzy Kroki do Opieki",

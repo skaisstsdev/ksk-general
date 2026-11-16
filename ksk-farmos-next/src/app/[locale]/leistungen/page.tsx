@@ -29,7 +29,7 @@ export async function generateMetadata({
     path: "/leistungen",
     title: t("meta.title"),
     description: t("meta.description"),
-    image: "/img/leistungen/wohnprojekt.webp",
+    image: "/img/leistungen/wohnen-lounge-hd.webp",
   });
 }
 
@@ -102,7 +102,7 @@ export default async function LeistungenPage({
       <PageBanner
         title={tCommon("nav.leistungen")}
         image={{
-          src: "/img/leistungen/hero.webp",
+          src: "/img/leistungen/hero-hd.webp",
           alt: t("hero.alt"),
           position: "center 60%",
         }}
@@ -158,15 +158,13 @@ export default async function LeistungenPage({
       <section id="wohnprojekte" className="overflow-x-clip pt-turn">
         <Grid>
           <Col span="text">
-            <div className="bleed-start bleed-end lg:sticky lg:top-[calc(var(--header-h)+var(--spacing-lg))] lg:me-0">
+            <div className="bleed-start-capped bleed-end lg:sticky lg:top-[calc(var(--header-h)+var(--spacing-lg))] lg:me-0">
               <SlideIn from="start">
                 <PhotoCarousel
-                  className="aspect-[4/3] lg:aspect-auto lg:h-[min(calc(82svh-var(--header-h)),44rem)]"
+                  className="aspect-[3/2]"
                   slides={wohnprojekte.gallery.alts.map((alt: string, i: number) => ({
-                    src: `/img/leistungen/wohnen-${wohnenFotos[i]}.webp`,
+                    src: `/img/leistungen/wohnen-${wohnenFotos[i]}-hd.webp`,
                     alt,
-                    // Жительница в кресле стоит у левого края кадра.
-                    position: wohnenFotos[i] === "wohnraum" ? "10% center" : "center",
                   }))}
                   labels={wohnprojekte.gallery}
                 />
@@ -226,7 +224,7 @@ export default async function LeistungenPage({
         side="end"
         pause="turn"
         photo={{
-          src: "/img/leistungen/beratung-pumpe.webp",
+          src: "/img/leistungen/beratung-pumpe-hd.webp",
           alt: beratung.alt,
           ratio: "3 / 2",
           position: "60% 40%",

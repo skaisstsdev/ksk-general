@@ -67,38 +67,6 @@
       }
     ]
   },
-  "diagnoses": {
-    "eyebrow": "Diagnostice",
-    "title": "De Cine Avem Grijă",
-    "items": [
-      {
-        "title": "Pacienți pe Ventilator",
-        "text": "Ventilație mecanică invazivă și non-invazivă"
-      },
-      {
-        "title": "Stare Vegetativă (Sindrom Apalic)",
-        "text": "Îngrijire pe termen lung și terapie de stimulare"
-      },
-      {
-        "title": "SLA și Boli Neurologice",
-        "text": "Asistență continuă în bolile progresive"
-      },
-      {
-        "title": "Leziuni ale Măduvei Spinării",
-        "text": "Abordare holistică și îngrijire completă"
-      },
-      {
-        "title": "Traumatisme Cranio-Cerebrale",
-        "text": "Recuperare, reabilitare și stabilizare"
-      },
-      {
-        "title": "Demență / Alzheimer",
-        "text": "Răbdare și comunicare apreciativă"
-      }
-    ],
-    "quote": "Bunăstarea pacientului este prioritatea noastră absolută.",
-    "quoteCite": "Misiunea Noastră"
-  },
   "steps": {
     "eyebrow": "Cum Funcționează",
     "title": "Trei Pași Pentru a Începe",

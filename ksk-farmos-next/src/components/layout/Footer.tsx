@@ -138,7 +138,7 @@ export async function Footer() {
           <p className="text-meta text-paper/50">
             © {year} {company.legalName} — {t("footer.rights")}
           </p>
-          <ul className="flex gap-md">
+          <ul className="flex flex-wrap gap-x-md gap-y-2xs">
             {legalNav.map((item) => (
               <li key={item.href}>
                 <Link

@@ -83,13 +83,13 @@
      которая была в старом сайте.                               */
 
   /* надзаголовочная метка — единственное место с uppercase */
-  --text-eyebrow: 0.75rem;
+  --text-eyebrow: 0.8125rem; /* 13 — было 12, мелко для читателей 45+ */
   --text-eyebrow--line-height: 1.4;
   --text-eyebrow--letter-spacing: 0.09em;
   --text-eyebrow--font-weight: 600;
 
   /* мелкая подпись без разрядки */
-  --text-caption: 0.75rem;
+  --text-caption: 0.8125rem; /* 13 */
   --text-caption--line-height: 1.5;
 
   /* метаданные, вторичные подписи */
@@ -101,7 +101,7 @@
   --text-ui--line-height: 1.6;
 
   /* основной текст */
-  --text-body: 1.0625rem;
+  --text-body: 1.125rem; /* 18 — было 17 */
   --text-body--line-height: 1.7;
 
   /* вводный абзац */
@@ -324,6 +324,19 @@
   );
 }
 
+/**
+ * Вылет с потолком. Как `bleed-start`, но не дальше 12rem за край
+ * контейнера: на обычном ноутбуке (1440) он доходит до самого края
+ * экрана, а на широком мониторе кадр перестаёт расти и не превращается
+ * в растянутую полосу. Нужен там, где у кадра высота задана числом, а не
+ * пропорцией (лента Wohnprojekte на Leistungen).
+ */
+@utility bleed-start-capped {
+  margin-inline-start: calc(
+    -1 * min(var(--gutter) + max(0px, (100vw - var(--container-page)) / 2), 12rem)
+  );
+}
+
 @utility px-gutter {
   padding-inline: var(--gutter);
 }
@@ -359,7 +372,12 @@
   h6 {
     font-weight: 600;
     text-wrap: balance;
-    overflow-wrap: break-word;
+    /* `anywhere`, а не `break-word`: только он уменьшает минимальную
+       ширину заголовка. С `break-word` одно длинное слово
+       («Datenschutzerklärung», «конфиденциальности») на экране 320px
+       распирало колонку сетки и давало горизонтальную прокрутку.
+       Переносит только слово, которое целиком не помещается. */
+    overflow-wrap: anywhere;
   }
 
   p {

@@ -70,7 +70,7 @@ export function PhotoCarousel({
   return (
     <div
       ref={ref}
-      data-tone="dark"
+      data-tone="photo"
       role="region"
       aria-roledescription="carousel"
       aria-label={labels.region}
@@ -110,7 +110,7 @@ export function PhotoCarousel({
               src={slide.src}
               alt={slide.alt}
               fill
-              sizes="100vw"
+              sizes="(min-width: 1024px) 44rem, 100vw"
               priority={i === 0}
               draggable={false}
               className="object-cover"

@@ -20,7 +20,7 @@ export async function AboutPreview() {
       <Grid className="lg:items-center">
         <Col span="text">
           <Photo
-            src="/img/home/gruender.webp"
+            src="/img/home/gruender-hd.webp"
             alt={t("alt", { founder: company.founder, legalName: company.legalName })}
             ratio="4 / 3"
             ratioLg="3 / 2"

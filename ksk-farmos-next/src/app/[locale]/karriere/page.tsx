@@ -23,7 +23,7 @@ export async function generateMetadata({
     path: "/karriere",
     title: t("meta.title"),
     description: t("meta.description"),
-    image: "/img/karriere/karriere-hero.webp",
+    image: "/img/karriere/karriere-hero-hd.webp",
   });
 }
 
@@ -93,12 +93,12 @@ export default async function KarrierePage({
           },
         ]}
         image={{
-          src: "/img/karriere/karriere-hero.webp",
-          width: 2000,
-          height: 1125,
-          srcNarrow: "/img/karriere/karriere-hero-hoch.webp",
-          widthNarrow: 1000,
-          heightNarrow: 1502,
+          src: "/img/karriere/karriere-hero-hd.webp",
+          width: 3000,
+          height: 1688,
+          srcNarrow: "/img/karriere/karriere-hero-hoch-hd.webp",
+          widthNarrow: 2000,
+          heightNarrow: 3004,
           alt: hero.alt,
         }}
       />
@@ -110,7 +110,11 @@ export default async function KarrierePage({
       <section className="pt-break">
         <Grid>
           <Col span="text">
-            <StickyHeading eyebrow={benefits.eyebrow} title={benefits.title} />
+            <StickyHeading
+              eyebrow={benefits.eyebrow}
+              title={benefits.title}
+              lead={benefits.text}
+            />
           </Col>
           <Col span="aside">
             <NumberedList items={benefits.items} />

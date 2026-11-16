@@ -298,7 +298,9 @@ export function Honeypot({
   label: string;
 }) {
   return (
-    <label className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+    // `sr-only`-обрезка вместо сдвига `left: -9999px`: в арабской (RTL)
+    // версии такой сдвиг растягивал страницу на 10 000px вбок.
+    <label aria-hidden="true" className="sr-only">
       {label}
       <input
         type="text"

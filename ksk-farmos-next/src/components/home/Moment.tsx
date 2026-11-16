@@ -19,12 +19,12 @@ export async function Moment() {
        в самой механике, добавлять её сверху не нужно. */
     <section>
       <ExpandingPhoto
-        src="/img/home/pflege-zimmer.webp"
-        width={1536}
-        height={1024}
-        srcNarrow="/img/home/pflege-zimmer-hoch.webp"
-        widthNarrow={634}
-        heightNarrow={1024}
+        src="/img/home/pflege-zimmer-hd.webp"
+        width={3000}
+        height={2000}
+        srcNarrow="/img/home/pflege-zimmer-hoch-hd.webp"
+        widthNarrow={1902}
+        heightNarrow={3072}
         alt={t("alt")}
       >
         <div className="flex max-w-[34rem] flex-col gap-xs">
