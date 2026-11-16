@@ -15,6 +15,7 @@ import {
   getServerMobileMenuOpen,
   subscribeMobileMenu,
 } from "@/lib/mobileMenuState";
+import { useHeroPassed } from "@/lib/useHeroPassed";
 import { useScrolledOnce } from "@/lib/useScrolledOnce";
 import { useSurface } from "@/lib/useSurface";
 
@@ -46,6 +47,10 @@ export function LanguageSwitcher() {
   const surface = useSurface(ref, pagesWithHero.includes(pathname) ? "photo" : "light");
   const onDark = surface !== "light";
   const scrolled = useScrolledOnce();
+  const heroPassed = useHeroPassed();
+  // Телефон: на странице с хиро — когда хиро ушёл выше кнопки,
+  // на остальных — после первого скролла. От `lg` видна всегда.
+  const mobileVisible = heroPassed ?? scrolled;
   const mobileMenuOpen = useSyncExternalStore(
     subscribeMobileMenu,
     getMobileMenuOpen,
@@ -81,11 +86,9 @@ export function LanguageSwitcher() {
     // высоты пряталась под ней.
     <div
       ref={ref}
-      // На телефоне кнопка появляется после первого скролла, как и чат:
-      // первый экран остаётся за хиро. От `lg` видна сразу.
       className={cn(
         "fixed bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] start-md z-50",
-        !scrolled && "hidden lg:block",
+        !mobileVisible && "hidden lg:block",
       )}
     >
       <button

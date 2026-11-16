@@ -24,6 +24,7 @@ import {
   getServerMobileMenuOpen,
   subscribeMobileMenu,
 } from "@/lib/mobileMenuState";
+import { useHeroPassed } from "@/lib/useHeroPassed";
 import { useScrolledOnce } from "@/lib/useScrolledOnce";
 import { useSurface } from "@/lib/useSurface";
 
@@ -137,11 +138,14 @@ export function ChatWidget() {
   // На остальных высоты для конфликта нет — кнопка нужна сразу.
   const hasHero = pagesWithHero.includes(pathname);
 
-  // На страницах с хиро кнопка ждёт первый скролл на любом экране,
-  // на остальных — только на телефоне (`hidden lg:flex` ниже), как
-  // и `LanguageSwitcher`. Флаг общий на вкладку (`useScrolledOnce`).
+  // Десктоп: на страницах с хиро кнопка ждёт первый скролл, на остальных
+  // видна сразу. Телефон (`hidden lg:flex` ниже): на странице с хиро —
+  // когда хиро ушёл выше кнопки (`useHeroPassed`), на остальных — после
+  // первого скролла (`useScrolledOnce`), как у `LanguageSwitcher`.
   const scrolled = useScrolledOnce();
+  const heroPassed = useHeroPassed();
   const visible = !hasHero || scrolled;
+  const mobileVisible = heroPassed ?? scrolled;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -241,7 +245,7 @@ export function ChatWidget() {
     <div
       className={cn(
         "fixed end-md bottom-[calc(var(--spacing-md)+env(safe-area-inset-bottom))] z-40 flex flex-col items-end gap-sm",
-        !scrolled && "hidden lg:flex",
+        !mobileVisible && "hidden lg:flex",
       )}
     >
       <AnimatePresence>
