@@ -8,7 +8,6 @@ import { Link, usePathname } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Close, Menu } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
-import { Rule } from "@/components/ui/Rule";
 
 /**
  * Раскрытие делает Motion, а не ручной расчёт высоты.
@@ -109,18 +108,15 @@ export function MobileMenu({
             )}
           >
             {/* Пункты сами растягиваются на всю высоту панели
-                (`ul` — `flex-1 justify-between`), а не жмутся мелким
-                блоком где-то посередине экрана: шесть пунктов достаточно
-                крупного кегля (`text-h1`, тот же, что у заголовков
-                страниц) с промежутками, которые считает сам flex, сами
-                занимают весь телефон от линии под шапкой до кнопки внизу. */}
+                (`ul` — `flex-1 justify-between`), по центру, без линеек
+                между ними. Шрифт — тот же Manrope, что на всём сайте
+                (раньше здесь стояла антиква и выбивалась из шапки). */}
             <nav className="flex flex-1 flex-col px-gutter py-xl">
               <ul className="flex flex-1 flex-col justify-between">
-                {items.map((item, i) => {
+                {items.map((item) => {
                   const active = item.href === pathname;
                   return (
                     <li key={item.href}>
-                      <Rule index={i} trigger="mount" />
                       <Link
                         href={item.href}
                         aria-current={active ? "page" : undefined}
@@ -128,7 +124,7 @@ export function MobileMenu({
                         // маршрута: так нет лишнего каскада перерисовок.
                         onClick={() => onOpenChange(false)}
                         className={cn(
-                          "block py-2xs font-serif text-h2 font-medium transition-colors hover:text-violet",
+                          "block py-2xs text-center text-h2 transition-colors hover:text-violet",
                           active ? "text-violet" : "text-ink",
                         )}
                       >
@@ -137,9 +133,6 @@ export function MobileMenu({
                     </li>
                   );
                 })}
-                <li aria-hidden="true">
-                  <Rule index={items.length} trigger="mount" />
-                </li>
               </ul>
 
               {/* `Button` с `href` не принимает `onClick` (см. её типы) —
@@ -152,7 +145,12 @@ export function MobileMenu({
                   живёт в layout) держал панель открытой поверх уже другой
                   страницы после клика по этой самой кнопке. */}
               <div className="mt-xl" onClick={() => onOpenChange(false)}>
-                <Button href={cta.href} size="lg" className="w-full">
+                <Button
+                  href={cta.href}
+                  variant="secondary"
+                  size="lg"
+                  className="w-full border-violet text-violet hover:border-violet hover:bg-violet/5"
+                >
                   {cta.label}
                 </Button>
               </div>
